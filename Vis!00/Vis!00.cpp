@@ -25,7 +25,7 @@ int main()
 
 	glViewport(0, 0, 800, 800);
 
-	glClearColor(0.32f, 0.47f, 0.39f, 1.0f);
+	glClearColor(0.32f, 0.80f, 0.39f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT);
 	glfwSwapBuffers(window);
 
