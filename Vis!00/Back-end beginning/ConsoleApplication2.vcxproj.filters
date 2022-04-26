@@ -15,10 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Vis!00.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\glad.c">
+    <ClCompile Include="ConsoleApplication2.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
