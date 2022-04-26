@@ -9,19 +9,32 @@ int main()
 	cin >> karti;
 	cout << endl;
 	srand(time(0));
-	bool a = true;
-	bool b = false;
+	bool table[2][6];
 	int arr[100];
-	for (int x = 0; x < karti; x++)
+	for (int x = 0; x < 1; x++)
 	{
-		arr[x] = (rand() % 10);
-		if (arr[x] % 2 == 0)
+		for (int j = 0; j < 6; j++)
 		{
-			cout << b << endl << a << endl << endl;
+			arr[x] = (rand() % 10);
+			if (arr[x] % 2 == 0)
+			{
+				table[x][j] = 1;
+				table[x + 1][j] = 0;
+			}
+			else
+			{
+				table[x][j] = 0;
+				table[x + 1][j] = 1;
+			}
 		}
-		else
+	}
+
+	for (int x = 0; x < 2; x++)
+	{
+		for (int j = 0; j < 6; j++)
 		{
-			cout << a << endl << b << endl << endl;
+			cout << table[x][j] << " ";
 		}
+		cout << endl;
 	}
 }
