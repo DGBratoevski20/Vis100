@@ -1,35 +1,18 @@
-#include <iostream>
-#include <glad/glad.h>
-#include <GLFW/glfw3.h>
-using namespace std;
-int main()
+#include "raylib.h"
+
+int main(void)
 {
-	glfwInit();
-	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
-	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
-	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-	GLFWwindow* window = glfwCreateWindow(1200, 840, "Vis!00", NULL, NULL);
-	if (window == NULL)
-	{
-		cout << "Failed to create GLFW window" << endl;
-		glfwTerminate();
-		return -1;
-	}
-	glfwMakeContextCurrent(window);
+    InitWindow(800, 450, "Vis100 - basic window");// init the window
 
-	gladLoadGL();
+    while (!WindowShouldClose())
+    {
+        BeginDrawing();
+        ClearBackground(RAYWHITE);//change background
+        DrawText("Congrats! We created our first window in Raylib!", 190, 200, 20, LIGHTGRAY);
+        EndDrawing();
+    }
 
-	glViewport(0, 0, 800, 800);
+    CloseWindow(); //Destroy a Window from rendering
 
-	glClearColor(0.32f, 0.47f, 0.39f, 1.0f);
-	glClear(GL_COLOR_BUFFER_BIT);
-	glfwSwapBuffers(window);
-
-	while (!glfwWindowShouldClose(window))
-	{
-		glfwPollEvents();
-	}
-	glfwDestroyWindow(window);
-	glfwTerminate();
-	return 0;
+    return 0;
 }
