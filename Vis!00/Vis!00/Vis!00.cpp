@@ -1,18 +1,43 @@
 #include "raylib.h"
 
+
 int main(void)
 {
-    InitWindow(800, 450, "Vis100 - basic window");// init the window
+    const int screenWidth = 1400;
+    const int screenHeight = 750;
 
-    while (!WindowShouldClose())
+    InitWindow(screenWidth, screenHeight, "Vis!00");
+
+    Rectangle colorsRecs;   
+
+    
+        colorsRecs.x = 100.0f;
+        colorsRecs.y = 200.0f;
+        colorsRecs.width = 160.0f;
+        colorsRecs.height = 215.0f;
+    
+
+    Vector2 mousePoint = { 0.0f, 0.0f };
+
+    SetTargetFPS(60); 
+
+ 
+    while (!WindowShouldClose()) 
     {
+        
         BeginDrawing();
-        ClearBackground(RAYWHITE);//change background
-        DrawText("Congrats! We created our first window in Raylib!", 190, 200, 20, LIGHTGRAY);
+
+        ClearBackground(LIGHTGRAY);
+        DrawRectangle((int)colorsRecs.x, (int)colorsRecs.y, (int)colorsRecs.width, (int)colorsRecs.height, DARKGRAY);
+        DrawRectangle((int)colorsRecs.x + 50 + 50 + 50 + 50 + 50, (int)colorsRecs.y, (int)colorsRecs.width, (int)colorsRecs.height, DARKGRAY);
+        DrawRectangle((int)colorsRecs.x + 100 + 100 + 100 + 100 + 100, (int)colorsRecs.y, (int)colorsRecs.width, (int)colorsRecs.height, DARKGRAY);
+        DrawRectangle((int)colorsRecs.x + 150 + 150 + 150 + 150 + 150, (int)colorsRecs.y, (int)colorsRecs.width, (int)colorsRecs.height, DARKGRAY);
+        DrawRectangle((int)colorsRecs.x + 200 + 200 + 200 + 200 + 200, (int)colorsRecs.y, (int)colorsRecs.width, (int)colorsRecs.height, DARKGRAY);
+
         EndDrawing();
     }
-
-    CloseWindow(); //Destroy a Window from rendering
+    CloseWindow();
+    
 
     return 0;
 }
