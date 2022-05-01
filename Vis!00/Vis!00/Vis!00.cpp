@@ -114,19 +114,52 @@ int main(void)
                 colorsRecs[i].height = 0;
                 colorsRecs[i].width = 0;
             }
-            DrawRectangle((int)BaseCards.x + 400, (int)BaseCards.y, (int)BaseCards.width, (int)BaseCards.height, DARKGRAY);
-            DrawRectangle((int)BaseCards.x + 400, (int)BaseCards.y + 58.5, (int)BaseCards.width, (int)BaseCards.height - 117.5, WHITE);
-            DrawRectangle((int)BaseCards.x + 610, (int)BaseCards.y, (int)BaseCards.width, (int)BaseCards.height, DARKGRAY);
-            DrawRectangle((int)BaseCards.x + 610, (int)BaseCards.y + 58.5, (int)BaseCards.width, (int)BaseCards.height - 117.5, WHITE);
-            DrawRectangle((int)BaseCards.x + 820, (int)BaseCards.y, (int)BaseCards.width, (int)BaseCards.height, DARKGRAY);
-            DrawRectangle((int)BaseCards.x + 820, (int)BaseCards.y + 58.5, (int)BaseCards.width, (int)BaseCards.height - 117.5, WHITE);
 
-            DrawText(to_string(ftAr[0]).c_str(), 625, 355, 50, BLACK);
-            DrawText(to_string(!ftAr[0]).c_str(), 630, 410, 50, BLACK);
-            DrawText(to_string(ftAr[1]).c_str(), 875, 355, 50, BLACK);
-            DrawText(to_string(!ftAr[1]).c_str(), 880.5, 410, 50, BLACK);
-            DrawText(to_string(ftAr[2]).c_str(), 1130, 355, 50, BLACK);
-            DrawText(to_string(!ftAr[2]).c_str(), 1120, 410, 50, BLACK);
+            DrawRectangle((int)BaseCards.x + 100, (int)BaseCards.y - 400, (int)BaseCards.width - 85, (int)BaseCards.height + 1200, BLACK);
+            DrawRectangle((int)BaseCards.x + 1250, (int)BaseCards.y - 400, (int)BaseCards.width - 85, (int)BaseCards.height + 1200, BLACK);
+
+            DrawRectangle((int)BaseCards.x + 394, (int)BaseCards.y - 5, (int)BaseCards.width + 12.5, (int)BaseCards.height + 12.5, BLACK);
+            DrawRectangle((int)BaseCards.x + 604, (int)BaseCards.y - 5, (int)BaseCards.width + 12.5, (int)BaseCards.height + 12.5, BLACK);
+            DrawRectangle((int)BaseCards.x + 814, (int)BaseCards.y - 5, (int)BaseCards.width + 12.5, (int)BaseCards.height + 12.5, BLACK);
+
+            DrawRectangle((int)BaseCards.x + 400, (int)BaseCards.y, (int)BaseCards.width, (int)BaseCards.height, DARKGRAY);
+            DrawRectangle((int)BaseCards.x + 610, (int)BaseCards.y, (int)BaseCards.width, (int)BaseCards.height, DARKGRAY);
+            DrawRectangle((int)BaseCards.x + 820, (int)BaseCards.y, (int)BaseCards.width, (int)BaseCards.height, DARKGRAY);
+
+            DrawRectangle((int)BaseCards.x + 400, (int)BaseCards.y + 55, (int)BaseCards.width,(int)BaseCards.height - 102.5, WHITE);
+            DrawRectangle((int)BaseCards.x + 610, (int)BaseCards.y + 55, (int)BaseCards.width,(int)BaseCards.height - 102.5, WHITE);
+            DrawRectangle((int)BaseCards.x + 820, (int)BaseCards.y + 55, (int)BaseCards.width,(int)BaseCards.height - 102.5, WHITE);
+
+            if (ftAr[0])
+            {
+                DrawText(to_string(ftAr[0]).c_str(), 665, 355, 50, BLACK);
+                DrawText(to_string(!ftAr[0]).c_str(), 657.5, 410, 50, BLACK);
+            }
+            else
+            {
+                DrawText(to_string(ftAr[0]).c_str(), 657.5, 355, 50, BLACK);
+                DrawText(to_string(!ftAr[0]).c_str(), 665, 410, 50, BLACK);
+            }
+            if (ftAr[1])
+            {
+                DrawText(to_string(ftAr[1]).c_str(), 874.5, 355, 50, BLACK);
+                DrawText(to_string(!ftAr[1]).c_str(), 867, 410, 50, BLACK);
+            }
+            else
+            {
+                DrawText(to_string(ftAr[1]).c_str(), 867, 355, 50, BLACK);
+                DrawText(to_string(!ftAr[1]).c_str(), 874.5, 410, 50, BLACK);
+            }
+            if (ftAr[2])
+            {
+                DrawText(to_string(ftAr[2]).c_str(), 1084.5, 355, 50, BLACK);
+                DrawText(to_string(!ftAr[2]).c_str(), 1077, 410, 50, BLACK);
+            }
+            else
+            {
+                DrawText(to_string(ftAr[2]).c_str(), 1077, 355, 50, BLACK);
+                DrawText(to_string(!ftAr[2]).c_str(), 1084.5, 410, 50, BLACK);
+            }
         }
         else if (one)
         {
@@ -137,23 +170,68 @@ int main(void)
                 colorsRecs[i].height = 0;
                 colorsRecs[i].width = 0;
             }
-            DrawRectangle((int)BaseCards.x + 320, (int)BaseCards.y, (int)BaseCards.width, (int)BaseCards.height, DARKGRAY);
-            DrawRectangle((int)BaseCards.x + 320, (int)BaseCards.y + 58.5, (int)BaseCards.width, (int)BaseCards.height - 117.5, WHITE);
-            DrawRectangle((int)BaseCards.x + 520, (int)BaseCards.y, (int)BaseCards.width, (int)BaseCards.height, DARKGRAY);
-            DrawRectangle((int)BaseCards.x + 520, (int)BaseCards.y + 58.5, (int)BaseCards.width, (int)BaseCards.height - 117.5, WHITE);
-            DrawRectangle((int)BaseCards.x + 720, (int)BaseCards.y, (int)BaseCards.width, (int)BaseCards.height, DARKGRAY);
-            DrawRectangle((int)BaseCards.x + 720, (int)BaseCards.y + 58.5, (int)BaseCards.width, (int)BaseCards.height - 117.5, WHITE);
-            DrawRectangle((int)BaseCards.x + 920, (int)BaseCards.y, (int)BaseCards.width, (int)BaseCards.height, DARKGRAY);
-            DrawRectangle((int)BaseCards.x + 920, (int)BaseCards.y + 58.5, (int)BaseCards.width, (int)BaseCards.height - 117.5, WHITE);
 
-            DrawText(to_string(ftAr[0]).c_str(), 500, 355, 50, BLACK);
-            DrawText(to_string(!ftAr[0]).c_str(), 510, 410, 50, BLACK);
-            DrawText(to_string(ftAr[1]).c_str(), 761, 355, 50, BLACK);
-            DrawText(to_string(!ftAr[1]).c_str(), 753, 410, 50, BLACK);
-            DrawText(to_string(ftAr[2]).c_str(), 1010, 355, 50, BLACK);
-            DrawText(to_string(!ftAr[2]).c_str(), 1001, 410, 50, BLACK);
-            DrawText(to_string(ftAr[3]).c_str(), 1254, 355, 50, BLACK);
-            DrawText(to_string(!ftAr[3]).c_str(), 1265, 410, 50, BLACK);
+            DrawRectangle((int)BaseCards.x + 100, (int)BaseCards.y - 400, (int)BaseCards.width - 85, (int)BaseCards.height + 1200, BLACK);
+            DrawRectangle((int)BaseCards.x + 1250, (int)BaseCards.y - 400, (int)BaseCards.width - 85, (int)BaseCards.height + 1200, BLACK);
+
+            DrawRectangle((int)BaseCards.x + 314, (int)BaseCards.y - 5, (int)BaseCards.width + 12.5, (int)BaseCards.height + 12.5, BLACK);
+            DrawRectangle((int)BaseCards.x + 514, (int)BaseCards.y - 5, (int)BaseCards.width + 12.5, (int)BaseCards.height + 12.5, BLACK);
+            DrawRectangle((int)BaseCards.x + 714, (int)BaseCards.y - 5, (int)BaseCards.width + 12.5, (int)BaseCards.height + 12.5, BLACK);
+            DrawRectangle((int)BaseCards.x + 914, (int)BaseCards.y - 5, (int)BaseCards.width + 12.5, (int)BaseCards.height + 12.5, BLACK);
+
+            DrawRectangle((int)BaseCards.x + 320, (int)BaseCards.y, (int)BaseCards.width, (int)BaseCards.height, DARKGRAY);
+            DrawRectangle((int)BaseCards.x + 520, (int)BaseCards.y, (int)BaseCards.width, (int)BaseCards.height, DARKGRAY);
+            DrawRectangle((int)BaseCards.x + 720, (int)BaseCards.y, (int)BaseCards.width, (int)BaseCards.height, DARKGRAY);
+            DrawRectangle((int)BaseCards.x + 920, (int)BaseCards.y, (int)BaseCards.width, (int)BaseCards.height, DARKGRAY);
+
+            DrawRectangle((int)BaseCards.x + 320, (int)BaseCards.y + 55, (int)BaseCards.width, (int)BaseCards.height - 102.5, WHITE);
+            DrawRectangle((int)BaseCards.x + 520, (int)BaseCards.y + 55, (int)BaseCards.width, (int)BaseCards.height - 102.5, WHITE);
+            DrawRectangle((int)BaseCards.x + 720, (int)BaseCards.y + 55, (int)BaseCards.width, (int)BaseCards.height - 102.5, WHITE);
+            DrawRectangle((int)BaseCards.x + 920, (int)BaseCards.y + 55, (int)BaseCards.width, (int)BaseCards.height - 102.5, WHITE);
+
+            if (ftAr[0])
+            {
+                DrawText(to_string(ftAr[0]).c_str(), 587.5, 355, 50, BLACK);
+                DrawText(to_string(!ftAr[0]).c_str(), 580, 410, 50, BLACK);
+            }
+            else
+            {
+                DrawText(to_string(ftAr[0]).c_str(), 580, 355, 50, BLACK);
+                DrawText(to_string(!ftAr[0]).c_str(), 587.5, 410, 50, BLACK);
+            }
+
+            if (ftAr[1])
+            {
+                DrawText(to_string(ftAr[1]).c_str(), 787.5, 355, 50, BLACK);
+                DrawText(to_string(!ftAr[1]).c_str(), 780, 410, 50, BLACK);
+            }
+            else
+            {
+                DrawText(to_string(ftAr[1]).c_str(), 780, 355, 50, BLACK);
+                DrawText(to_string(!ftAr[1]).c_str(), 787.5, 410, 50, BLACK);
+            }
+
+            if (ftAr[2])
+            {
+                DrawText(to_string(ftAr[2]).c_str(), 987.5, 355, 50, BLACK);
+                DrawText(to_string(!ftAr[2]).c_str(), 980, 410, 50, BLACK);
+            }
+            else
+            {
+                DrawText(to_string(ftAr[2]).c_str(), 980, 355, 50, BLACK);
+                DrawText(to_string(!ftAr[2]).c_str(), 987.5, 410, 50, BLACK);
+            }
+
+            if (ftAr[3])
+            {
+                DrawText(to_string(ftAr[3]).c_str(), 1187.5, 355, 50, BLACK);
+                DrawText(to_string(!ftAr[3]).c_str(), 1180, 410, 50, BLACK);
+            }
+            else
+            {
+                DrawText(to_string(ftAr[3]).c_str(), 1180, 355, 50, BLACK);
+                DrawText(to_string(!ftAr[3]).c_str(), 1187.5, 410, 50, BLACK);
+            }
         }
         else if (two)
         {
@@ -168,11 +246,11 @@ int main(void)
             DrawRectangle((int)BaseCards.x + 100, (int)BaseCards.y - 400, (int)BaseCards.width -85, (int)BaseCards.height + 1200, BLACK);
             DrawRectangle((int)BaseCards.x + 1250, (int)BaseCards.y - 400, (int)BaseCards.width -85, (int)BaseCards.height + 1200, BLACK);
 
-            DrawRectangle((int)BaseCards.x + 218.5, (int)BaseCards.y - 5, (int)BaseCards.width + 13, (int)BaseCards.height + 13, BLACK);
-            DrawRectangle((int)BaseCards.x + 418.5, (int)BaseCards.y - 5, (int)BaseCards.width + 13, (int)BaseCards.height + 13, BLACK);
-            DrawRectangle((int)BaseCards.x + 618.5, (int)BaseCards.y - 5, (int)BaseCards.width + 13, (int)BaseCards.height + 13, BLACK);
-            DrawRectangle((int)BaseCards.x + 818.5, (int)BaseCards.y - 5, (int)BaseCards.width + 13, (int)BaseCards.height + 13, BLACK);
-            DrawRectangle((int)BaseCards.x + 1018.5, (int)BaseCards.y - 5, (int)BaseCards.width + 13, (int)BaseCards.height + 13, BLACK);
+            DrawRectangle((int)BaseCards.x + 219, (int)BaseCards.y - 5, (int)BaseCards.width + 12.5, (int)BaseCards.height + 12.5, BLACK);
+            DrawRectangle((int)BaseCards.x + 419, (int)BaseCards.y - 5, (int)BaseCards.width + 12.5, (int)BaseCards.height + 12.5, BLACK);
+            DrawRectangle((int)BaseCards.x + 619, (int)BaseCards.y - 5, (int)BaseCards.width + 12.5, (int)BaseCards.height + 12.5, BLACK);
+            DrawRectangle((int)BaseCards.x + 819, (int)BaseCards.y - 5, (int)BaseCards.width + 12.5, (int)BaseCards.height + 12.5, BLACK);
+            DrawRectangle((int)BaseCards.x + 1019, (int)BaseCards.y - 5, (int)BaseCards.width + 12.5, (int)BaseCards.height + 12.5, BLACK);
 
             DrawRectangle((int)BaseCards.x + 225, (int)BaseCards.y, (int)BaseCards.width, (int)BaseCards.height, DARKGRAY);
             DrawRectangle((int)BaseCards.x + 425, (int)BaseCards.y, (int)BaseCards.width, (int)BaseCards.height, DARKGRAY);
@@ -250,18 +328,23 @@ int main(void)
                 colorsRecs[i].height = 0;
                 colorsRecs[i].width = 0;
             }
+
+            DrawRectangle((int)BaseCards.x + 100, (int)BaseCards.y - 400, (int)BaseCards.width - 85, (int)BaseCards.height + 1200, BLACK);
+            DrawRectangle((int)BaseCards.x + 1250, (int)BaseCards.y - 400, (int)BaseCards.width - 85, (int)BaseCards.height + 1200, BLACK);
+
             DrawRectangle((int)BaseCards.x + 125, (int)BaseCards.y, (int)BaseCards.width, (int)BaseCards.height, DARKGRAY);
-            DrawRectangle((int)BaseCards.x + 125, (int)BaseCards.y + 58.5, (int)BaseCards.width, (int)BaseCards.height - 117.5, WHITE);
             DrawRectangle((int)BaseCards.x + 325, (int)BaseCards.y, (int)BaseCards.width, (int)BaseCards.height, DARKGRAY);
-            DrawRectangle((int)BaseCards.x + 325, (int)BaseCards.y + 58.5, (int)BaseCards.width, (int)BaseCards.height - 117.5, WHITE);
             DrawRectangle((int)BaseCards.x + 525, (int)BaseCards.y, (int)BaseCards.width, (int)BaseCards.height, DARKGRAY);
-            DrawRectangle((int)BaseCards.x + 525, (int)BaseCards.y + 58.5, (int)BaseCards.width, (int)BaseCards.height - 117.5, WHITE);
             DrawRectangle((int)BaseCards.x + 725, (int)BaseCards.y, (int)BaseCards.width, (int)BaseCards.height, DARKGRAY);
-            DrawRectangle((int)BaseCards.x + 725, (int)BaseCards.y + 58.5, (int)BaseCards.width, (int)BaseCards.height - 117.5, WHITE);
             DrawRectangle((int)BaseCards.x + 925, (int)BaseCards.y, (int)BaseCards.width, (int)BaseCards.height, DARKGRAY);
-            DrawRectangle((int)BaseCards.x + 925, (int)BaseCards.y + 58.5, (int)BaseCards.width, (int)BaseCards.height - 117.5, WHITE);
             DrawRectangle((int)BaseCards.x + 1125, (int)BaseCards.y, (int)BaseCards.width, (int)BaseCards.height, DARKGRAY);
-            DrawRectangle((int)BaseCards.x + 1125, (int)BaseCards.y + 58.5, (int)BaseCards.width, (int)BaseCards.height - 117.5, WHITE);
+
+            DrawRectangle((int)BaseCards.x + 125, (int)BaseCards.y + 55, (int)BaseCards.width, (int)BaseCards.height - 102.5, WHITE);
+            DrawRectangle((int)BaseCards.x + 325, (int)BaseCards.y + 55, (int)BaseCards.width, (int)BaseCards.height - 102.5, WHITE);
+            DrawRectangle((int)BaseCards.x + 525, (int)BaseCards.y + 55, (int)BaseCards.width, (int)BaseCards.height - 102.5, WHITE);
+            DrawRectangle((int)BaseCards.x + 725, (int)BaseCards.y + 55, (int)BaseCards.width, (int)BaseCards.height - 102.5, WHITE);
+            DrawRectangle((int)BaseCards.x + 925, (int)BaseCards.y + 55, (int)BaseCards.width, (int)BaseCards.height - 102.5, WHITE);
+            DrawRectangle((int)BaseCards.x + 1125, (int)BaseCards.y + 55, (int)BaseCards.width, (int)BaseCards.height - 102.5, WHITE);
 
             DrawText(to_string(ftAr[0]).c_str(), 266, 355, 50, BLACK);
             DrawText(to_string(!ftAr[0]).c_str(), 271.5, 410, 50, BLACK);
