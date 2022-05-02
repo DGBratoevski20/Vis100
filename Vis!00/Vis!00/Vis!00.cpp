@@ -9,6 +9,10 @@ int main(void)
 {
     const int screenWidth = 1800;
     const int screenHeight = 950;
+    
+    bool checker = 1;
+
+    Rectangle hide = {0,0,screenWidth,screenHeight};
 
     srand(time(0));
     InitWindow(screenWidth, screenHeight, "Vis!00");
@@ -22,7 +26,7 @@ int main(void)
         colorsRecs[i].y = GetScreenHeight() / 2 - colorsRecs[i].height / 2;
     }
 
-    Rectangle gameMenu[2];
+    Rectangle gameMenu[3];
 
 
     Rectangle BaseCards = { 225, 350, 90, 105 };
@@ -76,22 +80,22 @@ int main(void)
             }
 
 
-            if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointRec(mousePoint, gameMenu[0]))
+            if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointRec(mousePoint, gameMenu[0]) && checker)
             {
-
+               
                 menuZero = true;
                 menuOne = 0;
                 menuTwo = 0;
 
             }
-            else if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointRec(mousePoint, gameMenu[1]))
+            else if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointRec(mousePoint, gameMenu[1])&& checker)
             {
 
                 menuOne = true;
                 menuZero = 0;
                 menuTwo = 0;
             }
-            else if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointRec(mousePoint, gameMenu[2]))
+            else if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointRec(mousePoint, gameMenu[2])&& checker)
             {
                 menuTwo = true;
                 menuOne = 0;
@@ -101,6 +105,8 @@ int main(void)
 
         if (menuZero)
         {
+            checker = 0;
+            DrawRectangleRec(hide, LIGHTGRAY);
             for (int i = 0; i < 2; i++)
             {
                 gameMenu[i].x = -100;
@@ -501,6 +507,7 @@ int main(void)
         }
         else if (menuOne)
         {
+           
             exit(0);
         }
         ClearBackground(LIGHTGRAY);
