@@ -47,7 +47,7 @@ int main(void)
         BeginDrawing();
 
 
-        for (int i = 0; i < 3; i++)
+        for (size_t i = 0; i < 3; i++)
         {
             switch (i)
             {
@@ -77,7 +77,9 @@ int main(void)
 
                 DrawRectangleRec(gameMenu[i], LIGHTGRAY);
                 DrawText("Settings", (gameMenu[i].width / 5) + gameMenu[i].x /*this number pull back the text to appropriate align ->*/ - 122.5, 360, 150, BLACK);
+                break;
             }
+
 
 
             if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointRec(mousePoint, gameMenu[0]) && checker)
