@@ -28,7 +28,7 @@ int main(void)
     Rectangle BaseCards = { 225, 350, 90, 105 };
     Vector2 mousePoint;
     bool zero = 0, one = 0, two = 0, three = 0;
-    bool menuZero = 0, menuOne = 0;
+    bool menuZero = 0, menuOne = 0, menuTwo = 0;
     bool ftAr[6];
     for (int i = 0; i < sizeof ftAr / sizeof ftAr[0]; i++)
     {
@@ -43,36 +43,45 @@ int main(void)
         BeginDrawing();
 
 
-        for (int i = 0; i < 2; i++)
+        for (int i = 0; i < 3; i++)
         {
             switch (i)
             {
             case 0:
                 gameMenu[i].width = 110 + 300;
                 gameMenu[i].height = 145 + 25;
-                gameMenu[i].x = 25 + 0 * (110 + 150 + /*this number shows the space between the cards ->*/300);
-                gameMenu[i].y = gameMenu[i].height / 5.5;
+                gameMenu[i].x = 700/*this number shows the space between the cards ->*/;
+                gameMenu[i].y = gameMenu[i].height * 1.1;
 
                 DrawRectangleRec(gameMenu[i], LIGHTGRAY);
-                DrawText("Play", (gameMenu[i].width / 5) + gameMenu[i].x - /*this number pull back the text to appropriate align ->*/37.5, 50, 125, BLACK);
+                DrawText("Play", (gameMenu[i].width / 5) + gameMenu[i].x/*this number pull back the text to appropriate align ->*/ -55, 175, 175, BLACK);
                 break;
             case 1:
                 gameMenu[i].width = 110 + 225;
                 gameMenu[i].height = 145;
-                gameMenu[i].x = gameMenu[i - 1].x;
-                gameMenu[i].y = gameMenu[i - 1].height * 1.25;
+                gameMenu[i].x = gameMenu[i - 1].x + 40;
+                gameMenu[i].y = gameMenu[i - 1].height * 3;
 
                 DrawRectangleRec(gameMenu[i], LIGHTGRAY);
-                DrawText("Quit", (gameMenu[i].width / 5) + gameMenu[i].x - /*this number pull back the text to appropriate align ->*/37.5, 240, 100, BLACK);
+                DrawText("Quit", (gameMenu[i].width / 5) + gameMenu[i].x /*this number pull back the text to appropriate align ->*/ -40, 510, 150, BLACK);
                 break;
+            case 2:
+                gameMenu[i].width = 650;
+                gameMenu[i].height = 165;
+                gameMenu[i].x = gameMenu[i - 1].x - 150;
+                gameMenu[i].y = gameMenu[i - 1].height * 2.45;
+
+                DrawRectangleRec(gameMenu[i], LIGHTGRAY);
+                DrawText("Settings", (gameMenu[i].width / 5) + gameMenu[i].x /*this number pull back the text to appropriate align ->*/ - 122.5, 360, 150, BLACK);
             }
+
 
             if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointRec(mousePoint, gameMenu[0]))
             {
 
                 menuZero = true;
                 menuOne = 0;
-
+                menuTwo = 0;
 
             }
             else if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointRec(mousePoint, gameMenu[1]))
@@ -80,7 +89,13 @@ int main(void)
 
                 menuOne = true;
                 menuZero = 0;
-
+                menuTwo = 0;
+            }
+            else if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointRec(mousePoint, gameMenu[2]))
+            {
+                menuTwo = true;
+                menuOne = 0;
+                menuZero = 0;
             }
         }
 
@@ -128,6 +143,7 @@ int main(void)
                 }
 
             }
+        
 
 
 
@@ -459,7 +475,7 @@ int main(void)
                 if (ftAr[4])
                 {
                     DrawText(to_string(ftAr[4]).c_str(), 1197.5, 355, 50, BLACK);
-                    DrawText(to_string(!ftAr[4]).c_str(), 1264, 410, 50, BLACK);
+                    DrawText(to_string(!ftAr[4]).c_str(), 1190, 410, 50, BLACK);
                 }
                 else
                 {
@@ -479,6 +495,10 @@ int main(void)
                 }
             }
         }
+        else if (menuTwo)
+        {
+
+        }
         else if (menuOne)
         {
             exit(0);
@@ -493,4 +513,4 @@ int main(void)
 
 
     return 0;
-}
+    }
