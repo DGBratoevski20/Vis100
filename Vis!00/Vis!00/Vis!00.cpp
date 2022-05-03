@@ -5,6 +5,7 @@
 #include<ctime>
 #include<vector>
 using namespace std;
+
 void Setup(vector<Rectangle> &basePiramidcard)
 {
     int len = basePiramidcard.size();
@@ -677,11 +678,58 @@ int main(void)
         }
         else if (menuTwo)
         {
+            checker = 0;
+            DrawRectangleRec(hide, LIGHTGRAY);
+            DrawText("Settings:", 650, 25, 125, VIOLET);
+
+            DrawText("Choose your FPS:", 685, 160, 50, BLACK);
+
+            DrawText("30 FPS", 715, 220, 20, BLACK);
+            DrawText("60 FPS", 815, 220, 20, BLACK);
+            DrawText("120 FPS", 915, 220, 20, BLACK);
+            DrawText("240 FPS", 1015, 220, 20, BLACK);
+
+            DrawRectangle((int)BaseCards.x + 506.5, (int)BaseCards.y - 165, (int)BaseCards.width - 41, (int)BaseCards.height - 56, BLACK);
+            DrawRectangle((int)BaseCards.x + 606.5, (int)BaseCards.y - 165, (int)BaseCards.width - 41, (int)BaseCards.height - 56, BLACK);
+            DrawRectangle((int)BaseCards.x + 706.5, (int)BaseCards.y - 165, (int)BaseCards.width - 41, (int)BaseCards.height - 56, BLACK);
+            DrawRectangle((int)BaseCards.x + 806.5, (int)BaseCards.y - 165, (int)BaseCards.width - 41, (int)BaseCards.height - 56, BLACK);
+
+            DrawRectangle((int)BaseCards.x + 512.5, (int)BaseCards.y - 160, (int)BaseCards.width - 52, (int)BaseCards.height - 67, DARKGRAY);
+            DrawRectangle((int)BaseCards.x + 612.5, (int)BaseCards.y - 160, (int)BaseCards.width - 52, (int)BaseCards.height - 67, DARKGRAY);
+            DrawRectangle((int)BaseCards.x + 712.5, (int)BaseCards.y - 160, (int)BaseCards.width - 52, (int)BaseCards.height - 67, DARKGRAY);
+            DrawRectangle((int)BaseCards.x + 812.5, (int)BaseCards.y - 160, (int)BaseCards.width - 52, (int)BaseCards.height - 67, DARKGRAY);
+
+            DrawText("Choose your mode:", 675, 320, 50, BLACK);
+
+            DrawText("Normal", 715, 380, 20, BLACK);
+            DrawText("Old", 825, 380, 20, BLACK);
+            DrawText("Modern", 902, 380, 20, BLACK);
+            DrawText("Colorblind", 1009, 380, 20, BLACK);
+
+            DrawRectangle((int)BaseCards.x + 499.5, (int)BaseCards.y - 5, (int)BaseCards.width - 41, (int)BaseCards.height - 56, BLACK);
+            DrawRectangle((int)BaseCards.x + 594.5, (int)BaseCards.y - 5, (int)BaseCards.width - 41, (int)BaseCards.height - 56, BLACK);
+            DrawRectangle((int)BaseCards.x + 692.5, (int)BaseCards.y - 5, (int)BaseCards.width - 41, (int)BaseCards.height - 56, BLACK);
+            DrawRectangle((int)BaseCards.x + 794.5, (int)BaseCards.y - 5, (int)BaseCards.width - 41, (int)BaseCards.height - 56, BLACK);
+
+            DrawRectangle((int)BaseCards.x + 505.5, (int)BaseCards.y, (int)BaseCards.width - 52, (int)BaseCards.height - 67, DARKGRAY);
+            DrawRectangle((int)BaseCards.x + 600.5, (int)BaseCards.y, (int)BaseCards.width - 52, (int)BaseCards.height - 67, DARKGRAY);
+            DrawRectangle((int)BaseCards.x + 698.5, (int)BaseCards.y, (int)BaseCards.width - 52, (int)BaseCards.height - 67, DARKGRAY);
+            DrawRectangle((int)BaseCards.x + 800.5, (int)BaseCards.y, (int)BaseCards.width - 52, (int)BaseCards.height - 67, DARKGRAY);
 
         }
         else if (menuThree)
         {
-
+            checker = 0;
+            DrawRectangleRec(hide, LIGHTGRAY);
+            DrawText("The rules of the game:", 200, 25, 125, VIOLET);
+            DrawText("Some text...", 200, 160, 50, BLACK);
+            DrawText("Some text...", 200, 260, 50, BLACK);
+            DrawText("Some text...", 200, 360, 50, BLACK);
+            DrawText("Some text...", 200, 460, 50, BLACK);
+            DrawText("Some text...", 200, 560, 50, BLACK);
+            DrawText("Some text...", 200, 660, 50, BLACK);
+            DrawText("Some text...", 200, 760, 50, BLACK);
+            DrawText("Some text...", 200, 860, 50, BLACK);
         }
         else if (menuOne)
         {
