@@ -3,14 +3,158 @@
 #include<string>
 #include<cstdlib>
 #include<ctime>
+#include<vector>
 using namespace std;
-
+void Setup(vector<Rectangle> &basePiramidcard)
+{
+    int len = basePiramidcard.size();
+    int counter = 0;
+    switch (len)
+    {
+        case 3://if you click the card with 3
+       {     int i = 0;
+            for (i; i < 2; i++)
+            {
+                basePiramidcard[i].x = 665 + 60 + i * 210;
+                basePiramidcard[i].y = 420 + 120;
+                basePiramidcard[i].width = 50;
+                basePiramidcard[i].height = 50;
+            }
+            if (i == 2)
+            {
+                basePiramidcard[i].x = 665 + 60 + 60;
+                basePiramidcard[i].y = 420+ 120 + 60;
+                basePiramidcard[i].width = 50;
+                basePiramidcard[i].height = 50;
+            }
+            break;
+        }
+       
+        case 6: //if you click the card with 4
+        {
+            int i = 0;
+            for (i; i < 3; i++)
+            {
+                basePiramidcard[i].x = 645 + 60 + i * 210;
+                basePiramidcard[i].y = 420 + 120;
+                basePiramidcard[i].width = 50;
+                basePiramidcard[i].height = 50;
+            }
+            for (i; i < 5; i++)
+            {
+                basePiramidcard[i].x = 645 + 60 + 60 + counter * 210;
+                basePiramidcard[i].y = 420 + 120 + 60;
+                basePiramidcard[i].width = 50;
+                basePiramidcard[i].height = 50;
+                counter++;
+            }
+            if (i == 5)
+            {
+                basePiramidcard[i].x = 645 + 60 + 60 + 60;
+                basePiramidcard[i].y = 420 + 120 +60 +60;
+                basePiramidcard[i].width = 50;
+                basePiramidcard[i].height = 50;
+            }
+            break;
+        }
+        
+        case 10: //if you click the card with 5
+        {
+            int i = 0;
+            for (i; i < 4; i++)
+            {
+                basePiramidcard[i].x = 450 + 60 + i * 210;
+                basePiramidcard[i].y = 420 + 120;
+                basePiramidcard[i].width = 50;
+                basePiramidcard[i].height = 50;
+            }
+            for (i; i < 7; i++)
+            {
+                basePiramidcard[i].x = 450 + 60 + 60 + counter * 210;
+                basePiramidcard[i].y = 420 + 120 + 60;
+                basePiramidcard[i].width = 50;
+                basePiramidcard[i].height = 50;
+                counter++;
+            }
+            counter = 0;
+            for (i; i < 9; i++)
+            {
+                basePiramidcard[i].x = 450 + 60 + 60 + 60 + counter * 210;
+                basePiramidcard[i].y = 420 + 120 + 60 + 60;
+                basePiramidcard[i].width = 50;
+                basePiramidcard[i].height = 50;
+                counter++;
+            }
+            counter = 0;
+            if (i == 9)
+            {
+                basePiramidcard[i].x = 450 + 60 + 60 + 60 + 60;
+                basePiramidcard[i].y = 420 + 120 + 60+ 60+ 60;
+                basePiramidcard[i].width = 50;
+                basePiramidcard[i].height = 50;
+            }
+            break;
+        }
+       
+        case 15: //if you click the card with 6
+        {
+            int i = 0;
+            for (i; i < 5; i++)
+            {
+                basePiramidcard[i].x = 358 + 60 + i * 210;
+                basePiramidcard[i].y = 420 + 120;
+                basePiramidcard[i].width = 50;
+                basePiramidcard[i].height = 50;
+            }
+            for (i; i < 9; i++)
+            {
+                basePiramidcard[i].x = 358 + 60 + 60 + counter * 210;
+                basePiramidcard[i].y = 420 + 120 +60;
+                basePiramidcard[i].width = 50;
+                basePiramidcard[i].height = 50;
+                counter++;
+            }
+            counter = 0;
+            for (i; i < 12; i++)
+            {
+                basePiramidcard[i].x = 358 + 60 + 60 + 60 + counter  * 210 ;
+                basePiramidcard[i].y = 420 + 120 + 60 + 60;
+                basePiramidcard[i].width = 50;
+                basePiramidcard[i].height = 50;
+                counter++;
+            }
+            counter = 0;
+            for (i; i < 14; i++)
+            {
+                basePiramidcard[i].x = 358 + 60 + 60 + 60 + 60 + counter  * 210;
+                basePiramidcard[i].y = 420 + 120 + 60 + 60 + 60;
+                basePiramidcard[i].width = 50;
+                basePiramidcard[i].height = 50;
+                counter++;
+            }
+            counter = 0;
+            if (i == 14)
+            {
+                basePiramidcard[i].x = 358 + 60 + 60 + 60 + 60 + 60;
+                basePiramidcard[i].y = 420 + 120  + 60 + 60 + 100;
+                basePiramidcard[i].width = 50;
+                basePiramidcard[i].height = 50;
+            }
+            break;
+            
+        }
+        
+        
+    }
+    
+}
 int main(void)
 {
     const int screenWidth = 1800;
     const int screenHeight = 950;
     
     bool checker = 1;
+    bool checker2 = 1;
 
     Rectangle hide = {0,0,screenWidth,screenHeight};
 
@@ -27,8 +171,8 @@ int main(void)
     }
 
     Rectangle gameMenu[4];
-
-
+    vector<Rectangle> BasePiramid(5);
+   
     Rectangle BaseCards = { 225, 420, 90, 105 };
     Vector2 mousePoint;
     bool zero = 0, one = 0, two = 0, three = 0;
@@ -38,7 +182,7 @@ int main(void)
     {
         ftAr[i] = rand() % 2;
     }
-    SetTargetFPS(240);
+    SetTargetFPS(60);
 
     while (!WindowShouldClose())
     {
@@ -175,46 +319,47 @@ int main(void)
 
 
 
-            if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointRec(mousePoint, colorsRecs[0]))
+            if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointRec(mousePoint, colorsRecs[0]) && checker2)
             {
 
                 zero = true;
                 one = 0, two = 0, three = 0;
-
+                BasePiramid.resize(3);
+                
 
             }
-            else if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointRec(mousePoint, colorsRecs[1]))
+            else if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointRec(mousePoint, colorsRecs[1]) && checker2)
             {
 
                 one = true;
                 zero = 0, two = 0, three = 0;
+                BasePiramid.resize(6);
+                
 
             }
-            else if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointRec(mousePoint, colorsRecs[2]))
+            else if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointRec(mousePoint, colorsRecs[2]) && checker2)
             {
 
                 two = true;
                 one = 0, zero = 0, three = 0;
+                BasePiramid.resize(10);
             }
-            else if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointRec(mousePoint, colorsRecs[3]))
+            else if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointRec(mousePoint, colorsRecs[3]) && checker2)
             {
 
                 three = true;
+                BasePiramid.resize(15);
+                
                 one = 0, two = 0, zero = 0;
 
             }
-
+            Setup(BasePiramid);
 
             if (zero)
             {
-
-                for (int i = 0; i < sizeof(colorsRecs) / sizeof(colorsRecs[0]); i++)
-                {
-                    colorsRecs[i].x = -100;
-                    colorsRecs[i].y = -100;
-                    colorsRecs[i].height = 0;
-                    colorsRecs[i].width = 0;
-                }
+                checker2 = 0;
+                DrawRectangleRec(hide, LIGHTGRAY);
+                
 
                 DrawRectangle((int)BaseCards.x + 100, (int)BaseCards.y - 450, (int)BaseCards.width - 85, (int)BaseCards.height + 1200, BLACK);
                 DrawRectangle((int)BaseCards.x + 1250, (int)BaseCards.y - 450, (int)BaseCards.width - 85, (int)BaseCards.height + 1200, BLACK);
@@ -230,6 +375,11 @@ int main(void)
                 DrawRectangle((int)BaseCards.x + 400, (int)BaseCards.y + 55, (int)BaseCards.width, (int)BaseCards.height - 102.5, WHITE);
                 DrawRectangle((int)BaseCards.x + 610, (int)BaseCards.y + 55, (int)BaseCards.width, (int)BaseCards.height - 102.5, WHITE);
                 DrawRectangle((int)BaseCards.x + 820, (int)BaseCards.y + 55, (int)BaseCards.width, (int)BaseCards.height - 102.5, WHITE);
+                 
+                /*Draw Blue cudes ->*/for (int i = 0; i < BasePiramid.size(); i++)
+                {
+                    DrawRectangleRec(BasePiramid[i], BLUE);
+                }
 
                 if (ftAr[0])
                 {
@@ -264,13 +414,9 @@ int main(void)
             }
             else if (one)
             {
-                for (int i = 0; i < sizeof(colorsRecs) / sizeof(colorsRecs[0]); i++)
-                {
-                    colorsRecs[i].x = -100;
-                    colorsRecs[i].y = -100;
-                    colorsRecs[i].height = 0;
-                    colorsRecs[i].width = 0;
-                }
+                checker2 = 0;
+                DrawRectangleRec(hide, LIGHTGRAY);
+               
 
                 DrawRectangle((int)BaseCards.x + 100, (int)BaseCards.y - 450, (int)BaseCards.width - 85, (int)BaseCards.height + 1200, BLACK);
                 DrawRectangle((int)BaseCards.x + 1250, (int)BaseCards.y - 450, (int)BaseCards.width - 85, (int)BaseCards.height + 1200, BLACK);
@@ -289,6 +435,11 @@ int main(void)
                 DrawRectangle((int)BaseCards.x + 520, (int)BaseCards.y + 55, (int)BaseCards.width, (int)BaseCards.height - 102.5, WHITE);
                 DrawRectangle((int)BaseCards.x + 720, (int)BaseCards.y + 55, (int)BaseCards.width, (int)BaseCards.height - 102.5, WHITE);
                 DrawRectangle((int)BaseCards.x + 920, (int)BaseCards.y + 55, (int)BaseCards.width, (int)BaseCards.height - 102.5, WHITE);
+
+                /*Draw Blue cudes ->*/for (int i = 0; i < BasePiramid.size(); i++)
+                {
+                    DrawRectangleRec(BasePiramid[i], BLUE);
+                }
 
                 if (ftAr[0])
                 {
@@ -336,13 +487,9 @@ int main(void)
             }
             else if (two)
             {
-                for (int i = 0; i < sizeof(colorsRecs) / sizeof(colorsRecs[0]); i++)
-                {
-                    colorsRecs[i].x = -100;
-                    colorsRecs[i].y = -100;
-                    colorsRecs[i].height = 0;
-                    colorsRecs[i].width = 0;
-                }
+                checker2 = 0;
+                DrawRectangleRec(hide, LIGHTGRAY);
+                
 
                 DrawRectangle((int)BaseCards.x + 100, (int)BaseCards.y - 450, (int)BaseCards.width - 85, (int)BaseCards.height + 1200, BLACK);
                 DrawRectangle((int)BaseCards.x + 1250, (int)BaseCards.y - 450, (int)BaseCards.width - 85, (int)BaseCards.height + 1200, BLACK);
@@ -364,6 +511,11 @@ int main(void)
                 DrawRectangle((int)BaseCards.x + 625, (int)BaseCards.y + 55, (int)BaseCards.width, (int)BaseCards.height - 102.5, WHITE);
                 DrawRectangle((int)BaseCards.x + 825, (int)BaseCards.y + 55, (int)BaseCards.width, (int)BaseCards.height - 102.5, WHITE);
                 DrawRectangle((int)BaseCards.x + 1025, (int)BaseCards.y + 55, (int)BaseCards.width, (int)BaseCards.height - 102.5, WHITE);
+
+                /*Draw Blue cudes ->*/for (int i = 0; i < BasePiramid.size(); i++)
+                {
+                    DrawRectangleRec(BasePiramid[i], BLUE);
+                }
 
                 if (ftAr[0])
                 {
@@ -422,13 +574,10 @@ int main(void)
             }
             else if (three)
             {
-                for (int i = 0; i < sizeof(colorsRecs) / sizeof(colorsRecs[0]); i++)
-                {
-                    colorsRecs[i].x = -100;
-                    colorsRecs[i].y = -100;
-                    colorsRecs[i].height = 0;
-                    colorsRecs[i].width = 0;
-                }
+
+                checker2 = 0;
+                DrawRectangleRec(hide, LIGHTGRAY);
+                
 
                 DrawRectangle((int)BaseCards.x + 100, (int)BaseCards.y - 450, (int)BaseCards.width - 85, (int)BaseCards.height + 1200, BLACK);
                 DrawRectangle((int)BaseCards.x + 1250, (int)BaseCards.y - 450, (int)BaseCards.width - 85, (int)BaseCards.height + 1200, BLACK);
@@ -453,6 +602,11 @@ int main(void)
                 DrawRectangle((int)BaseCards.x + 732.5, (int)BaseCards.y + 55, (int)BaseCards.width, (int)BaseCards.height - 102.5, WHITE);
                 DrawRectangle((int)BaseCards.x + 932.5, (int)BaseCards.y + 55, (int)BaseCards.width, (int)BaseCards.height - 102.5, WHITE);
                 DrawRectangle((int)BaseCards.x + 1132.5, (int)BaseCards.y + 55, (int)BaseCards.width, (int)BaseCards.height - 102.5, WHITE);
+
+               /*Draw Blue cudes ->*/ for (int i = 0; i < BasePiramid.size(); i++)
+                {
+                    DrawRectangleRec(BasePiramid[i], BLUE);
+                }
 
                 if (ftAr[0])
                 {
