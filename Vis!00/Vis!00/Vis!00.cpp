@@ -16,17 +16,17 @@ void SetupDown(vector<Rectangle> &basePiramidcard)
        {     int i = 0;
             for (i; i < 2; i++)
             {
-                basePiramidcard[i].x = 665 + 60 + i * 210;
+                basePiramidcard[i].x = 665 + 80 + i * 210;
                 basePiramidcard[i].y = 420 + 120;
-                basePiramidcard[i].width = 50;
-                basePiramidcard[i].height = 50;
+                basePiramidcard[i].width = 70;
+                basePiramidcard[i].height = 70;
             }
             if (i == 2)
             {
-                basePiramidcard[i].x = 665 + 60 + 60;
-                basePiramidcard[i].y = 420+ 120 + 60;
-                basePiramidcard[i].width = 50;
-                basePiramidcard[i].height = 50;
+                basePiramidcard[i].x = 665 + 80 + 80;
+                basePiramidcard[i].y = 420+ 120 + 80;
+                basePiramidcard[i].width = 70;
+                basePiramidcard[i].height = 70;
             }
             break;
         }
@@ -36,25 +36,25 @@ void SetupDown(vector<Rectangle> &basePiramidcard)
             int i = 0;
             for (i; i < 3; i++)
             {
-                basePiramidcard[i].x = 645 + 60 + i * 210;
+                basePiramidcard[i].x = 645 + 80 + i * 210;
                 basePiramidcard[i].y = 420 + 120;
-                basePiramidcard[i].width = 50;
-                basePiramidcard[i].height = 50;
+                basePiramidcard[i].width = 70;
+                basePiramidcard[i].height = 70;
             }
             for (i; i < 5; i++)
             {
-                basePiramidcard[i].x = 645 + 60 + 60 + counter * 210;
-                basePiramidcard[i].y = 420 + 120 + 60;
-                basePiramidcard[i].width = 50;
-                basePiramidcard[i].height = 50;
+                basePiramidcard[i].x = 645 + 80 + 80 + counter * 210;
+                basePiramidcard[i].y = 420 + 120 + 80;
+                basePiramidcard[i].width = 70;
+                basePiramidcard[i].height = 70;
                 counter++;
             }
             if (i == 5)
             {
-                basePiramidcard[i].x = 645 + 60 + 60 + 60;
-                basePiramidcard[i].y = 420 + 120 +60 +60;
-                basePiramidcard[i].width = 50;
-                basePiramidcard[i].height = 50;
+                basePiramidcard[i].x = 645 + 80 + 80 + 80;
+                basePiramidcard[i].y = 420 + 120 +80 +80;
+                basePiramidcard[i].width = 70;
+                basePiramidcard[i].height = 70;
             }
             break;
         }
@@ -64,35 +64,35 @@ void SetupDown(vector<Rectangle> &basePiramidcard)
             int i = 0;
             for (i; i < 4; i++)
             {
-                basePiramidcard[i].x = 450 + 60 + i * 210;
+                basePiramidcard[i].x = 470 + 80 + i * 210;
                 basePiramidcard[i].y = 420 + 120;
-                basePiramidcard[i].width = 50;
-                basePiramidcard[i].height = 50;
+                basePiramidcard[i].width = 70;
+                basePiramidcard[i].height = 70;
             }
             for (i; i < 7; i++)
             {
-                basePiramidcard[i].x = 450 + 60 + 60 + counter * 210;
-                basePiramidcard[i].y = 420 + 120 + 60;
-                basePiramidcard[i].width = 50;
-                basePiramidcard[i].height = 50;
+                basePiramidcard[i].x = 470 + 80 + 80 + counter * 210;
+                basePiramidcard[i].y = 420 + 120 + 80;
+                basePiramidcard[i].width = 70;
+                basePiramidcard[i].height = 70;
                 counter++;
             }
             counter = 0;
             for (i; i < 9; i++)
             {
-                basePiramidcard[i].x = 450 + 60 + 60 + 60 + counter * 210;
-                basePiramidcard[i].y = 420 + 120 + 60 + 60;
-                basePiramidcard[i].width = 50;
-                basePiramidcard[i].height = 50;
+                basePiramidcard[i].x = 470 + 80 + 80 + 80 + counter * 210;
+                basePiramidcard[i].y = 420 + 120 + 80 + 80;
+                basePiramidcard[i].width = 70;
+                basePiramidcard[i].height = 70;
                 counter++;
             }
             counter = 0;
             if (i == 9)
             {
-                basePiramidcard[i].x = 450 + 60 + 60 + 60 + 60;
-                basePiramidcard[i].y = 420 + 120 + 60+ 60+ 60;
-                basePiramidcard[i].width = 50;
-                basePiramidcard[i].height = 50;
+                basePiramidcard[i].x = 470 + 80 + 80 + 80 + 80;
+                basePiramidcard[i].y = 420 + 120 + 80+ 80+ 80;
+                basePiramidcard[i].width = 70;
+                basePiramidcard[i].height = 70;
             }
             break;
         }
@@ -102,44 +102,44 @@ void SetupDown(vector<Rectangle> &basePiramidcard)
             int i = 0;
             for (i; i < 5; i++)
             {
-                basePiramidcard[i].x = 358 + 60 + i * 210;
+                basePiramidcard[i].x = 358 + 80 + i * 210;
                 basePiramidcard[i].y = 420 + 120;
-                basePiramidcard[i].width = 50;
-                basePiramidcard[i].height = 50;
+                basePiramidcard[i].width = 70;
+                basePiramidcard[i].height = 70;
             }
             for (i; i < 9; i++)
             {
-                basePiramidcard[i].x = 358 + 60 + 60 + counter * 210;
-                basePiramidcard[i].y = 420 + 120 +60;
-                basePiramidcard[i].width = 50;
-                basePiramidcard[i].height = 50;
+                basePiramidcard[i].x = 358 + 80 + 80 + counter * 210;
+                basePiramidcard[i].y = 420 + 120 +80;
+                basePiramidcard[i].width = 70;
+                basePiramidcard[i].height = 70;
                 counter++;
             }
             counter = 0;
             for (i; i < 12; i++)
             {
-                basePiramidcard[i].x = 358 + 60 + 60 + 60 + counter  * 210 ;
-                basePiramidcard[i].y = 420 + 120 + 60 + 60;
-                basePiramidcard[i].width = 50;
-                basePiramidcard[i].height = 50;
+                basePiramidcard[i].x = 358 + 80 + 80 + 80 + counter  * 210 ;
+                basePiramidcard[i].y = 420 + 120 + 80 + 80;
+                basePiramidcard[i].width = 70;
+                basePiramidcard[i].height = 70;
                 counter++;
             }
             counter = 0;
             for (i; i < 14; i++)
             {
-                basePiramidcard[i].x = 358 + 60 + 60 + 60 + 60 + counter  * 210;
-                basePiramidcard[i].y = 420 + 120 + 60 + 60 + 60;
-                basePiramidcard[i].width = 50;
-                basePiramidcard[i].height = 50;
+                basePiramidcard[i].x = 358 + 80 + 80 + 80 + 80 + counter  * 210;
+                basePiramidcard[i].y = 420 + 120 + 80 + 80 + 80;
+                basePiramidcard[i].width = 70;
+                basePiramidcard[i].height = 70;
                 counter++;
             }
             counter = 0;
             if (i == 14)
             {
-                basePiramidcard[i].x = 358 + 60 + 60 + 60 + 60 + 60;
-                basePiramidcard[i].y = 420 + 120  + 60 + 60 + 100;
-                basePiramidcard[i].width = 50;
-                basePiramidcard[i].height = 50;
+                basePiramidcard[i].x = 358 + 80 + 80 + 80 + 80 + 80;
+                basePiramidcard[i].y = 420 + 120  + 80 + 80 + 80 + 80;
+                basePiramidcard[i].width = 70;
+                basePiramidcard[i].height = 70;
             }
             break;
             
@@ -159,17 +159,17 @@ void SetupUp(vector<Rectangle>& basePiramidcard)
     {     int i = 0;
     for (i; i < 2; i++)
     {
-        basePiramidcard[i].x = 665 + 60 + i * 210;
+        basePiramidcard[i].x = 665 + 80 + i * 210;
         basePiramidcard[i].y = 420 - 90;
-        basePiramidcard[i].width = 50;
-        basePiramidcard[i].height = 50;
+        basePiramidcard[i].width = 70;
+        basePiramidcard[i].height = 70;
     }
     if (i == 2)
     {
-        basePiramidcard[i].x = 665 + 60 + 60;
-        basePiramidcard[i].y = 420 - 90 - 60;
-        basePiramidcard[i].width = 50;
-        basePiramidcard[i].height = 50;
+        basePiramidcard[i].x = 665 + 80 + 80;
+        basePiramidcard[i].y = 420 - 90 - 80;
+        basePiramidcard[i].width = 70;
+        basePiramidcard[i].height = 70;
     }
     break;
     }
@@ -179,25 +179,25 @@ void SetupUp(vector<Rectangle>& basePiramidcard)
         int i = 0;
         for (i; i < 3; i++)
         {
-            basePiramidcard[i].x = 645 + 60 + i * 210;
+            basePiramidcard[i].x = 645 + 80 + i * 210;
             basePiramidcard[i].y = 420 - 90;
-            basePiramidcard[i].width = 50;
-            basePiramidcard[i].height = 50;
+            basePiramidcard[i].width = 70;
+            basePiramidcard[i].height = 70;
         }
         for (i; i < 5; i++)
         {
-            basePiramidcard[i].x = 645 + 60 + 60 + counter * 210;
-            basePiramidcard[i].y = 420 - 90 - 60;
-            basePiramidcard[i].width = 50;
-            basePiramidcard[i].height = 50;
+            basePiramidcard[i].x = 645 + 80 + 80 + counter * 210;
+            basePiramidcard[i].y = 420 - 90 - 80;
+            basePiramidcard[i].width = 70;
+            basePiramidcard[i].height = 70;
             counter++;
         }
         if (i == 5)
         {
-            basePiramidcard[i].x = 645 + 60 + 60 + 60;
-            basePiramidcard[i].y = 420 - 90 - 60 - 60;
-            basePiramidcard[i].width = 50;
-            basePiramidcard[i].height = 50;
+            basePiramidcard[i].x = 645 + 80 + 80 + 80;
+            basePiramidcard[i].y = 420 - 90 - 80 - 80;
+            basePiramidcard[i].width = 70;
+            basePiramidcard[i].height = 70;
         }
         break;
     }
@@ -207,35 +207,35 @@ void SetupUp(vector<Rectangle>& basePiramidcard)
         int i = 0;
         for (i; i < 4; i++)
         {
-            basePiramidcard[i].x = 450 + 60 + i * 210;
+            basePiramidcard[i].x = 470 + 80 + i * 210;
             basePiramidcard[i].y = 420 - 90;
-            basePiramidcard[i].width = 50;
-            basePiramidcard[i].height = 50;
+            basePiramidcard[i].width = 70;
+            basePiramidcard[i].height = 70;
         }
         for (i; i < 7; i++)
         {
-            basePiramidcard[i].x = 450 + 60 + 60 + counter * 210;
-            basePiramidcard[i].y = 420 - 90 - 60;
-            basePiramidcard[i].width = 50;
-            basePiramidcard[i].height = 50;
+            basePiramidcard[i].x = 450 + 80 + 80 + counter * 210;
+            basePiramidcard[i].y = 420 - 90 - 80;
+            basePiramidcard[i].width = 70;
+            basePiramidcard[i].height = 70;
             counter++;
         }
         counter = 0;
         for (i; i < 9; i++)
         {
-            basePiramidcard[i].x = 450 + 60 + 60 + 60 + counter * 210;
-            basePiramidcard[i].y = 420 - 90 - 60 - 60;
-            basePiramidcard[i].width = 50;
-            basePiramidcard[i].height = 50;
+            basePiramidcard[i].x = 450 + 80 + 80 + 80 + counter * 210;
+            basePiramidcard[i].y = 420 - 90 - 80 - 80;
+            basePiramidcard[i].width = 70;
+            basePiramidcard[i].height = 70;
             counter++;
         }
         counter = 0;
         if (i == 9)
         {
-            basePiramidcard[i].x = 450 + 60 + 60 + 60 + 60;
-            basePiramidcard[i].y = 420 - 90 - 60 - 60 - 60;
-            basePiramidcard[i].width = 50;
-            basePiramidcard[i].height = 50;
+            basePiramidcard[i].x = 450 + 80 + 80 + 80 + 80;
+            basePiramidcard[i].y = 420 - 90 - 80 - 80 - 80;
+            basePiramidcard[i].width = 70;
+            basePiramidcard[i].height = 70;
         }
         break;
     }
@@ -245,44 +245,44 @@ void SetupUp(vector<Rectangle>& basePiramidcard)
         int i = 0;
         for (i; i < 5; i++)
         {
-            basePiramidcard[i].x = 358 + 60 + i * 210;
+            basePiramidcard[i].x = 358 + 80 + i * 210;
             basePiramidcard[i].y = 420 - 90;
-            basePiramidcard[i].width = 50;
-            basePiramidcard[i].height = 50;
+            basePiramidcard[i].width = 70;
+            basePiramidcard[i].height = 70;
         }
         for (i; i < 9; i++)
         {
-            basePiramidcard[i].x = 358 + 60 + 60 + counter * 210;
-            basePiramidcard[i].y = 420 - 90 - 60;
-            basePiramidcard[i].width = 50;
-            basePiramidcard[i].height = 50;
+            basePiramidcard[i].x = 358 + 80 + 80 + counter * 210;
+            basePiramidcard[i].y = 420 - 90 - 80;
+            basePiramidcard[i].width = 70;
+            basePiramidcard[i].height = 70;
             counter++;
         }
         counter = 0;
         for (i; i < 12; i++)
         {
-            basePiramidcard[i].x = 358 + 60 + 60 + 60 + counter * 210;
-            basePiramidcard[i].y = 420 - 90 - 60 - 60;
-            basePiramidcard[i].width = 50;
-            basePiramidcard[i].height = 50;
+            basePiramidcard[i].x = 358 + 80 + 80 + 80 + counter * 210;
+            basePiramidcard[i].y = 420 - 90 - 80 - 80;
+            basePiramidcard[i].width = 70;
+            basePiramidcard[i].height = 70;
             counter++;
         }
         counter = 0;
         for (i; i < 14; i++)
         {
-            basePiramidcard[i].x = 358 + 60 + 60 + 60 + 60 + counter * 210;
-            basePiramidcard[i].y = 420 - 90 - 60 - 60 - 60;
-            basePiramidcard[i].width = 50;
-            basePiramidcard[i].height = 50;
+            basePiramidcard[i].x = 358 + 80 + 80 + 80 + 80 + counter * 210;
+            basePiramidcard[i].y = 420 - 90 - 80 - 80 - 80;
+            basePiramidcard[i].width = 70;
+            basePiramidcard[i].height = 70;
             counter++;
         }
         counter = 0;
         if (i == 14)
         {
-            basePiramidcard[i].x = 358 + 60 + 60 + 60 + 60 + 60;
-            basePiramidcard[i].y = 420 - 90 - 60 - 60 - 100;
-            basePiramidcard[i].width = 50;
-            basePiramidcard[i].height = 50;
+            basePiramidcard[i].x = 358 + 80 + 80 + 80 + 80 + 80;
+            basePiramidcard[i].y = 420 - 90 - 80 - 80 - 80 - 80;
+            basePiramidcard[i].width = 70;
+            basePiramidcard[i].height = 70;
         }
         break;
 
