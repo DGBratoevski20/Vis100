@@ -1,297 +1,6 @@
-#include "raylib.h"
-#include <iostream>
-#include<string>
-#include<cstdlib>
-#include<ctime>
-#include<vector>
-using namespace std;
+#include "Main.h"
+#include "SetupBaseCardsPyramid.h"
 
-void SetupDown(vector<Rectangle> &basePiramidcard)
-{
-    int len = basePiramidcard.size();
-    int counter = 0;
-    switch (len)
-    {
-        case 3://if you click the card with 3
-       {     int i = 0;
-            for (i; i < 2; i++)
-            {
-                basePiramidcard[i].x = 665 + 80 + i * 210;
-                basePiramidcard[i].y = 420 + 120;
-                basePiramidcard[i].width = 70;
-                basePiramidcard[i].height = 70;
-            }
-            if (i == 2)
-            {
-                basePiramidcard[i].x = 665 + 80 + 80;
-                basePiramidcard[i].y = 420+ 120 + 80;
-                basePiramidcard[i].width = 70;
-                basePiramidcard[i].height = 70;
-            }
-            break;
-        }
-       
-        case 6: //if you click the card with 4
-        {
-            int i = 0;
-            for (i; i < 3; i++)
-            {
-                basePiramidcard[i].x = 645 + 80 + i * 210;
-                basePiramidcard[i].y = 420 + 120;
-                basePiramidcard[i].width = 70;
-                basePiramidcard[i].height = 70;
-            }
-            for (i; i < 5; i++)
-            {
-                basePiramidcard[i].x = 645 + 80 + 80 + counter * 210;
-                basePiramidcard[i].y = 420 + 120 + 80;
-                basePiramidcard[i].width = 70;
-                basePiramidcard[i].height = 70;
-                counter++;
-            }
-            if (i == 5)
-            {
-                basePiramidcard[i].x = 645 + 80 + 80 + 80;
-                basePiramidcard[i].y = 420 + 120 +80 +80;
-                basePiramidcard[i].width = 70;
-                basePiramidcard[i].height = 70;
-            }
-            break;
-        }
-        
-        case 10: //if you click the card with 5
-        {
-            int i = 0;
-            for (i; i < 4; i++)
-            {
-                basePiramidcard[i].x = 470 + 80 + i * 210;
-                basePiramidcard[i].y = 420 + 120;
-                basePiramidcard[i].width = 70;
-                basePiramidcard[i].height = 70;
-            }
-            for (i; i < 7; i++)
-            {
-                basePiramidcard[i].x = 470 + 80 + 80 + counter * 210;
-                basePiramidcard[i].y = 420 + 120 + 80;
-                basePiramidcard[i].width = 70;
-                basePiramidcard[i].height = 70;
-                counter++;
-            }
-            counter = 0;
-            for (i; i < 9; i++)
-            {
-                basePiramidcard[i].x = 470 + 80 + 80 + 80 + counter * 210;
-                basePiramidcard[i].y = 420 + 120 + 80 + 80;
-                basePiramidcard[i].width = 70;
-                basePiramidcard[i].height = 70;
-                counter++;
-            }
-            counter = 0;
-            if (i == 9)
-            {
-                basePiramidcard[i].x = 470 + 80 + 80 + 80 + 80;
-                basePiramidcard[i].y = 420 + 120 + 80+ 80+ 80;
-                basePiramidcard[i].width = 70;
-                basePiramidcard[i].height = 70;
-            }
-            break;
-        }
-       
-        case 15: //if you click the card with 6
-        {
-            int i = 0;
-            for (i; i < 5; i++)
-            {
-                basePiramidcard[i].x = 358 + 80 + i * 210;
-                basePiramidcard[i].y = 420 + 120;
-                basePiramidcard[i].width = 70;
-                basePiramidcard[i].height = 70;
-            }
-            for (i; i < 9; i++)
-            {
-                basePiramidcard[i].x = 358 + 80 + 80 + counter * 210;
-                basePiramidcard[i].y = 420 + 120 +80;
-                basePiramidcard[i].width = 70;
-                basePiramidcard[i].height = 70;
-                counter++;
-            }
-            counter = 0;
-            for (i; i < 12; i++)
-            {
-                basePiramidcard[i].x = 358 + 80 + 80 + 80 + counter  * 210 ;
-                basePiramidcard[i].y = 420 + 120 + 80 + 80;
-                basePiramidcard[i].width = 70;
-                basePiramidcard[i].height = 70;
-                counter++;
-            }
-            counter = 0;
-            for (i; i < 14; i++)
-            {
-                basePiramidcard[i].x = 358 + 80 + 80 + 80 + 80 + counter  * 210;
-                basePiramidcard[i].y = 420 + 120 + 80 + 80 + 80;
-                basePiramidcard[i].width = 70;
-                basePiramidcard[i].height = 70;
-                counter++;
-            }
-            counter = 0;
-            if (i == 14)
-            {
-                basePiramidcard[i].x = 358 + 80 + 80 + 80 + 80 + 80;
-                basePiramidcard[i].y = 420 + 120  + 80 + 80 + 80 + 80;
-                basePiramidcard[i].width = 70;
-                basePiramidcard[i].height = 70;
-            }
-            break;
-            
-        }
-        
-        
-    }
-    
-}
-void SetupUp(vector<Rectangle>& basePiramidcard)
-{
-    int len = basePiramidcard.size();
-    int counter = 0;
-    switch (len)
-    {
-    case 3://if you click the card with 3
-    {     int i = 0;
-    for (i; i < 2; i++)
-    {
-        basePiramidcard[i].x = 665 + 80 + i * 210;
-        basePiramidcard[i].y = 420 - 90;
-        basePiramidcard[i].width = 70;
-        basePiramidcard[i].height = 70;
-    }
-    if (i == 2)
-    {
-        basePiramidcard[i].x = 665 + 80 + 80;
-        basePiramidcard[i].y = 420 - 90 - 80;
-        basePiramidcard[i].width = 70;
-        basePiramidcard[i].height = 70;
-    }
-    break;
-    }
-
-    case 6: //if you click the card with 4
-    {
-        int i = 0;
-        for (i; i < 3; i++)
-        {
-            basePiramidcard[i].x = 645 + 80 + i * 210;
-            basePiramidcard[i].y = 420 - 90;
-            basePiramidcard[i].width = 70;
-            basePiramidcard[i].height = 70;
-        }
-        for (i; i < 5; i++)
-        {
-            basePiramidcard[i].x = 645 + 80 + 80 + counter * 210;
-            basePiramidcard[i].y = 420 - 90 - 80;
-            basePiramidcard[i].width = 70;
-            basePiramidcard[i].height = 70;
-            counter++;
-        }
-        if (i == 5)
-        {
-            basePiramidcard[i].x = 645 + 80 + 80 + 80;
-            basePiramidcard[i].y = 420 - 90 - 80 - 80;
-            basePiramidcard[i].width = 70;
-            basePiramidcard[i].height = 70;
-        }
-        break;
-    }
-
-    case 10: //if you click the card with 5
-    {
-        int i = 0;
-        for (i; i < 4; i++)
-        {
-            basePiramidcard[i].x = 470 + 80 + i * 210;
-            basePiramidcard[i].y = 420 - 90;
-            basePiramidcard[i].width = 70;
-            basePiramidcard[i].height = 70;
-        }
-        for (i; i < 7; i++)
-        {
-            basePiramidcard[i].x = 450 + 80 + 80 + counter * 210;
-            basePiramidcard[i].y = 420 - 90 - 80;
-            basePiramidcard[i].width = 70;
-            basePiramidcard[i].height = 70;
-            counter++;
-        }
-        counter = 0;
-        for (i; i < 9; i++)
-        {
-            basePiramidcard[i].x = 450 + 80 + 80 + 80 + counter * 210;
-            basePiramidcard[i].y = 420 - 90 - 80 - 80;
-            basePiramidcard[i].width = 70;
-            basePiramidcard[i].height = 70;
-            counter++;
-        }
-        counter = 0;
-        if (i == 9)
-        {
-            basePiramidcard[i].x = 450 + 80 + 80 + 80 + 80;
-            basePiramidcard[i].y = 420 - 90 - 80 - 80 - 80;
-            basePiramidcard[i].width = 70;
-            basePiramidcard[i].height = 70;
-        }
-        break;
-    }
-
-    case 15: //if you click the card with 6
-    {
-        int i = 0;
-        for (i; i < 5; i++)
-        {
-            basePiramidcard[i].x = 358 + 80 + i * 210;
-            basePiramidcard[i].y = 420 - 90;
-            basePiramidcard[i].width = 70;
-            basePiramidcard[i].height = 70;
-        }
-        for (i; i < 9; i++)
-        {
-            basePiramidcard[i].x = 358 + 80 + 80 + counter * 210;
-            basePiramidcard[i].y = 420 - 90 - 80;
-            basePiramidcard[i].width = 70;
-            basePiramidcard[i].height = 70;
-            counter++;
-        }
-        counter = 0;
-        for (i; i < 12; i++)
-        {
-            basePiramidcard[i].x = 358 + 80 + 80 + 80 + counter * 210;
-            basePiramidcard[i].y = 420 - 90 - 80 - 80;
-            basePiramidcard[i].width = 70;
-            basePiramidcard[i].height = 70;
-            counter++;
-        }
-        counter = 0;
-        for (i; i < 14; i++)
-        {
-            basePiramidcard[i].x = 358 + 80 + 80 + 80 + 80 + counter * 210;
-            basePiramidcard[i].y = 420 - 90 - 80 - 80 - 80;
-            basePiramidcard[i].width = 70;
-            basePiramidcard[i].height = 70;
-            counter++;
-        }
-        counter = 0;
-        if (i == 14)
-        {
-            basePiramidcard[i].x = 358 + 80 + 80 + 80 + 80 + 80;
-            basePiramidcard[i].y = 420 - 90 - 80 - 80 - 80 - 80;
-            basePiramidcard[i].width = 70;
-            basePiramidcard[i].height = 70;
-        }
-        break;
-
-    }
-
-
-    }
-
-}
 int main(void)
 {
     const int screenWidth = 1800;
@@ -299,12 +8,13 @@ int main(void)
     
     bool checker = 1;
     bool checker2 = 1;
-
+    bool checkfirstcoll = 0;
     Rectangle hide = {0,0,screenWidth,screenHeight};
-
+   
     srand(time(0));
     InitWindow(screenWidth, screenHeight, "Vis!00");
-
+    Texture2D red_card = LoadTexture("../images/red_card.png");
+    
     Rectangle colorsRecs[4];
     for (int i = 0; i < sizeof(colorsRecs) / sizeof(colorsRecs[0]); i++)
     {
@@ -320,6 +30,9 @@ int main(void)
    
     Rectangle BaseCards = { 225, 420, 90, 105 };
     Vector2 mousePoint;
+    Vector2 posImg = {10,10};
+    Rectangle imageBox = { 0,0, red_card.width, red_card.height };
+    Rectangle movingBox = { posImg.x, posImg.y, red_card.width, red_card.height };
     bool zero = 0, one = 0, two = 0, three = 0;
     bool menuZero = 0, menuOne = 0, menuTwo = 0, menuThree = 0;
     bool ftAr[6];
@@ -331,11 +44,12 @@ int main(void)
 
     while (!WindowShouldClose())
     {
+
         mousePoint = GetMousePosition();
         srand(time(NULL));
         BeginDrawing();
 
-
+        
         for (size_t i = 0; i < 4; i++)
         {
             switch (i)
@@ -416,6 +130,7 @@ int main(void)
         {
             checker = 0;
             DrawRectangleRec(hide, LIGHTGRAY);
+            
             for (int i = 0; i < 2; i++)
             {
                 gameMenu[i].x = -100;
@@ -508,8 +223,30 @@ int main(void)
             {
                 checker2 = 0;
                 DrawRectangleRec(hide, LIGHTGRAY);
-                
+                DrawRectangleRec(movingBox, LIGHTGRAY);
+                DrawTextureRec(red_card, imageBox, posImg, WHITE);
+                if (CheckCollisionPointRec(mousePoint, movingBox) && IsMouseButtonDown(MOUSE_BUTTON_LEFT))
+                {
+                    checkfirstcoll = 1;
+                    
+                   
+                }
+                if (checkfirstcoll)
+                {
+                    if (IsMouseButtonDown(MOUSE_BUTTON_LEFT))
+                    {
 
+                        posImg.x = mousePoint.x;
+                        posImg.y = mousePoint.y;
+                        movingBox.x = posImg.x;
+                        movingBox.y = posImg.y;
+                    }
+                    else if (IsMouseButtonReleased(MOUSE_BUTTON_LEFT))
+                    {
+                        checkfirstcoll = 0;
+                    }
+                }
+               
                 DrawRectangle((int)BaseCards.x + 100, (int)BaseCards.y - 450, (int)BaseCards.width - 85, (int)BaseCards.height + 1200, BLACK);
                 DrawRectangle((int)BaseCards.x + 1250, (int)BaseCards.y - 450, (int)BaseCards.width - 85, (int)BaseCards.height + 1200, BLACK);
 
@@ -907,14 +644,16 @@ int main(void)
            
             exit(0);
         }
+        
         ClearBackground(LIGHTGRAY);
-
-
+        
+        
         EndDrawing();
         std::system("CLS");
     }
+    UnloadTexture(red_card);
     CloseWindow();
 
 
-    return 0;
+    return 0; 
     }
