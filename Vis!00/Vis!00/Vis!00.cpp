@@ -31,7 +31,6 @@ int main(void)
     Rectangle BaseCards = { 225, 420, 90, 105 };
     Vector2 mousePoint;
     Vector2 posImg = {10,10};
-    Rectangle imageBox = { 0,0, red_card.width, red_card.height };
     Rectangle movingBox = { posImg.x, posImg.y, red_card.width, red_card.height };
     bool zero = 0, one = 0, two = 0, three = 0;
     bool menuZero = 0, menuOne = 0, menuTwo = 0, menuThree = 0;
@@ -224,28 +223,7 @@ int main(void)
                 checker2 = 0;
                 DrawRectangleRec(hide, LIGHTGRAY);
                 DrawRectangleRec(movingBox, LIGHTGRAY);
-                DrawTextureRec(red_card, imageBox, posImg, WHITE);
-                if (CheckCollisionPointRec(mousePoint, movingBox) && IsMouseButtonDown(MOUSE_BUTTON_LEFT))
-                {
-                    checkfirstcoll = 1;
-                    
-                   
-                }
-                if (checkfirstcoll)
-                {
-                    if (IsMouseButtonDown(MOUSE_BUTTON_LEFT))
-                    {
-
-                        posImg.x = mousePoint.x;
-                        posImg.y = mousePoint.y;
-                        movingBox.x = posImg.x;
-                        movingBox.y = posImg.y;
-                    }
-                    else if (IsMouseButtonReleased(MOUSE_BUTTON_LEFT))
-                    {
-                        checkfirstcoll = 0;
-                    }
-                }
+                
                
                 DrawRectangle((int)BaseCards.x + 100, (int)BaseCards.y - 450, (int)BaseCards.width - 85, (int)BaseCards.height + 1200, BLACK);
                 DrawRectangle((int)BaseCards.x + 1250, (int)BaseCards.y - 450, (int)BaseCards.width - 85, (int)BaseCards.height + 1200, BLACK);
@@ -301,6 +279,39 @@ int main(void)
                 {
                     DrawText(to_string(ftAr[2]).c_str(), 1077, 425, 50, BLACK);
                     DrawText(to_string(!ftAr[2]).c_str(), 1084.5, 480, 50, BLACK);
+                }
+                DrawTexture(red_card, posImg.x, posImg.y, WHITE);
+                if (CheckCollisionPointRec(mousePoint, movingBox) && IsMouseButtonDown(MOUSE_BUTTON_LEFT))
+                {
+                    checkfirstcoll = 1;
+
+
+                }
+                if (checkfirstcoll)
+                {
+                    if (IsMouseButtonDown(MOUSE_BUTTON_LEFT))
+                    {
+
+                        posImg.x = mousePoint.x;
+                        posImg.y = mousePoint.y;
+                        movingBox.x = posImg.x;
+                        movingBox.y = posImg.y;
+                    }
+                    else if (IsMouseButtonReleased(MOUSE_BUTTON_LEFT))
+                    {
+                        for (int i = 0; i < BasePiramidDown.size(); i++)
+                        {
+                            if (CheckCollisionPointRec(mousePoint, BasePiramidDown[i]))
+                            {
+                                posImg.x = BasePiramidDown[i].x;
+                                posImg.y = BasePiramidDown[i].y;
+                                red_card.height = BasePiramidDown[i].height;
+                                red_card.width = BasePiramidDown[i].width;
+
+                            }
+                        }
+                        checkfirstcoll = 0;
+                    }
                 }
             }
             else if (one)
