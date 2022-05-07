@@ -78,7 +78,7 @@ void DropDown(Rectangle &moving, Vector2 &mPoint, Vector2 &posPoint, Texture2D &
 int main(void)
 {
     const int screenWidth = 1800;
-    const int screenHeight = 950;
+    const int screenHeight = 1000;
     
     bool checker = 1;
     bool checker2 = 1;
@@ -103,7 +103,7 @@ int main(void)
     }
 
     Rectangle gameMenu[4];
-    vector<Rectangle> BasePiramidDown;
+    vector<Rectangle> BasePyramidDown;
     vector<Rectangle> BasePiramidUp;
     bool checkfirstcollisionRed = 0;
     bool checkfirstcollisionBlue = 0;
@@ -267,7 +267,7 @@ int main(void)
 
                 zero = true;
                 one = 0, two = 0, three = 0;
-                BasePiramidDown.resize(3);
+                BasePyramidDown.resize(3);
                 BasePiramidUp.resize(3);
                 filled.resize(3);
                 
@@ -278,7 +278,7 @@ int main(void)
 
                 one = true;
                 zero = 0, two = 0, three = 0;
-                BasePiramidDown.resize(6);
+                BasePyramidDown.resize(6);
                 BasePiramidUp.resize(6);
                 filled.resize(6);
                 
@@ -289,7 +289,7 @@ int main(void)
 
                 two = true;
                 one = 0, zero = 0, three = 0;
-                BasePiramidDown.resize(10);
+                BasePyramidDown.resize(10);
                 BasePiramidUp.resize(10);
                 filled.resize(10);
             }
@@ -297,13 +297,13 @@ int main(void)
             {
 
                 three = true;
-                BasePiramidDown.resize(15);
+                BasePyramidDown.resize(15);
                 BasePiramidUp.resize(15);
                 filled.resize(15);
                 one = 0, two = 0, zero = 0;
 
             }
-            SetupDown(BasePiramidDown);
+            SetupDown(BasePyramidDown);
             SetupUp(BasePiramidUp);
 
             if (zero)
@@ -330,9 +330,9 @@ int main(void)
                 DrawRectangle((int)BaseCards.x + 610, (int)BaseCards.y + 55, (int)BaseCards.width, (int)BaseCards.height - 102.5, WHITE);
                 DrawRectangle((int)BaseCards.x + 820, (int)BaseCards.y + 55, (int)BaseCards.width, (int)BaseCards.height - 102.5, WHITE);
                  
-                /*Draw Blue cudes ->*/for (int i = 0; i < BasePiramidDown.size(); i++)
+                /*Draw Blue cudes ->*/for (int i = 0; i < BasePyramidDown.size(); i++)
                 {
-                    DrawRectangleRec(BasePiramidDown[i], BLUE);
+                    DrawRectangleRec(BasePyramidDown[i], BLUE);
                 }
 
                 for (int i = 0; i < BasePiramidUp.size(); i++)
@@ -374,20 +374,20 @@ int main(void)
                 
                 
                 
-                    DropDownFilled(movingBoxRed, movingBoxBlue, movingBoxYellow, filled, BasePiramidDown);
+                    DropDownFilled(movingBoxRed, movingBoxBlue, movingBoxYellow, filled, BasePyramidDown);
                
                 
                 //ifs on Textures
                 if (checkfirstcollisionBlue == 0 && checkfirstcollisionRed == 0 && checkfirstcollisionYellow == 0)
                 {
-                    DropDown(movingBoxRed, mousePoint, posImgRed, red_card, BasePiramidDown, BasePiramidUp, checkfirstcollisionRed, filled);
-                    DropDown(movingBoxYellow, mousePoint, posImgYellow, yellow_card, BasePiramidDown, BasePiramidUp, checkfirstcollisionYellow, filled);
-                    DropDown(movingBoxBlue, mousePoint, posImgBlue, blue_card, BasePiramidDown, BasePiramidUp, checkfirstcollisionBlue, filled);
+                    DropDown(movingBoxRed, mousePoint, posImgRed, red_card, BasePyramidDown, BasePiramidUp, checkfirstcollisionRed, filled);
+                    DropDown(movingBoxYellow, mousePoint, posImgYellow, yellow_card, BasePyramidDown, BasePiramidUp, checkfirstcollisionYellow, filled);
+                    DropDown(movingBoxBlue, mousePoint, posImgBlue, blue_card, BasePyramidDown, BasePiramidUp, checkfirstcollisionBlue, filled);
 
                 }
                 if(checkfirstcollisionRed && checkfirstcollisionBlue == 0 && checkfirstcollisionYellow == 0)
                 {
-                    DropDown(movingBoxRed, mousePoint, posImgRed, red_card, BasePiramidDown, BasePiramidUp, checkfirstcollisionRed, filled);
+                    DropDown(movingBoxRed, mousePoint, posImgRed, red_card, BasePyramidDown, BasePiramidUp, checkfirstcollisionRed, filled);
 
 
 
@@ -396,13 +396,13 @@ int main(void)
                 {
                     
 
-                    DropDown(movingBoxYellow, mousePoint, posImgYellow, yellow_card, BasePiramidDown, BasePiramidUp, checkfirstcollisionYellow, filled);
+                    DropDown(movingBoxYellow, mousePoint, posImgYellow, yellow_card, BasePyramidDown, BasePiramidUp, checkfirstcollisionYellow, filled);
 
                 }
                 else if (checkfirstcollisionBlue && checkfirstcollisionRed == 0 && checkfirstcollisionYellow == 0)
                 {
                    
-                    DropDown(movingBoxBlue, mousePoint, posImgBlue, blue_card, BasePiramidDown, BasePiramidUp, checkfirstcollisionBlue, filled);
+                    DropDown(movingBoxBlue, mousePoint, posImgBlue, blue_card, BasePyramidDown, BasePiramidUp, checkfirstcollisionBlue, filled);
 
 
                 }
@@ -461,9 +461,9 @@ int main(void)
                 DrawRectangle((int)BaseCards.x + 720, (int)BaseCards.y + 55, (int)BaseCards.width, (int)BaseCards.height - 102.5, WHITE);
                 DrawRectangle((int)BaseCards.x + 920, (int)BaseCards.y + 55, (int)BaseCards.width, (int)BaseCards.height - 102.5, WHITE);
 
-                /*Draw Blue cudes ->*/for (int i = 0; i < BasePiramidDown.size(); i++)
+                /*Draw Blue cudes ->*/for (int i = 0; i < BasePyramidDown.size(); i++)
                 {
-                    DrawRectangleRec(BasePiramidDown[i], BLUE);
+                    DrawRectangleRec(BasePyramidDown[i], BLUE);
                 }
 
                 for (int i = 0; i < BasePiramidUp.size(); i++)
@@ -525,27 +525,27 @@ int main(void)
                 DrawRectangle((int)BaseCards.x + 100, (int)BaseCards.y - 450, (int)BaseCards.width - 85, (int)BaseCards.height + 1200, BLACK);
                 DrawRectangle((int)BaseCards.x + 1250, (int)BaseCards.y - 450, (int)BaseCards.width - 85, (int)BaseCards.height + 1200, BLACK);
 
-                DrawRectangle((int)BaseCards.x + 219, (int)BaseCards.y - 5, (int)BaseCards.width + 12.5, (int)BaseCards.height + 12.5, BLACK);
-                DrawRectangle((int)BaseCards.x + 419, (int)BaseCards.y - 5, (int)BaseCards.width + 12.5, (int)BaseCards.height + 12.5, BLACK);
-                DrawRectangle((int)BaseCards.x + 619, (int)BaseCards.y - 5, (int)BaseCards.width + 12.5, (int)BaseCards.height + 12.5, BLACK);
-                DrawRectangle((int)BaseCards.x + 819, (int)BaseCards.y - 5, (int)BaseCards.width + 12.5, (int)BaseCards.height + 12.5, BLACK);
-                DrawRectangle((int)BaseCards.x + 1019, (int)BaseCards.y - 5, (int)BaseCards.width + 12.5, (int)BaseCards.height + 12.5, BLACK);
+                DrawRectangle((int)BaseCards.x + 219, (int)BaseCards.y + 10, (int)BaseCards.width + 12.5, (int)BaseCards.height + 12.5, BLACK);
+                DrawRectangle((int)BaseCards.x + 419, (int)BaseCards.y + 10, (int)BaseCards.width + 12.5, (int)BaseCards.height + 12.5, BLACK);
+                DrawRectangle((int)BaseCards.x + 619, (int)BaseCards.y + 10, (int)BaseCards.width + 12.5, (int)BaseCards.height + 12.5, BLACK);
+                DrawRectangle((int)BaseCards.x + 819, (int)BaseCards.y + 10, (int)BaseCards.width + 12.5, (int)BaseCards.height + 12.5, BLACK);
+                DrawRectangle((int)BaseCards.x + 1019, (int)BaseCards.y + 10, (int)BaseCards.width + 12.5, (int)BaseCards.height + 12.5, BLACK);
 
-                DrawRectangle((int)BaseCards.x + 225, (int)BaseCards.y, (int)BaseCards.width, (int)BaseCards.height, DARKGRAY);
-                DrawRectangle((int)BaseCards.x + 425, (int)BaseCards.y, (int)BaseCards.width, (int)BaseCards.height, DARKGRAY);
-                DrawRectangle((int)BaseCards.x + 625, (int)BaseCards.y, (int)BaseCards.width, (int)BaseCards.height, DARKGRAY);
-                DrawRectangle((int)BaseCards.x + 825, (int)BaseCards.y, (int)BaseCards.width, (int)BaseCards.height, DARKGRAY);
-                DrawRectangle((int)BaseCards.x + 1025, (int)BaseCards.y, (int)BaseCards.width, (int)BaseCards.height, DARKGRAY);
+                DrawRectangle((int)BaseCards.x + 225, (int)BaseCards.y + 15, (int)BaseCards.width, (int)BaseCards.height, DARKGRAY);
+                DrawRectangle((int)BaseCards.x + 425, (int)BaseCards.y + 15, (int)BaseCards.width, (int)BaseCards.height, DARKGRAY);
+                DrawRectangle((int)BaseCards.x + 625, (int)BaseCards.y + 15, (int)BaseCards.width, (int)BaseCards.height, DARKGRAY);
+                DrawRectangle((int)BaseCards.x + 825, (int)BaseCards.y + 15, (int)BaseCards.width, (int)BaseCards.height, DARKGRAY);
+                DrawRectangle((int)BaseCards.x + 1025, (int)BaseCards.y + 15, (int)BaseCards.width, (int)BaseCards.height, DARKGRAY);
 
-                DrawRectangle((int)BaseCards.x + 225, (int)BaseCards.y + 55, (int)BaseCards.width, (int)BaseCards.height - 102.5, WHITE);
-                DrawRectangle((int)BaseCards.x + 425, (int)BaseCards.y + 55, (int)BaseCards.width, (int)BaseCards.height - 102.5, WHITE);
-                DrawRectangle((int)BaseCards.x + 625, (int)BaseCards.y + 55, (int)BaseCards.width, (int)BaseCards.height - 102.5, WHITE);
-                DrawRectangle((int)BaseCards.x + 825, (int)BaseCards.y + 55, (int)BaseCards.width, (int)BaseCards.height - 102.5, WHITE);
-                DrawRectangle((int)BaseCards.x + 1025, (int)BaseCards.y + 55, (int)BaseCards.width, (int)BaseCards.height - 102.5, WHITE);
+                DrawRectangle((int)BaseCards.x + 225, (int)BaseCards.y + 70, (int)BaseCards.width, (int)BaseCards.height - 102.5, WHITE);
+                DrawRectangle((int)BaseCards.x + 425, (int)BaseCards.y + 70, (int)BaseCards.width, (int)BaseCards.height - 102.5, WHITE);
+                DrawRectangle((int)BaseCards.x + 625, (int)BaseCards.y + 70, (int)BaseCards.width, (int)BaseCards.height - 102.5, WHITE);
+                DrawRectangle((int)BaseCards.x + 825, (int)BaseCards.y + 70, (int)BaseCards.width, (int)BaseCards.height - 102.5, WHITE);
+                DrawRectangle((int)BaseCards.x + 1025, (int)BaseCards.y + 70, (int)BaseCards.width, (int)BaseCards.height - 102.5, WHITE);
 
-                /*Draw Blue cudes ->*/for (int i = 0; i < BasePiramidDown.size(); i++)
+                /*Draw Blue cudes ->*/for (int i = 0; i < BasePyramidDown.size(); i++)
                 {
-                    DrawRectangleRec(BasePiramidDown[i], BLUE);
+                    DrawRectangleRec(BasePyramidDown[i], BLUE);
                 }
 
 
@@ -641,9 +641,9 @@ int main(void)
                 DrawRectangle((int)BaseCards.x + 932.5, (int)BaseCards.y + 55, (int)BaseCards.width, (int)BaseCards.height - 102.5, WHITE);
                 DrawRectangle((int)BaseCards.x + 1132.5, (int)BaseCards.y + 55, (int)BaseCards.width, (int)BaseCards.height - 102.5, WHITE);
 
-               /*Draw Blue cudes ->*/ for (int i = 0; i < BasePiramidDown.size(); i++)
+               /*Draw Blue cudes ->*/ for (int i = 0; i < BasePyramidDown.size(); i++)
                 {
-                    DrawRectangleRec(BasePiramidDown[i], BLUE);
+                    DrawRectangleRec(BasePyramidDown[i], BLUE);
                 }
 
                for (int i = 0; i < BasePiramidUp.size(); i++)
