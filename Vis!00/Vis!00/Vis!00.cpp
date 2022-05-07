@@ -1,14 +1,19 @@
 #include "Main.h"
 #include "SetupBaseCardsPyramid.h"
 
-void DropDownFilled(Rectangle& movingRed, Rectangle& movingBlue, Rectangle& movingYellow, bool& filled, vector<Rectangle> &TocheckRec)
+void DropDownFilled(Rectangle& movingRed, Rectangle& movingBlue, Rectangle& movingYellow, vector<bool>& filled, vector<Rectangle> &TocheckRec)
 {
 
     for (int i = 0; i < TocheckRec.size(); i++)
     {
-        if (CheckCollisionRecs(TocheckRec[i], movingBlue) || CheckCollisionRecs(TocheckRec[i], movingRed) || CheckCollisionRecs(TocheckRec[i], movingYellow))
+        if ((TocheckRec[i].height == movingBlue.height && TocheckRec[i].x == movingBlue.x) || (TocheckRec[i].height == movingRed.height && TocheckRec[i].x == movingRed.x) || (TocheckRec[i].height == movingYellow.height && TocheckRec[i].x == movingYellow.x))
         {
-            filled = i;
+            cout << "1;";
+            filled[i] = 1;
+        }
+        else
+        {
+            filled[i] = 0;
         }
         
     }
@@ -16,7 +21,7 @@ void DropDownFilled(Rectangle& movingRed, Rectangle& movingBlue, Rectangle& movi
 
 }
 
-void DropDown(Rectangle &moving, Vector2 &mPoint, Vector2 &posPoint, Texture2D &texture, vector<Rectangle> &downPy, vector<Rectangle> &upPy, bool &checkcoll, bool &fill)
+void DropDown(Rectangle &moving, Vector2 &mPoint, Vector2 &posPoint, Texture2D &texture, vector<Rectangle> &downPy, vector<Rectangle> &upPy, bool &checkcoll, vector<bool> &fill)
 {
     
         
@@ -40,13 +45,17 @@ void DropDown(Rectangle &moving, Vector2 &mPoint, Vector2 &posPoint, Texture2D &
             {
                 for (int i = 0; i < downPy.size(); i++)
                 {
-                    if (fill == i)
+                    
+                    if (CheckCollisionPointRec(mPoint, downPy[i]))
                     {
-                        checkcoll = 0;
-                        
-                    }
-                    else if (CheckCollisionPointRec(mPoint, downPy[i]))
-                    {
+                        if (fill[i])
+                        {
+                            checkcoll = 0;
+                            cout << "AAAAAAAAAAAAAA";
+                            
+                        }
+                        else
+                        {
                         posPoint.x = downPy[i].x;
                         posPoint.y = downPy[i].y;
                         texture.height = downPy[i].height;
@@ -55,6 +64,7 @@ void DropDown(Rectangle &moving, Vector2 &mPoint, Vector2 &posPoint, Texture2D &
                         moving.height = downPy[i].height;
                         moving.x = downPy[i].x;
                         moving.y = downPy[i].y;
+                        }
 
 
                     }
@@ -72,7 +82,7 @@ int main(void)
     
     bool checker = 1;
     bool checker2 = 1;
-    bool filled = 0;
+    vector<bool> filled;
     srand(time(0));
     Rectangle hide = {0,0,screenWidth,screenHeight};
     string randomDirectories[3] = { "../images/red_card.png", "../images/yellow_card.png", "../images/blue_card.png" };
@@ -259,6 +269,7 @@ int main(void)
                 one = 0, two = 0, three = 0;
                 BasePiramidDown.resize(3);
                 BasePiramidUp.resize(3);
+                filled.resize(3);
                 
 
             }
@@ -269,6 +280,7 @@ int main(void)
                 zero = 0, two = 0, three = 0;
                 BasePiramidDown.resize(6);
                 BasePiramidUp.resize(6);
+                filled.resize(6);
                 
 
             }
@@ -279,6 +291,7 @@ int main(void)
                 one = 0, zero = 0, three = 0;
                 BasePiramidDown.resize(10);
                 BasePiramidUp.resize(10);
+                filled.resize(10);
             }
             else if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointRec(mousePoint, colorsRecs[3]) && checker2)
             {
@@ -286,6 +299,7 @@ int main(void)
                 three = true;
                 BasePiramidDown.resize(15);
                 BasePiramidUp.resize(15);
+                filled.resize(15);
                 one = 0, two = 0, zero = 0;
 
             }
@@ -396,6 +410,32 @@ int main(void)
                 DrawTexture(blue_card, posImgBlue.x, posImgBlue.y, WHITE);
                 DrawTexture(yellow_card, posImgYellow.x, posImgYellow.y, WHITE);
 
+                if ((CheckCollisionRecs(movingBoxRed, movingBoxBlue) || CheckCollisionRecs(movingBoxRed, movingBoxYellow) || CheckCollisionRecs(movingBoxBlue, movingBoxYellow)) && IsMouseButtonDown(MOUSE_BUTTON_LEFT))
+                {
+
+                    if (checkfirstcollisionBlue)
+                    {
+
+                    checkfirstcollisionBlue = 1;
+                    checkfirstcollisionRed = 0;
+                    checkfirstcollisionYellow = 0;
+                    }
+                    else if (checkfirstcollisionRed)
+                    {
+
+                        checkfirstcollisionBlue = 0;
+                        checkfirstcollisionRed = 1;
+                        checkfirstcollisionYellow = 0;
+                    }
+                    else if (checkfirstcollisionYellow)
+                    {
+
+                        checkfirstcollisionBlue = 0;
+                        checkfirstcollisionRed = 0;
+                        checkfirstcollisionYellow = 1;
+                    }
+                    
+                }
             }
             else if (one)
             {
