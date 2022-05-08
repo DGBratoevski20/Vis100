@@ -1,79 +1,76 @@
 #include "Main.h"
 #include "SetupBaseCardsPyramid.h"
 
-void DropDownFilled(Rectangle& movingRed, Rectangle& movingBlue, Rectangle& movingYellow, vector<bool>& filled, vector<Rectangle> &TocheckRec)
+void DropDown(Rectangle& moving, Vector2& mPoint, Vector2& posPoint, Texture2D& texture, vector<Rectangle>& downPy, vector<Rectangle>& upPy, bool& checkcoll, int startX, int startY)
 {
 
-    for (int i = 0; i < TocheckRec.size(); i++)
+    int counter = 1;
+
+    int check = 0;
+    if (CheckCollisionPointRec(mPoint, moving) && IsMouseButtonDown(MOUSE_BUTTON_LEFT))
     {
-        if ((TocheckRec[i].height == movingBlue.height && TocheckRec[i].x == movingBlue.x) || (TocheckRec[i].height == movingRed.height && TocheckRec[i].x == movingRed.x) || (TocheckRec[i].height == movingYellow.height && TocheckRec[i].x == movingYellow.x))
+        checkcoll = 1;
+
+
+    }
+    if (checkcoll)
+    {
+        if (IsMouseButtonDown(MOUSE_BUTTON_LEFT))
         {
-            cout << "1;";
-            filled[i] = 1;
+
+            posPoint.x = mPoint.x;
+            posPoint.y = mPoint.y;
+            moving.x = posPoint.x;
+            moving.y = posPoint.y;
         }
-        else
+        else if (IsMouseButtonReleased(MOUSE_BUTTON_LEFT))
         {
-            filled[i] = 0;
+            for (int i = 0; i < downPy.size(); i++)
+            {
+
+                if (CheckCollisionPointRec(mPoint, downPy[i]))
+                {
+                    check = 1;
+                    posPoint.x = downPy[i].x;
+                    posPoint.y = downPy[i].y;
+                    texture.height = downPy[i].height;
+                    texture.width = downPy[i].width;
+                    moving.width = downPy[i].width;
+                    moving.height = downPy[i].height;
+                    moving.x = downPy[i].x;
+                    moving.y = downPy[i].y;
+
+
+
+                }
+                else if (CheckCollisionPointRec(mPoint, upPy[i]))
+                {
+                    check = 1;
+                    posPoint.x = upPy[i].x;
+                    posPoint.y = upPy[i].y;
+                    texture.height = upPy[i].height;
+                    texture.width = upPy[i].width;
+                    moving.width = upPy[i].width;
+                    moving.height = upPy[i].height;
+                    moving.x = upPy[i].x;
+                    moving.y = upPy[i].y;
+
+
+
+                }
+                else if (check == 0)
+                {
+                    posPoint.x = startX;
+                    posPoint.y = startY;
+                    moving.x = startX;
+                    moving.y = startY;
+                }
+            }
+            checkcoll = 0;
         }
-        
     }
 
 
-}
-
-void DropDown(Rectangle &moving, Vector2 &mPoint, Vector2 &posPoint, Texture2D &texture, vector<Rectangle> &downPy, vector<Rectangle> &upPy, bool &checkcoll, vector<bool> &fill)
-{
-    
-        
-        if (CheckCollisionPointRec(mPoint, moving) && IsMouseButtonDown(MOUSE_BUTTON_LEFT))
-        {
-            checkcoll = 1;
-
-
-        }
-        if (checkcoll)
-        {
-            if (IsMouseButtonDown(MOUSE_BUTTON_LEFT))
-            {
-
-                posPoint.x = mPoint.x;
-                posPoint.y = mPoint.y;
-                moving.x = posPoint.x;
-                moving.y = posPoint.y;
-            }
-            else if (IsMouseButtonReleased(MOUSE_BUTTON_LEFT))
-            {
-                for (int i = 0; i < downPy.size(); i++)
-                {
-                    
-                    if (CheckCollisionPointRec(mPoint, downPy[i]))
-                    {
-                        if (fill[i])
-                        {
-                            checkcoll = 0;
-                            cout << "AAAAAAAAAAAAAA";
-                            
-                        }
-                        else
-                        {
-                        posPoint.x = downPy[i].x;
-                        posPoint.y = downPy[i].y;
-                        texture.height = downPy[i].height;
-                        texture.width = downPy[i].width;
-                        moving.width = downPy[i].width;
-                        moving.height = downPy[i].height;
-                        moving.x = downPy[i].x;
-                        moving.y = downPy[i].y;
-                        }
-
-
-                    }
-                }
-                checkcoll = 0;
-            }
-        }
-    
-    
 }
 int main(void)
 {
@@ -92,7 +89,13 @@ int main(void)
     Texture2D red_card = LoadTexture(randomDirectories[rand() % 3].c_str());
     Texture2D blue_card = LoadTexture(randomDirectories[rand() % 3].c_str());
     Texture2D yellow_card = LoadTexture(randomDirectories[rand() % 3].c_str());
-    
+    Texture2D F_card = LoadTexture(randomDirectories[rand() % 3].c_str());
+
+
+    Texture2D redRight_card = LoadTexture(randomDirectories[rand() % 3].c_str());
+    Texture2D blueRight_card = LoadTexture(randomDirectories[rand() % 3].c_str());
+    Texture2D yellowRight_card = LoadTexture(randomDirectories[rand() % 3].c_str());
+    Texture2D FRight_card = LoadTexture(randomDirectories[rand() % 3].c_str());
     Rectangle colorsRecs[4];
     for (int i = 0; i < sizeof(colorsRecs) / sizeof(colorsRecs[0]); i++)
     {
@@ -108,14 +111,36 @@ int main(void)
     bool checkfirstcollisionRed = 0;
     bool checkfirstcollisionBlue = 0;
     bool checkfirstcollisionYellow = 0;
+    bool checkfirstcollisionF = 0;
+
+    bool checkfirstcollisionRedRight = 0;
+    bool checkfirstcollisionBlueRight = 0;
+    bool checkfirstcollisionYellowRight = 0;
+    bool checkfirstcollisionFRight = 0;
+
     Rectangle BaseCards = { 225, 420, 90, 105 };
     Vector2 mousePoint;
-    Vector2 posImgRed= {10,100};
-    Vector2 posImgBlue= { 10,400 };
+    Vector2 posImgRed = { 10,100 };
+    Vector2 posImgBlue = { 10,300 };
     Vector2 posImgYellow = { 10,500 };
+    Vector2 posImgF = { 10,700 };
+
+    Vector2 posImgRedRight = { 1600,100 };
+    Vector2 posImgBlueRight = { 1600,300 };
+    Vector2 posImgYellowRight = { 1600,500 };
+    Vector2 posImgFRight = { 1600,700 };
+
     Rectangle movingBoxRed = { posImgRed.x, posImgRed.y, red_card.width, red_card.height };
     Rectangle movingBoxBlue = { posImgBlue.x, posImgBlue.y, blue_card.width, blue_card.height };
     Rectangle movingBoxYellow = { posImgYellow.x, posImgYellow.y, yellow_card.width, yellow_card.height };
+    Rectangle movingBoxF = { posImgF.x, posImgF.y, F_card.width, F_card.height };
+
+
+    Rectangle movingBoxRedRight = { posImgRedRight.x, posImgRedRight.y, red_card.width, red_card.height };
+    Rectangle movingBoxBlueRight = { posImgBlueRight.x, posImgBlueRight.y, blue_card.width, blue_card.height };
+    Rectangle movingBoxYellowRight = { posImgYellowRight.x, posImgYellowRight.y, yellow_card.width, yellow_card.height };
+    Rectangle movingBoxFRight = { posImgFRight.x, posImgFRight.y, FRight_card.width, FRight_card.height };
+
     bool zero = 0, one = 0, two = 0, three = 0;
     bool menuZero = 0, menuOne = 0, menuTwo = 0, menuThree = 0;
     bool ftAr[6];
@@ -313,6 +338,12 @@ int main(void)
                 DrawRectangleRec(movingBoxRed, LIGHTGRAY);
                 DrawRectangleRec(movingBoxBlue, LIGHTGRAY);
                 DrawRectangleRec(movingBoxYellow, LIGHTGRAY);
+                DrawRectangleRec(movingBoxF, LIGHTGRAY);
+
+                DrawRectangleRec(movingBoxBlueRight, LIGHTGRAY);
+                DrawRectangleRec(movingBoxYellowRight, LIGHTGRAY);
+                DrawRectangleRec(movingBoxRedRight, LIGHTGRAY);
+                DrawRectangleRec(movingBoxFRight, LIGHTGRAY);
                 
                
                 DrawRectangle((int)BaseCards.x + 100, (int)BaseCards.y - 450, (int)BaseCards.width - 85, (int)BaseCards.height + 1200, BLACK);
@@ -370,72 +401,89 @@ int main(void)
                     DrawText(to_string(ftAr[2]).c_str(), 1077, 425, 50, BLACK);
                     DrawText(to_string(!ftAr[2]).c_str(), 1084.5, 480, 50, BLACK);
                 }
-                //check if the base cards are already filled
                 
-                
-                
-                    DropDownFilled(movingBoxRed, movingBoxBlue, movingBoxYellow, filled, BasePyramidDown);
-               
-                
-                //ifs on Textures
-                if (checkfirstcollisionBlue == 0 && checkfirstcollisionRed == 0 && checkfirstcollisionYellow == 0)
+                if (checkfirstcollisionBlue == 0 && checkfirstcollisionRed == 0 && checkfirstcollisionYellow == 0 && checkfirstcollisionF == 0 && checkfirstcollisionBlueRight == 0 && checkfirstcollisionRedRight == 0 && checkfirstcollisionYellowRight == 0 && checkfirstcollisionFRight == 0)
                 {
-                    DropDown(movingBoxRed, mousePoint, posImgRed, red_card, BasePyramidDown, BasePiramidUp, checkfirstcollisionRed, filled);
-                    DropDown(movingBoxYellow, mousePoint, posImgYellow, yellow_card, BasePyramidDown, BasePiramidUp, checkfirstcollisionYellow, filled);
-                    DropDown(movingBoxBlue, mousePoint, posImgBlue, blue_card, BasePyramidDown, BasePiramidUp, checkfirstcollisionBlue, filled);
+                    DropDown(movingBoxRed, mousePoint, posImgRed, red_card, BasePyramidDown, BasePiramidUp, checkfirstcollisionRed, 10, 100);
+                    DropDown(movingBoxYellow, mousePoint, posImgYellow, yellow_card, BasePyramidDown, BasePiramidUp, checkfirstcollisionYellow, 10, 500);
+                    DropDown(movingBoxBlue, mousePoint, posImgBlue, blue_card, BasePyramidDown, BasePiramidUp, checkfirstcollisionBlue, 10, 300);
+                    DropDown(movingBoxF, mousePoint, posImgF, F_card, BasePyramidDown, BasePiramidUp, checkfirstcollisionF, 10, 700);
+
+                    DropDown(movingBoxRedRight, mousePoint, posImgRedRight, redRight_card, BasePyramidDown, BasePiramidUp, checkfirstcollisionRedRight, 1600, 100);
+                    DropDown(movingBoxYellowRight, mousePoint, posImgYellowRight, yellowRight_card, BasePyramidDown, BasePiramidUp, checkfirstcollisionYellowRight, 1600, 500);
+                    DropDown(movingBoxBlueRight, mousePoint, posImgBlueRight, blueRight_card, BasePyramidDown, BasePiramidUp, checkfirstcollisionBlueRight, 1600, 300);
+                    DropDown(movingBoxFRight, mousePoint, posImgFRight, FRight_card, BasePyramidDown, BasePiramidUp, checkfirstcollisionFRight, 1600, 700);
 
                 }
-                if(checkfirstcollisionRed && checkfirstcollisionBlue == 0 && checkfirstcollisionYellow == 0)
+                if (checkfirstcollisionBlue == 0 && checkfirstcollisionRed && checkfirstcollisionYellow == 0 && checkfirstcollisionF == 0 && checkfirstcollisionBlueRight == 0 && checkfirstcollisionRedRight == 0 && checkfirstcollisionYellowRight == 0 && checkfirstcollisionFRight == 0)
                 {
-                    DropDown(movingBoxRed, mousePoint, posImgRed, red_card, BasePyramidDown, BasePiramidUp, checkfirstcollisionRed, filled);
+                    DropDown(movingBoxRed, mousePoint, posImgRed, red_card, BasePyramidDown, BasePiramidUp, checkfirstcollisionRed, 10, 100);
 
 
 
                 }
-                else if (checkfirstcollisionYellow && checkfirstcollisionBlue == 0 && checkfirstcollisionRed == 0)
+                else if (checkfirstcollisionBlue == 0 && checkfirstcollisionRed == 0 && checkfirstcollisionYellow && checkfirstcollisionF == 0 && checkfirstcollisionBlueRight == 0 && checkfirstcollisionRedRight == 0 && checkfirstcollisionYellowRight == 0 && checkfirstcollisionFRight == 0)
                 {
-                    
 
-                    DropDown(movingBoxYellow, mousePoint, posImgYellow, yellow_card, BasePyramidDown, BasePiramidUp, checkfirstcollisionYellow, filled);
+
+                    DropDown(movingBoxYellow, mousePoint, posImgYellow, yellow_card, BasePyramidDown, BasePiramidUp, checkfirstcollisionYellow, 10, 500);
 
                 }
-                else if (checkfirstcollisionBlue && checkfirstcollisionRed == 0 && checkfirstcollisionYellow == 0)
+                else if (checkfirstcollisionBlue && checkfirstcollisionRed == 0 && checkfirstcollisionYellow == 0 && checkfirstcollisionF == 0 && checkfirstcollisionBlueRight == 0 && checkfirstcollisionRedRight == 0 && checkfirstcollisionYellowRight == 0 && checkfirstcollisionFRight == 0)
                 {
-                   
-                    DropDown(movingBoxBlue, mousePoint, posImgBlue, blue_card, BasePyramidDown, BasePiramidUp, checkfirstcollisionBlue, filled);
+
+                    DropDown(movingBoxBlue, mousePoint, posImgBlue, blue_card, BasePyramidDown, BasePiramidUp, checkfirstcollisionBlue, 10, 300);
+
+
+                }
+
+                else if (checkfirstcollisionBlue == 0 && checkfirstcollisionRed == 0 && checkfirstcollisionYellow == 0 && checkfirstcollisionF == 0 && checkfirstcollisionBlueRight && checkfirstcollisionRedRight == 0 && checkfirstcollisionYellowRight == 0 && checkfirstcollisionFRight == 0)
+                {
+
+                    DropDown(movingBoxBlueRight, mousePoint, posImgBlueRight, blueRight_card, BasePyramidDown, BasePiramidUp, checkfirstcollisionBlueRight, 1600, 300);
+
+
+                }
+                else if (checkfirstcollisionBlue == 0 && checkfirstcollisionRed == 0 && checkfirstcollisionYellow == 0 && checkfirstcollisionF == 0 && checkfirstcollisionBlueRight == 0 && checkfirstcollisionRedRight == 0 && checkfirstcollisionYellowRight && checkfirstcollisionFRight == 0)
+                {
+
+                    DropDown(movingBoxYellowRight, mousePoint, posImgYellowRight, yellowRight_card, BasePyramidDown, BasePiramidUp, checkfirstcollisionYellowRight, 1600, 500);
+
+
+                }
+                else if (checkfirstcollisionBlue == 0 && checkfirstcollisionRed == 0 && checkfirstcollisionYellow == 0 && checkfirstcollisionF == 0 && checkfirstcollisionBlueRight == 0 && checkfirstcollisionRedRight && checkfirstcollisionYellowRight == 0 && checkfirstcollisionFRight == 0)
+                {
+
+                    DropDown(movingBoxRedRight, mousePoint, posImgRedRight, redRight_card, BasePyramidDown, BasePiramidUp, checkfirstcollisionRedRight, 1600, 100);
+
+
+                }
+                else if (checkfirstcollisionBlue == 0 && checkfirstcollisionRed == 0 && checkfirstcollisionYellow == 0 && checkfirstcollisionF && checkfirstcollisionBlueRight == 0 && checkfirstcollisionRedRight == 0 && checkfirstcollisionYellowRight == 0 && checkfirstcollisionFRight == 0)
+                {
+
+                    DropDown(movingBoxF, mousePoint, posImgF, F_card, BasePyramidDown, BasePiramidUp, checkfirstcollisionF, 10, 700);
+
+
+                }
+                else if (checkfirstcollisionBlue == 0 && checkfirstcollisionRed == 0 && checkfirstcollisionYellow == 0 && checkfirstcollisionF == 0 && checkfirstcollisionBlueRight == 0 && checkfirstcollisionRedRight == 0 && checkfirstcollisionYellowRight == 0 && checkfirstcollisionFRight)
+                {
+
+                    DropDown(movingBoxFRight, mousePoint, posImgFRight, FRight_card, BasePyramidDown, BasePiramidUp, checkfirstcollisionFRight, 1600, 700);
 
 
                 }
                 DrawTexture(red_card, posImgRed.x, posImgRed.y, WHITE);
                 DrawTexture(blue_card, posImgBlue.x, posImgBlue.y, WHITE);
                 DrawTexture(yellow_card, posImgYellow.x, posImgYellow.y, WHITE);
+                DrawTexture(F_card, posImgF.x, posImgF.y, WHITE);
 
-                if ((CheckCollisionRecs(movingBoxRed, movingBoxBlue) || CheckCollisionRecs(movingBoxRed, movingBoxYellow) || CheckCollisionRecs(movingBoxBlue, movingBoxYellow)) && IsMouseButtonDown(MOUSE_BUTTON_LEFT))
-                {
+                DrawTexture(redRight_card, posImgRedRight.x, posImgRedRight.y, WHITE);
+                DrawTexture(blueRight_card, posImgBlueRight.x, posImgBlueRight.y, WHITE);
+                DrawTexture(yellowRight_card, posImgYellowRight.x, posImgYellowRight.y, WHITE);
+                DrawTexture(FRight_card, posImgFRight.x, posImgFRight.y, WHITE);
 
-                    if (checkfirstcollisionBlue)
-                    {
 
-                    checkfirstcollisionBlue = 1;
-                    checkfirstcollisionRed = 0;
-                    checkfirstcollisionYellow = 0;
-                    }
-                    else if (checkfirstcollisionRed)
-                    {
 
-                        checkfirstcollisionBlue = 0;
-                        checkfirstcollisionRed = 1;
-                        checkfirstcollisionYellow = 0;
-                    }
-                    else if (checkfirstcollisionYellow)
-                    {
-
-                        checkfirstcollisionBlue = 0;
-                        checkfirstcollisionRed = 0;
-                        checkfirstcollisionYellow = 1;
-                    }
-                    
-                }
             }
             else if (one)
             {
@@ -515,6 +563,91 @@ int main(void)
                     DrawText(to_string(ftAr[3]).c_str(), 1180, 425, 50, BLACK);
                     DrawText(to_string(!ftAr[3]).c_str(), 1187.5, 480, 50, BLACK);
                 }
+
+
+                if (checkfirstcollisionBlue == 0 && checkfirstcollisionRed == 0 && checkfirstcollisionYellow == 0 && checkfirstcollisionF == 0 && checkfirstcollisionBlueRight == 0 && checkfirstcollisionRedRight == 0 && checkfirstcollisionYellowRight == 0 && checkfirstcollisionFRight == 0)
+                {
+                    DropDown(movingBoxRed, mousePoint, posImgRed, red_card, BasePyramidDown, BasePiramidUp, checkfirstcollisionRed, 10, 100);
+                    DropDown(movingBoxYellow, mousePoint, posImgYellow, yellow_card, BasePyramidDown, BasePiramidUp, checkfirstcollisionYellow, 10, 500);
+                    DropDown(movingBoxBlue, mousePoint, posImgBlue, blue_card, BasePyramidDown, BasePiramidUp, checkfirstcollisionBlue, 10, 300);
+                    DropDown(movingBoxF, mousePoint, posImgF, F_card, BasePyramidDown, BasePiramidUp, checkfirstcollisionF, 10, 700);
+
+                    DropDown(movingBoxRedRight, mousePoint, posImgRedRight, redRight_card, BasePyramidDown, BasePiramidUp, checkfirstcollisionRedRight, 1600, 100);
+                    DropDown(movingBoxYellowRight, mousePoint, posImgYellowRight, yellowRight_card, BasePyramidDown, BasePiramidUp, checkfirstcollisionYellowRight, 1600, 500);
+                    DropDown(movingBoxBlueRight, mousePoint, posImgBlueRight, blueRight_card, BasePyramidDown, BasePiramidUp, checkfirstcollisionBlueRight, 1600, 300);
+                    DropDown(movingBoxFRight, mousePoint, posImgFRight, FRight_card, BasePyramidDown, BasePiramidUp, checkfirstcollisionFRight, 1600, 700);
+
+                }
+                if (checkfirstcollisionBlue == 0 && checkfirstcollisionRed && checkfirstcollisionYellow == 0 && checkfirstcollisionF == 0 && checkfirstcollisionBlueRight == 0 && checkfirstcollisionRedRight == 0 && checkfirstcollisionYellowRight == 0 && checkfirstcollisionFRight == 0)
+                {
+                    DropDown(movingBoxRed, mousePoint, posImgRed, red_card, BasePyramidDown, BasePiramidUp, checkfirstcollisionRed, 10, 100);
+
+
+
+                }
+                else if (checkfirstcollisionBlue == 0 && checkfirstcollisionRed == 0 && checkfirstcollisionYellow && checkfirstcollisionF == 0 && checkfirstcollisionBlueRight == 0 && checkfirstcollisionRedRight == 0 && checkfirstcollisionYellowRight == 0 && checkfirstcollisionFRight == 0)
+                {
+
+
+                    DropDown(movingBoxYellow, mousePoint, posImgYellow, yellow_card, BasePyramidDown, BasePiramidUp, checkfirstcollisionYellow, 10, 500);
+
+                }
+                else if (checkfirstcollisionBlue && checkfirstcollisionRed == 0 && checkfirstcollisionYellow == 0 && checkfirstcollisionF == 0 && checkfirstcollisionBlueRight == 0 && checkfirstcollisionRedRight == 0 && checkfirstcollisionYellowRight == 0 && checkfirstcollisionFRight == 0)
+                {
+
+                    DropDown(movingBoxBlue, mousePoint, posImgBlue, blue_card, BasePyramidDown, BasePiramidUp, checkfirstcollisionBlue, 10, 300);
+
+
+                }
+
+                else if (checkfirstcollisionBlue == 0 && checkfirstcollisionRed == 0 && checkfirstcollisionYellow == 0 && checkfirstcollisionF == 0 && checkfirstcollisionBlueRight && checkfirstcollisionRedRight == 0 && checkfirstcollisionYellowRight == 0 && checkfirstcollisionFRight == 0)
+                {
+
+                    DropDown(movingBoxBlueRight, mousePoint, posImgBlueRight, blueRight_card, BasePyramidDown, BasePiramidUp, checkfirstcollisionBlueRight, 1600, 300);
+
+
+                }
+                else if (checkfirstcollisionBlue == 0 && checkfirstcollisionRed == 0 && checkfirstcollisionYellow == 0 && checkfirstcollisionF == 0 && checkfirstcollisionBlueRight == 0 && checkfirstcollisionRedRight == 0 && checkfirstcollisionYellowRight && checkfirstcollisionFRight == 0)
+                {
+
+                    DropDown(movingBoxYellowRight, mousePoint, posImgYellowRight, yellowRight_card, BasePyramidDown, BasePiramidUp, checkfirstcollisionYellowRight, 1600, 500);
+
+
+                }
+                else if (checkfirstcollisionBlue == 0 && checkfirstcollisionRed == 0 && checkfirstcollisionYellow == 0 && checkfirstcollisionF == 0 && checkfirstcollisionBlueRight == 0 && checkfirstcollisionRedRight && checkfirstcollisionYellowRight == 0 && checkfirstcollisionFRight == 0)
+                {
+
+                    DropDown(movingBoxRedRight, mousePoint, posImgRedRight, redRight_card, BasePyramidDown, BasePiramidUp, checkfirstcollisionRedRight, 1600, 100);
+
+
+                }
+                else if (checkfirstcollisionBlue == 0 && checkfirstcollisionRed == 0 && checkfirstcollisionYellow == 0 && checkfirstcollisionF && checkfirstcollisionBlueRight == 0 && checkfirstcollisionRedRight == 0 && checkfirstcollisionYellowRight == 0 && checkfirstcollisionFRight == 0)
+                {
+
+                    DropDown(movingBoxF, mousePoint, posImgF, F_card, BasePyramidDown, BasePiramidUp, checkfirstcollisionF, 10, 700);
+
+
+                }
+                else if (checkfirstcollisionBlue == 0 && checkfirstcollisionRed == 0 && checkfirstcollisionYellow == 0 && checkfirstcollisionF == 0 && checkfirstcollisionBlueRight == 0 && checkfirstcollisionRedRight == 0 && checkfirstcollisionYellowRight == 0 && checkfirstcollisionFRight)
+                {
+
+                    DropDown(movingBoxFRight, mousePoint, posImgFRight, FRight_card, BasePyramidDown, BasePiramidUp, checkfirstcollisionFRight, 1600, 700);
+
+
+                }
+                DrawTexture(red_card, posImgRed.x, posImgRed.y, WHITE);
+                DrawTexture(blue_card, posImgBlue.x, posImgBlue.y, WHITE);
+                DrawTexture(yellow_card, posImgYellow.x, posImgYellow.y, WHITE);
+                DrawTexture(F_card, posImgF.x, posImgF.y, WHITE);
+
+                DrawTexture(redRight_card, posImgRedRight.x, posImgRedRight.y, WHITE);
+                DrawTexture(blueRight_card, posImgBlueRight.x, posImgBlueRight.y, WHITE);
+                DrawTexture(yellowRight_card, posImgYellowRight.x, posImgYellowRight.y, WHITE);
+                DrawTexture(FRight_card, posImgFRight.x, posImgFRight.y, WHITE);
+
+
+
+
             }
             else if (two)
             {
@@ -609,6 +742,91 @@ int main(void)
                     DrawText(to_string(ftAr[4]).c_str(), 1285, 425, 50, BLACK);
                     DrawText(to_string(!ftAr[4]).c_str(), 1292.5, 480, 50, BLACK);
                 }
+
+
+                if (checkfirstcollisionBlue == 0 && checkfirstcollisionRed == 0 && checkfirstcollisionYellow == 0 && checkfirstcollisionF == 0 && checkfirstcollisionBlueRight == 0 && checkfirstcollisionRedRight == 0 && checkfirstcollisionYellowRight == 0 && checkfirstcollisionFRight == 0)
+                {
+                    DropDown(movingBoxRed, mousePoint, posImgRed, red_card, BasePyramidDown, BasePiramidUp, checkfirstcollisionRed, 10, 100);
+                    DropDown(movingBoxYellow, mousePoint, posImgYellow, yellow_card, BasePyramidDown, BasePiramidUp, checkfirstcollisionYellow, 10, 500);
+                    DropDown(movingBoxBlue, mousePoint, posImgBlue, blue_card, BasePyramidDown, BasePiramidUp, checkfirstcollisionBlue, 10, 300);
+                    DropDown(movingBoxF, mousePoint, posImgF, F_card, BasePyramidDown, BasePiramidUp, checkfirstcollisionF, 10, 700);
+
+                    DropDown(movingBoxRedRight, mousePoint, posImgRedRight, redRight_card, BasePyramidDown, BasePiramidUp, checkfirstcollisionRedRight, 1600, 100);
+                    DropDown(movingBoxYellowRight, mousePoint, posImgYellowRight, yellowRight_card, BasePyramidDown, BasePiramidUp, checkfirstcollisionYellowRight, 1600, 500);
+                    DropDown(movingBoxBlueRight, mousePoint, posImgBlueRight, blueRight_card, BasePyramidDown, BasePiramidUp, checkfirstcollisionBlueRight, 1600, 300);
+                    DropDown(movingBoxFRight, mousePoint, posImgFRight, FRight_card, BasePyramidDown, BasePiramidUp, checkfirstcollisionFRight, 1600, 700);
+
+                }
+                if (checkfirstcollisionBlue == 0 && checkfirstcollisionRed && checkfirstcollisionYellow == 0 && checkfirstcollisionF == 0 && checkfirstcollisionBlueRight == 0 && checkfirstcollisionRedRight == 0 && checkfirstcollisionYellowRight == 0 && checkfirstcollisionFRight == 0)
+                {
+                    DropDown(movingBoxRed, mousePoint, posImgRed, red_card, BasePyramidDown, BasePiramidUp, checkfirstcollisionRed, 10, 100);
+
+
+
+                }
+                else if (checkfirstcollisionBlue == 0 && checkfirstcollisionRed == 0 && checkfirstcollisionYellow && checkfirstcollisionF == 0 && checkfirstcollisionBlueRight == 0 && checkfirstcollisionRedRight == 0 && checkfirstcollisionYellowRight == 0 && checkfirstcollisionFRight == 0)
+                {
+
+
+                    DropDown(movingBoxYellow, mousePoint, posImgYellow, yellow_card, BasePyramidDown, BasePiramidUp, checkfirstcollisionYellow, 10, 500);
+
+                }
+                else if (checkfirstcollisionBlue && checkfirstcollisionRed == 0 && checkfirstcollisionYellow == 0 && checkfirstcollisionF == 0 && checkfirstcollisionBlueRight == 0 && checkfirstcollisionRedRight == 0 && checkfirstcollisionYellowRight == 0 && checkfirstcollisionFRight == 0)
+                {
+
+                    DropDown(movingBoxBlue, mousePoint, posImgBlue, blue_card, BasePyramidDown, BasePiramidUp, checkfirstcollisionBlue, 10, 300);
+
+
+                }
+
+                else if (checkfirstcollisionBlue == 0 && checkfirstcollisionRed == 0 && checkfirstcollisionYellow == 0 && checkfirstcollisionF == 0 && checkfirstcollisionBlueRight && checkfirstcollisionRedRight == 0 && checkfirstcollisionYellowRight == 0 && checkfirstcollisionFRight == 0)
+                {
+
+                    DropDown(movingBoxBlueRight, mousePoint, posImgBlueRight, blueRight_card, BasePyramidDown, BasePiramidUp, checkfirstcollisionBlueRight, 1600, 300);
+
+
+                }
+                else if (checkfirstcollisionBlue == 0 && checkfirstcollisionRed == 0 && checkfirstcollisionYellow == 0 && checkfirstcollisionF == 0 && checkfirstcollisionBlueRight == 0 && checkfirstcollisionRedRight == 0 && checkfirstcollisionYellowRight && checkfirstcollisionFRight == 0)
+                {
+
+                    DropDown(movingBoxYellowRight, mousePoint, posImgYellowRight, yellowRight_card, BasePyramidDown, BasePiramidUp, checkfirstcollisionYellowRight, 1600, 500);
+
+
+                }
+                else if (checkfirstcollisionBlue == 0 && checkfirstcollisionRed == 0 && checkfirstcollisionYellow == 0 && checkfirstcollisionF == 0 && checkfirstcollisionBlueRight == 0 && checkfirstcollisionRedRight && checkfirstcollisionYellowRight == 0 && checkfirstcollisionFRight == 0)
+                {
+
+                    DropDown(movingBoxRedRight, mousePoint, posImgRedRight, redRight_card, BasePyramidDown, BasePiramidUp, checkfirstcollisionRedRight, 1600, 100);
+
+
+                }
+                else if (checkfirstcollisionBlue == 0 && checkfirstcollisionRed == 0 && checkfirstcollisionYellow == 0 && checkfirstcollisionF && checkfirstcollisionBlueRight == 0 && checkfirstcollisionRedRight == 0 && checkfirstcollisionYellowRight == 0 && checkfirstcollisionFRight == 0)
+                {
+
+                    DropDown(movingBoxF, mousePoint, posImgF, F_card, BasePyramidDown, BasePiramidUp, checkfirstcollisionF, 10, 700);
+
+
+                }
+                else if (checkfirstcollisionBlue == 0 && checkfirstcollisionRed == 0 && checkfirstcollisionYellow == 0 && checkfirstcollisionF == 0 && checkfirstcollisionBlueRight == 0 && checkfirstcollisionRedRight == 0 && checkfirstcollisionYellowRight == 0 && checkfirstcollisionFRight)
+                {
+
+                    DropDown(movingBoxFRight, mousePoint, posImgFRight, FRight_card, BasePyramidDown, BasePiramidUp, checkfirstcollisionFRight, 1600, 700);
+
+
+                }
+                DrawTexture(red_card, posImgRed.x, posImgRed.y, WHITE);
+                DrawTexture(blue_card, posImgBlue.x, posImgBlue.y, WHITE);
+                DrawTexture(yellow_card, posImgYellow.x, posImgYellow.y, WHITE);
+                DrawTexture(F_card, posImgF.x, posImgF.y, WHITE);
+
+                DrawTexture(redRight_card, posImgRedRight.x, posImgRedRight.y, WHITE);
+                DrawTexture(blueRight_card, posImgBlueRight.x, posImgBlueRight.y, WHITE);
+                DrawTexture(yellowRight_card, posImgYellowRight.x, posImgYellowRight.y, WHITE);
+                DrawTexture(FRight_card, posImgFRight.x, posImgFRight.y, WHITE);
+
+
+
+
             }
             else if (three)
             {
@@ -716,6 +934,90 @@ int main(void)
                     DrawText(to_string(ftAr[5]).c_str(), 1390, 425, 50, BLACK);
                     DrawText(to_string(!ftAr[5]).c_str(), 1397.5, 480, 50, BLACK);
                 }
+
+                if (checkfirstcollisionBlue == 0 && checkfirstcollisionRed == 0 && checkfirstcollisionYellow == 0 && checkfirstcollisionF == 0 && checkfirstcollisionBlueRight == 0 && checkfirstcollisionRedRight == 0 && checkfirstcollisionYellowRight == 0 && checkfirstcollisionFRight == 0)
+                {
+                    DropDown(movingBoxRed, mousePoint, posImgRed, red_card, BasePyramidDown, BasePiramidUp, checkfirstcollisionRed, 10, 100);
+                    DropDown(movingBoxYellow, mousePoint, posImgYellow, yellow_card, BasePyramidDown, BasePiramidUp, checkfirstcollisionYellow, 10, 500);
+                    DropDown(movingBoxBlue, mousePoint, posImgBlue, blue_card, BasePyramidDown, BasePiramidUp, checkfirstcollisionBlue, 10, 300);
+                    DropDown(movingBoxF, mousePoint, posImgF, F_card, BasePyramidDown, BasePiramidUp, checkfirstcollisionF, 10, 700);
+
+                    DropDown(movingBoxRedRight, mousePoint, posImgRedRight, redRight_card, BasePyramidDown, BasePiramidUp, checkfirstcollisionRedRight, 1600, 100);
+                    DropDown(movingBoxYellowRight, mousePoint, posImgYellowRight, yellowRight_card, BasePyramidDown, BasePiramidUp, checkfirstcollisionYellowRight, 1600, 500);
+                    DropDown(movingBoxBlueRight, mousePoint, posImgBlueRight, blueRight_card, BasePyramidDown, BasePiramidUp, checkfirstcollisionBlueRight, 1600, 300);
+                    DropDown(movingBoxFRight, mousePoint, posImgFRight, FRight_card, BasePyramidDown, BasePiramidUp, checkfirstcollisionFRight, 1600, 700);
+
+                }
+                if (checkfirstcollisionBlue == 0 && checkfirstcollisionRed && checkfirstcollisionYellow == 0 && checkfirstcollisionF == 0 && checkfirstcollisionBlueRight == 0 && checkfirstcollisionRedRight == 0 && checkfirstcollisionYellowRight == 0 && checkfirstcollisionFRight == 0)
+                {
+                    DropDown(movingBoxRed, mousePoint, posImgRed, red_card, BasePyramidDown, BasePiramidUp, checkfirstcollisionRed, 10, 100);
+
+
+
+                }
+                else if (checkfirstcollisionBlue == 0 && checkfirstcollisionRed == 0 && checkfirstcollisionYellow && checkfirstcollisionF == 0 && checkfirstcollisionBlueRight == 0 && checkfirstcollisionRedRight == 0 && checkfirstcollisionYellowRight == 0 && checkfirstcollisionFRight == 0)
+                {
+
+
+                    DropDown(movingBoxYellow, mousePoint, posImgYellow, yellow_card, BasePyramidDown, BasePiramidUp, checkfirstcollisionYellow, 10, 500);
+
+                }
+                else if (checkfirstcollisionBlue && checkfirstcollisionRed == 0 && checkfirstcollisionYellow == 0 && checkfirstcollisionF == 0 && checkfirstcollisionBlueRight == 0 && checkfirstcollisionRedRight == 0 && checkfirstcollisionYellowRight == 0 && checkfirstcollisionFRight == 0)
+                {
+
+                    DropDown(movingBoxBlue, mousePoint, posImgBlue, blue_card, BasePyramidDown, BasePiramidUp, checkfirstcollisionBlue, 10, 300);
+
+
+                }
+
+                else if (checkfirstcollisionBlue == 0 && checkfirstcollisionRed == 0 && checkfirstcollisionYellow == 0 && checkfirstcollisionF == 0 && checkfirstcollisionBlueRight && checkfirstcollisionRedRight == 0 && checkfirstcollisionYellowRight == 0 && checkfirstcollisionFRight == 0)
+                {
+
+                    DropDown(movingBoxBlueRight, mousePoint, posImgBlueRight, blueRight_card, BasePyramidDown, BasePiramidUp, checkfirstcollisionBlueRight, 1600, 300);
+
+
+                }
+                else if (checkfirstcollisionBlue == 0 && checkfirstcollisionRed == 0 && checkfirstcollisionYellow == 0 && checkfirstcollisionF == 0 && checkfirstcollisionBlueRight == 0 && checkfirstcollisionRedRight == 0 && checkfirstcollisionYellowRight && checkfirstcollisionFRight == 0)
+                {
+
+                    DropDown(movingBoxYellowRight, mousePoint, posImgYellowRight, yellowRight_card, BasePyramidDown, BasePiramidUp, checkfirstcollisionYellowRight, 1600, 500);
+
+
+                }
+                else if (checkfirstcollisionBlue == 0 && checkfirstcollisionRed == 0 && checkfirstcollisionYellow == 0 && checkfirstcollisionF == 0 && checkfirstcollisionBlueRight == 0 && checkfirstcollisionRedRight && checkfirstcollisionYellowRight == 0 && checkfirstcollisionFRight == 0)
+                {
+
+                    DropDown(movingBoxRedRight, mousePoint, posImgRedRight, redRight_card, BasePyramidDown, BasePiramidUp, checkfirstcollisionRedRight, 1600, 100);
+
+
+                }
+                else if (checkfirstcollisionBlue == 0 && checkfirstcollisionRed == 0 && checkfirstcollisionYellow == 0 && checkfirstcollisionF && checkfirstcollisionBlueRight == 0 && checkfirstcollisionRedRight == 0 && checkfirstcollisionYellowRight == 0 && checkfirstcollisionFRight == 0)
+                {
+
+                    DropDown(movingBoxF, mousePoint, posImgF, F_card, BasePyramidDown, BasePiramidUp, checkfirstcollisionF, 10, 700);
+
+
+                }
+                else if (checkfirstcollisionBlue == 0 && checkfirstcollisionRed == 0 && checkfirstcollisionYellow == 0 && checkfirstcollisionF == 0 && checkfirstcollisionBlueRight == 0 && checkfirstcollisionRedRight == 0 && checkfirstcollisionYellowRight == 0 && checkfirstcollisionFRight)
+                {
+
+                    DropDown(movingBoxFRight, mousePoint, posImgFRight, FRight_card, BasePyramidDown, BasePiramidUp, checkfirstcollisionFRight, 1600, 700);
+
+
+                }
+                DrawTexture(red_card, posImgRed.x, posImgRed.y, WHITE);
+                DrawTexture(blue_card, posImgBlue.x, posImgBlue.y, WHITE);
+                DrawTexture(yellow_card, posImgYellow.x, posImgYellow.y, WHITE);
+                DrawTexture(F_card, posImgF.x, posImgF.y, WHITE);
+
+                DrawTexture(redRight_card, posImgRedRight.x, posImgRedRight.y, WHITE);
+                DrawTexture(blueRight_card, posImgBlueRight.x, posImgBlueRight.y, WHITE);
+                DrawTexture(yellowRight_card, posImgYellowRight.x, posImgYellowRight.y, WHITE);
+                DrawTexture(FRight_card, posImgFRight.x, posImgFRight.y, WHITE);
+
+
+
+
             }
         }
         else if (menuTwo)
