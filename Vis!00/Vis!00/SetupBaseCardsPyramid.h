@@ -58,35 +58,35 @@ void SetupDown(vector<Rectangle>& basePyramidcard)
         int i = 0;
         for (i; i < 4; i++)
         {
-            basePyramidcard[i].x = 470 + 80 + i * 210;
-            basePyramidcard[i].y = 420 + 120;
-            basePyramidcard[i].width = 70;
-            basePyramidcard[i].height = 70;
+            basePyramidcard[i].x = 555 + i * 200;
+            basePyramidcard[i].y = 550;
+            basePyramidcard[i].width = 80;
+            basePyramidcard[i].height = 100;
         }
         for (i; i < 7; i++)
         {
-            basePyramidcard[i].x = 470 + 80 + 80 + counter * 210;
-            basePyramidcard[i].y = 420 + 120 + 80;
-            basePyramidcard[i].width = 70;
-            basePyramidcard[i].height = 70;
+            basePyramidcard[i].x = 650 + counter * 200;
+            basePyramidcard[i].y = 660;
+            basePyramidcard[i].width = 80;
+            basePyramidcard[i].height = 100;
             counter++;
         }
         counter = 0;
         for (i; i < 9; i++)
         {
-            basePyramidcard[i].x = 470 + 80 + 80 + 80 + counter * 210;
-            basePyramidcard[i].y = 420 + 120 + 80 + 80;
-            basePyramidcard[i].width = 70;
-            basePyramidcard[i].height = 70;
+            basePyramidcard[i].x = 750 + counter * 200;
+            basePyramidcard[i].y = 770;
+            basePyramidcard[i].width = 80;
+            basePyramidcard[i].height = 100;
             counter++;
         }
         counter = 0;
         if (i == 9)
         {
-            basePyramidcard[i].x = 470 + 80 + 80 + 80 + 80;
-            basePyramidcard[i].y = 420 + 120 + 80 + 80 + 80;
-            basePyramidcard[i].width = 70;
-            basePyramidcard[i].height = 70;
+            basePyramidcard[i].x = 850;
+            basePyramidcard[i].y = 880;
+            basePyramidcard[i].width = 80;
+            basePyramidcard[i].height = 100;
         }
         break;
     }
@@ -96,14 +96,14 @@ void SetupDown(vector<Rectangle>& basePyramidcard)
         int i = 0;
         for (i; i < 5; i++)
         {
-            basePyramidcard[i].x = 358 + 80 + i * 210;
+            basePyramidcard[i].x = 465 + i * 200;
             basePyramidcard[i].y = 420 + 120;
             basePyramidcard[i].width = 70;
             basePyramidcard[i].height = 70;
         }
         for (i; i < 9; i++)
         {
-            basePyramidcard[i].x = 358 + 80 + 80 + counter * 210;
+            basePyramidcard[i].x = 565 + counter * 200;
             basePyramidcard[i].y = 420 + 120 + 80;
             basePyramidcard[i].width = 70;
             basePyramidcard[i].height = 70;
@@ -112,7 +112,7 @@ void SetupDown(vector<Rectangle>& basePyramidcard)
         counter = 0;
         for (i; i < 12; i++)
         {
-            basePyramidcard[i].x = 358 + 80 + 80 + 80 + counter * 210;
+            basePyramidcard[i].x = 665 + counter * 200;
             basePyramidcard[i].y = 420 + 120 + 80 + 80;
             basePyramidcard[i].width = 70;
             basePyramidcard[i].height = 70;
@@ -121,7 +121,7 @@ void SetupDown(vector<Rectangle>& basePyramidcard)
         counter = 0;
         for (i; i < 14; i++)
         {
-            basePyramidcard[i].x = 358 + 80 + 80 + 80 + 80 + counter * 210;
+            basePyramidcard[i].x = 765 + counter * 200;
             basePyramidcard[i].y = 420 + 120 + 80 + 80 + 80;
             basePyramidcard[i].width = 70;
             basePyramidcard[i].height = 70;
@@ -130,7 +130,7 @@ void SetupDown(vector<Rectangle>& basePyramidcard)
         counter = 0;
         if (i == 14)
         {
-            basePyramidcard[i].x = 358 + 80 + 80 + 80 + 80 + 80;
+            basePyramidcard[i].x = 865;
             basePyramidcard[i].y = 420 + 120 + 80 + 80 + 80 + 80;
             basePyramidcard[i].width = 70;
             basePyramidcard[i].height = 70;
@@ -202,14 +202,14 @@ void SetupUp(vector<Rectangle>& basePyramidcard)
         for (i; i < 4; i++)
         {
             basePyramidcard[i].x = 555 + i * 200;
-            basePyramidcard[i].y = 320;
+            basePyramidcard[i].y = 330;
             basePyramidcard[i].width = 80;
             basePyramidcard[i].height = 100;
         }
         for (i; i < 7; i++)
         {
-            basePyramidcard[i].x = 450 + 80 + 80 + counter * 200;
-            basePyramidcard[i].y = 220;
+            basePyramidcard[i].x = 650 + counter * 200;
+            basePyramidcard[i].y = 222.5;
             basePyramidcard[i].width = 80;
             basePyramidcard[i].height = 100;
             counter++;
@@ -217,8 +217,8 @@ void SetupUp(vector<Rectangle>& basePyramidcard)
         counter = 0;
         for (i; i < 9; i++)
         {
-            basePyramidcard[i].x = 450 + 80 + 80 + 80 + counter * 200;
-            basePyramidcard[i].y = 120;
+            basePyramidcard[i].x = 750 + counter * 200;
+            basePyramidcard[i].y = 115;
             basePyramidcard[i].width = 80;
             basePyramidcard[i].height = 100;
             counter++;
@@ -226,8 +226,8 @@ void SetupUp(vector<Rectangle>& basePyramidcard)
         counter = 0;
         if (i == 9)
         {
-            basePyramidcard[i].x = 450 + 80 + 80 + 80 + 80;
-            basePyramidcard[i].y =10;
+            basePyramidcard[i].x = 850;
+            basePyramidcard[i].y =7.5;
             basePyramidcard[i].width = 80;
             basePyramidcard[i].height = 100;
         }
@@ -239,14 +239,14 @@ void SetupUp(vector<Rectangle>& basePyramidcard)
         int i = 0;
         for (i; i < 5; i++)
         {
-            basePyramidcard[i].x = 358 + 80 + i * 210;
+            basePyramidcard[i].x = 465 + i * 200;
             basePyramidcard[i].y = 420 - 90;
             basePyramidcard[i].width = 70;
             basePyramidcard[i].height = 70;
         }
         for (i; i < 9; i++)
         {
-            basePyramidcard[i].x = 358 + 80 + 80 + counter * 210;
+            basePyramidcard[i].x = 565 + counter * 200;
             basePyramidcard[i].y = 420 - 90 - 80;
             basePyramidcard[i].width = 70;
             basePyramidcard[i].height = 70;
@@ -255,7 +255,7 @@ void SetupUp(vector<Rectangle>& basePyramidcard)
         counter = 0;
         for (i; i < 12; i++)
         {
-            basePyramidcard[i].x = 358 + 80 + 80 + 80 + counter * 210;
+            basePyramidcard[i].x = 665 + counter * 200;
             basePyramidcard[i].y = 420 - 90 - 80 - 80;
             basePyramidcard[i].width = 70;
             basePyramidcard[i].height = 70;
@@ -264,7 +264,7 @@ void SetupUp(vector<Rectangle>& basePyramidcard)
         counter = 0;
         for (i; i < 14; i++)
         {
-            basePyramidcard[i].x = 358 + 80 + 80 + 80 + 80 + counter * 210;
+            basePyramidcard[i].x = 765 + counter * 200;
             basePyramidcard[i].y = 420 - 90 - 80 - 80 - 80;
             basePyramidcard[i].width = 70;
             basePyramidcard[i].height = 70;
@@ -273,7 +273,7 @@ void SetupUp(vector<Rectangle>& basePyramidcard)
         counter = 0;
         if (i == 14)
         {
-            basePyramidcard[i].x = 358 + 80 + 80 + 80 + 80 + 80;
+            basePyramidcard[i].x = 865;
             basePyramidcard[i].y = 420 - 90 - 80 - 80 - 80 - 80;
             basePyramidcard[i].width = 70;
             basePyramidcard[i].height = 70;

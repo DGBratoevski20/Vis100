@@ -777,57 +777,57 @@ int main(void)
 
                 if (ftAr[0])
                 {
-                    DrawText(to_string(ftAr[0]).c_str(), 492.5, 425, 50, BLACK);
-                    DrawText(to_string(!ftAr[0]).c_str(), 485, 480, 50, BLACK);
+                    DrawText(to_string(ftAr[0]).c_str(), 492.5, 440, 50, BLACK);
+                    DrawText(to_string(!ftAr[0]).c_str(), 485, 495, 50, BLACK);
                 }
                 else
                 {
-                    DrawText(to_string(ftAr[0]).c_str(), 485, 425, 50, BLACK);
-                    DrawText(to_string(!ftAr[0]).c_str(), 492.5, 480, 50, BLACK);
+                    DrawText(to_string(ftAr[0]).c_str(), 485, 440, 50, BLACK);
+                    DrawText(to_string(!ftAr[0]).c_str(), 492.5, 495, 50, BLACK);
                 }
 
                 if (ftAr[1])
                 {
-                    DrawText(to_string(ftAr[1]).c_str(), 692.5, 425, 50, BLACK);
-                    DrawText(to_string(!ftAr[1]).c_str(), 685, 480, 50, BLACK);
+                    DrawText(to_string(ftAr[1]).c_str(), 692.5, 440, 50, BLACK);
+                    DrawText(to_string(!ftAr[1]).c_str(), 685, 495, 50, BLACK);
                 }
                 else
                 {
-                    DrawText(to_string(ftAr[1]).c_str(), 685, 425, 50, BLACK);
-                    DrawText(to_string(!ftAr[1]).c_str(), 692.5, 480, 50, BLACK);
+                    DrawText(to_string(ftAr[1]).c_str(), 685, 440, 50, BLACK);
+                    DrawText(to_string(!ftAr[1]).c_str(), 692.5, 495, 50, BLACK);
                 }
 
                 if (ftAr[2])
                 {
-                    DrawText(to_string(ftAr[2]).c_str(), 892.5, 425, 50, BLACK);
-                    DrawText(to_string(!ftAr[2]).c_str(), 885, 480, 50, BLACK);
+                    DrawText(to_string(ftAr[2]).c_str(), 892.5, 440, 50, BLACK);
+                    DrawText(to_string(!ftAr[2]).c_str(), 885, 495, 50, BLACK);
                 }
                 else
                 {
-                    DrawText(to_string(ftAr[2]).c_str(), 885, 425, 50, BLACK);
-                    DrawText(to_string(!ftAr[2]).c_str(), 892.5, 480, 50, BLACK);
+                    DrawText(to_string(ftAr[2]).c_str(), 885, 440, 50, BLACK);
+                    DrawText(to_string(!ftAr[2]).c_str(), 892.5, 495, 50, BLACK);
                 }
 
                 if (ftAr[3])
                 {
-                    DrawText(to_string(ftAr[3]).c_str(), 1092.5, 425, 50, BLACK);
-                    DrawText(to_string(!ftAr[3]).c_str(), 1085, 480, 50, BLACK);
+                    DrawText(to_string(ftAr[3]).c_str(), 1092.5, 440, 50, BLACK);
+                    DrawText(to_string(!ftAr[3]).c_str(), 1085, 495, 50, BLACK);
                 }
                 else
                 {
-                    DrawText(to_string(ftAr[3]).c_str(), 1085, 425, 50, BLACK);
-                    DrawText(to_string(!ftAr[3]).c_str(), 1092.5, 480, 50, BLACK);
+                    DrawText(to_string(ftAr[3]).c_str(), 1085, 440, 50, BLACK);
+                    DrawText(to_string(!ftAr[3]).c_str(), 1092.5, 495, 50, BLACK);
                 }
 
                 if (ftAr[4])
                 {
-                    DrawText(to_string(ftAr[4]).c_str(), 1292.5, 425, 50, BLACK);
-                    DrawText(to_string(!ftAr[4]).c_str(), 1285, 480, 50, BLACK);
+                    DrawText(to_string(ftAr[4]).c_str(), 1292.5, 440, 50, BLACK);
+                    DrawText(to_string(!ftAr[4]).c_str(), 1285, 495, 50, BLACK);
                 }
                 else
                 {
-                    DrawText(to_string(ftAr[4]).c_str(), 1285, 425, 50, BLACK);
-                    DrawText(to_string(!ftAr[4]).c_str(), 1292.5, 480, 50, BLACK);
+                    DrawText(to_string(ftAr[4]).c_str(), 1285, 440, 50, BLACK);
+                    DrawText(to_string(!ftAr[4]).c_str(), 1292.5, 495, 50, BLACK);
                 }
 
                 Filled(BasePyramidDown, BasePyramidUp, movingBoxRed, movingBoxBlue, movingBoxYellow, movingBoxF, movingBoxRedRight, movingBoxBlueRight, movingBoxYellowRight, movingBoxFRight, filled);
