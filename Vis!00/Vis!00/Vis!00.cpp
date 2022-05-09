@@ -1444,14 +1444,30 @@ int main(void)
         {
             checker = 0;
             Rectangle arr[4];
+            Rectangle arr2[4];
+            Rectangle arr3[2];
             for (int i = 0; i < 4; i++)
             {
-                arr[i].x = 506+i*100;
-                arr[i].y = 220;
-                arr[i].width = 50;
-                arr[i].height = 80;
+                arr[i].x = 737.5 +i * 100;
+                arr[i].y = 260;
+                arr[i].width = 38;
+                arr[i].height = 38;
+
+                arr2[i].x = 737.5 + i * 100;
+                arr2[i].y = 420;
+                arr2[i].width = 38;
+                arr2[i].height = 38;
+
+            }
+            for (int i = 0; i < 2; i++)
+            {
+                arr3[i].x = 806 + i * 140;
+                arr3[i].y = 600;
+                arr3[i].width = 38;
+                arr3[i].height = 38;
             }
 
+            //225, 420, 90, 105 
             DrawRectangleRec(hide, LIGHTGRAY);
             DrawText("Settings:", 650, 25, 125, VIOLET);
 
@@ -1461,55 +1477,78 @@ int main(void)
             DrawText("60 FPS", 815, 220, 20, BLACK);
             DrawText("120 FPS", 915, 220, 20, BLACK);
             DrawText("240 FPS", 1015, 220, 20, BLACK);
+            DrawRectangle((int)BaseCards.x + 506.5, (int)BaseCards.y - 165, (int)BaseCards.width - 41, (int)BaseCards.height - 56, BLACK);
+            DrawRectangle((int)BaseCards.x + 606.5, (int)BaseCards.y - 165, (int)BaseCards.width - 41, (int)BaseCards.height - 56, BLACK);
+            DrawRectangle((int)BaseCards.x + 706.5, (int)BaseCards.y - 165, (int)BaseCards.width - 41, (int)BaseCards.height - 56, BLACK);
+            DrawRectangle((int)BaseCards.x + 806.5, (int)BaseCards.y - 165, (int)BaseCards.width - 41, (int)BaseCards.height - 56, BLACK);
             for (int i = 0; i < 4; i++)
             {
-                DrawRectangleRec(arr[i], BLACK);
+                DrawRectangleRec(arr[i], DARKGRAY);
+                if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointRec(mousePoint, arr[i]))
+                {
+                    //needs to be added fps changer and texture
+                }
             }
-            // if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointRec(mousePoint, arr[i])
-            // {
-            // 
-            // }
-            //DrawRectangle((int)BaseCards.x + 506.5, (int)BaseCards.y - 165, (int)BaseCards.width - 41, (int)BaseCards.height - 56, BLACK);
-            //DrawRectangle((int)BaseCards.x + 606.5, (int)BaseCards.y - 165, (int)BaseCards.width - 41, (int)BaseCards.height - 56, BLACK);
-            //DrawRectangle((int)BaseCards.x + 706.5, (int)BaseCards.y - 165, (int)BaseCards.width - 41, (int)BaseCards.height - 56, BLACK);
-            //DrawRectangle((int)BaseCards.x + 806.5, (int)BaseCards.y - 165, (int)BaseCards.width - 41, (int)BaseCards.height - 56, BLACK);
-
-            //DrawRectangle((int)BaseCards.x + 512.5, (int)BaseCards.y - 160, (int)BaseCards.width - 52, (int)BaseCards.height - 67, DARKGRAY);
-            //DrawRectangle((int)BaseCards.x + 612.5, (int)BaseCards.y - 160, (int)BaseCards.width - 52, (int)BaseCards.height - 67, DARKGRAY);
-            //DrawRectangle((int)BaseCards.x + 712.5, (int)BaseCards.y - 160, (int)BaseCards.width - 52, (int)BaseCards.height - 67, DARKGRAY);
-            //DrawRectangle((int)BaseCards.x + 812.5, (int)BaseCards.y - 160, (int)BaseCards.width - 52, (int)BaseCards.height - 67, DARKGRAY);
 
             DrawText("Choose your mode:", 675, 320, 50, BLACK);
-
-            DrawText("Normal", 715, 380, 20, BLACK);
-            DrawText("Old", 825, 380, 20, BLACK);
-            DrawText("Modern", 902, 380, 20, BLACK);
+            DrawText("Normal", 722.5, 380, 20, BLACK);
+            DrawText("Old", 840.5, 380, 20, BLACK);
+            DrawText("Modern", 920, 380, 20, BLACK);
             DrawText("Colorblind", 1009, 380, 20, BLACK);
 
-            DrawRectangle((int)BaseCards.x + 499.5, (int)BaseCards.y - 5, (int)BaseCards.width - 41, (int)BaseCards.height - 56, BLACK);
-            DrawRectangle((int)BaseCards.x + 594.5, (int)BaseCards.y - 5, (int)BaseCards.width - 41, (int)BaseCards.height - 56, BLACK);
-            DrawRectangle((int)BaseCards.x + 692.5, (int)BaseCards.y - 5, (int)BaseCards.width - 41, (int)BaseCards.height - 56, BLACK);
-            DrawRectangle((int)BaseCards.x + 794.5, (int)BaseCards.y - 5, (int)BaseCards.width - 41, (int)BaseCards.height - 56, BLACK);
+            DrawRectangle((int)BaseCards.x + 506.5, (int)BaseCards.y - 5, (int)BaseCards.width - 41, (int)BaseCards.height - 56, BLACK);
+            DrawRectangle((int)BaseCards.x + 606.5, (int)BaseCards.y - 5, (int)BaseCards.width - 41, (int)BaseCards.height - 56, BLACK);
+            DrawRectangle((int)BaseCards.x + 706.5, (int)BaseCards.y - 5, (int)BaseCards.width - 41, (int)BaseCards.height - 56, BLACK);
+            DrawRectangle((int)BaseCards.x + 806.5, (int)BaseCards.y - 5, (int)BaseCards.width - 41, (int)BaseCards.height - 56, BLACK);
+            for (int i = 0; i < 4; i++)
+            {
+                DrawRectangleRec(arr2[i], DARKGRAY);
+                if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointRec(mousePoint, arr2[i]))
+                {
+                    //needs to be added color mode changer and texture
+                }
+            }
 
-            DrawRectangle((int)BaseCards.x + 505.5, (int)BaseCards.y, (int)BaseCards.width - 52, (int)BaseCards.height - 67, DARKGRAY);
-            DrawRectangle((int)BaseCards.x + 600.5, (int)BaseCards.y, (int)BaseCards.width - 52, (int)BaseCards.height - 67, DARKGRAY);
-            DrawRectangle((int)BaseCards.x + 698.5, (int)BaseCards.y, (int)BaseCards.width - 52, (int)BaseCards.height - 67, DARKGRAY);
-            DrawRectangle((int)BaseCards.x + 800.5, (int)BaseCards.y, (int)BaseCards.width - 52, (int)BaseCards.height - 67, DARKGRAY);
 
+            DrawText("Show FPS:", 775, 500, 50, BLACK);
+            
+            DrawText("YES", 805, 560.5, 20, BLACK);
+            DrawText("NO", 950, 560.5, 20, BLACK);
+
+            DrawRectangle((int)BaseCards.x + 575, (int)BaseCards.y + 175, (int)BaseCards.width - 41, (int)BaseCards.height - 56, BLACK);
+            DrawRectangle((int)BaseCards.x + 715, (int)BaseCards.y + 175, (int)BaseCards.width - 41, (int)BaseCards.height - 56, BLACK);
+            for (int i = 0; i < 2; i++)
+            {
+                DrawRectangleRec(arr3[i], DARKGRAY);
+                if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointRec(mousePoint, arr3[i]))
+                {
+                    //needs to be added fps shower and texture
+                }
+            }
         }
         else if (menuThree)
         {
             checker = 0;
             DrawRectangleRec(hide, LIGHTGRAY);
             DrawText("The rules of the game:", 200, 25, 125, VIOLET);
-            DrawText("Some text...", 200, 160, 50, BLACK);
-            DrawText("Some text...", 200, 260, 50, BLACK);
-            DrawText("Some text...", 200, 360, 50, BLACK);
-            DrawText("Some text...", 200, 460, 50, BLACK);
-            DrawText("Some text...", 200, 560, 50, BLACK);
-            DrawText("Some text...", 200, 660, 50, BLACK);
-            DrawText("Some text...", 200, 760, 50, BLACK);
-            DrawText("Some text...", 200, 860, 50, BLACK);
+            DrawText("Some text...", 200, 160, 25, BLACK);
+            DrawText("Some text...", 200, 210, 25, BLACK);
+            DrawText("Some text...", 200, 260, 25, BLACK);
+            DrawText("Some text...", 200, 310, 25, BLACK);
+            DrawText("Some text...", 200, 360, 25, BLACK);
+            DrawText("Some text...", 200, 410, 25, BLACK);
+            DrawText("Some text...", 200, 460, 25, BLACK);
+            DrawText("Some text...", 200, 510, 25, BLACK);
+            DrawText("Some text...", 200, 560, 25, BLACK);
+            DrawText("Some text...", 200, 610, 25, BLACK);
+            DrawText("Some text...", 200, 660, 25, BLACK);
+            DrawText("Some text...", 200, 710, 25, BLACK);
+            DrawText("Some text...", 200, 760, 25, BLACK);
+            DrawText("Some text...", 200, 810, 25, BLACK);
+            DrawText("Some text...", 200, 860, 25, BLACK);
+            DrawText("Some text...", 200, 910, 25, BLACK);
+            DrawText("Some text...", 200, 960, 25, BLACK);
+
         }
         else if (menuOne)
         {
