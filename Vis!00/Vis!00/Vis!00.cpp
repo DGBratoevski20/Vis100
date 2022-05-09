@@ -8,19 +8,178 @@ void Filled(vector<Rectangle> &baseDown, vector<Rectangle>& baseUp, Rectangle&mo
         if ((CheckCollisionRecs(baseDown[i], movingRed) && baseDown[i].width == movingRed.width) || (CheckCollisionRecs(baseDown[i], movingBlue) && baseDown[i].width == movingBlue.width) || (CheckCollisionRecs(baseDown[i], movingYellow) && baseDown[i].width == movingYellow.width) || (CheckCollisionRecs(baseDown[i], movingF) && baseDown[i].width == movingF.width) || (CheckCollisionRecs(baseDown[i], movingRedRight) && baseDown[i].width == movingRedRight.width) || (CheckCollisionRecs(baseDown[i], movingYellowRight) && baseDown[i].width == movingYellowRight.width) || (CheckCollisionRecs(baseDown[i], movingBlueRight) && baseDown[i].width == movingBlueRight.width) || (CheckCollisionRecs(baseDown[i], movingFRight) && baseDown[i].width == movingFRight.width))
         {
             filledDown[i] = 1;
+            cout << "Down" << endl;
         }
-        else if ((CheckCollisionRecs(baseUp[i], movingRed) && baseUp[i].width == movingRed.width) || (CheckCollisionRecs(baseUp[i], movingBlue) && baseUp[i].width == movingBlue.width) || (CheckCollisionRecs(baseUp[i], movingYellow) && baseUp[i].width == movingYellow.width) || (CheckCollisionRecs(baseUp[i], movingF) && baseUp[i].width == movingF.width) || (CheckCollisionRecs(baseUp[i], movingRedRight) && baseUp[i].width == movingRedRight.width) || (CheckCollisionRecs(baseUp[i], movingYellowRight) && baseUp[i].width == movingYellowRight.width) || (CheckCollisionRecs(baseUp[i], movingBlueRight) && baseUp[i].width == movingBlueRight.width) || (CheckCollisionRecs(baseUp[i], movingFRight) && baseUp[i].width == movingFRight.width))
+        else{
+            
+            filledDown[i] = 0;
+        }
+    }
+    for (int i = 0; i < baseDown.size(); i++)
+    {
+        if ((CheckCollisionRecs(baseUp[i], movingRed) && baseUp[i].width == movingRed.width) || (CheckCollisionRecs(baseUp[i], movingBlue) && baseUp[i].width == movingBlue.width) || (CheckCollisionRecs(baseUp[i], movingYellow) && baseUp[i].width == movingYellow.width) || (CheckCollisionRecs(baseUp[i], movingF) && baseUp[i].width == movingF.width) || (CheckCollisionRecs(baseUp[i], movingRedRight) && baseUp[i].width == movingRedRight.width) || (CheckCollisionRecs(baseUp[i], movingYellowRight) && baseUp[i].width == movingYellowRight.width) || (CheckCollisionRecs(baseUp[i], movingBlueRight) && baseUp[i].width == movingBlueRight.width) || (CheckCollisionRecs(baseUp[i], movingFRight) && baseUp[i].width == movingFRight.width))
         {
             filledUp[i] = 1;
+            cout << "Up" << endl;
         }
         else{
             filledUp[i] = 0;
-            filledDown[i] = 0;
         }
+    }
+    
+
+}
+void checkTwoCardsFilled(vector<bool> &fDown, vector<bool> &fUp, int size)
+{
+    
+    for (int i = fDown.size() - 1; i > size; i--)
+    {
+        
+        int diff = fDown.size() - i;
+        cout << diff;
+        if(diff == 1)
+        {
+            if (fDown[i - 2] && fDown[i - 1])
+            {
+                
+                fDown[i] = 0;
+                
+            }
+            else
+            {
+                cout << "H";
+                fDown[i] = 1;
+            }
+
+           
+        }
+        else if(diff > 1 && diff < 4)
+        {
+            if (fDown[i - 3] && fDown[i - 2])
+            {
+                fDown[i] = 0;
+
+            }
+            else
+            {
+                cout << "H";
+                fDown[i] = 1;
+            }
+
+            
+           
+
+        }
+        else if (diff > 3 && diff < 7)
+        {
+            if (fDown[i - 4] && fDown[i - 3])
+            {
+                fDown[i] = 0;
+
+            }
+            else
+            {
+                cout << "H";
+                fDown[i] = 1;
+            }
+
+            
+
+        }
+        else if(diff > 6 && diff < 11)
+        {
+            if (fDown[i - 5] && fDown[i - 4])
+            {
+                fDown[i] = 0;
+
+            }
+            else
+            {
+
+                fDown[i] = 1;
+            }
+
+            
+           
+        }
+
+        
+    }
+    for (int i = fDown.size() - 1; i > size; i--)
+    {
+        int diff = fDown.size() - i;
+
+        if (diff == 1)
+        {
+            if (fUp[i - 2] && fUp[i - 1])
+            {
+                fUp[i] = 0;
+
+            }
+            else
+            {
+
+                fUp[i] = 1;
+            }
+
+
+        }
+        else if (diff > 1 && diff < 4)
+        {
+            if (fUp[i - 3] && fUp[i - 2])
+            {
+                fUp[i] = 0;
+
+            }
+            else
+            {
+
+                fUp[i] = 1;
+            }
+
+
+
+
+        }
+        else if (diff > 3 && diff < 7)
+        {
+            if (fUp[i - 4] && fUp[i - 3])
+            {
+                fUp[i] = 0;
+
+            }
+            else
+            {
+
+                fUp[i] = 1;
+            }
+
+
+
+        }
+        else if (diff > 6 && diff < 11)
+        {
+            if (fUp[i - 5] && fUp[i - 4])
+            {
+                fUp[i] = 0;
+
+            }
+            else
+            {
+
+                fUp[i] = 1;
+            }
+
+
+
+        }
+
+
     }
 }
 Color playerLeftColor = GRAY;
 Color playerRightColor = LIGHTGRAY;
+
 void DropDown(Rectangle& moving, Vector2& mPoint, Vector2& posPoint, Texture2D& texture, vector<Rectangle>& downPy, vector<Rectangle>& upPy, bool& checkcoll, int startX, int startY, vector<bool> &fillDown,vector<bool> fillUp, bool checkTurn)
 {
 
@@ -45,15 +204,34 @@ void DropDown(Rectangle& moving, Vector2& mPoint, Vector2& posPoint, Texture2D& 
         }
         else if (IsMouseButtonReleased(MOUSE_BUTTON_LEFT))
         {
+            if (ColorToInt(playerLeftColor) == -926365441)
+            {
+                
+                for (int i = 0; i < fillDown.size(); i++)
+                {
+                    fillDown[i] = 1;
+                }
+            }
+            else
+            {
+                
+                for (int i = 0; i < fillUp.size(); i++)
+                {
+                    fillUp[i] = 1;
+                }
+            }
+
             for (int i = 0; i < downPy.size(); i++)
             {
 
                 if (CheckCollisionPointRec(mPoint, downPy[i]))
                 {
+                    
                     check = 1;
                     if (fillDown[i])
                     {
                         check = 0;
+                        cout << "KEKsss";
                         posPoint.x = startX;
                         posPoint.y = startY;
                         moving.x = startX;
@@ -77,6 +255,7 @@ void DropDown(Rectangle& moving, Vector2& mPoint, Vector2& posPoint, Texture2D& 
                     check = 1;
                     if (fillUp[i])
                     {
+                        cout << "KEKsss!!!!!!";
                         check = 0;
                         posPoint.x = startX;
                         posPoint.y = startY;
@@ -110,11 +289,13 @@ void DropDown(Rectangle& moving, Vector2& mPoint, Vector2& posPoint, Texture2D& 
                 {
                     playerLeftColor = GRAY;
                     playerRightColor = LIGHTGRAY;
+                    
                 }
                 else
                 {
                     playerLeftColor = LIGHTGRAY;
                     playerRightColor = GRAY;
+                    
                 }
             }
             checkcoll = 0;
@@ -125,14 +306,14 @@ void DropDown(Rectangle& moving, Vector2& mPoint, Vector2& posPoint, Texture2D& 
 }
 vector<bool> checkForPlayerTurn(8);
 
-void changePlayer(Rectangle movingRed, Rectangle movingBlue, Rectangle movingYellow, Rectangle movingF, Rectangle movingRedRight, Rectangle movingBlueRight, Rectangle movingYellowRight, Rectangle movingFRight, Color Leftp, Color  Rightp, Rectangle  LeftArea, Rectangle RightArea)
+void changePlayer(Color Leftp, Color  Rightp)
 {
-    if ((CheckCollisionRecs(LeftArea, movingBlue) || CheckCollisionRecs(LeftArea, movingRed) || CheckCollisionRecs(LeftArea, movingYellow) || CheckCollisionRecs(LeftArea, movingF)) && ColorToInt(Leftp) != -926365441)
+    if (ColorToInt(Leftp) != -926365441)
     {
         checkForPlayerTurn = { 1, 1, 1, 1, 0, 0, 0, 0 };
         
     }
-    else if ((CheckCollisionRecs(RightArea, movingBlueRight) || CheckCollisionRecs(RightArea, movingRedRight) || CheckCollisionRecs(RightArea, movingYellowRight) || CheckCollisionRecs(RightArea, movingFRight)) && ColorToInt(Rightp) != -926365441)
+    else if (ColorToInt(Rightp) != -926365441)
     {
         checkForPlayerTurn = { 0,0,0,0,1,1,1,1 };
         
@@ -222,7 +403,7 @@ int main(void)
     {
         ftAr[i] = rand() % 2;
     }
-    SetTargetFPS(60);
+    SetTargetFPS(240);
     
     while (!WindowShouldClose())
     {
@@ -411,6 +592,7 @@ int main(void)
 
             if (zero)
             {
+                
                 checker2 = 0;
                 DrawRectangleRec(hide, LIGHTGRAY);
                 
@@ -427,8 +609,8 @@ int main(void)
                 DrawRectangleRec(LeftPlayer, playerLeftColor);
                 DrawRectangleRec(RightPlayer, playerRightColor);
                 
-                    
-                    changePlayer(movingBoxRed, movingBoxBlue, movingBoxYellow, movingBoxF, movingBoxRedRight, movingBoxBlueRight, movingBoxYellowRight, movingBoxFRight, playerLeftColor, playerRightColor, LeftPlayer, RightPlayer);
+                
+                changePlayer(playerLeftColor, playerRightColor);
                 
                 
 
@@ -490,7 +672,12 @@ int main(void)
                 }
                 //check if filled
 
+                
                 Filled(BasePyramidDown, BasePyramidUp,  movingBoxRed, movingBoxBlue, movingBoxYellow, movingBoxF, movingBoxRedRight, movingBoxBlueRight, movingBoxYellowRight, movingBoxFRight, filledDown, filledUp);
+                //Check if two are filled and then to put another
+                checkTwoCardsFilled(filledDown, filledUp, 1);
+
+
 
                 if (checkfirstcollisionBlue == 0 && checkfirstcollisionRed == 0 && checkfirstcollisionYellow == 0 && checkfirstcollisionF == 0 && checkfirstcollisionBlueRight == 0 && checkfirstcollisionRedRight == 0 && checkfirstcollisionYellowRight == 0 && checkfirstcollisionFRight == 0)
                 {
@@ -578,12 +765,14 @@ int main(void)
            // globalcout = 0;
             if (one)
             {
-                changePlayer(movingBoxRed, movingBoxBlue, movingBoxYellow, movingBoxF, movingBoxRedRight, movingBoxBlueRight, movingBoxYellowRight, movingBoxFRight, playerLeftColor, playerRightColor, LeftPlayer, RightPlayer);
+                changePlayer(playerLeftColor, playerRightColor);
                               
                 
                 checker2 = 0;
                 DrawRectangleRec(hide, LIGHTGRAY);
                
+                DrawRectangleRec(LeftPlayer, playerLeftColor);
+                DrawRectangleRec(RightPlayer, playerRightColor);
 
                 DrawRectangle((int)BaseCards.x + 100, (int)BaseCards.y - 450, (int)BaseCards.width - 85, (int)BaseCards.height + 1200, BLACK);
                 DrawRectangle((int)BaseCards.x + 1250, (int)BaseCards.y - 450, (int)BaseCards.width - 85, (int)BaseCards.height + 1200, BLACK);
@@ -657,8 +846,11 @@ int main(void)
                     DrawText(to_string(ftAr[3]).c_str(), 1180, 425, 50, BLACK);
                     DrawText(to_string(!ftAr[3]).c_str(), 1187.5, 480, 50, BLACK);
                 }
+
                 Filled(BasePyramidDown, BasePyramidUp, movingBoxRed, movingBoxBlue, movingBoxYellow, movingBoxF, movingBoxRedRight, movingBoxBlueRight, movingBoxYellowRight, movingBoxFRight, filledDown, filledUp);
 
+                ///Check if two are filled and then to put another
+                checkTwoCardsFilled(filledDown, filledUp, 2);
 
                 if (checkfirstcollisionBlue == 0 && checkfirstcollisionRed == 0 && checkfirstcollisionYellow == 0 && checkfirstcollisionF == 0 && checkfirstcollisionBlueRight == 0 && checkfirstcollisionRedRight == 0 && checkfirstcollisionYellowRight == 0 && checkfirstcollisionFRight == 0)
                 {
@@ -748,7 +940,7 @@ int main(void)
             if (two)
             {
                 
-                    changePlayer(movingBoxRed, movingBoxBlue, movingBoxYellow, movingBoxF, movingBoxRedRight, movingBoxBlueRight, movingBoxYellowRight, movingBoxFRight, playerLeftColor, playerRightColor, LeftPlayer, RightPlayer);
+                    changePlayer(playerLeftColor, playerRightColor);
                              
                 checker2 = 0;
                 DrawRectangleRec(hide, LIGHTGRAY);
@@ -846,6 +1038,9 @@ int main(void)
 
                 Filled(BasePyramidDown, BasePyramidUp, movingBoxRed, movingBoxBlue, movingBoxYellow, movingBoxF, movingBoxRedRight, movingBoxBlueRight, movingBoxYellowRight, movingBoxFRight, filledDown, filledUp);
 
+                //Check if two are filled and then to put another
+                checkTwoCardsFilled(filledDown, filledUp, 3);
+
                 if (checkfirstcollisionBlue == 0 && checkfirstcollisionRed == 0 && checkfirstcollisionYellow == 0 && checkfirstcollisionF == 0 && checkfirstcollisionBlueRight == 0 && checkfirstcollisionRedRight == 0 && checkfirstcollisionYellowRight == 0 && checkfirstcollisionFRight == 0)
                 {
                     DropDown(movingBoxRed, mousePoint, posImgRed, red_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionRed, 10, 100, filledDown, filledUp, checkForPlayerTurn[0]);
@@ -935,7 +1130,7 @@ int main(void)
 
             
                 
-                changePlayer(movingBoxRed, movingBoxBlue, movingBoxYellow, movingBoxF, movingBoxRedRight, movingBoxBlueRight, movingBoxYellowRight, movingBoxFRight, playerLeftColor, playerRightColor, LeftPlayer, RightPlayer);
+                changePlayer(playerLeftColor, playerRightColor);
             
                 
                 checker2 = 0;
@@ -1046,6 +1241,8 @@ int main(void)
 
                 Filled(BasePyramidDown, BasePyramidUp, movingBoxRed, movingBoxBlue, movingBoxYellow, movingBoxF, movingBoxRedRight, movingBoxBlueRight, movingBoxYellowRight, movingBoxFRight, filledDown, filledUp);
 
+                //Check if two are filled and then to put another
+                checkTwoCardsFilled(filledDown, filledUp, 4);
 
                 if (checkfirstcollisionBlue == 0 && checkfirstcollisionRed == 0 && checkfirstcollisionYellow == 0 && checkfirstcollisionF == 0 && checkfirstcollisionBlueRight == 0 && checkfirstcollisionRedRight == 0 && checkfirstcollisionYellowRight == 0 && checkfirstcollisionFRight == 0)
                 {
