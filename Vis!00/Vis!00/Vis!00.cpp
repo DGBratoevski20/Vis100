@@ -336,6 +336,7 @@ int main(void)
     
    
     InitWindow(screenWidth, screenHeight, "Vis!00");
+    Texture2D check_mark = LoadTexture("../images/Check.png");
     Texture2D red_card = LoadTexture(randomDirectories[rand() % 6].c_str());
     Texture2D blue_card = LoadTexture(randomDirectories[rand() % 6].c_str());
     Texture2D yellow_card = LoadTexture(randomDirectories[rand() % 6].c_str());
@@ -1446,6 +1447,10 @@ int main(void)
             Rectangle arr[4];
             Rectangle arr2[4];
             Rectangle arr3[2];
+            check_mark.width = 38;
+            check_mark.height = 38; 
+            bool ifs = 0;
+            Vector2 check_marker = {837.5, 260};
             for (int i = 0; i < 4; i++)
             {
                 arr[i].x = 737.5 +i * 100;
@@ -1484,11 +1489,43 @@ int main(void)
             for (int i = 0; i < 4; i++)
             {
                 DrawRectangleRec(arr[i], DARKGRAY);
-                if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointRec(mousePoint, arr[i]))
-                {
-                    //needs to be added fps changer and texture
-                }
+                
             }
+
+            if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointRec(mousePoint, arr[0]))
+            {
+                ifs = 1;
+
+                SetTargetFPS(30);
+            }
+            else if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointRec(mousePoint, arr[1]))
+            {
+
+
+                SetTargetFPS(60); 
+                ifs = 1;
+
+            }
+            else if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointRec(mousePoint, arr[2]))
+            {
+
+                SetTargetFPS(120);
+                ifs = 1;
+
+            }
+            else if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointRec(mousePoint, arr[3]))
+            {
+
+                SetTargetFPS(240);
+                ifs = 1;
+
+
+            }
+            else {
+                ifs = 0;
+            }
+            
+
 
             DrawText("Choose your mode:", 675, 320, 50, BLACK);
             DrawText("Normal", 722.5, 380, 20, BLACK);
@@ -1525,6 +1562,7 @@ int main(void)
                     //needs to be added fps shower and texture
                 }
             }
+            DrawTexture(check_mark, check_marker.x, check_marker.y, DARKGRAY);
         }
         else if (menuThree)
         {
@@ -1573,6 +1611,7 @@ int main(void)
     UnloadTexture(FRight_card);
     UnloadTexture(FiveRight_card);
     UnloadTexture(Five_card);
+    
     
     CloseWindow();
 
