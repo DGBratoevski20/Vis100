@@ -5249,36 +5249,22 @@ int main(void)
             DrawText("What is b00le0?", 400, 25, 125, VIOLET);
             DrawText("b00leo is a card game which combins strategy card play with the concept of Boolean logic.  Players race to resolve an", 50, 160, 25, BLACK);
             DrawText("intial binary number to a single specific bit by creating a logic pyramid. This is accomplished through the use of logical gates.", 50, 210, 25, BLACK);
-            DrawText("Cards:", 50, 260, 50, BLACK);
+            DrawText("Cards:", 50, 250, 50, BLACK);
             DrawText("A b00leo deck contains a total of 64 cards: ", 50, 310, 25, BLACK);
             DrawText("2-Truth Table Cards – demonstrate the outputs of each different gates given all possible input combinations ", 50, 360, 25, BLACK);
             DrawText("6-Initial Binaries- cards that are used to determine the binary numbers that form the starting point which players will build their logic", 50, 395, 25, BLACK);
             DrawText("gate pyramids", 50, 415, 25, BLACK);
             DrawText("8 – Not Cards-can be used to change the state of a bit in the initial binary.", 50, 460, 25, BLACK);
             DrawText("48 – Logical Gate Cards-cards that represent the operations allowed in the field of Boolean algebra.", 50, 510, 25, BLACK);
-            DrawText("How do you win the game? ", 50, 560, 50, BLACK);
+            DrawText("How do you win the game? ", 50, 550, 50, BLACK);
             DrawText("The goal of the game is to build a pyramid of logic gates starting from a base initial binary number.", 50, 610, 25, BLACK);
-            DrawText("Game Play: ", 50, 660, 50, BLACK);
+            DrawText("Game Play: ", 50, 650, 50, BLACK);
             DrawText("During each turn the player first draws the top card from the deck and then either plays a card or discards a card.", 50, 710, 25, BLACK);
             DrawText("Only one card may be played (or discarded) each turn.", 50, 735, 25, BLACK);
-            DrawText("How to use not cards: ", 50, 780, 50, BLACK);
+            DrawText("How to use not cards: ", 50, 770, 50, BLACK);
             DrawText("To play the Not card the player declares which initial bit is the target and reverses that bit card.", 50, 830, 25, BLACK);
             
 
-            /*What is b00le0? 
-b00leo is a card game which combins strategy card play with the concept of Boolean logic. Players race to resolve an intial binary number to a single specific bit by creating a logic pyramid.This is accomplished through the use of logical gates. 
-Cards: 
-A b00leo deck contains a total of 64 cards: 
-2-Truth Table Cards – demonstrate the outputs of each different gates given all possible input combinations 
-6-Initial Binaries- cards that are used to determine the binary numbers that form the starting point which players will build their logic gate pyramids 
-8 – Not Cards-can be used to change the state of a bit in the initial binary. 
-48 – Logical Gate Cards-cards that represent the operations allowed in the field of Boolean algebra. 
-How do you win the game? 
-The goal of the game is to build a pyramid of logic gates starting from a base initial binary number. 
-Game Play: 
-During each turn the player first draws the top card from the deck and then either plays a card or discards a card. Only one card may be played (or discarded) each turn. 
-How to use not cards: 
-To play the Not card the player declares which initial bit is the target and reverses that bit card.*/
         }
         else if (menuOne)
         {

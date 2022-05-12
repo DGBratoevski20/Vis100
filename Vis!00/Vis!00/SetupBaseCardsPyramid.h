@@ -10,7 +10,7 @@ void SetupDown(vector<Rectangle>& basePyramidcard)
     int var4= 670;
     int var5 = 640;
     int var6 = 740;
-
+    //vars for qa tests
     switch (len)
     {
     case 3://if you click the card with 3
