@@ -521,6 +521,30 @@ int main(void)
     bool checkfirstcollisionFive = 0;
 
 
+    Vector2 check_marker = { 837.5, 260 };
+    Vector2 check_marker3 = { 946, 600.5 };
+
+    int XFPS = -100;
+    int YFPS = -100;
+
+
+    bool ifs = 0;
+    bool ivs = 0;
+    bool ifss = 0;
+    bool ivss = 0;
+    bool its = 0;
+    bool itss = 0;
+
+
+    Rectangle arr[4];
+    Rectangle arr2[4];
+    Rectangle arr3[2];
+    check_mark.width = 38;
+    check_mark.height = 38;
+
+    Rectangle Yes = { 806.5, 600.5 }, NO = { 946, 600.5 };
+
+
     bool checkfirstcollisionRedRight = 0;
     bool checkfirstcollisionBlueRight = 0;
     bool checkfirstcollisionYellowRight = 0;
@@ -598,6 +622,7 @@ int main(void)
     vector<string> checkDir;
     vector<string> checkDirTwo;
     
+
     
     bool zero = 0, one = 0, two = 0, three = 0;
     bool menuZero = 0, menuOne = 0, menuTwo = 0, menuThree = 0;
@@ -606,7 +631,7 @@ int main(void)
     {
         ftAr[i] = rand() % 2;
     }
-    SetTargetFPS(120);
+    SetTargetFPS(60);
     
     while (!WindowShouldClose())
     {
@@ -4993,34 +5018,28 @@ int main(void)
         }
         else if (menuTwo)
         {
-            checker = 0;
-            Rectangle arr[4];
-            Rectangle arr2[4];
-            Rectangle arr3[2];
-            check_mark.width = 38;
-            check_mark.height = 38; 
-            bool ifs = 0;
-            Vector2 check_marker = {837.5, 260};
-            for (int i = 0; i < 4; i++)
-            {
-                arr[i].x = 737.5 +i * 100;
-                arr[i].y = 260;
-                arr[i].width = 38;
-                arr[i].height = 38;
+        checker = 0;
+        Rectangle Yes = { 806.5, 600.5 }, NO = { 946, 600.5 };
+        for (int i = 0; i < 4; i++)
+        {
+            arr[i].x = 737.5 + i * 100;
+            arr[i].y = 260;
+            arr[i].width = 38;
+            arr[i].height = 38;
 
-                arr2[i].x = 737.5 + i * 100;
-                arr2[i].y = 420;
-                arr2[i].width = 38;
-                arr2[i].height = 38;
+            arr2[i].x = 737.5 + i * 100;
+            arr2[i].y = 420;
+            arr2[i].width = 38;
+            arr2[i].height = 38;
 
-            }
-            for (int i = 0; i < 2; i++)
-            {
-                arr3[i].x = 806 + i * 140;
-                arr3[i].y = 600;
-                arr3[i].width = 38;
-                arr3[i].height = 38;
-            }
+        }
+        for (int i = 0; i < 2; i++)
+        {
+            arr3[i].x = 806 + i * 140;
+            arr3[i].y = 600;
+            arr3[i].width = 38;
+            arr3[i].height = 38;
+        }
 
             //225, 420, 90, 105 
             DrawRectangleRec(hide, LIGHTGRAY);
@@ -5039,43 +5058,101 @@ int main(void)
             for (int i = 0; i < 4; i++)
             {
                 DrawRectangleRec(arr[i], DARKGRAY);
-                
             }
 
             if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointRec(mousePoint, arr[0]))
             {
                 ifs = 1;
 
+
                 SetTargetFPS(30);
             }
-            else if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointRec(mousePoint, arr[1]))
+            else
             {
-
-
-                SetTargetFPS(60); 
-                ifs = 1;
-
-            }
-            else if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointRec(mousePoint, arr[2]))
-            {
-
-                SetTargetFPS(120);
-                ifs = 1;
-
-            }
-            else if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointRec(mousePoint, arr[3]))
-            {
-
-                SetTargetFPS(240);
-                ifs = 1;
-
-
-            }
-            else {
                 ifs = 0;
             }
-            
+            if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointRec(mousePoint, arr[1]))
+            {
 
+
+                SetTargetFPS(60);
+                ifss = 1;
+
+            }
+
+            else
+            {
+                ifss = 0;
+            }
+            if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointRec(mousePoint, arr[2]))
+            {
+                SetTargetFPS(120);
+                ivs = 1;
+            }
+            else
+            {
+                ivs = 0;
+            }
+            if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointRec(mousePoint, arr[3]))
+            {
+                SetTargetFPS(240);
+                ivss = 1;
+            }
+            else
+            {
+                ivss = 0;
+            }
+
+            //show fps
+            if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointRec(mousePoint, arr3[0]))
+            {
+                its = 1;
+            }
+            else
+            {
+                its = 0;
+            }
+            if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointRec(mousePoint, arr3[1]))
+            {
+
+                itss = 1;
+            }
+            else
+            {
+                itss = 0;
+            }
+            //draw fps
+            if (ifs)
+            {
+                check_marker = { 737.5, 260 };
+            }
+
+            if (ifss)
+            {
+                check_marker = { 837.5, 260 };
+
+            }
+            if (ivs)
+            {
+
+                check_marker = { 937.5, 260 };
+            }
+            if (ivss)
+            {
+                check_marker = { 1037.5, 260 };
+            }
+
+            //show fps
+            if (its)
+            {
+                check_marker3 = { 806.5, 600.5 };
+                XFPS = 10, YFPS = 10;
+            }
+            if (itss)
+            {
+                check_marker3 = { 946, 600.5 };
+                XFPS = -100, YFPS = -100;
+            }
 
             DrawText("Choose your mode:", 675, 320, 50, BLACK);
             DrawText("Normal", 722.5, 380, 20, BLACK);
@@ -5096,7 +5173,7 @@ int main(void)
                 }
             }
 
-
+            DrawFPS(XFPS, YFPS);
             DrawText("Show FPS:", 775, 500, 50, BLACK);
             
             DrawText("YES", 805, 560.5, 20, BLACK);
@@ -5107,11 +5184,10 @@ int main(void)
             for (int i = 0; i < 2; i++)
             {
                 DrawRectangleRec(arr3[i], DARKGRAY);
-                if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointRec(mousePoint, arr3[i]))
-                {
-                    //needs to be added fps shower and texture
-                }
+                
             }
+            
+            DrawTexture(check_mark, check_marker3.x, check_marker3.y, DARKGRAY);
             DrawTexture(check_mark, check_marker.x, check_marker.y, DARKGRAY);
         }
         else if (menuThree)
