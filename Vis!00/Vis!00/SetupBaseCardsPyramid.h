@@ -4,21 +4,28 @@ void SetupDown(vector<Rectangle>& basePyramidcard)
 {
     int len = basePyramidcard.size();
     int counter = 0;
+    int var1= 725;
+    int var2 = 830;
+    int var3= 540;
+    int var4= 670;
+    int var5 = 640;
+    int var6 = 740;
+
     switch (len)
     {
     case 3://if you click the card with 3
     {     int i = 0;
     for (i; i < 2; i++)
     {
-        basePyramidcard[i].x = 725 + i * 210;
-        basePyramidcard[i].y = 540;
+        basePyramidcard[i].x = var1 + i * 210;
+        basePyramidcard[i].y = var3;
         basePyramidcard[i].width = 99.5;
         basePyramidcard[i].height = 125;
     }
     if (i == 2)
     {
-        basePyramidcard[i].x = 830;
-        basePyramidcard[i].y = 670;
+        basePyramidcard[i].x = var2;
+        basePyramidcard[i].y = var4;
         basePyramidcard[i].width = 99.5;
         basePyramidcard[i].height = 125;
     }
@@ -30,14 +37,14 @@ void SetupDown(vector<Rectangle>& basePyramidcard)
         int i = 0;
         for (i; i < 3; i++)
         {
-            basePyramidcard[i].x = 640 + i * 200;
+            basePyramidcard[i].x = var5 + i * 200;
             basePyramidcard[i].y = 540;
             basePyramidcard[i].width = 99.5;
             basePyramidcard[i].height = 125;;
         }
         for (i; i < 5; i++)
         {
-            basePyramidcard[i].x = 740 + counter * 200;
+            basePyramidcard[i].x = var6 + counter * 200;
             basePyramidcard[i].y = 670;
             basePyramidcard[i].width = 99.5;
             basePyramidcard[i].height = 125;
