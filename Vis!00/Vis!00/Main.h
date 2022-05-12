@@ -5,6 +5,8 @@
 #include<cstdlib>
 #include<ctime>
 #include<vector>
+#include<sstream>
+
 
 using namespace std;
 
