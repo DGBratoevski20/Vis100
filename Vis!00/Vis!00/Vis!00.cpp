@@ -1111,12 +1111,12 @@ int main(void)
 
                                         if (atoi(&dir[dir.size() - 5]) == (l ^ r))
                                         {
-                                            filledDown[i] = 1;
+                                            filledDown[i] = 0;
                                             cout << l << " " << r;
                                         }
                                         else
                                         {
-                                            filledDown[i] = 0;
+                                            filledDown[i] = 1;
                                             cout << l << " " << r;
                                         }
                                     }
@@ -1340,12 +1340,12 @@ int main(void)
 
                                         if (atoi(&dir[dir.size() - 5]) == (l ^ r))
                                         {
-                                            filledUp[i] = 1;
+                                            filledUp[i] = 0;
                                             cout << l << " " << r;
                                         }
                                         else
                                         {
-                                            filledUp[i] = 0;
+                                            filledUp[i] = 1;
                                             cout << l << " " << r;
                                         }
                                     }
@@ -1800,12 +1800,12 @@ int main(void)
 
                                         if (atoi(&dir[dir.size() - 5]) == (l ^ r))
                                         {
-                                            filledDown[i] = 1;
+                                            filledDown[i] = 0;
                                             cout << l << " " << r;
                                         }
                                         else
                                         {
-                                            filledDown[i] = 0;
+                                            filledDown[i] = 1;
                                             cout << l << " " << r;
                                         }
                                     }
@@ -1917,129 +1917,12 @@ int main(void)
 
                                         if (atoi(&dir[dir.size() - 5]) == (l ^ r))
                                         {
-                                            filledDown[i] = 1;
-                                            cout << l << " " << r;
-                                        }
-                                        else
-                                        {
                                             filledDown[i] = 0;
                                             cout << l << " " << r;
                                         }
-                                    }
-
-
-                                }
-                            }
-                            else if (diff > 3 && diff < 7)
-                            {
-
-                                if (filledDown[i - 4] && filledDown[i - 3])
-                                {
-
-                                    if (dir.find("and") != string::npos)
-                                    {
-                                        int l = 0, r = 0;
-
-                                        if (checkDir[i - 4].find("1.png") != string::npos)
-                                        {
-                                            l = 1;
-                                            cout << "f";
-
-                                        }
-                                        else if (checkDir[i - 4].find("0.png") != string::npos)
-                                        {
-                                            l = 0;
-                                            cout << "f";
-                                        }
-                                        else if (checkDir[i - 3].find("0.png") != string::npos)
-                                        {
-                                            r = 0;
-                                            cout << "f";
-                                        }
-                                        else if (checkDir[i - 3].find("1.png") != string::npos)
-                                        {
-                                            r = 1;
-                                            cout << "f";
-
-                                        }
-
-                                        if (atoi(&dir[dir.size() - 5]) == (l && r))
-                                        {
-                                            filledDown[i] = 0;
-                                            cout << "fHHHHHHH10100001010101010101010101001111" << l << " " << r;;
-                                        }
                                         else
                                         {
                                             filledDown[i] = 1;
-                                            cout << "fHHHHHHH" << l << " " << r;
-                                        }
-                                    }
-                                    if (dir.find("or") != string::npos)
-                                    {
-                                        int l = 0, r = 0;
-                                        if (checkDir[i - 4].find("1.png") != string::npos)
-                                        {
-                                            l = 1;
-                                            cout << "f";
-                                        }
-                                        if (checkDir[i - 4].find("0.png") != string::npos)
-                                        {
-                                            l = 0;
-                                            cout << "f";
-                                        }
-                                        if (checkDir[i - 3].find("0.png") != string::npos)
-                                        {
-                                            r = 0;
-                                            cout << "f";
-                                        }
-                                        if (checkDir[i - 3].find("1.png") != string::npos)
-                                        {
-                                            r = 1;
-                                            cout << "f";
-
-                                        }
-
-                                        if (atoi(&dir[dir.size() - 5]) == (l || r))
-                                        {
-                                            filledDown[i] = 0;
-                                            cout << "fHHHHHHHKKKKKKKKKKKKKKKKKKK" << l << " " << r;
-                                        }
-                                        else
-                                        {
-                                            filledDown[i] = 1;
-                                            cout << "OOOOOOOOOOOOOOOOOOOO" << l << " " << r;
-                                        }
-                                    }
-                                    if (dir.find("x") != string::npos)
-                                    {
-                                        int l = 0, r = 0;
-                                        if (checkDir[i - 4].find("1.png") != string::npos)
-                                        {
-                                            l = 1;
-
-                                        }
-                                        else if (checkDir[i - 4].find("0.png") != string::npos)
-                                        {
-                                            l = 0;
-                                        }
-                                        else if (checkDir[i - 3].find("0.png") != string::npos)
-                                        {
-                                            r = 0;
-                                        }
-                                        else if (checkDir[i - 3].find("1.png") != string::npos)
-                                        {
-                                            r = 1;
-
-                                        }
-
-                                        if (atoi(&dir[dir.size() - 5]) == (l ^ r))
-                                        {
-                                            filledDown[i] = 1;
-                                            cout << l << " " << r;
-                                        }
-                                        else
-                                        {
-                                            filledDown[i] = 0;
                                             cout << l << " " << r;
                                         }
                                     }
@@ -2047,6 +1930,7 @@ int main(void)
 
                                 }
                             }
+                            
                             break;
                         }
                         }
@@ -2232,12 +2116,12 @@ int main(void)
 
                                         if (atoi(&dir[dir.size() - 5]) == (l && r))
                                         {
-                                            filledDown[i] = 0;
+                                            filledUp[i] = 0;
                                             cout << "fHHHHHHH10100001010101010101010101001111" << l << " " << r;;
                                         }
                                         else
                                         {
-                                            filledDown[i] = 1;
+                                            filledUp[i] = 1;
                                             cout << "fHHHHHHH" << l << " " << r;
                                         }
                                     }
@@ -2301,12 +2185,12 @@ int main(void)
 
                                         if (atoi(&dir[dir.size() - 5]) == (l ^ r))
                                         {
-                                            filledUp[i] = 1;
+                                            filledUp[i] = 0;
                                             cout << l << " " << r;
                                         }
                                         else
                                         {
-                                            filledUp[i] = 0;
+                                            filledUp[i] = 1;
                                             cout << l << " " << r;
                                         }
                                     }
@@ -2418,129 +2302,12 @@ int main(void)
 
                                         if (atoi(&dir[dir.size() - 5]) == (l ^ r))
                                         {
-                                            filledUp[i] = 1;
-                                            cout << l << " " << r;
-                                        }
-                                        else
-                                        {
                                             filledUp[i] = 0;
                                             cout << l << " " << r;
                                         }
-                                    }
-
-
-                                }
-                            }
-                            else if (diff > 3 && diff < 7)
-                            {
-
-                                if (filledUp[i - 4] && filledUp[i - 3])
-                                {
-
-                                    if (dir.find("and") != string::npos)
-                                    {
-                                        int l = 0, r = 0;
-
-                                        if (checkDirTwo[i - 4].find("1.png") != string::npos)
-                                        {
-                                            l = 1;
-                                            cout << "f";
-
-                                        }
-                                        else if (checkDirTwo[i - 4].find("0.png") != string::npos)
-                                        {
-                                            l = 0;
-                                            cout << "f";
-                                        }
-                                        else if (checkDirTwo[i - 3].find("0.png") != string::npos)
-                                        {
-                                            r = 0;
-                                            cout << "f";
-                                        }
-                                        else if (checkDirTwo[i - 3].find("1.png") != string::npos)
-                                        {
-                                            r = 1;
-                                            cout << "f";
-
-                                        }
-
-                                        if (atoi(&dir[dir.size() - 5]) == (l && r))
-                                        {
-                                            filledUp[i] = 0;
-                                            cout << "fHHHHHHH10100001010101010101010101001111" << l << " " << r;;
-                                        }
                                         else
                                         {
                                             filledUp[i] = 1;
-                                            cout << "fHHHHHHH" << l << " " << r;
-                                        }
-                                    }
-                                    if (dir.find("or") != string::npos)
-                                    {
-                                        int l = 0, r = 0;
-                                        if (checkDirTwo[i - 4].find("1.png") != string::npos)
-                                        {
-                                            l = 1;
-                                            cout << "f";
-                                        }
-                                        if (checkDirTwo[i - 4].find("0.png") != string::npos)
-                                        {
-                                            l = 0;
-                                            cout << "f";
-                                        }
-                                        if (checkDirTwo[i - 3].find("0.png") != string::npos)
-                                        {
-                                            r = 0;
-                                            cout << "f";
-                                        }
-                                        if (checkDir[i - 3].find("1.png") != string::npos)
-                                        {
-                                            r = 1;
-                                            cout << "f";
-
-                                        }
-
-                                        if (atoi(&dir[dir.size() - 5]) == (l || r))
-                                        {
-                                            filledUp[i] = 0;
-                                            cout << "fHHHHHHHKKKKKKKKKKKKKKKKKKK" << l << " " << r;
-                                        }
-                                        else
-                                        {
-                                            filledUp[i] = 1;
-                                            cout << "OOOOOOOOOOOOOOOOOOOO" << l << " " << r;
-                                        }
-                                    }
-                                    if (dir.find("x") != string::npos)
-                                    {
-                                        int l = 0, r = 0;
-                                        if (checkDirTwo[i - 4].find("1.png") != string::npos)
-                                        {
-                                            l = 1;
-
-                                        }
-                                        else if (checkDirTwo[i - 4].find("0.png") != string::npos)
-                                        {
-                                            l = 0;
-                                        }
-                                        else if (checkDirTwo[i - 3].find("0.png") != string::npos)
-                                        {
-                                            r = 0;
-                                        }
-                                        else if (checkDir[i - 3].find("1.png") != string::npos)
-                                        {
-                                            r = 1;
-
-                                        }
-
-                                        if (atoi(&dir[dir.size() - 5]) == (l ^ r))
-                                        {
-                                            filledUp[i] = 1;
-                                            cout << l << " " << r;
-                                        }
-                                        else
-                                        {
-                                            filledUp[i] = 0;
                                             cout << l << " " << r;
                                         }
                                     }
@@ -2548,6 +2315,7 @@ int main(void)
 
                                 }
                             }
+                            
                             break;
 
                         }
@@ -3048,12 +2816,12 @@ int main(void)
 
                                         if (atoi(&dir[dir.size() - 5]) == (l ^ r))
                                         {
-                                            filledDown[i] = 1;
+                                            filledDown[i] = 0;
                                             cout << l << " " << r;
                                         }
                                         else
                                         {
-                                            filledDown[i] = 0;
+                                            filledDown[i] = 1;
                                             cout << l << " " << r;
                                         }
                                     }
@@ -3165,12 +2933,12 @@ int main(void)
 
                                         if (atoi(&dir[dir.size() - 5]) == (l ^ r))
                                         {
-                                            filledDown[i] = 1;
+                                            filledDown[i] = 0;
                                             cout << l << " " << r;
                                         }
                                         else
                                         {
-                                            filledDown[i] = 0;
+                                            filledDown[i] = 1;
                                             cout << l << " " << r;
                                         }
                                     }
@@ -3282,129 +3050,12 @@ int main(void)
 
                                         if (atoi(&dir[dir.size() - 5]) == (l ^ r))
                                         {
-                                            filledDown[i] = 1;
-                                            cout << l << " " << r;
-                                        }
-                                        else
-                                        {
                                             filledDown[i] = 0;
                                             cout << l << " " << r;
                                         }
-                                    }
-
-
-                                }
-                            }
-                            else if (diff > 6 && diff < 11)
-                            {
-
-                                if (filledDown[i - 5] && filledDown[i - 4])
-                                {
-
-                                    if (dir.find("and") != string::npos)
-                                    {
-                                        int l = 0, r = 0;
-
-                                        if (checkDir[i - 5].find("1.png") != string::npos)
-                                        {
-                                            l = 1;
-                                            cout << "f";
-
-                                        }
-                                        else if (checkDir[i - 5].find("0.png") != string::npos)
-                                        {
-                                            l = 0;
-                                            cout << "f";
-                                        }
-                                        else if (checkDir[i - 4].find("0.png") != string::npos)
-                                        {
-                                            r = 0;
-                                            cout << "f";
-                                        }
-                                        else if (checkDir[i - 4].find("1.png") != string::npos)
-                                        {
-                                            r = 1;
-                                            cout << "f";
-
-                                        }
-
-                                        if (atoi(&dir[dir.size() - 5]) == (l && r))
-                                        {
-                                            filledDown[i] = 0;
-                                            cout << "fHHHHHHH10100001010101010101010101001111" << l << " " << r;;
-                                        }
                                         else
                                         {
                                             filledDown[i] = 1;
-                                            cout << "fHHHHHHH" << l << " " << r;
-                                        }
-                                    }
-                                    if (dir.find("or") != string::npos)
-                                    {
-                                        int l = 0, r = 0;
-                                        if (checkDir[i - 5].find("1.png") != string::npos)
-                                        {
-                                            l = 1;
-                                            cout << "f";
-                                        }
-                                        if (checkDir[i - 5].find("0.png") != string::npos)
-                                        {
-                                            l = 0;
-                                            cout << "f";
-                                        }
-                                        if (checkDir[i - 4].find("0.png") != string::npos)
-                                        {
-                                            r = 0;
-                                            cout << "f";
-                                        }
-                                        if (checkDir[i - 4].find("1.png") != string::npos)
-                                        {
-                                            r = 1;
-                                            cout << "f";
-
-                                        }
-
-                                        if (atoi(&dir[dir.size() - 5]) == (l || r))
-                                        {
-                                            filledDown[i] = 0;
-                                            cout << "fHHHHHHHKKKKKKKKKKKKKKKKKKK" << l << " " << r;
-                                        }
-                                        else
-                                        {
-                                            filledDown[i] = 1;
-                                            cout << "OOOOOOOOOOOOOOOOOOOO" << l << " " << r;
-                                        }
-                                    }
-                                    if (dir.find("x") != string::npos)
-                                    {
-                                        int l = 0, r = 0;
-                                        if (checkDir[i - 5].find("1.png") != string::npos)
-                                        {
-                                            l = 1;
-
-                                        }
-                                        else if (checkDir[i - 5].find("0.png") != string::npos)
-                                        {
-                                            l = 0;
-                                        }
-                                        else if (checkDir[i - 4].find("0.png") != string::npos)
-                                        {
-                                            r = 0;
-                                        }
-                                        else if (checkDir[i - 4].find("1.png") != string::npos)
-                                        {
-                                            r = 1;
-
-                                        }
-
-                                        if (atoi(&dir[dir.size() - 5]) == (l ^ r))
-                                        {
-                                            filledDown[i] = 1;
-                                            cout << l << " " << r;
-                                        }
-                                        else
-                                        {
-                                            filledDown[i] = 0;
                                             cout << l << " " << r;
                                         }
                                     }
@@ -3412,6 +3063,7 @@ int main(void)
 
                                 }
                             }
+                            
                             break;
                         }
                         }
@@ -3522,6 +3174,82 @@ int main(void)
 
                             break;
                         }
+                        case 2:
+                        {
+                            if (dir.find("and") != string::npos)
+                            {
+                                if (atoi(&dir[dir.size() - 5]) == (ftAr[2] && ftAr[3]))
+                                {
+                                    filledUp[i] = 0;
+                                }
+                                else
+                                {
+                                    filledUp[i] = 1;
+                                }
+                            }
+                            if (dir.find("or") != string::npos)
+                            {
+                                if (atoi(&dir[dir.size() - 5]) == (ftAr[2] || ftAr[3]))
+                                {
+                                    filledUp[i] = 0;
+                                }
+                                else
+                                {
+                                    filledUp[i] = 1;
+                                }
+                            }
+                            if (dir.find("x") != string::npos)
+                            {
+                                if (atoi(&dir[dir.size() - 5]) == (ftAr[2] ^ ftAr[3]))
+                                {
+                                    filledUp[i] = 0;
+                                }
+                                else
+                                {
+                                    filledUp[i] = 1;
+                                }
+                            }
+
+                            break;
+                        }
+                        case 3:
+                        {
+                            if (dir.find("and") != string::npos)
+                            {
+                                if (atoi(&dir[dir.size() - 5]) == (ftAr[3] && ftAr[4]))
+                                {
+                                    filledUp[i] = 0;
+                                }
+                                else
+                                {
+                                    filledUp[i] = 1;
+                                }
+                            }
+                            if (dir.find("or") != string::npos)
+                            {
+                                if (atoi(&dir[dir.size() - 5]) == (ftAr[3] || ftAr[4]))
+                                {
+                                    filledUp[i] = 0;
+                                }
+                                else
+                                {
+                                    filledUp[i] = 1;
+                                }
+                            }
+                            if (dir.find("x") != string::npos)
+                            {
+                                if (atoi(&dir[dir.size() - 5]) == (ftAr[3] ^ ftAr[4]))
+                                {
+                                    filledUp[i] = 0;
+                                }
+                                else
+                                {
+                                    filledUp[i] = 1;
+                                }
+                            }
+
+                            break;
+                        }
                         default:
                         {
                             if (diff == 1)
@@ -3534,23 +3262,23 @@ int main(void)
                                     {
                                         int l = 0, r = 0;
 
-                                        if (checkDirTwo[0].find("1.png") != string::npos)
+                                        if (checkDirTwo[i - 2].find("1.png") != string::npos)
                                         {
                                             l = 1;
                                             cout << "f";
 
                                         }
-                                        else if (checkDirTwo[0].find("0.png") != string::npos)
+                                        else if (checkDirTwo[i - 2].find("0.png") != string::npos)
                                         {
                                             l = 0;
                                             cout << "f";
                                         }
-                                        else if (checkDirTwo[1].find("0.png") != string::npos)
+                                        else if (checkDirTwo[i - 1].find("0.png") != string::npos)
                                         {
                                             r = 0;
                                             cout << "f";
                                         }
-                                        else if (checkDirTwo[1].find("1.png") != string::npos)
+                                        else if (checkDirTwo[i - 1].find("1.png") != string::npos)
                                         {
                                             r = 1;
                                             cout << "f";
@@ -3571,22 +3299,22 @@ int main(void)
                                     if (dir.find("or") != string::npos)
                                     {
                                         int l = 0, r = 0;
-                                        if (checkDirTwo[0].find("1.png") != string::npos)
+                                        if (checkDirTwo[i - 2].find("1.png") != string::npos)
                                         {
                                             l = 1;
                                             cout << "f";
                                         }
-                                        if (checkDirTwo[0].find("0.png") != string::npos)
+                                        if (checkDirTwo[i - 2].find("0.png") != string::npos)
                                         {
                                             l = 0;
                                             cout << "f";
                                         }
-                                        if (checkDirTwo[1].find("0.png") != string::npos)
+                                        if (checkDirTwo[i - 1].find("0.png") != string::npos)
                                         {
                                             r = 0;
                                             cout << "f";
                                         }
-                                        if (checkDirTwo[1].find("1.png") != string::npos)
+                                        if (checkDirTwo[i - 1].find("1.png") != string::npos)
                                         {
                                             r = 1;
                                             cout << "f";
@@ -3607,20 +3335,20 @@ int main(void)
                                     if (dir.find("x") != string::npos)
                                     {
                                         int l = 0, r = 0;
-                                        if (checkDirTwo[0].find("1.png") != string::npos)
+                                        if (checkDirTwo[i - 2].find("1.png") != string::npos)
                                         {
                                             l = 1;
 
                                         }
-                                        else if (checkDirTwo[0].find("0.png") != string::npos)
+                                        else if (checkDirTwo[i - 2].find("0.png") != string::npos)
                                         {
                                             l = 0;
                                         }
-                                        else if (checkDirTwo[1].find("0.png") != string::npos)
+                                        else if (checkDirTwo[i - 1].find("0.png") != string::npos)
                                         {
                                             r = 0;
                                         }
-                                        else if (checkDirTwo[1].find("1.png") != string::npos)
+                                        else if (checkDirTwo[i - 1].find("1.png") != string::npos)
                                         {
                                             r = 1;
 
@@ -3628,12 +3356,12 @@ int main(void)
 
                                         if (atoi(&dir[dir.size() - 5]) == (l ^ r))
                                         {
-                                            filledUp[i] = 1;
+                                            filledUp[i] = 0;
                                             cout << l << " " << r;
                                         }
                                         else
                                         {
-                                            filledUp[i] = 0;
+                                            filledUp[i] = 1;
                                             cout << l << " " << r;
                                         }
                                     }
@@ -3641,6 +3369,241 @@ int main(void)
 
                                 }
                             }
+                            else if (diff > 1 && diff < 4)
+                            {
+
+                            if (filledUp[i - 3] && filledUp[i - 2])
+                            {
+
+                                if (dir.find("and") != string::npos)
+                                {
+                                    int l = 0, r = 0;
+
+                                    if (checkDirTwo[i - 3].find("1.png") != string::npos)
+                                    {
+                                        l = 1;
+                                        cout << "f";
+
+                                    }
+                                    else if (checkDirTwo[i - 3].find("0.png") != string::npos)
+                                    {
+                                        l = 0;
+                                        cout << "f";
+                                    }
+                                    else if (checkDirTwo[i - 2].find("0.png") != string::npos)
+                                    {
+                                        r = 0;
+                                        cout << "f";
+                                    }
+                                    else if (checkDirTwo[i - 2].find("1.png") != string::npos)
+                                    {
+                                        r = 1;
+                                        cout << "f";
+
+                                    }
+
+                                    if (atoi(&dir[dir.size() - 5]) == (l && r))
+                                    {
+                                        filledUp[i] = 0;
+                                        cout << "fHHHHHHH10100001010101010101010101001111" << l << " " << r;;
+                                    }
+                                    else
+                                    {
+                                        filledUp[i] = 1;
+                                        cout << "fHHHHHHH" << l << " " << r;
+                                    }
+                                }
+                                if (dir.find("or") != string::npos)
+                                {
+                                    int l = 0, r = 0;
+                                    if (checkDirTwo[i - 3].find("1.png") != string::npos)
+                                    {
+                                        l = 1;
+                                        cout << "f";
+                                    }
+                                    if (checkDirTwo[i - 3].find("0.png") != string::npos)
+                                    {
+                                        l = 0;
+                                        cout << "f";
+                                    }
+                                    if (checkDirTwo[i - 2].find("0.png") != string::npos)
+                                    {
+                                        r = 0;
+                                        cout << "f";
+                                    }
+                                    if (checkDirTwo[i - 2].find("1.png") != string::npos)
+                                    {
+                                        r = 1;
+                                        cout << "f";
+
+                                    }
+
+                                    if (atoi(&dir[dir.size() - 5]) == (l || r))
+                                    {
+                                        filledUp[i] = 0;
+                                        cout << "fHHHHHHHKKKKKKKKKKKKKKKKKKK" << l << " " << r;
+                                    }
+                                    else
+                                    {
+                                        filledUp[i] = 1;
+                                        cout << "OOOOOOOOOOOOOOOOOOOO" << l << " " << r;
+                                    }
+                                }
+                                if (dir.find("x") != string::npos)
+                                {
+                                    int l = 0, r = 0;
+                                    if (checkDirTwo[i - 3].find("1.png") != string::npos)
+                                    {
+                                        l = 1;
+
+                                    }
+                                    else if (checkDirTwo[i - 3].find("0.png") != string::npos)
+                                    {
+                                        l = 0;
+                                    }
+                                    else if (checkDirTwo[i - 2].find("0.png") != string::npos)
+                                    {
+                                        r = 0;
+                                    }
+                                    else if (checkDirTwo[i - 2].find("1.png") != string::npos)
+                                    {
+                                        r = 1;
+
+                                    }
+
+                                    if (atoi(&dir[dir.size() - 5]) == (l ^ r))
+                                    {
+                                        filledUp[i] = 0;
+                                        cout << l << " " << r;
+                                    }
+                                    else
+                                    {
+                                        filledUp[i] = 1;
+                                        cout << l << " " << r;
+                                    }
+                                }
+
+
+                            }
+                            }
+                            else if (diff > 3 && diff < 7)
+                            {
+
+                            if (filledUp[i - 4] && filledUp[i - 3])
+                            {
+
+                                if (dir.find("and") != string::npos)
+                                {
+                                    int l = 0, r = 0;
+
+                                    if (checkDirTwo[i - 4].find("1.png") != string::npos)
+                                    {
+                                        l = 1;
+                                        cout << "f";
+
+                                    }
+                                    else if (checkDirTwo[i - 4].find("0.png") != string::npos)
+                                    {
+                                        l = 0;
+                                        cout << "f";
+                                    }
+                                    else if (checkDirTwo[i - 3].find("0.png") != string::npos)
+                                    {
+                                        r = 0;
+                                        cout << "f";
+                                    }
+                                    else if (checkDirTwo[i - 3].find("1.png") != string::npos)
+                                    {
+                                        r = 1;
+                                        cout << "f";
+
+                                    }
+
+                                    if (atoi(&dir[dir.size() - 5]) == (l && r))
+                                    {
+                                        filledUp[i] = 0;
+                                        cout << "fHHHHHHH10100001010101010101010101001111" << l << " " << r;;
+                                    }
+                                    else
+                                    {
+                                        filledUp[i] = 1;
+                                        cout << "fHHHHHHH" << l << " " << r;
+                                    }
+                                }
+                                if (dir.find("or") != string::npos)
+                                {
+                                    int l = 0, r = 0;
+                                    if (checkDirTwo[i - 4].find("1.png") != string::npos)
+                                    {
+                                        l = 1;
+                                        cout << "f";
+                                    }
+                                    if (checkDirTwo[i - 4].find("0.png") != string::npos)
+                                    {
+                                        l = 0;
+                                        cout << "f";
+                                    }
+                                    if (checkDirTwo[i - 3].find("0.png") != string::npos)
+                                    {
+                                        r = 0;
+                                        cout << "f";
+                                    }
+                                    if (checkDirTwo[i - 3].find("1.png") != string::npos)
+                                    {
+                                        r = 1;
+                                        cout << "f";
+
+                                    }
+
+                                    if (atoi(&dir[dir.size() - 5]) == (l || r))
+                                    {
+                                        filledUp[i] = 0;
+                                        cout << "fHHHHHHHKKKKKKKKKKKKKKKKKKK" << l << " " << r;
+                                    }
+                                    else
+                                    {
+                                        filledUp[i] = 1;
+                                        cout << "OOOOOOOOOOOOOOOOOOOO" << l << " " << r;
+                                    }
+                                }
+                                if (dir.find("x") != string::npos)
+                                {
+                                    int l = 0, r = 0;
+                                    if (checkDirTwo[i - 4].find("1.png") != string::npos)
+                                    {
+                                        l = 1;
+
+                                    }
+                                    else if (checkDirTwo[i - 4].find("0.png") != string::npos)
+                                    {
+                                        l = 0;
+                                    }
+                                    else if (checkDirTwo[i - 3].find("0.png") != string::npos)
+                                    {
+                                        r = 0;
+                                    }
+                                    else if (checkDirTwo[i - 3].find("1.png") != string::npos)
+                                    {
+                                        r = 1;
+
+                                    }
+
+                                    if (atoi(&dir[dir.size() - 5]) == (l ^ r))
+                                    {
+                                        filledUp[i] = 0;
+                                        cout << l << " " << r;
+                                    }
+                                    else
+                                    {
+                                        filledUp[i] = 1;
+                                        cout << l << " " << r;
+                                    }
+                                }
+
+
+                            }
+                            }
+
                             break;
                         }
                         }
@@ -4193,12 +4156,12 @@ int main(void)
 
                                         if (atoi(&dir[dir.size() - 5]) == (l ^ r))
                                         {
-                                            filledDown[i] = 1;
+                                            filledDown[i] = 0;
                                             cout << l << " " << r;
                                         }
                                         else
                                         {
-                                            filledDown[i] = 0;
+                                            filledDown[i] = 1;
                                             cout << l << " " << r;
                                         }
                                     }
@@ -4310,12 +4273,12 @@ int main(void)
 
                                         if (atoi(&dir[dir.size() - 5]) == (l ^ r))
                                         {
-                                            filledDown[i] = 1;
+                                            filledDown[i] = 0;
                                             cout << l << " " << r;
                                         }
                                         else
                                         {
-                                            filledDown[i] = 0;
+                                            filledDown[i] = 1;
                                             cout << l << " " << r;
                                         }
                                     }
@@ -4326,30 +4289,30 @@ int main(void)
                             else if (diff > 3 && diff < 7)
                             {
 
-                                if (filledDown[i - 3] && filledDown[i - 2])
+                                if (filledDown[i - 4] && filledDown[i - 3])
                                 {
 
                                     if (dir.find("and") != string::npos)
                                     {
                                         int l = 0, r = 0;
 
-                                        if (checkDir[i - 3].find("1.png") != string::npos)
+                                        if (checkDir[i - 4].find("1.png") != string::npos)
                                         {
                                             l = 1;
                                             // cout << "f";
 
                                         }
-                                        else if (checkDir[i - 3].find("0.png") != string::npos)
+                                        else if (checkDir[i - 4].find("0.png") != string::npos)
                                         {
                                             l = 0;
                                             //cout << "f";
                                         }
-                                        else if (checkDir[i - 2].find("0.png") != string::npos)
+                                        else if (checkDir[i - 3].find("0.png") != string::npos)
                                         {
                                             r = 0;
                                             //cout << "f";
                                         }
-                                        else if (checkDir[i - 2].find("1.png") != string::npos)
+                                        else if (checkDir[i - 3].find("1.png") != string::npos)
                                         {
                                             r = 1;
                                             //cout << "f";
@@ -4370,22 +4333,22 @@ int main(void)
                                     if (dir.find("or") != string::npos)
                                     {
                                         int l = 0, r = 0;
-                                        if (checkDir[i - 3].find("1.png") != string::npos)
+                                        if (checkDir[i - 4].find("1.png") != string::npos)
                                         {
                                             l = 1;
                                             //cout << "f";
                                         }
-                                        if (checkDir[i - 3].find("0.png") != string::npos)
+                                        if (checkDir[i - 4].find("0.png") != string::npos)
                                         {
                                             l = 0;
                                             //cout << "f";
                                         }
-                                        if (checkDir[i - 2].find("0.png") != string::npos)
+                                        if (checkDir[i - 3].find("0.png") != string::npos)
                                         {
                                             r = 0;
                                             //cout << "f";
                                         }
-                                        if (checkDir[i - 2].find("1.png") != string::npos)
+                                        if (checkDir[i - 3].find("1.png") != string::npos)
                                         {
                                             r = 1;
                                             //cout << "f";
@@ -4406,20 +4369,20 @@ int main(void)
                                     if (dir.find("x") != string::npos)
                                     {
                                         int l = 0, r = 0;
-                                        if (checkDir[i - 3].find("1.png") != string::npos)
+                                        if (checkDir[i - 4].find("1.png") != string::npos)
                                         {
                                             l = 1;
 
                                         }
-                                        else if (checkDir[i - 3].find("0.png") != string::npos)
+                                        else if (checkDir[i - 4].find("0.png") != string::npos)
                                         {
                                             l = 0;
                                         }
-                                        else if (checkDir[i - 2].find("0.png") != string::npos)
+                                        else if (checkDir[i - 3].find("0.png") != string::npos)
                                         {
                                             r = 0;
                                         }
-                                        else if (checkDir[i - 2].find("1.png") != string::npos)
+                                        else if (checkDir[i - 3].find("1.png") != string::npos)
                                         {
                                             r = 1;
 
@@ -4427,18 +4390,135 @@ int main(void)
 
                                         if (atoi(&dir[dir.size() - 5]) == (l ^ r))
                                         {
-                                            filledDown[i] = 1;
+                                            filledDown[i] = 0;
                                             // cout << l << " " << r;
                                         }
                                         else
                                         {
-                                            filledDown[i] = 0;
+                                            filledDown[i] = 1;
                                             //  cout << l << " " << r;
                                         }
                                     }
 
 
                                 }
+                            }
+                            else if (diff > 6 && diff < 11)
+                            {
+
+                            if (filledDown[i - 5] && filledDown[i - 4])
+                            {
+
+                                if (dir.find("and") != string::npos)
+                                {
+                                    int l = 0, r = 0;
+
+                                    if (checkDir[i - 5].find("1.png") != string::npos)
+                                    {
+                                        l = 1;
+                                        // cout << "f";
+
+                                    }
+                                    else if (checkDir[i - 5].find("0.png") != string::npos)
+                                    {
+                                        l = 0;
+                                        //cout << "f";
+                                    }
+                                    else if (checkDir[i - 4].find("0.png") != string::npos)
+                                    {
+                                        r = 0;
+                                        //cout << "f";
+                                    }
+                                    else if (checkDir[i - 4].find("1.png") != string::npos)
+                                    {
+                                        r = 1;
+                                        //cout << "f";
+
+                                    }
+
+                                    if (atoi(&dir[dir.size() - 5]) == (l && r))
+                                    {
+                                        filledDown[i] = 0;
+                                        //cout << "fHHHHHHH10100001010101010101010101001111" << l << " " << r;;
+                                    }
+                                    else
+                                    {
+                                        filledDown[i] = 1;
+                                        //cout << "fHHHHHHH" << l << " " << r;
+                                    }
+                                }
+                                if (dir.find("or") != string::npos)
+                                {
+                                    int l = 0, r = 0;
+                                    if (checkDir[i - 5].find("1.png") != string::npos)
+                                    {
+                                        l = 1;
+                                        //cout << "f";
+                                    }
+                                    if (checkDir[i - 5].find("0.png") != string::npos)
+                                    {
+                                        l = 0;
+                                        //cout << "f";
+                                    }
+                                    if (checkDir[i - 4].find("0.png") != string::npos)
+                                    {
+                                        r = 0;
+                                        //cout << "f";
+                                    }
+                                    if (checkDir[i - 4].find("1.png") != string::npos)
+                                    {
+                                        r = 1;
+                                        //cout << "f";
+
+                                    }
+
+                                    if (atoi(&dir[dir.size() - 5]) == (l || r))
+                                    {
+                                        filledDown[i] = 0;
+                                        //cout << "fHHHHHHHKKKKKKKKKKKKKKKKKKK" << l << " " << r;
+                                    }
+                                    else
+                                    {
+                                        filledDown[i] = 1;
+                                        //cout << "OOOOOOOOOOOOOOOOOOOO" << l << " " << r;
+                                    }
+                                }
+                                if (dir.find("x") != string::npos)
+                                {
+                                    int l = 0, r = 0;
+                                    if (checkDir[i - 5].find("1.png") != string::npos)
+                                    {
+                                        l = 1;
+
+                                    }
+                                    else if (checkDir[i - 5].find("0.png") != string::npos)
+                                    {
+                                        l = 0;
+                                    }
+                                    else if (checkDir[i - 4].find("0.png") != string::npos)
+                                    {
+                                        r = 0;
+                                    }
+                                    else if (checkDir[i - 4].find("1.png") != string::npos)
+                                    {
+                                        r = 1;
+
+                                    }
+
+                                    if (atoi(&dir[dir.size() - 5]) == (l ^ r))
+                                    {
+                                        filledDown[i] = 0;
+                                        // cout << l << " " << r;
+                                    }
+                                    else
+                                    {
+                                        filledDown[i] = 1;
+                                        //  cout << l << " " << r;
+                                    }
+                                }
+
+
+                            }
                             }
                             break;
                         }
@@ -4550,8 +4630,123 @@ int main(void)
 
                             break;
                         }
+                        case 2:
+                        {
+                            if (dir.find("and") != string::npos)
+                            {
+                                if (atoi(&dir[dir.size() - 5]) == (ftAr[2] && ftAr[3]))
+                                {
+                                    filledUp[i] = 0;
+                                }
+                                else
+                                {
+                                    filledUp[i] = 1;
+                                }
+                            }
+                            if (dir.find("or") != string::npos)
+                            {
+                                if (atoi(&dir[dir.size() - 5]) == (ftAr[2] || ftAr[3]))
+                                {
+                                    filledUp[i] = 0;
+                                }
+                                else
+                                {
+                                    filledUp[i] = 1;
+                                }
+                            }
+                            if (dir.find("x") != string::npos)
+                            {
+                                if (atoi(&dir[dir.size() - 5]) == (ftAr[2] ^ ftAr[3]))
+                                {
+                                    filledUp[i] = 0;
+                                }
+                                else
+                                {
+                                    filledUp[i] = 1;
+                                }
+                            }
+
+                            break;
+                        }
+                        case 3:
+                        {
+                            if (dir.find("and") != string::npos)
+                            {
+                                if (atoi(&dir[dir.size() - 5]) == (ftAr[3] && ftAr[4]))
+                                {
+                                    filledUp[i] = 0;
+                                }
+                                else
+                                {
+                                    filledUp[i] = 1;
+                                }
+                            }
+                            if (dir.find("or") != string::npos)
+                            {
+                                if (atoi(&dir[dir.size() - 5]) == (ftAr[3] || ftAr[4]))
+                                {
+                                    filledUp[i] = 0;
+                                }
+                                else
+                                {
+                                    filledUp[i] = 1;
+                                }
+                            }
+                            if (dir.find("x") != string::npos)
+                            {
+                                if (atoi(&dir[dir.size() - 5]) == (ftAr[3] ^ ftAr[4]))
+                                {
+                                    filledUp[i] = 0;
+                                }
+                                else
+                                {
+                                    filledUp[i] = 1;
+                                }
+                            }
+
+                            break;
+                        }
+                        case 4:
+                        {
+                            if (dir.find("and") != string::npos)
+                            {
+                                if (atoi(&dir[dir.size() - 5]) == (ftAr[4] && ftAr[5]))
+                                {
+                                    filledUp[i] = 0;
+                                }
+                                else
+                                {
+                                    filledUp[i] = 1;
+                                }
+                            }
+                            if (dir.find("or") != string::npos)
+                            {
+                                if (atoi(&dir[dir.size() - 5]) == (ftAr[4] || ftAr[5]))
+                                {
+                                    filledUp[i] = 0;
+                                }
+                                else
+                                {
+                                    filledUp[i] = 1;
+                                }
+                            }
+                            if (dir.find("x") != string::npos)
+                            {
+                                if (atoi(&dir[dir.size() - 5]) == (ftAr[4] ^ ftAr[5]))
+                                {
+                                    filledUp[i] = 0;
+                                }
+                                else
+                                {
+                                    filledUp[i] = 1;
+                                }
+                            }
+
+                            break;
+                        }
                         default:
                         {
+
                             if (diff == 1)
                             {
 
@@ -4562,93 +4757,93 @@ int main(void)
                                     {
                                         int l = 0, r = 0;
 
-                                        if (checkDirTwo[0].find("1.png") != string::npos)
+                                        if (checkDirTwo[i - 2].find("1.png") != string::npos)
                                         {
                                             l = 1;
-                                            //cout << "f";
+                                            cout << "f";
 
                                         }
-                                        else if (checkDirTwo[0].find("0.png") != string::npos)
+                                        else if (checkDirTwo[i - 2].find("0.png") != string::npos)
                                         {
                                             l = 0;
-                                            //cout << "f";
+                                            cout << "f";
                                         }
-                                        else if (checkDirTwo[1].find("0.png") != string::npos)
+                                        else if (checkDirTwo[i - 1].find("0.png") != string::npos)
                                         {
                                             r = 0;
-                                            //cout << "f";
+                                            cout << "f";
                                         }
-                                        else if (checkDirTwo[1].find("1.png") != string::npos)
+                                        else if (checkDirTwo[i - 1].find("1.png") != string::npos)
                                         {
                                             r = 1;
-                                            //cout << "f";
+                                            cout << "f";
 
                                         }
 
                                         if (atoi(&dir[dir.size() - 5]) == (l && r))
                                         {
                                             filledUp[i] = 0;
-                                            //cout << "fHHHHHHH10100001010101010101010101001111" << l << " " << r;;
+                                            cout << "fHHHHHHH10100001010101010101010101001111" << l << " " << r;;
                                         }
                                         else
                                         {
                                             filledUp[i] = 1;
-                                            // cout << "fHHHHHHH" << l << " " << r;
+                                            cout << "fHHHHHHH" << l << " " << r;
                                         }
                                     }
                                     if (dir.find("or") != string::npos)
                                     {
                                         int l = 0, r = 0;
-                                        if (checkDirTwo[0].find("1.png") != string::npos)
+                                        if (checkDirTwo[i - 2].find("1.png") != string::npos)
                                         {
                                             l = 1;
-                                            // cout << "f";
+                                            cout << "f";
                                         }
-                                        if (checkDirTwo[0].find("0.png") != string::npos)
+                                        if (checkDirTwo[i - 2].find("0.png") != string::npos)
                                         {
                                             l = 0;
-                                            // cout << "f";
+                                            cout << "f";
                                         }
-                                        if (checkDirTwo[1].find("0.png") != string::npos)
+                                        if (checkDirTwo[i - 1].find("0.png") != string::npos)
                                         {
                                             r = 0;
-                                            //cout << "f";
+                                            cout << "f";
                                         }
-                                        if (checkDirTwo[1].find("1.png") != string::npos)
+                                        if (checkDirTwo[i - 1].find("1.png") != string::npos)
                                         {
                                             r = 1;
-                                            // cout << "f";
+                                            cout << "f";
 
                                         }
 
                                         if (atoi(&dir[dir.size() - 5]) == (l || r))
                                         {
                                             filledUp[i] = 0;
-                                            //cout << "fHHHHHHHKKKKKKKKKKKKKKKKKKK" << l << " " << r;
+                                            cout << "fHHHHHHHKKKKKKKKKKKKKKKKKKK" << l << " " << r;
                                         }
                                         else
                                         {
                                             filledUp[i] = 1;
-                                            //cout << "OOOOOOOOOOOOOOOOOOOO" << l << " " << r;
+                                            cout << "OOOOOOOOOOOOOOOOOOOO" << l << " " << r;
                                         }
                                     }
                                     if (dir.find("x") != string::npos)
                                     {
                                         int l = 0, r = 0;
-                                        if (checkDirTwo[0].find("1.png") != string::npos)
+                                        if (checkDirTwo[i - 2].find("1.png") != string::npos)
                                         {
                                             l = 1;
 
                                         }
-                                        else if (checkDirTwo[0].find("0.png") != string::npos)
+                                        else if (checkDirTwo[i - 2].find("0.png") != string::npos)
                                         {
                                             l = 0;
                                         }
-                                        else if (checkDirTwo[1].find("0.png") != string::npos)
+                                        else if (checkDirTwo[i - 1].find("0.png") != string::npos)
                                         {
                                             r = 0;
                                         }
-                                        else if (checkDirTwo[1].find("1.png") != string::npos)
+                                        else if (checkDirTwo[i - 1].find("1.png") != string::npos)
                                         {
                                             r = 1;
 
@@ -4656,13 +4851,13 @@ int main(void)
 
                                         if (atoi(&dir[dir.size() - 5]) == (l ^ r))
                                         {
-                                            filledUp[i] = 1;
-                                            //cout << l << " " << r;
+                                            filledUp[i] = 0;
+                                            cout << l << " " << r;
                                         }
                                         else
                                         {
-                                            filledUp[i] = 0;
-                                            //cout << l << " " << r;
+                                            filledUp[i] = 1;
+                                            cout << l << " " << r;
                                         }
                                     }
 
@@ -4682,30 +4877,147 @@ int main(void)
                                         if (checkDirTwo[i - 3].find("1.png") != string::npos)
                                         {
                                             l = 1;
-                                            //cout << "f";
+                                            cout << "f";
 
                                         }
                                         else if (checkDirTwo[i - 3].find("0.png") != string::npos)
                                         {
                                             l = 0;
-                                            //cout << "f";
+                                            cout << "f";
                                         }
                                         else if (checkDirTwo[i - 2].find("0.png") != string::npos)
                                         {
                                             r = 0;
-                                            //cout << "f";
+                                            cout << "f";
                                         }
                                         else if (checkDirTwo[i - 2].find("1.png") != string::npos)
                                         {
                                             r = 1;
-                                            //  cout << "f";
+                                            cout << "f";
 
                                         }
 
                                         if (atoi(&dir[dir.size() - 5]) == (l && r))
                                         {
                                             filledUp[i] = 0;
-                                            // cout << "fHHHHHHH10100001010101010101010101001111" << l << " " << r;;
+                                            cout << "fHHHHHHH10100001010101010101010101001111" << l << " " << r;;
+                                        }
+                                        else
+                                        {
+                                            filledUp[i] = 1;
+                                            cout << "fHHHHHHH" << l << " " << r;
+                                        }
+                                    }
+                                    if (dir.find("or") != string::npos)
+                                    {
+                                        int l = 0, r = 0;
+                                        if (checkDirTwo[i - 3].find("1.png") != string::npos)
+                                        {
+                                            l = 1;
+                                            cout << "f";
+                                        }
+                                        if (checkDirTwo[i - 3].find("0.png") != string::npos)
+                                        {
+                                            l = 0;
+                                            cout << "f";
+                                        }
+                                        if (checkDirTwo[i - 2].find("0.png") != string::npos)
+                                        {
+                                            r = 0;
+                                            cout << "f";
+                                        }
+                                        if (checkDirTwo[i - 2].find("1.png") != string::npos)
+                                        {
+                                            r = 1;
+                                            cout << "f";
+
+                                        }
+
+                                        if (atoi(&dir[dir.size() - 5]) == (l || r))
+                                        {
+                                            filledUp[i] = 0;
+                                            cout << "fHHHHHHHKKKKKKKKKKKKKKKKKKK" << l << " " << r;
+                                        }
+                                        else
+                                        {
+                                            filledUp[i] = 1;
+                                            cout << "OOOOOOOOOOOOOOOOOOOO" << l << " " << r;
+                                        }
+                                    }
+                                    if (dir.find("x") != string::npos)
+                                    {
+                                        int l = 0, r = 0;
+                                        if (checkDirTwo[i - 3].find("1.png") != string::npos)
+                                        {
+                                            l = 1;
+
+                                        }
+                                        else if (checkDirTwo[i - 3].find("0.png") != string::npos)
+                                        {
+                                            l = 0;
+                                        }
+                                        else if (checkDirTwo[i - 2].find("0.png") != string::npos)
+                                        {
+                                            r = 0;
+                                        }
+                                        else if (checkDirTwo[i - 2].find("1.png") != string::npos)
+                                        {
+                                            r = 1;
+
+                                        }
+
+                                        if (atoi(&dir[dir.size() - 5]) == (l ^ r))
+                                        {
+                                            filledUp[i] = 0;
+                                            cout << l << " " << r;
+                                        }
+                                        else
+                                        {
+                                            filledUp[i] = 1;
+                                            cout << l << " " << r;
+                                        }
+                                    }
+
+
+                                }
+                            }
+                            else if (diff > 3 && diff < 7)
+                            {
+
+                                if (filledUp[i - 4] && filledUp[i - 3])
+                                {
+
+                                    if (dir.find("and") != string::npos)
+                                    {
+                                        int l = 0, r = 0;
+
+                                        if (checkDirTwo[i - 4].find("1.png") != string::npos)
+                                        {
+                                            l = 1;
+                                            // cout << "f";
+
+                                        }
+                                        else if (checkDirTwo[i - 4].find("0.png") != string::npos)
+                                        {
+                                            l = 0;
+                                            //cout << "f";
+                                        }
+                                        else if (checkDirTwo[i - 3].find("0.png") != string::npos)
+                                        {
+                                            r = 0;
+                                            //cout << "f";
+                                        }
+                                        else if (checkDirTwo[i - 3].find("1.png") != string::npos)
+                                        {
+                                            r = 1;
+                                            //cout << "f";
+
+                                        }
+
+                                        if (atoi(&dir[dir.size() - 5]) == (l && r))
+                                        {
+                                            filledUp[i] = 0;
+                                            //cout << "fHHHHHHH10100001010101010101010101001111" << l << " " << r;;
                                         }
                                         else
                                         {
@@ -4716,56 +5028,56 @@ int main(void)
                                     if (dir.find("or") != string::npos)
                                     {
                                         int l = 0, r = 0;
-                                        if (checkDirTwo[i - 3].find("1.png") != string::npos)
+                                        if (checkDirTwo[i - 4].find("1.png") != string::npos)
                                         {
                                             l = 1;
                                             //cout << "f";
                                         }
-                                        if (checkDirTwo[i - 3].find("0.png") != string::npos)
+                                        if (checkDirTwo[i - 4].find("0.png") != string::npos)
                                         {
                                             l = 0;
                                             //cout << "f";
                                         }
-                                        if (checkDirTwo[i - 2].find("0.png") != string::npos)
+                                        if (checkDirTwo[i - 3].find("0.png") != string::npos)
                                         {
                                             r = 0;
                                             //cout << "f";
                                         }
-                                        if (checkDirTwo[i - 2].find("1.png") != string::npos)
+                                        if (checkDirTwo[i - 3].find("1.png") != string::npos)
                                         {
                                             r = 1;
-                                            // cout << "f";
+                                            //cout << "f";
 
                                         }
 
                                         if (atoi(&dir[dir.size() - 5]) == (l || r))
                                         {
                                             filledUp[i] = 0;
-                                            // cout << "fHHHHHHHKKKKKKKKKKKKKKKKKKK" << l << " " << r;
+                                            //cout << "fHHHHHHHKKKKKKKKKKKKKKKKKKK" << l << " " << r;
                                         }
                                         else
                                         {
                                             filledUp[i] = 1;
-                                            // cout << "OOOOOOOOOOOOOOOOOOOO" << l << " " << r;
+                                            //cout << "OOOOOOOOOOOOOOOOOOOO" << l << " " << r;
                                         }
                                     }
                                     if (dir.find("x") != string::npos)
                                     {
                                         int l = 0, r = 0;
-                                        if (checkDirTwo[i - 3].find("1.png") != string::npos)
+                                        if (checkDirTwo[i - 4].find("1.png") != string::npos)
                                         {
                                             l = 1;
 
                                         }
-                                        else if (checkDirTwo[i - 3].find("0.png") != string::npos)
+                                        else if (checkDirTwo[i - 4].find("0.png") != string::npos)
                                         {
                                             l = 0;
                                         }
-                                        else if (checkDirTwo[i - 2].find("0.png") != string::npos)
+                                        else if (checkDirTwo[i - 3].find("0.png") != string::npos)
                                         {
                                             r = 0;
                                         }
-                                        else if (checkDirTwo[i - 2].find("1.png") != string::npos)
+                                        else if (checkDirTwo[i - 3].find("1.png") != string::npos)
                                         {
                                             r = 1;
 
@@ -4773,116 +5085,116 @@ int main(void)
 
                                         if (atoi(&dir[dir.size() - 5]) == (l ^ r))
                                         {
-                                            filledUp[i] = 1;
+                                            filledUp[i] = 0;
                                             // cout << l << " " << r;
                                         }
                                         else
                                         {
-                                            filledUp[i] = 0;
-                                            // cout << l << " " << r;
+                                            filledUp[i] = 1;
+                                            //  cout << l << " " << r;
                                         }
                                     }
 
 
                                 }
                             }
-                            else if (diff > 3 && diff < 7)
+                            else if (diff > 6 && diff < 11)
                             {
 
-                                if (filledDown[i - 3] && filledDown[i - 2])
+                                if (filledUp[i - 5] && filledUp[i - 4])
                                 {
 
                                     if (dir.find("and") != string::npos)
                                     {
                                         int l = 0, r = 0;
 
-                                        if (checkDirTwo[i - 3].find("1.png") != string::npos)
+                                        if (checkDirTwo[i - 5].find("1.png") != string::npos)
                                         {
                                             l = 1;
-                                            //  cout << "f";
+                                            // cout << "f";
 
                                         }
-                                        else if (checkDirTwo[i - 3].find("0.png") != string::npos)
+                                        else if (checkDirTwo[i - 5].find("0.png") != string::npos)
                                         {
                                             l = 0;
-                                            // cout << "f";
+                                            //cout << "f";
                                         }
-                                        else if (checkDirTwo[i - 2].find("0.png") != string::npos)
+                                        else if (checkDirTwo[i - 4].find("0.png") != string::npos)
                                         {
                                             r = 0;
-                                            //  cout << "f";
+                                            //cout << "f";
                                         }
-                                        else if (checkDirTwo[i - 2].find("1.png") != string::npos)
+                                        else if (checkDirTwo[i - 4].find("1.png") != string::npos)
                                         {
                                             r = 1;
-                                            //  cout << "f";
+                                            //cout << "f";
 
                                         }
 
                                         if (atoi(&dir[dir.size() - 5]) == (l && r))
                                         {
                                             filledUp[i] = 0;
-                                            // cout << "fHHHHHHH10100001010101010101010101001111" << l << " " << r;;
+                                            //cout << "fHHHHHHH10100001010101010101010101001111" << l << " " << r;;
                                         }
                                         else
                                         {
                                             filledUp[i] = 1;
-                                            //  cout << "fHHHHHHH" << l << " " << r;
+                                            //cout << "fHHHHHHH" << l << " " << r;
                                         }
                                     }
                                     if (dir.find("or") != string::npos)
                                     {
                                         int l = 0, r = 0;
-                                        if (checkDirTwo[i - 3].find("1.png") != string::npos)
+                                        if (checkDirTwo[i - 5].find("1.png") != string::npos)
                                         {
                                             l = 1;
                                             //cout << "f";
                                         }
-                                        if (checkDirTwo[i - 3].find("0.png") != string::npos)
+                                        if (checkDirTwo[i - 5].find("0.png") != string::npos)
                                         {
                                             l = 0;
-                                            // cout << "f";
+                                            //cout << "f";
                                         }
-                                        if (checkDirTwo[i - 2].find("0.png") != string::npos)
+                                        if (checkDirTwo[i - 4].find("0.png") != string::npos)
                                         {
                                             r = 0;
-                                            // cout << "f";
+                                            //cout << "f";
                                         }
-                                        if (checkDirTwo[i - 2].find("1.png") != string::npos)
+                                        if (checkDirTwo[i - 4].find("1.png") != string::npos)
                                         {
                                             r = 1;
-                                            //  cout << "f";
+                                            //cout << "f";
 
                                         }
 
                                         if (atoi(&dir[dir.size() - 5]) == (l || r))
                                         {
                                             filledUp[i] = 0;
-                                            // cout << "fHHHHHHHKKKKKKKKKKKKKKKKKKK" << l << " " << r;
+                                            //cout << "fHHHHHHHKKKKKKKKKKKKKKKKKKK" << l << " " << r;
                                         }
                                         else
                                         {
                                             filledUp[i] = 1;
-                                            // cout << "OOOOOOOOOOOOOOOOOOOO" << l << " " << r;
+                                            //cout << "OOOOOOOOOOOOOOOOOOOO" << l << " " << r;
                                         }
                                     }
                                     if (dir.find("x") != string::npos)
                                     {
                                         int l = 0, r = 0;
-                                        if (checkDirTwo[i - 3].find("1.png") != string::npos)
+                                        if (checkDirTwo[i - 5].find("1.png") != string::npos)
                                         {
                                             l = 1;
 
                                         }
-                                        else if (checkDirTwo[i - 3].find("0.png") != string::npos)
+                                        else if (checkDirTwo[i - 5].find("0.png") != string::npos)
                                         {
                                             l = 0;
                                         }
-                                        else if (checkDirTwo[i - 2].find("0.png") != string::npos)
+                                        else if (checkDirTwo[i - 4].find("0.png") != string::npos)
                                         {
                                             r = 0;
                                         }
-                                        else if (checkDirTwo[i - 2].find("1.png") != string::npos)
+                                        else if (checkDirTwo[i - 4].find("1.png") != string::npos)
                                         {
                                             r = 1;
 
@@ -4890,13 +5202,13 @@ int main(void)
 
                                         if (atoi(&dir[dir.size() - 5]) == (l ^ r))
                                         {
-                                            filledUp[i] = 1;
+                                            filledUp[i] = 0;
                                             // cout << l << " " << r;
                                         }
                                         else
                                         {
-                                            filledUp[i] = 0;
-                                            // cout << l << " " << r;
+                                            filledUp[i] = 1;
+                                            //  cout << l << " " << r;
                                         }
                                     }
 
