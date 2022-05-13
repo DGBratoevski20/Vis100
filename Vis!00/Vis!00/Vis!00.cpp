@@ -272,13 +272,6 @@ void checkTwoCardsFilled(vector<bool>& fDown, vector<bool>& fUp, int size)
     }
 }
 
-//Basic ifs
-//void checkActiveCards(vector<bool>& fDown, vector<bool>& fUp, string rDir, vector<string> chDir, int Basepos)
-//{
-//        if(fDown[Basepos])
-//        cout << chDir[Basepos][1] << "Hee";
-//        
-//}
 
 
 
@@ -475,18 +468,24 @@ int main(void)
     InitWindow(screenWidth, screenHeight, "Vis!00");
     Texture2D check_mark = LoadTexture("../images/Check.png");
 
+    Texture2D deck_texture = LoadTexture("../images/deck.png");
+
+    Texture2D bin = LoadTexture("../images/bin.png");
+
     Texture2D red_card = LoadTexture(randomDir[0].c_str());
     Texture2D blue_card = LoadTexture(randomDir[1].c_str());
     Texture2D yellow_card = LoadTexture(randomDir[2].c_str());
     Texture2D F_card = LoadTexture(randomDir[3].c_str());
     Texture2D Five_card = LoadTexture(randomDir[4].c_str());
+    
 
     red_card.width = 70, red_card.height = 90;
     blue_card.width = 70, blue_card.height = 90;
     yellow_card.width = 70, yellow_card.height = 90;
     F_card.width = 70, F_card.height = 90;
     Five_card.width = 70, Five_card.height = 90;
-
+    bin.width = 60, bin.height = 60;
+    deck_texture.width = 70, deck_texture.height = 70;
 
     Texture2D redRight_card = LoadTexture(randomDir[5].c_str());
     Texture2D blueRight_card = LoadTexture(randomDir[6].c_str());
@@ -499,7 +498,7 @@ int main(void)
     yellowRight_card.width = 70, yellowRight_card.height = 90;
     FRight_card.width = 70, FRight_card.height = 90;
     FiveRight_card.width = 70, FiveRight_card.height = 90;
-
+    
 
 
     Rectangle colorsRecs[4];
@@ -520,7 +519,34 @@ int main(void)
     bool checkfirstcollisionF = 0;
     bool checkfirstcollisionFive = 0;
 
-
+    vector<string> deck(48);
+    for (int i = 0; i < deck.size(); i++)
+    {
+        if (i > -1 && i < 8)
+        {
+            deck[i] = "../image/x1.png";
+        }
+        if (i > 7 && i < 16)
+        {
+            deck[i] = "../image/x0.png";
+        }
+        if (i > 15 && i < 24)
+        {
+            deck[i] = "../image/or1.png";
+        }
+        if (i > 23 && i < 32)
+        {
+            deck[i] = "../image/or0.png";
+        }
+        if (i > 31 && i < 40)
+        {
+            deck[i] = "../image/and0.png";
+        }
+        if (i > 39 && i < 48)
+        {
+            deck[i] = "../image/and1.png";
+        }
+    }
     Vector2 check_marker = { 837.5, 260 };
     Vector2 check_marker3 = { 946, 600.5 };
     Vector2 check_marker2 = { -946, -600.5 };
@@ -573,8 +599,11 @@ int main(void)
     Rectangle movingBoxYellow = { posImgYellow.x, posImgYellow.y, yellow_card.width, yellow_card.height };
     Rectangle movingBoxF = { posImgF.x, posImgF.y, F_card.width, F_card.height };
     Rectangle movingBoxFive = { posImgFive.x, posImgFive.y, Five_card.width, Five_card.height };
+    Rectangle RectBin = {400, 900, 60, 60};
+    Rectangle RectDeck = { 1300, 40, 60, 60 };
 
 
+    
     Rectangle movingBoxRedRight = { posImgRedRight.x, posImgRedRight.y, red_card.width, red_card.height };
     Rectangle movingBoxBlueRight = { posImgBlueRight.x, posImgBlueRight.y, blue_card.width, blue_card.height };
     Rectangle movingBoxYellowRight = { posImgYellowRight.x, posImgYellowRight.y, yellow_card.width, yellow_card.height };
@@ -1464,6 +1493,11 @@ int main(void)
                 DrawTexture(FRight_card, posImgFRight.x, posImgFRight.y, WHITE);
                 DrawTexture(FiveRight_card, posImgFiveRight.x, posImgFiveRight.y, WHITE);
 
+                //bin and deck
+                DrawRectangleRec(RectBin, LIGHTGRAY);
+                DrawRectangleRec(RectDeck, LIGHTGRAY);
+                DrawTexture(bin, 400, 900, LIGHTGRAY);
+                DrawTexture(deck_texture, 1300, 40, LIGHTGRAY);
 
 
 
@@ -2428,8 +2462,11 @@ int main(void)
                 DrawTexture(FRight_card, posImgFRight.x, posImgFRight.y, WHITE);
                 DrawTexture(FiveRight_card, posImgFiveRight.x, posImgFiveRight.y, WHITE);
 
-
-
+                //bin and deck
+                DrawRectangleRec(RectBin, LIGHTGRAY);
+                DrawRectangleRec(RectDeck, LIGHTGRAY);
+                DrawTexture(bin, 400, 900, LIGHTGRAY);
+                DrawTexture(deck_texture, 1300, 40, LIGHTGRAY);
             }
             //globalcout = 0;
             if (two)
@@ -3714,7 +3751,11 @@ int main(void)
                 DrawTexture(yellowRight_card, posImgYellowRight.x, posImgYellowRight.y, WHITE);
                 DrawTexture(FRight_card, posImgFRight.x, posImgFRight.y, WHITE);
                 DrawTexture(FiveRight_card, posImgFiveRight.x, posImgFiveRight.y, WHITE);
-
+                //bin and deck
+                DrawRectangleRec(RectBin, LIGHTGRAY);
+                DrawRectangleRec(RectDeck, LIGHTGRAY);
+                DrawTexture(bin, 400, 900, LIGHTGRAY);
+                DrawTexture(deck_texture, 1300, 40, LIGHTGRAY);
 
 
             }
@@ -5326,6 +5367,11 @@ int main(void)
                 DrawTexture(FRight_card, posImgFRight.x, posImgFRight.y, WHITE);
                 DrawTexture(FiveRight_card, posImgFiveRight.x, posImgFiveRight.y, WHITE);
 
+                //bin and deck
+                DrawRectangleRec(RectBin, LIGHTGRAY);
+                DrawRectangleRec(RectDeck, LIGHTGRAY);
+                DrawTexture(bin, 400, 900, LIGHTGRAY);
+                DrawTexture(deck_texture, 1300, 40, LIGHTGRAY);
 
 
             }
@@ -5594,6 +5640,8 @@ int main(void)
     UnloadTexture(blue_card);
     UnloadTexture(yellow_card);
     UnloadTexture(F_card);
+    UnloadTexture(deck_texture);
+    UnloadTexture(bin);
 
     UnloadTexture(blueRight_card);
     UnloadTexture(yellowRight_card);
