@@ -10,7 +10,7 @@ namespace UnitTest
 	{
 	public:
 		
-		TEST_METHOD(TestMethod1)
+		TEST_METHOD(Test_If_var1_value_is_right)
 		{
 			// AAA
 			// arrange   -   act  -   assert
@@ -25,6 +25,26 @@ namespace UnitTest
 			// assert
 			Assert::AreEqual(451, result);
 
+
+		}
+		TEST_METHOD(Test_If_var2_value_is_correct)
+		{
+
+		}
+		TEST_METHOD(Test_If_var3_value_is_correct)
+		{
+
+		}
+		TEST_METHOD(Test_If_var4_value_is_correct)
+		{
+
+		}
+		TEST_METHOD(Test_If_var5_value_is_correct)
+		{
+
+		}
+		TEST_METHOD(Test_If_var6_value_is_correct)
+		{
 
 		}
 	};
