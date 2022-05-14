@@ -87,14 +87,14 @@ text-align: center;
 .card-img3{
 	width: 100%;
 	height: 12rem;
-	background-image: url('02.jpg');
+	background-image: url('04.jpg');
 	background-size: cover;
 	background-position: center center;
 }
 .card-img4{
 	width: 100%;
 	height: 12rem;
-	background-image: url('04.jpg');
+	background-image: url('02.jpg');
 	background-size: cover;
 	background-position: center center;
 }
