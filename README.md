@@ -8,7 +8,7 @@
    <img src = "https://img.shields.io/github/languages/count/DGBratoevski20/Vis100?style=flat-square">
    <img src = "https://img.shields.io/github/repo-size/DGBratoevski20/Vis100?style=flat-square">
   </p>
-  <h1>✍🏽Description </h1>
+  <h1>✍🏽 Description </h1>
   Vis!00 is a newly formed team made up from 4 team members. The goal of the team is to create a game based on boolean logic.You can learn about the rules of the game and about us on our in game menu our in our website-(link for the website)
   <h1>🤝 Our Team </h1>
   <p>
@@ -29,10 +29,10 @@
   
   
   
-  <h1>🚀Used technologies</h1>
+  <h1>🚀 Used technologies</h1>
   <p align="left"> 
 	<a> <img src="https://img.icons8.com/ios-filled/50/4a90e2/c-plus-plus-logo.png"/> </a> 
-	<a><img src="https://www.simpleimageresizer.com/_uploads/photos/3fd1c014/Raylib_logo_48x48.png" </a>
+	<a><img src="https://www.simpleimageresizer.com/_uploads/photos/3fd1c014/Raylib_logo_48x48.png"></a>
 	<a><img src="https://img.icons8.com/color/48/000000/css3.png"/> </a>
 	<a><img src="https://img.icons8.com/color/48/000000/html-5--v1.png"/></a>
 	<a> <img src="https://img.icons8.com/fluency/48/000000/visual-studio.png"/> </a>
@@ -45,11 +45,11 @@
   </p>
 	
    
-   <h1>📝Documents</h1>
+   <h1>📝 Documents</h1>
   <p>
- <h2> <a href ="https://codingburgas-my.sharepoint.com/:w:/g/personal/lrgeorgiev20_codingburgas_bg/EWHL2pBoFFFFrPQUbuU0qxkBxkbKDMEFWOpKxZFGzw_HxQ?e=VzHce1" >📄Documentation</h2>
+ <h2> <a href ="https://codingburgas-my.sharepoint.com/:w:/g/personal/lrgeorgiev20_codingburgas_bg/EWHL2pBoFFFFrPQUbuU0qxkBxkbKDMEFWOpKxZFGzw_HxQ?e=VzHce1" >📄  Documentation</h2>
  <h2> <a href = >✅ QA Documentation</h2>
- <h2> <a href = >🖥Presentation</h2>
+ <h2> <a href = >🖥 Presentation</h2>
 </p>
 	
 	
