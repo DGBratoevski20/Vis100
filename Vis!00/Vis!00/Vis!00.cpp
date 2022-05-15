@@ -3181,6 +3181,317 @@ int main(void)
 
                 ///Check if two are filled and then to put another
                 checkTwoCardsFilled(filledDown, filledUp, 2);
+                if (CheckCollisionPointRec(mousePoint, RectBin) && IsMouseButtonReleased(MOUSE_BUTTON_LEFT))
+                {
+                    binCheck = 0;
+                    check = 1;
+                    for (int j = 0; j < 10; j++)
+                    {
+                        if (mousePoint.x == arrToCheckOperation[j].x && mousePoint.y == arrToCheckOperation[j].y)
+                        {
+                            if ((CheckCollisionRecs(arrToCheckOperation[j], movingBoxRed) && arrToCheckOperation[j].width == movingBoxRed.width))
+                            {
+                                movingBoxRed.x = -100;
+                                movingBoxRed.y = -100;
+                                posImgRed.x = -100;
+                                posImgRed.y = -100;
+
+                            }
+                            if (CheckCollisionRecs(arrToCheckOperation[j], movingBoxBlue) && arrToCheckOperation[j].width == movingBoxBlue.width)
+                            {
+                                movingBoxBlue.x = -100;
+                                movingBoxBlue.y = -100;
+                                posImgBlue.x = -100;
+                                posImgBlue.y = -100;
+                            }
+                            if (CheckCollisionRecs(arrToCheckOperation[j], movingBoxYellow) && arrToCheckOperation[j].width == movingBoxYellow.width)
+                            {
+                                movingBoxYellow.x = -100;
+                                movingBoxYellow.y = -100;
+                                posImgYellow.x = -100;
+                                posImgYellow.y = -100;
+                            }
+                            if (CheckCollisionRecs(arrToCheckOperation[j], movingBoxF) && arrToCheckOperation[j].width == movingBoxF.width)
+                            {
+                                movingBoxF.x = -100;
+                                movingBoxF.y = -100;
+                                posImgF.x = -100;
+                                posImgF.y = -100;
+                            }
+                            if (CheckCollisionRecs(arrToCheckOperation[j], movingBoxFive) && arrToCheckOperation[j].width == movingBoxFive.width)
+                            {
+                                movingBoxFive.x = -100;
+                                movingBoxFive.y = -100;
+                                posImgFive.x = -100;
+                                posImgFive.y = -100;
+                            }
+
+
+
+                            //right
+
+                            if ((CheckCollisionRecs(arrToCheckOperation[j], movingBoxRedRight) && arrToCheckOperation[j].width == movingBoxRedRight.width))
+                            {
+                                movingBoxRedRight.x = 1900;
+                                movingBoxRedRight.y = 1900;
+                                posImgRedRight.x = 1900;
+                                posImgRedRight.y = 1900;
+
+                            }
+                            if (CheckCollisionRecs(arrToCheckOperation[j], movingBoxBlueRight) && arrToCheckOperation[j].width == movingBoxBlueRight.width)
+                            {
+                                movingBoxBlueRight.x = 1900;
+                                movingBoxBlueRight.y = 1900;
+                                posImgBlueRight.x = 1900;
+                                posImgBlueRight.y = 1900;
+                            }
+                            if (CheckCollisionRecs(arrToCheckOperation[j], movingBoxYellowRight) && arrToCheckOperation[j].width == movingBoxYellowRight.width)
+                            {
+                                movingBoxYellowRight.x = 1900;
+                                movingBoxYellowRight.y = 1900;
+                                posImgYellowRight.x = 1900;
+                                posImgYellowRight.y = 1900;
+                            }
+                            if (CheckCollisionRecs(arrToCheckOperation[j], movingBoxFRight) && arrToCheckOperation[j].width == movingBoxFRight.width)
+                            {
+                                movingBoxFRight.x = 1900;
+                                movingBoxFRight.y = 1900;
+                                posImgFRight.x = 1900;
+                                posImgFRight.y = 1900;
+                            }
+                            if (CheckCollisionRecs(arrToCheckOperation[j], movingBoxFiveRight) && arrToCheckOperation[j].width == movingBoxFiveRight.width)
+                            {
+                                movingBoxFiveRight.x = 1900;
+                                movingBoxFiveRight.y = 1900;
+                                posImgFiveRight.x = 1900;
+                                posImgFiveRight.y = 1900;
+                            }
+
+                        }
+                    }
+
+                }
+                else {
+                    binCheck = 1;
+                    check = 0;
+                }
+
+                //deckche
+                if (CheckCollisionPointRec(mousePoint, RectDeck) && IsMouseButtonPressed(MOUSE_BUTTON_LEFT))
+                {
+                    int dec = deck.size();
+                    if (deck.size() == 0)
+                    {
+                        for (int i = 0; i < deck.size(); i++)
+                        {
+                            if (i > -1 && i < 8)
+                            {
+                                deck[i] = "../image/x1.png";
+                            }
+                            if (i > 7 && i < 16)
+                            {
+                                deck[i] = "../image/x0.png";
+                            }
+                            if (i > 15 && i < 24)
+                            {
+                                deck[i] = "../image/or1.png";
+                            }
+                            if (i > 23 && i < 32)
+                            {
+                                deck[i] = "../image/or0.png";
+                            }
+                            if (i > 31 && i < 40)
+                            {
+                                deck[i] = "../image/and0.png";
+                            }
+                            if (i > 39 && i < 48)
+                            {
+                                deck[i] = "../image/and1.png";
+                            }
+                        }
+                    }
+                    if (ColorToInt(playerLeftColor) == -926365441)
+                    {
+                        for (int j = 0; j < 10; j++)
+                        {
+                            if (arrToCheckOperation[j].x == 1900)
+                            {
+                                switch (j)
+                                {
+
+                                case 5:
+                                {
+
+                                    int pos = rand() % dec;
+                                    randomDir[j] = deck[pos];
+                                    deck.erase(deck.begin() + pos);
+                                    redRight_card = LoadTexture(randomDir[j].c_str());
+                                    redRight_card.width = 70;
+                                    redRight_card.height = 90;
+                                    movingBoxRedRight.x = 1600;
+                                    movingBoxRedRight.y = 50;
+                                    posImgRedRight.x = 1600;
+                                    posImgRedRight.y = 50;
+
+
+                                    break;
+                                }
+                                case 6:
+                                {
+                                    int pos = rand() % dec;
+                                    randomDir[j] = deck[pos];
+                                    deck.erase(deck.begin() + pos);
+                                    randomDir[j] = Directories[rand() % 6];
+                                    blueRight_card = LoadTexture(randomDir[j].c_str());
+                                    blueRight_card.width = 70;
+                                    blueRight_card.height = 90;
+                                    movingBoxBlueRight.x = 1600;
+                                    movingBoxBlueRight.y = 200;
+                                    posImgBlueRight.x = 1600;
+                                    posImgBlueRight.y = 200;
+                                    break;
+                                }
+                                case 7:
+                                {
+                                    int pos = rand() % dec;
+                                    randomDir[j] = deck[pos];
+                                    deck.erase(deck.begin() + pos);
+                                    randomDir[j] = Directories[rand() % 6];
+                                    yellowRight_card = LoadTexture(randomDir[j].c_str());
+                                    yellowRight_card.width = 70;
+                                    yellowRight_card.height = 90;
+                                    movingBoxYellowRight.x = 1600;
+                                    movingBoxYellowRight.y = 350;
+                                    posImgYellowRight.x = 1600;
+                                    posImgYellowRight.y = 350;
+                                    break;
+                                }
+                                case 8:
+                                {
+                                    int pos = rand() % dec;
+                                    randomDir[j] = deck[pos];
+                                    deck.erase(deck.begin() + pos);
+                                    randomDir[j] = Directories[rand() % 6];
+                                    FRight_card = LoadTexture(randomDir[j].c_str());
+                                    FRight_card.width = 70;
+                                    FRight_card.height = 90;
+                                    movingBoxFRight.x = 1600;
+                                    movingBoxFRight.y = 500;
+                                    posImgFRight.x = 1600;
+                                    posImgFRight.y = 500;
+                                    break;
+                                }
+                                case 9:
+                                {
+                                    int pos = rand() % dec;
+                                    randomDir[j] = deck[pos];
+                                    deck.erase(deck.begin() + pos);
+                                    randomDir[j] = Directories[rand() % 6];
+                                    FiveRight_card = LoadTexture(randomDir[j].c_str());
+                                    FiveRight_card.width = 70;
+                                    FiveRight_card.height = 90;
+                                    movingBoxFiveRight.x = 1600;
+                                    movingBoxFiveRight.y = 650;
+                                    posImgFiveRight.x = 1600;
+                                    posImgFiveRight.y = 650;
+                                    break;
+                                }
+                                }
+
+                            }
+
+                        }
+                    }
+                    else {
+                        for (int j = 0; j < 10; j++)
+                        {
+                            if (arrToCheckOperation[j].x == -100)
+                            {
+                                switch (j)
+                                {
+                                case 0:
+                                {
+                                    int pos = rand() % dec;
+                                    randomDir[j] = deck[pos];
+                                    deck.erase(deck.begin() + pos);
+                                    randomDir[j] = Directories[rand() % 6];
+                                    red_card = LoadTexture(randomDir[j].c_str());
+                                    red_card.width = 70;
+                                    red_card.height = 90;
+                                    movingBoxRed.x = 10;
+                                    movingBoxRed.y = 50;
+                                    posImgRed.x = 10;
+                                    posImgRed.y = 50;
+                                    break;
+                                }
+                                case 1:
+                                {
+                                    int pos = rand() % dec;
+                                    randomDir[j] = deck[pos];
+                                    deck.erase(deck.begin() + pos);
+                                    randomDir[j] = Directories[rand() % 6];
+                                    blue_card = LoadTexture(randomDir[j].c_str());
+                                    blue_card.width = 70;
+                                    blue_card.height = 90;
+                                    movingBoxBlue.x = 10;
+                                    movingBoxBlue.y = 200;
+                                    posImgBlue.x = 10;
+                                    posImgBlue.y = 200;
+                                    break;
+                                }
+                                case 2:
+                                {
+                                    int pos = rand() % dec;
+                                    randomDir[j] = deck[pos];
+                                    deck.erase(deck.begin() + pos);
+                                    randomDir[j] = Directories[rand() % 6];
+                                    yellow_card = LoadTexture(randomDir[j].c_str());
+                                    yellow_card.width = 70;
+                                    yellow_card.height = 90;
+                                    movingBoxYellow.x = 10;
+                                    movingBoxYellow.y = 350;
+                                    posImgYellow.x = 10;
+                                    posImgYellow.y = 350;
+                                    break;
+                                }
+                                case 3:
+                                {
+                                    int pos = rand() % dec;
+                                    randomDir[j] = deck[pos];
+                                    deck.erase(deck.begin() + pos);
+                                    randomDir[j] = Directories[rand() % 6];
+                                    F_card = LoadTexture(randomDir[j].c_str());
+                                    F_card.width = 70;
+                                    F_card.height = 90;
+                                    movingBoxF.x = 10;
+                                    movingBoxF.y = 500;
+                                    posImgF.x = 10;
+                                    posImgF.y = 500;
+                                    break;
+                                }
+                                case 4:
+                                {
+                                    int pos = rand() % dec;
+                                    randomDir[j] = deck[pos];
+                                    deck.erase(deck.begin() + pos);
+                                    randomDir[j] = Directories[rand() % 6];
+                                    Five_card = LoadTexture(randomDir[j].c_str());
+                                    Five_card.width = 70;
+                                    Five_card.height = 90;
+                                    movingBoxFive.x = 10;
+                                    movingBoxFive.y = 650;
+                                    posImgFive.x = 10;
+                                    posImgFive.y = 650;
+                                    break;
+                                }
+
+                                }
+
+                            }
+
+                        }
+                    }
+                }
 
                 
 
@@ -3396,6 +3707,317 @@ int main(void)
 
                 //Check if two are filled and then to put another
                 checkTwoCardsFilled(filledDown, filledUp, 3);
+                if (CheckCollisionPointRec(mousePoint, RectBin) && IsMouseButtonReleased(MOUSE_BUTTON_LEFT))
+                {
+                    binCheck = 0;
+                    check = 1;
+                    for (int j = 0; j < 10; j++)
+                    {
+                        if (mousePoint.x == arrToCheckOperation[j].x && mousePoint.y == arrToCheckOperation[j].y)
+                        {
+                            if ((CheckCollisionRecs(arrToCheckOperation[j], movingBoxRed) && arrToCheckOperation[j].width == movingBoxRed.width))
+                            {
+                                movingBoxRed.x = -100;
+                                movingBoxRed.y = -100;
+                                posImgRed.x = -100;
+                                posImgRed.y = -100;
+
+                            }
+                            if (CheckCollisionRecs(arrToCheckOperation[j], movingBoxBlue) && arrToCheckOperation[j].width == movingBoxBlue.width)
+                            {
+                                movingBoxBlue.x = -100;
+                                movingBoxBlue.y = -100;
+                                posImgBlue.x = -100;
+                                posImgBlue.y = -100;
+                            }
+                            if (CheckCollisionRecs(arrToCheckOperation[j], movingBoxYellow) && arrToCheckOperation[j].width == movingBoxYellow.width)
+                            {
+                                movingBoxYellow.x = -100;
+                                movingBoxYellow.y = -100;
+                                posImgYellow.x = -100;
+                                posImgYellow.y = -100;
+                            }
+                            if (CheckCollisionRecs(arrToCheckOperation[j], movingBoxF) && arrToCheckOperation[j].width == movingBoxF.width)
+                            {
+                                movingBoxF.x = -100;
+                                movingBoxF.y = -100;
+                                posImgF.x = -100;
+                                posImgF.y = -100;
+                            }
+                            if (CheckCollisionRecs(arrToCheckOperation[j], movingBoxFive) && arrToCheckOperation[j].width == movingBoxFive.width)
+                            {
+                                movingBoxFive.x = -100;
+                                movingBoxFive.y = -100;
+                                posImgFive.x = -100;
+                                posImgFive.y = -100;
+                            }
+
+
+
+                            //right
+
+                            if ((CheckCollisionRecs(arrToCheckOperation[j], movingBoxRedRight) && arrToCheckOperation[j].width == movingBoxRedRight.width))
+                            {
+                                movingBoxRedRight.x = 1900;
+                                movingBoxRedRight.y = 1900;
+                                posImgRedRight.x = 1900;
+                                posImgRedRight.y = 1900;
+
+                            }
+                            if (CheckCollisionRecs(arrToCheckOperation[j], movingBoxBlueRight) && arrToCheckOperation[j].width == movingBoxBlueRight.width)
+                            {
+                                movingBoxBlueRight.x = 1900;
+                                movingBoxBlueRight.y = 1900;
+                                posImgBlueRight.x = 1900;
+                                posImgBlueRight.y = 1900;
+                            }
+                            if (CheckCollisionRecs(arrToCheckOperation[j], movingBoxYellowRight) && arrToCheckOperation[j].width == movingBoxYellowRight.width)
+                            {
+                                movingBoxYellowRight.x = 1900;
+                                movingBoxYellowRight.y = 1900;
+                                posImgYellowRight.x = 1900;
+                                posImgYellowRight.y = 1900;
+                            }
+                            if (CheckCollisionRecs(arrToCheckOperation[j], movingBoxFRight) && arrToCheckOperation[j].width == movingBoxFRight.width)
+                            {
+                                movingBoxFRight.x = 1900;
+                                movingBoxFRight.y = 1900;
+                                posImgFRight.x = 1900;
+                                posImgFRight.y = 1900;
+                            }
+                            if (CheckCollisionRecs(arrToCheckOperation[j], movingBoxFiveRight) && arrToCheckOperation[j].width == movingBoxFiveRight.width)
+                            {
+                                movingBoxFiveRight.x = 1900;
+                                movingBoxFiveRight.y = 1900;
+                                posImgFiveRight.x = 1900;
+                                posImgFiveRight.y = 1900;
+                            }
+
+                        }
+                    }
+
+                }
+                else {
+                    binCheck = 1;
+                    check = 0;
+                }
+
+                //deckche
+                if (CheckCollisionPointRec(mousePoint, RectDeck) && IsMouseButtonPressed(MOUSE_BUTTON_LEFT))
+                {
+                    int dec = deck.size();
+                    if (deck.size() == 0)
+                    {
+                        for (int i = 0; i < deck.size(); i++)
+                        {
+                            if (i > -1 && i < 8)
+                            {
+                                deck[i] = "../image/x1.png";
+                            }
+                            if (i > 7 && i < 16)
+                            {
+                                deck[i] = "../image/x0.png";
+                            }
+                            if (i > 15 && i < 24)
+                            {
+                                deck[i] = "../image/or1.png";
+                            }
+                            if (i > 23 && i < 32)
+                            {
+                                deck[i] = "../image/or0.png";
+                            }
+                            if (i > 31 && i < 40)
+                            {
+                                deck[i] = "../image/and0.png";
+                            }
+                            if (i > 39 && i < 48)
+                            {
+                                deck[i] = "../image/and1.png";
+                            }
+                        }
+                    }
+                    if (ColorToInt(playerLeftColor) == -926365441)
+                    {
+                        for (int j = 0; j < 10; j++)
+                        {
+                            if (arrToCheckOperation[j].x == 1900)
+                            {
+                                switch (j)
+                                {
+
+                                case 5:
+                                {
+
+                                    int pos = rand() % dec;
+                                    randomDir[j] = deck[pos];
+                                    deck.erase(deck.begin() + pos);
+                                    redRight_card = LoadTexture(randomDir[j].c_str());
+                                    redRight_card.width = 70;
+                                    redRight_card.height = 90;
+                                    movingBoxRedRight.x = 1600;
+                                    movingBoxRedRight.y = 50;
+                                    posImgRedRight.x = 1600;
+                                    posImgRedRight.y = 50;
+
+
+                                    break;
+                                }
+                                case 6:
+                                {
+                                    int pos = rand() % dec;
+                                    randomDir[j] = deck[pos];
+                                    deck.erase(deck.begin() + pos);
+                                    randomDir[j] = Directories[rand() % 6];
+                                    blueRight_card = LoadTexture(randomDir[j].c_str());
+                                    blueRight_card.width = 70;
+                                    blueRight_card.height = 90;
+                                    movingBoxBlueRight.x = 1600;
+                                    movingBoxBlueRight.y = 200;
+                                    posImgBlueRight.x = 1600;
+                                    posImgBlueRight.y = 200;
+                                    break;
+                                }
+                                case 7:
+                                {
+                                    int pos = rand() % dec;
+                                    randomDir[j] = deck[pos];
+                                    deck.erase(deck.begin() + pos);
+                                    randomDir[j] = Directories[rand() % 6];
+                                    yellowRight_card = LoadTexture(randomDir[j].c_str());
+                                    yellowRight_card.width = 70;
+                                    yellowRight_card.height = 90;
+                                    movingBoxYellowRight.x = 1600;
+                                    movingBoxYellowRight.y = 350;
+                                    posImgYellowRight.x = 1600;
+                                    posImgYellowRight.y = 350;
+                                    break;
+                                }
+                                case 8:
+                                {
+                                    int pos = rand() % dec;
+                                    randomDir[j] = deck[pos];
+                                    deck.erase(deck.begin() + pos);
+                                    randomDir[j] = Directories[rand() % 6];
+                                    FRight_card = LoadTexture(randomDir[j].c_str());
+                                    FRight_card.width = 70;
+                                    FRight_card.height = 90;
+                                    movingBoxFRight.x = 1600;
+                                    movingBoxFRight.y = 500;
+                                    posImgFRight.x = 1600;
+                                    posImgFRight.y = 500;
+                                    break;
+                                }
+                                case 9:
+                                {
+                                    int pos = rand() % dec;
+                                    randomDir[j] = deck[pos];
+                                    deck.erase(deck.begin() + pos);
+                                    randomDir[j] = Directories[rand() % 6];
+                                    FiveRight_card = LoadTexture(randomDir[j].c_str());
+                                    FiveRight_card.width = 70;
+                                    FiveRight_card.height = 90;
+                                    movingBoxFiveRight.x = 1600;
+                                    movingBoxFiveRight.y = 650;
+                                    posImgFiveRight.x = 1600;
+                                    posImgFiveRight.y = 650;
+                                    break;
+                                }
+                                }
+
+                            }
+
+                        }
+                    }
+                    else {
+                        for (int j = 0; j < 10; j++)
+                        {
+                            if (arrToCheckOperation[j].x == -100)
+                            {
+                                switch (j)
+                                {
+                                case 0:
+                                {
+                                    int pos = rand() % dec;
+                                    randomDir[j] = deck[pos];
+                                    deck.erase(deck.begin() + pos);
+                                    randomDir[j] = Directories[rand() % 6];
+                                    red_card = LoadTexture(randomDir[j].c_str());
+                                    red_card.width = 70;
+                                    red_card.height = 90;
+                                    movingBoxRed.x = 10;
+                                    movingBoxRed.y = 50;
+                                    posImgRed.x = 10;
+                                    posImgRed.y = 50;
+                                    break;
+                                }
+                                case 1:
+                                {
+                                    int pos = rand() % dec;
+                                    randomDir[j] = deck[pos];
+                                    deck.erase(deck.begin() + pos);
+                                    randomDir[j] = Directories[rand() % 6];
+                                    blue_card = LoadTexture(randomDir[j].c_str());
+                                    blue_card.width = 70;
+                                    blue_card.height = 90;
+                                    movingBoxBlue.x = 10;
+                                    movingBoxBlue.y = 200;
+                                    posImgBlue.x = 10;
+                                    posImgBlue.y = 200;
+                                    break;
+                                }
+                                case 2:
+                                {
+                                    int pos = rand() % dec;
+                                    randomDir[j] = deck[pos];
+                                    deck.erase(deck.begin() + pos);
+                                    randomDir[j] = Directories[rand() % 6];
+                                    yellow_card = LoadTexture(randomDir[j].c_str());
+                                    yellow_card.width = 70;
+                                    yellow_card.height = 90;
+                                    movingBoxYellow.x = 10;
+                                    movingBoxYellow.y = 350;
+                                    posImgYellow.x = 10;
+                                    posImgYellow.y = 350;
+                                    break;
+                                }
+                                case 3:
+                                {
+                                    int pos = rand() % dec;
+                                    randomDir[j] = deck[pos];
+                                    deck.erase(deck.begin() + pos);
+                                    randomDir[j] = Directories[rand() % 6];
+                                    F_card = LoadTexture(randomDir[j].c_str());
+                                    F_card.width = 70;
+                                    F_card.height = 90;
+                                    movingBoxF.x = 10;
+                                    movingBoxF.y = 500;
+                                    posImgF.x = 10;
+                                    posImgF.y = 500;
+                                    break;
+                                }
+                                case 4:
+                                {
+                                    int pos = rand() % dec;
+                                    randomDir[j] = deck[pos];
+                                    deck.erase(deck.begin() + pos);
+                                    randomDir[j] = Directories[rand() % 6];
+                                    Five_card = LoadTexture(randomDir[j].c_str());
+                                    Five_card.width = 70;
+                                    Five_card.height = 90;
+                                    movingBoxFive.x = 10;
+                                    movingBoxFive.y = 650;
+                                    posImgFive.x = 10;
+                                    posImgFive.y = 650;
+                                    break;
+                                }
+
+                                }
+
+                            }
+
+                        }
+                    }
+                }
 
                 
 
@@ -3626,6 +4248,317 @@ int main(void)
 
                 //Check if two are filled and then to put another
                 checkTwoCardsFilled(filledDown, filledUp, 4);
+                if (CheckCollisionPointRec(mousePoint, RectBin) && IsMouseButtonReleased(MOUSE_BUTTON_LEFT))
+                {
+                    binCheck = 0;
+                    check = 1;
+                    for (int j = 0; j < 10; j++)
+                    {
+                        if (mousePoint.x == arrToCheckOperation[j].x && mousePoint.y == arrToCheckOperation[j].y)
+                        {
+                            if ((CheckCollisionRecs(arrToCheckOperation[j], movingBoxRed) && arrToCheckOperation[j].width == movingBoxRed.width))
+                            {
+                                movingBoxRed.x = -100;
+                                movingBoxRed.y = -100;
+                                posImgRed.x = -100;
+                                posImgRed.y = -100;
+
+                            }
+                            if (CheckCollisionRecs(arrToCheckOperation[j], movingBoxBlue) && arrToCheckOperation[j].width == movingBoxBlue.width)
+                            {
+                                movingBoxBlue.x = -100;
+                                movingBoxBlue.y = -100;
+                                posImgBlue.x = -100;
+                                posImgBlue.y = -100;
+                            }
+                            if (CheckCollisionRecs(arrToCheckOperation[j], movingBoxYellow) && arrToCheckOperation[j].width == movingBoxYellow.width)
+                            {
+                                movingBoxYellow.x = -100;
+                                movingBoxYellow.y = -100;
+                                posImgYellow.x = -100;
+                                posImgYellow.y = -100;
+                            }
+                            if (CheckCollisionRecs(arrToCheckOperation[j], movingBoxF) && arrToCheckOperation[j].width == movingBoxF.width)
+                            {
+                                movingBoxF.x = -100;
+                                movingBoxF.y = -100;
+                                posImgF.x = -100;
+                                posImgF.y = -100;
+                            }
+                            if (CheckCollisionRecs(arrToCheckOperation[j], movingBoxFive) && arrToCheckOperation[j].width == movingBoxFive.width)
+                            {
+                                movingBoxFive.x = -100;
+                                movingBoxFive.y = -100;
+                                posImgFive.x = -100;
+                                posImgFive.y = -100;
+                            }
+
+
+
+                            //right
+
+                            if ((CheckCollisionRecs(arrToCheckOperation[j], movingBoxRedRight) && arrToCheckOperation[j].width == movingBoxRedRight.width))
+                            {
+                                movingBoxRedRight.x = 1900;
+                                movingBoxRedRight.y = 1900;
+                                posImgRedRight.x = 1900;
+                                posImgRedRight.y = 1900;
+
+                            }
+                            if (CheckCollisionRecs(arrToCheckOperation[j], movingBoxBlueRight) && arrToCheckOperation[j].width == movingBoxBlueRight.width)
+                            {
+                                movingBoxBlueRight.x = 1900;
+                                movingBoxBlueRight.y = 1900;
+                                posImgBlueRight.x = 1900;
+                                posImgBlueRight.y = 1900;
+                            }
+                            if (CheckCollisionRecs(arrToCheckOperation[j], movingBoxYellowRight) && arrToCheckOperation[j].width == movingBoxYellowRight.width)
+                            {
+                                movingBoxYellowRight.x = 1900;
+                                movingBoxYellowRight.y = 1900;
+                                posImgYellowRight.x = 1900;
+                                posImgYellowRight.y = 1900;
+                            }
+                            if (CheckCollisionRecs(arrToCheckOperation[j], movingBoxFRight) && arrToCheckOperation[j].width == movingBoxFRight.width)
+                            {
+                                movingBoxFRight.x = 1900;
+                                movingBoxFRight.y = 1900;
+                                posImgFRight.x = 1900;
+                                posImgFRight.y = 1900;
+                            }
+                            if (CheckCollisionRecs(arrToCheckOperation[j], movingBoxFiveRight) && arrToCheckOperation[j].width == movingBoxFiveRight.width)
+                            {
+                                movingBoxFiveRight.x = 1900;
+                                movingBoxFiveRight.y = 1900;
+                                posImgFiveRight.x = 1900;
+                                posImgFiveRight.y = 1900;
+                            }
+
+                        }
+                    }
+
+                }
+                else {
+                    binCheck = 1;
+                    check = 0;
+                }
+
+                //deckche
+                if (CheckCollisionPointRec(mousePoint, RectDeck) && IsMouseButtonPressed(MOUSE_BUTTON_LEFT))
+                {
+                    int dec = deck.size();
+                    if (deck.size() == 0)
+                    {
+                        for (int i = 0; i < deck.size(); i++)
+                        {
+                            if (i > -1 && i < 8)
+                            {
+                                deck[i] = "../image/x1.png";
+                            }
+                            if (i > 7 && i < 16)
+                            {
+                                deck[i] = "../image/x0.png";
+                            }
+                            if (i > 15 && i < 24)
+                            {
+                                deck[i] = "../image/or1.png";
+                            }
+                            if (i > 23 && i < 32)
+                            {
+                                deck[i] = "../image/or0.png";
+                            }
+                            if (i > 31 && i < 40)
+                            {
+                                deck[i] = "../image/and0.png";
+                            }
+                            if (i > 39 && i < 48)
+                            {
+                                deck[i] = "../image/and1.png";
+                            }
+                        }
+                    }
+                    if (ColorToInt(playerLeftColor) == -926365441)
+                    {
+                        for (int j = 0; j < 10; j++)
+                        {
+                            if (arrToCheckOperation[j].x == 1900)
+                            {
+                                switch (j)
+                                {
+
+                                case 5:
+                                {
+
+                                    int pos = rand() % dec;
+                                    randomDir[j] = deck[pos];
+                                    deck.erase(deck.begin() + pos);
+                                    redRight_card = LoadTexture(randomDir[j].c_str());
+                                    redRight_card.width = 70;
+                                    redRight_card.height = 90;
+                                    movingBoxRedRight.x = 1600;
+                                    movingBoxRedRight.y = 50;
+                                    posImgRedRight.x = 1600;
+                                    posImgRedRight.y = 50;
+
+
+                                    break;
+                                }
+                                case 6:
+                                {
+                                    int pos = rand() % dec;
+                                    randomDir[j] = deck[pos];
+                                    deck.erase(deck.begin() + pos);
+                                    randomDir[j] = Directories[rand() % 6];
+                                    blueRight_card = LoadTexture(randomDir[j].c_str());
+                                    blueRight_card.width = 70;
+                                    blueRight_card.height = 90;
+                                    movingBoxBlueRight.x = 1600;
+                                    movingBoxBlueRight.y = 200;
+                                    posImgBlueRight.x = 1600;
+                                    posImgBlueRight.y = 200;
+                                    break;
+                                }
+                                case 7:
+                                {
+                                    int pos = rand() % dec;
+                                    randomDir[j] = deck[pos];
+                                    deck.erase(deck.begin() + pos);
+                                    randomDir[j] = Directories[rand() % 6];
+                                    yellowRight_card = LoadTexture(randomDir[j].c_str());
+                                    yellowRight_card.width = 70;
+                                    yellowRight_card.height = 90;
+                                    movingBoxYellowRight.x = 1600;
+                                    movingBoxYellowRight.y = 350;
+                                    posImgYellowRight.x = 1600;
+                                    posImgYellowRight.y = 350;
+                                    break;
+                                }
+                                case 8:
+                                {
+                                    int pos = rand() % dec;
+                                    randomDir[j] = deck[pos];
+                                    deck.erase(deck.begin() + pos);
+                                    randomDir[j] = Directories[rand() % 6];
+                                    FRight_card = LoadTexture(randomDir[j].c_str());
+                                    FRight_card.width = 70;
+                                    FRight_card.height = 90;
+                                    movingBoxFRight.x = 1600;
+                                    movingBoxFRight.y = 500;
+                                    posImgFRight.x = 1600;
+                                    posImgFRight.y = 500;
+                                    break;
+                                }
+                                case 9:
+                                {
+                                    int pos = rand() % dec;
+                                    randomDir[j] = deck[pos];
+                                    deck.erase(deck.begin() + pos);
+                                    randomDir[j] = Directories[rand() % 6];
+                                    FiveRight_card = LoadTexture(randomDir[j].c_str());
+                                    FiveRight_card.width = 70;
+                                    FiveRight_card.height = 90;
+                                    movingBoxFiveRight.x = 1600;
+                                    movingBoxFiveRight.y = 650;
+                                    posImgFiveRight.x = 1600;
+                                    posImgFiveRight.y = 650;
+                                    break;
+                                }
+                                }
+
+                            }
+
+                        }
+                    }
+                    else {
+                        for (int j = 0; j < 10; j++)
+                        {
+                            if (arrToCheckOperation[j].x == -100)
+                            {
+                                switch (j)
+                                {
+                                case 0:
+                                {
+                                    int pos = rand() % dec;
+                                    randomDir[j] = deck[pos];
+                                    deck.erase(deck.begin() + pos);
+                                    randomDir[j] = Directories[rand() % 6];
+                                    red_card = LoadTexture(randomDir[j].c_str());
+                                    red_card.width = 70;
+                                    red_card.height = 90;
+                                    movingBoxRed.x = 10;
+                                    movingBoxRed.y = 50;
+                                    posImgRed.x = 10;
+                                    posImgRed.y = 50;
+                                    break;
+                                }
+                                case 1:
+                                {
+                                    int pos = rand() % dec;
+                                    randomDir[j] = deck[pos];
+                                    deck.erase(deck.begin() + pos);
+                                    randomDir[j] = Directories[rand() % 6];
+                                    blue_card = LoadTexture(randomDir[j].c_str());
+                                    blue_card.width = 70;
+                                    blue_card.height = 90;
+                                    movingBoxBlue.x = 10;
+                                    movingBoxBlue.y = 200;
+                                    posImgBlue.x = 10;
+                                    posImgBlue.y = 200;
+                                    break;
+                                }
+                                case 2:
+                                {
+                                    int pos = rand() % dec;
+                                    randomDir[j] = deck[pos];
+                                    deck.erase(deck.begin() + pos);
+                                    randomDir[j] = Directories[rand() % 6];
+                                    yellow_card = LoadTexture(randomDir[j].c_str());
+                                    yellow_card.width = 70;
+                                    yellow_card.height = 90;
+                                    movingBoxYellow.x = 10;
+                                    movingBoxYellow.y = 350;
+                                    posImgYellow.x = 10;
+                                    posImgYellow.y = 350;
+                                    break;
+                                }
+                                case 3:
+                                {
+                                    int pos = rand() % dec;
+                                    randomDir[j] = deck[pos];
+                                    deck.erase(deck.begin() + pos);
+                                    randomDir[j] = Directories[rand() % 6];
+                                    F_card = LoadTexture(randomDir[j].c_str());
+                                    F_card.width = 70;
+                                    F_card.height = 90;
+                                    movingBoxF.x = 10;
+                                    movingBoxF.y = 500;
+                                    posImgF.x = 10;
+                                    posImgF.y = 500;
+                                    break;
+                                }
+                                case 4:
+                                {
+                                    int pos = rand() % dec;
+                                    randomDir[j] = deck[pos];
+                                    deck.erase(deck.begin() + pos);
+                                    randomDir[j] = Directories[rand() % 6];
+                                    Five_card = LoadTexture(randomDir[j].c_str());
+                                    Five_card.width = 70;
+                                    Five_card.height = 90;
+                                    movingBoxFive.x = 10;
+                                    movingBoxFive.y = 650;
+                                    posImgFive.x = 10;
+                                    posImgFive.y = 650;
+                                    break;
+                                }
+
+                                }
+
+                            }
+
+                        }
+                    }
+                }
 
 
 
