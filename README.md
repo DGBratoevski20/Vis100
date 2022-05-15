@@ -16,7 +16,7 @@
 1. **Lubomir Georgiev** - **Scrum trainer**	
    > ***GitHub profile***: [***LRGeorgiev***](https://github.com/LRGeorgiev)	
 
-2. **Ivailo Stoqnov** - **Backend Developer** 
+2. **Ivailo Stoyanov** - **Backend Developer** 
    > ***GitHub profile***: [***IPStoyanov20***](https://github.com/IPStoyanov20)	
 
 3. **Georgi Kotakov** - **Backend Developer** 
