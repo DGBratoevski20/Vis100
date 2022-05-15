@@ -28,9 +28,6 @@
     **Veselin Stoyanov** - **Mentor** 
    > ***GitHub profile***: [***VNStoyanov19***](https://github.com/VNStoyanov19)
   </p>
- 
-  
-  https://github.com/VNStoyanov19
   
   <h1>🚀 Used technologies</h1>
   <p align="left"> 
