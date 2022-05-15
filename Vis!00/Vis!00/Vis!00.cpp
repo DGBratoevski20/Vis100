@@ -2323,7 +2323,7 @@ int main(void)
     Rectangle movingBoxYellow = { posImgYellow.x, posImgYellow.y, yellow_card.width, yellow_card.height };
     Rectangle movingBoxF = { posImgF.x, posImgF.y, F_card.width, F_card.height };
     Rectangle movingBoxFive = { posImgFive.x, posImgFive.y, Five_card.width, Five_card.height };
-    Rectangle RectBin = {400, 900, 60, 60};
+    Rectangle RectBin = {1300, 900, 60, 60};
     Rectangle RectDeck = { 1300, 40, 70, 70 };
 
 
@@ -3086,7 +3086,7 @@ int main(void)
                 //bin and deck
                 DrawRectangleRec(RectBin, GRAY);
                 DrawRectangleRec(RectDeck, GRAY);
-                DrawTexture(bin, 400, 900, GRAY);
+                DrawTexture(bin, 1300, 900, GRAY);
                 DrawTexture(deck_texture, 1300, 40, GRAY);
 
                 for (int i = 0; i < 2; i++)
@@ -3608,7 +3608,7 @@ int main(void)
                 //bin and deck
                 DrawRectangleRec(RectBin, GRAY);
                 DrawRectangleRec(RectDeck, GRAY);
-                DrawTexture(bin, 400, 900, GRAY);
+                DrawTexture(bin, 1300, 900, GRAY);
                 DrawTexture(deck_texture, 1300, 40, GRAY);
                 for (int i = 0; i < 2; i++)
                 {
@@ -4143,7 +4143,7 @@ int main(void)
                 //bin and deck
                 DrawRectangleRec(RectBin, GRAY);
                 DrawRectangleRec(RectDeck, GRAY);
-                DrawTexture(bin, 400, 900, GRAY);
+                DrawTexture(bin, 1300, 900, GRAY);
                 DrawTexture(deck_texture, 1300, 40, GRAY);
                 for (int i = 0; i < 2; i++)
                 {
@@ -4694,7 +4694,7 @@ int main(void)
                 //bin and deck
                 DrawRectangleRec(RectBin, GRAY);
                 DrawRectangleRec(RectDeck, GRAY);
-                DrawTexture(bin, 400, 900, GRAY);
+                DrawTexture(bin, 1300, 900, GRAY);
                 DrawTexture(deck_texture, 1300, 40, GRAY);
                 for (int i = 0; i < 2; i++)
                 {
