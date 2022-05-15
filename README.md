@@ -9,7 +9,7 @@
    <img src = "https://img.shields.io/github/repo-size/DGBratoevski20/Vis100?style=flat-square">
   </p>
   <h1>✍ Description </h1>
-  Vis!00 is a newly formed team made up from 4 team members. The goal of the team is to create a game based on boolean logic.You can learn about the rules of the game and about us on our in-game menu or in our website-(link for the website)
+  Vis!00 is a newly formed team made up from 4 team members. The goal of the team is to create a game based on boolean logic.You can learn about the rules of the game and about us on our in-game menu or in our website-https://vis100.netlify.app
   <h1>🤝 Our Team </h1>
   <p>
   
