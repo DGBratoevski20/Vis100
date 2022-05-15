@@ -28,9 +28,6 @@
     **Veselin Stoyanov** - **Mentor** 
    > ***GitHub profile***: [***VNStoyanov19***](https://github.com/VNStoyanov19)
   </p>
- 
-  
-  https://github.com/VNStoyanov19
   
   <h1>🚀 Used technologies</h1>
   <p align="left"> 
@@ -51,7 +48,7 @@
    <h1>📝 Documents</h1>
   <p>
  <h2> <a href ="https://codingburgas-my.sharepoint.com/:w:/g/personal/lrgeorgiev20_codingburgas_bg/EQswmcNHcOZIllFhnMwmtpAB-qKBlkdls-xRkXk4aPpUqg?e=vjo646" >📄 Documentation</h2>
- <h2> <a href = >✅ QA Documentation</h2>
+ <h2> <a href = "https://codingburgas-my.sharepoint.com/:w:/g/personal/dgbratoevski20_codingburgas_bg/EZNZpDGCn4RKknmbAVoTAXABegIt23XjsAGL9s-RWKI6Kg?e=yJHJX6">✅ QA Documentation</h2>
  <h2> <a href ="https://codingburgas-my.sharepoint.com/:p:/g/personal/lrgeorgiev20_codingburgas_bg/EZ9LC5jyO8RPtWhY3-b4BacBjY44az4qdxXADWmcp69QNQ?e=xWp5Sm" >🖥 Presentation</h2>
 </p>
 	
