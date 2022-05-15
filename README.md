@@ -1,13 +1,6 @@
 <p align = "center">
  <img src = "Vis!00/images/logo_banner.jpg" alt = "logo">
 
-  </p>
-  <p align = "center">
-   <img src = "https://img.shields.io/github/issues/DGBratoevski20/Vis100?style=flat-square">
-   <img src = "https://img.shields.io/github/license/DGBratoevski20/Vis100?style=flat-square">
-   <img src = "https://img.shields.io/github/languages/count/DGBratoevski20/Vis100?style=flat-square">
-   <img src = "https://img.shields.io/github/repo-size/DGBratoevski20/Vis100?style=flat-square">
-  </p>
   <h1>✍ Description </h1>
   Vis!00 is a newly formed team made up from 4 team members. The goal of the team is to create a game based on boolean logic.You can learn about the rules of the game and about us on our in-game menu or in our website-https://vis100.netlify.app
   <h1>🤝 Our Team </h1>
