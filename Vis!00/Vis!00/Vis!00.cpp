@@ -1,6 +1,10 @@
 #include "Main.h"
+
+//checks if trash bin is clicked
 bool binCheck = 1;
+//checks if card is moved
 int check = 0;
+
 bool checkPyramidPositions(int checker)
 {
     return (checker==725);
@@ -25,7 +29,7 @@ bool checkPyramidPositions6(int checker)
 {
     return (checker == 740);
 }
-
+//sets down pyramid
 void SetupDown(vector<Rectangle>& basePyramidcard)
 {
     int len = basePyramidcard.size();
@@ -176,6 +180,7 @@ void SetupDown(vector<Rectangle>& basePyramidcard)
     }
 
 }
+//sets upper pyramid
 void SetupUp(vector<Rectangle>& basePyramidcard)
 {
     int len = basePyramidcard.size();
@@ -319,7 +324,7 @@ void SetupUp(vector<Rectangle>& basePyramidcard)
     }
 
 }
-
+//checks if place holder is filled
 void Filled(vector<Rectangle>& baseDown, vector<Rectangle>& baseUp, Rectangle& movingRed, Rectangle& movingBlue, Rectangle& movingYellow, Rectangle& movingF, Rectangle& movingRedRight, Rectangle& movingBlueRight, Rectangle& movingYellowRight, Rectangle& movingFRight, Rectangle& movingFive, Rectangle& movingFiveRight, vector<bool>& filledDown, vector<bool>& filledUp, Rectangle OperationArr[], vector<string>& checkDir, string randDir[], vector<string>& checkDirTwo)
 {
     checkDir.resize(filledDown.size());
@@ -445,6 +450,7 @@ void Filled(vector<Rectangle>& baseDown, vector<Rectangle>& baseUp, Rectangle& m
     }
 
 }
+//checks if two place holder for cards are filled
 void checkTwoCardsFilled(vector<bool>& fDown, vector<bool>& fUp, int size)
 {
 
@@ -495,7 +501,6 @@ void checkTwoCardsFilled(vector<bool>& fDown, vector<bool>& fUp, int size)
             }
             else
             {
-                //cout << "H";
                 fDown[i] = 1;
             }
 
@@ -596,10 +601,10 @@ void checkTwoCardsFilled(vector<bool>& fDown, vector<bool>& fUp, int size)
 
 
 
-
+//switch player's turn
 Color playerLeftColor = GRAY;
 Color playerRightColor = LIGHTGRAY;
-
+//move cards with dropdown
 void DropDown(Rectangle& moving, Vector2& mPoint, Vector2& posPoint, Texture2D& texture, vector<Rectangle>& downPy, vector<Rectangle>& upPy, bool& checkcoll, int startX, int startY, vector<bool> &fillDown, vector<bool> &fillUp, bool checkTurn, Rectangle OpArr[], string randDir[], vector<string> checkDir, vector<string> checkDirTwo, vector<bool> ftAr, vector<Rectangle> & leftRec, vector<Rectangle>& rightRec, vector<Texture2D> left, vector<Texture2D> right)
 {
 
@@ -996,12 +1001,10 @@ void DropDown(Rectangle& moving, Vector2& mPoint, Vector2& posPoint, Texture2D& 
                                                         if (atoi(&dir[dir.size() - 5]) == (l ^ r))
                                                         {
                                                             fillDown[z] = 0;
-                                                            cout << l << " " << r;
                                                         }
                                                         else
                                                         {
                                                             fillDown[z] = 1;
-                                                            cout << l << " " << r;
                                                         }
                                                     }
 
@@ -1103,12 +1106,10 @@ void DropDown(Rectangle& moving, Vector2& mPoint, Vector2& posPoint, Texture2D& 
                                                         if (atoi(&dir[dir.size() - 5]) == (l ^ r))
                                                         {
                                                             fillDown[z] = 0;
-                                                            cout << l << " " << r;
                                                         }
                                                         else
                                                         {
                                                             fillDown[z] = 1;
-                                                            cout << l << " " << r;
                                                         }
                                                     }
 
@@ -1128,35 +1129,29 @@ void DropDown(Rectangle& moving, Vector2& mPoint, Vector2& posPoint, Texture2D& 
                                                         if (checkDir[z - 4].find("1.png") != string::npos)
                                                         {
                                                             l = 1;
-                                                            // cout << "f";
 
                                                         }
                                                          if (checkDir[z - 4].find("0.png") != string::npos)
                                                         {
                                                             l = 0;
-                                                            //cout << "f";
                                                         }
                                                          if (checkDir[z - 3].find("0.png") != string::npos)
                                                         {
                                                             r = 0;
-                                                            //cout << "f";
                                                         }
                                                          if (checkDir[z - 3].find("1.png") != string::npos)
                                                         {
                                                             r = 1;
-                                                            //cout << "f";
 
                                                         }
 
                                                         if (atoi(&dir[dir.size() - 5]) == (l && r))
                                                         {
                                                             fillDown[z] = 0;
-                                                            //cout << "fHHHHHHH10100001010101010101010101001111" << l << " " << r;;
                                                         }
                                                         else
                                                         {
                                                             fillDown[z] = 1;
-                                                            //cout << "fHHHHHHH" << l << " " << r;
                                                         }
                                                     }
                                                     if (dir.find("or") != string::npos)
@@ -1165,34 +1160,28 @@ void DropDown(Rectangle& moving, Vector2& mPoint, Vector2& posPoint, Texture2D& 
                                                         if (checkDir[z - 4].find("1.png") != string::npos)
                                                         {
                                                             l = 1;
-                                                            //cout << "f";
                                                         }
                                                         if (checkDir[z - 4].find("0.png") != string::npos)
                                                         {
                                                             l = 0;
-                                                            //cout << "f";
                                                         }
                                                         if (checkDir[z - 3].find("0.png") != string::npos)
                                                         {
                                                             r = 0;
-                                                            //cout << "f";
                                                         }
                                                         if (checkDir[z - 3].find("1.png") != string::npos)
                                                         {
                                                             r = 1;
-                                                            //cout << "f";
 
                                                         }
 
                                                         if (atoi(&dir[dir.size() - 5]) == (l || r))
                                                         {
                                                             fillDown[z] = 0;
-                                                            //cout << "fHHHHHHHKKKKKKKKKKKKKKKKKKK" << l << " " << r;
                                                         }
                                                         else
                                                         {
                                                             fillDown[z] = 1;
-                                                            //cout << "OOOOOOOOOOOOOOOOOOOO" << l << " " << r;
                                                         }
                                                     }
                                                     if (dir.find("x") != string::npos)
@@ -1220,12 +1209,10 @@ void DropDown(Rectangle& moving, Vector2& mPoint, Vector2& posPoint, Texture2D& 
                                                         if (atoi(&dir[dir.size() - 5]) == (l ^ r))
                                                         {
                                                             fillDown[z] = 0;
-                                                            // cout << l << " " << r;
                                                         }
                                                         else
                                                         {
                                                             fillDown[z] = 1;
-                                                            //  cout << l << " " << r;
                                                         }
                                                     }
 
@@ -1245,35 +1232,29 @@ void DropDown(Rectangle& moving, Vector2& mPoint, Vector2& posPoint, Texture2D& 
                                                         if (checkDir[z - 5].find("1.png") != string::npos)
                                                         {
                                                             l = 1;
-                                                            // cout << "f";
 
                                                         }
                                                          if (checkDir[z - 5].find("0.png") != string::npos)
                                                         {
                                                             l = 0;
-                                                            //cout << "f";
                                                         }
                                                          if (checkDir[z - 4].find("0.png") != string::npos)
                                                         {
                                                             r = 0;
-                                                            //cout << "f";
                                                         }
                                                          if (checkDir[z - 4].find("1.png") != string::npos)
                                                         {
                                                             r = 1;
-                                                            //cout << "f";
 
                                                         }
 
                                                         if (atoi(&dir[dir.size() - 5]) == (l && r))
                                                         {
                                                             fillDown[z] = 0;
-                                                            //cout << "fHHHHHHH10100001010101010101010101001111" << l << " " << r;;
                                                         }
                                                         else
                                                         {
                                                             fillDown[z] = 1;
-                                                            //cout << "fHHHHHHH" << l << " " << r;
                                                         }
                                                     }
                                                     if (dir.find("or") != string::npos)
@@ -1282,34 +1263,28 @@ void DropDown(Rectangle& moving, Vector2& mPoint, Vector2& posPoint, Texture2D& 
                                                         if (checkDir[z - 5].find("1.png") != string::npos)
                                                         {
                                                             l = 1;
-                                                            //cout << "f";
                                                         }
                                                         if (checkDir[z - 5].find("0.png") != string::npos)
                                                         {
                                                             l = 0;
-                                                            //cout << "f";
                                                         }
                                                         if (checkDir[z - 4].find("0.png") != string::npos)
                                                         {
                                                             r = 0;
-                                                            //cout << "f";
                                                         }
                                                         if (checkDir[z - 4].find("1.png") != string::npos)
                                                         {
                                                             r = 1;
-                                                            //cout << "f";
 
                                                         }
 
                                                         if (atoi(&dir[dir.size() - 5]) == (l || r))
                                                         {
                                                             fillDown[z] = 0;
-                                                            //cout << "fHHHHHHHKKKKKKKKKKKKKKKKKKK" << l << " " << r;
                                                         }
                                                         else
                                                         {
                                                             fillDown[z] = 1;
-                                                            //cout << "OOOOOOOOOOOOOOOOOOOO" << l << " " << r;
                                                         }
                                                     }
                                                     if (dir.find("x") != string::npos)
@@ -1337,12 +1312,10 @@ void DropDown(Rectangle& moving, Vector2& mPoint, Vector2& posPoint, Texture2D& 
                                                         if (atoi(&dir[dir.size() - 5]) == (l ^ r))
                                                         {
                                                             fillDown[z] = 0;
-                                                            // cout << l << " " << r;
                                                         }
                                                         else
                                                         {
                                                             fillDown[z] = 1;
-                                                            //  cout << l << " " << r;
                                                         }
                                                     }
 
@@ -1360,7 +1333,6 @@ void DropDown(Rectangle& moving, Vector2& mPoint, Vector2& posPoint, Texture2D& 
                                 check = 1;
                                 if (fillDown[i])
                                 {
-                                    cout << fillDown[i] << endl;
                                     check = 0;
                                     posPoint.x = startX;
                                     posPoint.y = startY;
@@ -1374,7 +1346,6 @@ void DropDown(Rectangle& moving, Vector2& mPoint, Vector2& posPoint, Texture2D& 
                                 }
                                 else
                                 {
-                                    cout << fillDown[i] << endl;
                         
 
                                     posPoint.x = downPy[i].x;
@@ -1463,12 +1434,10 @@ void DropDown(Rectangle& moving, Vector2& mPoint, Vector2& posPoint, Texture2D& 
                                             if (atoi(&dir[dir.size() - 5]) == (ftAr[1] && ftAr[2]))
                                             {
                                                 fillUp[i] = 0;
-                                                cout << dir << " " << ftAr[1] << " " << ftAr[2];
                                             }
                                             else
                                             {
                                                 fillUp[i] = 1;
-                                                cout << dir << " " << ftAr[1] << " " << ftAr[2];
 
                                             }
                                         }
@@ -1477,13 +1446,11 @@ void DropDown(Rectangle& moving, Vector2& mPoint, Vector2& posPoint, Texture2D& 
                                             if (atoi(&dir[dir.size() - 5]) == (ftAr[1] || ftAr[2]))
                                             {
                                                 fillUp[i] = 0;
-                                                cout << dir << " " << ftAr[1] << " " << ftAr[2];
 
                                             }
                                             else
                                             {
                                                 fillUp[i] = 1;
-                                                cout << dir << " " << ftAr[1] << " " << ftAr[2];
 
                                             }
                                         }
@@ -1492,13 +1459,11 @@ void DropDown(Rectangle& moving, Vector2& mPoint, Vector2& posPoint, Texture2D& 
                                             if (atoi(&dir[dir.size() - 5]) == (ftAr[1] ^ ftAr[2]))
                                             {
                                                 fillUp[i] = 0;
-                                                cout << dir << " " << ftAr[1] << " " << ftAr[2];
 
                                             }
                                             else
                                             {
                                                 fillUp[i] = 1;
-                                                cout << dir << " " << ftAr[1] << " " << ftAr[2];
 
                                             }
                                         }
@@ -1728,12 +1693,10 @@ void DropDown(Rectangle& moving, Vector2& mPoint, Vector2& posPoint, Texture2D& 
                                                     if (atoi(&dir[dir.size() - 5]) == (l ^ r))
                                                     {
                                                         fillUp[i] = 0;
-                                                        cout << l << " " << r;
                                                     }
                                                     else
                                                     {
                                                         fillUp[i] = 1;
-                                                        cout << l << " " << r;
                                                     }
                                                 }
 
@@ -1772,7 +1735,7 @@ void DropDown(Rectangle& moving, Vector2& mPoint, Vector2& posPoint, Texture2D& 
                                                     if (atoi(&dir[dir.size() - 5]) == (l && r))
                                                     {
                                                         fillUp[i] = 0;
-                                                        cout << "fHHHHHHH10100001010101010101010101001111" << l << " " << r;;
+                                                        
                                                     }
                                                     else
                                                     {
@@ -1834,12 +1797,12 @@ void DropDown(Rectangle& moving, Vector2& mPoint, Vector2& posPoint, Texture2D& 
                                                     if (atoi(&dir[dir.size() - 5]) == (l ^ r))
                                                     {
                                                         fillUp[i] = 0;
-                                                        cout << l << " " << r;
+                                                        
                                                     }
                                                     else
                                                     {
                                                         fillUp[i] = 1;
-                                                        cout << l << " " << r;
+                                                        
                                                     }
                                                 }
 
@@ -1859,35 +1822,34 @@ void DropDown(Rectangle& moving, Vector2& mPoint, Vector2& posPoint, Texture2D& 
                                                     if (checkDirTwo[i - 4].find("1.png") != string::npos)
                                                     {
                                                         l = 1;
-                                                        // cout << "f";
+                                                        
 
                                                     }
                                                      if (checkDirTwo[i - 4].find("0.png") != string::npos)
                                                     {
                                                         l = 0;
-                                                        //cout << "f";
+                                                        
                                                     }
                                                      if (checkDirTwo[i - 3].find("0.png") != string::npos)
                                                     {
                                                         r = 0;
-                                                        //cout << "f";
+                                                        
                                                     }
                                                      if (checkDirTwo[i - 3].find("1.png") != string::npos)
                                                     {
                                                         r = 1;
-                                                        //cout << "f";
 
                                                     }
 
                                                     if (atoi(&dir[dir.size() - 5]) == (l && r))
                                                     {
                                                         fillUp[i] = 0;
-                                                        //cout << "fHHHHHHH10100001010101010101010101001111" << l << " " << r;;
+                                                        
                                                     }
                                                     else
                                                     {
                                                         fillUp[i] = 1;
-                                                        //cout << "fHHHHHHH" << l << " " << r;
+                                                        
                                                     }
                                                 }
                                                 if (dir.find("or") != string::npos)
@@ -1896,34 +1858,34 @@ void DropDown(Rectangle& moving, Vector2& mPoint, Vector2& posPoint, Texture2D& 
                                                     if (checkDirTwo[i - 4].find("1.png") != string::npos)
                                                     {
                                                         l = 1;
-                                                        //cout << "f";
+                                                        
                                                     }
                                                     if (checkDirTwo[i - 4].find("0.png") != string::npos)
                                                     {
                                                         l = 0;
-                                                        //cout << "f";
+                                                       
                                                     }
                                                     if (checkDirTwo[i - 3].find("0.png") != string::npos)
                                                     {
                                                         r = 0;
-                                                        //cout << "f";
+                                                        
                                                     }
                                                     if (checkDirTwo[i - 3].find("1.png") != string::npos)
                                                     {
                                                         r = 1;
-                                                        //cout << "f";
+                                                        
 
                                                     }
 
                                                     if (atoi(&dir[dir.size() - 5]) == (l || r))
                                                     {
                                                         fillUp[i] = 0;
-                                                        //cout << "fHHHHHHHKKKKKKKKKKKKKKKKKKK" << l << " " << r;
+                                                       
                                                     }
                                                     else
                                                     {
                                                         fillUp[i] = 1;
-                                                        //cout << "OOOOOOOOOOOOOOOOOOOO" << l << " " << r;
+                                                       
                                                     }
                                                 }
                                                 if (dir.find("x") != string::npos)
@@ -1951,12 +1913,12 @@ void DropDown(Rectangle& moving, Vector2& mPoint, Vector2& posPoint, Texture2D& 
                                                     if (atoi(&dir[dir.size() - 5]) == (l ^ r))
                                                     {
                                                         fillUp[i] = 0;
-                                                        // cout << l << " " << r;
+                                                      
                                                     }
                                                     else
                                                     {
                                                         fillUp[i] = 1;
-                                                        //  cout << l << " " << r;
+                                                      
                                                     }
                                                 }
 
@@ -1976,35 +1938,31 @@ void DropDown(Rectangle& moving, Vector2& mPoint, Vector2& posPoint, Texture2D& 
                                                     if (checkDirTwo[i - 5].find("1.png") != string::npos)
                                                     {
                                                         l = 1;
-                                                        // cout << "f";
+                                                  
 
                                                     }
                                                      if (checkDirTwo[i - 5].find("0.png") != string::npos)
                                                     {
                                                         l = 0;
-                                                        //cout << "f";
+                                               
                                                     }
                                                      if (checkDirTwo[i - 4].find("0.png") != string::npos)
                                                     {
                                                         r = 0;
-                                                        //cout << "f";
                                                     }
                                                      if (checkDirTwo[i - 4].find("1.png") != string::npos)
                                                     {
                                                         r = 1;
-                                                        //cout << "f";
 
                                                     }
 
                                                     if (atoi(&dir[dir.size() - 5]) == (l && r))
                                                     {
                                                         fillUp[i] = 0;
-                                                        //cout << "fHHHHHHH10100001010101010101010101001111" << l << " " << r;;
                                                     }
                                                     else
                                                     {
                                                         fillUp[i] = 1;
-                                                        //cout << "fHHHHHHH" << l << " " << r;
                                                     }
                                                 }
                                                 if (dir.find("or") != string::npos)
@@ -2013,34 +1971,28 @@ void DropDown(Rectangle& moving, Vector2& mPoint, Vector2& posPoint, Texture2D& 
                                                     if (checkDirTwo[i - 5].find("1.png") != string::npos)
                                                     {
                                                         l = 1;
-                                                        //cout << "f";
                                                     }
                                                     if (checkDirTwo[i - 5].find("0.png") != string::npos)
                                                     {
                                                         l = 0;
-                                                        //cout << "f";
                                                     }
                                                     if (checkDirTwo[i - 4].find("0.png") != string::npos)
                                                     {
                                                         r = 0;
-                                                        //cout << "f";
                                                     }
                                                     if (checkDirTwo[i - 4].find("1.png") != string::npos)
                                                     {
                                                         r = 1;
-                                                        //cout << "f";
 
                                                     }
 
                                                     if (atoi(&dir[dir.size() - 5]) == (l || r))
                                                     {
                                                         fillUp[i] = 0;
-                                                        //cout << "fHHHHHHHKKKKKKKKKKKKKKKKKKK" << l << " " << r;
                                                     }
                                                     else
                                                     {
                                                         fillUp[i] = 1;
-                                                        //cout << "OOOOOOOOOOOOOOOOOOOO" << l << " " << r;
                                                     }
                                                 }
                                                 if (dir.find("x") != string::npos)
@@ -2068,12 +2020,10 @@ void DropDown(Rectangle& moving, Vector2& mPoint, Vector2& posPoint, Texture2D& 
                                                     if (atoi(&dir[dir.size() - 5]) == (l ^ r))
                                                     {
                                                         fillUp[i] = 0;
-                                                        // cout << l << " " << r;
                                                     }
                                                     else
                                                     {
                                                         fillUp[i] = 1;
-                                                        //  cout << l << " " << r;
                                                     }
                                                 }
 
@@ -2092,7 +2042,6 @@ void DropDown(Rectangle& moving, Vector2& mPoint, Vector2& posPoint, Texture2D& 
                                 check = 1;
                                 if (fillUp[i])
                                 {
-                                    cout << fillUp[i] << endl;
                                     check = 0;
                                     posPoint.x = startX;
                                     posPoint.y = startY;
@@ -2179,7 +2128,8 @@ void changePlayer(Color Leftp, Color  Rightp)
 
 
 }
-int main(void)
+
+void startGame() 
 {
     const int screenWidth = 1800;
     const int screenHeight = 1000;
@@ -2211,7 +2161,7 @@ int main(void)
     Texture2D yellow_card = LoadTexture(randomDir[2].c_str());
     Texture2D F_card = LoadTexture(randomDir[3].c_str());
     Texture2D Five_card = LoadTexture(randomDir[4].c_str());
-    
+
 
     red_card.width = 70, red_card.height = 90;
     blue_card.width = 70, blue_card.height = 90;
@@ -2232,7 +2182,7 @@ int main(void)
     yellowRight_card.width = 70, yellowRight_card.height = 90;
     FRight_card.width = 70, FRight_card.height = 90;
     FiveRight_card.width = 70, FiveRight_card.height = 90;
-    
+
     vector<Texture2D> leftHidden(48);
     vector<Texture2D> rightHidden(48);
     vector<Rectangle> rightHiddenRec(48);
@@ -2243,15 +2193,15 @@ int main(void)
     for (int i = 0; i < rightHiddenRec.size(); i++)
     {
         rightHiddenRec[i] = { 1900, 100 };
-        
+
     }
     for (int i = 0; i < leftHiddenRec.size(); i++)
     {
         leftHiddenRec[i] = { 1900, 100 };
-        
+
     }
-    
-    
+
+    Rectangle choices[2];
     Rectangle colorsRecs[4];
     for (int i = 0; i < sizeof(colorsRecs) / sizeof(colorsRecs[0]); i++)
     {
@@ -2298,19 +2248,19 @@ int main(void)
             deck[i] = "../images/and1.png";
         }
     }
-    for (int i= 0; i < 10; i++)
+    for (int i = 0; i < 10; i++)
     {
         for (int j = 0; j < deck.size(); j++)
         {
             if (randomDir[i] == deck[j])
             {
                 deck.erase(deck.begin() + j);
-                
+
             }
         }
     }
     Vector2 check_marker = { 837.5, 260 };
-    Vector2 check_marker3 = { 946, 600.5 };
+    Vector2 check_marker3 = { 946, 420.5 };
     Vector2 check_marker2 = { -946, -600.5 };
     Vector2 check_marker4 = { 946, 785 };
 
@@ -2361,11 +2311,11 @@ int main(void)
     Rectangle movingBoxYellow = { posImgYellow.x, posImgYellow.y, yellow_card.width, yellow_card.height };
     Rectangle movingBoxF = { posImgF.x, posImgF.y, F_card.width, F_card.height };
     Rectangle movingBoxFive = { posImgFive.x, posImgFive.y, Five_card.width, Five_card.height };
-    Rectangle RectBin = {1300, 900, 60, 60};
+    Rectangle RectBin = { 1300, 900, 60, 60 };
     Rectangle RectDeck = { 1300, 40, 70, 70 };
 
 
-    
+
     Rectangle movingBoxRedRight = { posImgRedRight.x, posImgRedRight.y, red_card.width, red_card.height };
     Rectangle movingBoxBlueRight = { posImgBlueRight.x, posImgBlueRight.y, blue_card.width, blue_card.height };
     Rectangle movingBoxYellowRight = { posImgYellowRight.x, posImgYellowRight.y, yellow_card.width, yellow_card.height };
@@ -2571,7 +2521,7 @@ int main(void)
                 BasePyramidDown.resize(3);
                 BasePyramidUp.resize(3);
                 filledUp.resize(3);
-                filledDown.resize(3); 
+                filledDown.resize(3);
                 ftAr.resize(3);
 
 
@@ -2618,7 +2568,7 @@ int main(void)
             if (zero)
             {
                 //BINCHO
-                
+
                 checker2 = 0;
                 DrawRectangleRec(hide, LIGHTGRAY);
 
@@ -2701,20 +2651,19 @@ int main(void)
                 if (ColorToInt(playerLeftColor) == -926365441)
                 {
                     int counterForFourCards = 0;
-                    for (int i = 0 ;i < rightHidden.size();i++ )
+                    for (int i = 0; i < rightHidden.size(); i++)
                     {
-                        if (rightHiddenRec[i].x == 1600 &&( rightHiddenRec[i].y == 50 || rightHiddenRec[i].y == 200 || rightHiddenRec[i].y == 350 || rightHiddenRec[i].y == 500 || rightHiddenRec[i].y == 650))
+                        if (rightHiddenRec[i].x == 1600 && (rightHiddenRec[i].y == 50 || rightHiddenRec[i].y == 200 || rightHiddenRec[i].y == 350 || rightHiddenRec[i].y == 500 || rightHiddenRec[i].y == 650))
                         {
                             counterForFourCards++;
                             break;
                         }
                     }
-                    
+
                     if (movingBoxRedRight.x == 1600 && movingBoxRedRight.y == 50)
                     {
                         counterForFourCards++;
-                        cout << "HEereleft" << " ";
-                        
+
                     }
                     else
                     {
@@ -2723,8 +2672,7 @@ int main(void)
                     if (movingBoxBlueRight.x == 1600 && movingBoxBlueRight.y == 200)
                     {
                         counterForFourCards++;
-                        cout << "HEereleft" << " ";
-                        
+
                     }
                     else
                     {
@@ -2733,8 +2681,7 @@ int main(void)
                     if (movingBoxYellowRight.x == 1600 && movingBoxYellowRight.y == 350)
                     {
                         counterForFourCards++;
-                        cout << "HEereleft" << " ";
-                        
+
                     }
                     else
                     {
@@ -2744,8 +2691,7 @@ int main(void)
                     if (movingBoxFRight.x == 1600 && movingBoxFRight.y == 500)
                     {
                         counterForFourCards++;
-                        cout << "HEereleft" << " ";
-                        
+
                     }
                     else
                     {
@@ -2754,17 +2700,15 @@ int main(void)
                     if (movingBoxFiveRight.x == 1600 && movingBoxFiveRight.y == 650)
                     {
                         counterForFourCards++;
-                        cout << "HEereleft" << " " << endl;
                     }
                     else
                     {
                         tempPos = { 1600, 650 };
-                    
+
                     }
-                    cout << endl << endl << counterForFourCards << endl << endl;
                     if (counterForFourCards < 5)
                     {
-                        checkForPlayerTurn = { 1,1,1,1,0,0,0,0};
+                        checkForPlayerTurn = { 1,1,1,1,0,0,0,0 };
                         important = 1;
                     }
                     else {
@@ -2784,7 +2728,6 @@ int main(void)
                     if (movingBoxRed.x == 10 && movingBoxRed.y == 50)
                     {
                         counterForFourCards++;
-                        cout << "HEere" << " ";
                     }
                     else {
                         tempPos = { 55, 50 };
@@ -2793,7 +2736,6 @@ int main(void)
                     if (movingBoxBlue.x == 10 && movingBoxBlue.y == 200)
                     {
                         counterForFourCards++;
-                        cout << "HEere" << " ";
                     }
                     else
                     {
@@ -2803,8 +2745,7 @@ int main(void)
                     if (movingBoxYellow.x == 10 && movingBoxYellow.y == 350)
                     {
                         counterForFourCards++;
-                        cout << "HEere" << " ";
-                        
+
                     }
                     else {
                         tempPos = { 55, 350 };
@@ -2812,8 +2753,7 @@ int main(void)
                     if (movingBoxF.x == 10 && movingBoxF.y == 500)
                     {
                         counterForFourCards++;
-                        cout << "HEere" << " ";
-                        
+
                     }
                     else {
                         tempPos = { 55, 50 };
@@ -2821,13 +2761,11 @@ int main(void)
                     if (movingBoxFive.x == 10 && movingBoxFive.y == 650)
                     {
                         counterForFourCards++;
-                        cout << "HEere" << " " << endl;
-                        
+
                     }
                     else {
                         tempPos = { 50, 650 };
                     }
-                    cout << endl << endl << counterForFourCards << endl << endl;
                     if (counterForFourCards < 5)
                     {
                         checkForPlayerTurn = { 0,0,0,0,1,1,1,1 };
@@ -2975,9 +2913,9 @@ int main(void)
                     }
                     if (ColorToInt(playerLeftColor) == -926365441)
                     {
-                        
 
-                        
+
+
                         bool temp = 0;
 
 
@@ -2988,88 +2926,88 @@ int main(void)
                                 temp = 1;
                                 switch (j)
                                 {
-                                
-                                    case 5:
-                                    {
-                                       
-                                        int pos = rand() % dec;
-                                        randomDir[j] = deck[pos];
-                                        deck.erase(deck.begin() + pos);
-                                        redRight_card = LoadTexture(randomDir[j].c_str());
-                                        redRight_card.width = 70;
-                                        redRight_card.height = 90;
-                                        movingBoxRedRight.x = 1600;
-                                        movingBoxRedRight.y = 50;
-                                        posImgRedRight.x = 1600;
-                                        posImgRedRight.y = 50;
-                                       
-                                        
-                                        break;
-                                    }
-                                    case 6:
-                                    {
-                                        int pos = rand() % dec;
-                                        randomDir[j] = deck[pos];
-                                        deck.erase(deck.begin() + pos);
-                                        randomDir[j] = Directories[rand() % 6];
-                                        blueRight_card = LoadTexture(randomDir[j].c_str());
-                                        blueRight_card.width = 70;
-                                        blueRight_card.height = 90;
-                                        movingBoxBlueRight.x = 1600;
-                                        movingBoxBlueRight.y = 200;
-                                        posImgBlueRight.x = 1600;
-                                        posImgBlueRight.y = 200;
-                                        break;
-                                    }
-                                    case 7:
-                                    {
-                                        int pos = rand() % dec;
-                                        randomDir[j] = deck[pos];
-                                        deck.erase(deck.begin() + pos);
-                                        randomDir[j] = Directories[rand() % 6];
-                                        yellowRight_card = LoadTexture(randomDir[j].c_str());
-                                        yellowRight_card.width = 70;
-                                        yellowRight_card.height = 90;
-                                        movingBoxYellowRight.x = 1600;
-                                        movingBoxYellowRight.y = 350;
-                                        posImgYellowRight.x = 1600;
-                                        posImgYellowRight.y = 350;
-                                        break;
-                                    }
-                                    case 8:
-                                    {
-                                        int pos = rand() % dec;
-                                        randomDir[j] = deck[pos];
-                                        deck.erase(deck.begin() + pos);
-                                        randomDir[j] = Directories[rand() % 6];
-                                        FRight_card = LoadTexture(randomDir[j].c_str());
-                                        FRight_card.width = 70;
-                                        FRight_card.height = 90;
-                                        movingBoxFRight.x = 1600;
-                                        movingBoxFRight.y = 500;
-                                        posImgFRight.x = 1600;
-                                        posImgFRight.y = 500;
-                                        break;
-                                    }
-                                    case 9:
-                                    {
-                                        int pos = rand() % dec;
-                                        randomDir[j] = deck[pos];
-                                        deck.erase(deck.begin() + pos);
-                                        randomDir[j] = Directories[rand() % 6];
-                                        FiveRight_card = LoadTexture(randomDir[j].c_str());
-                                        FiveRight_card.width = 70;
-                                        FiveRight_card.height = 90;
-                                        movingBoxFiveRight.x = 1600;
-                                        movingBoxFiveRight.y = 650;
-                                        posImgFiveRight.x = 1600;
-                                        posImgFiveRight.y = 650;
-                                        break;
-                                    }
+
+                                case 5:
+                                {
+
+                                    int pos = rand() % dec;
+                                    randomDir[j] = deck[pos];
+                                    deck.erase(deck.begin() + pos);
+                                    redRight_card = LoadTexture(randomDir[j].c_str());
+                                    redRight_card.width = 70;
+                                    redRight_card.height = 90;
+                                    movingBoxRedRight.x = 1600;
+                                    movingBoxRedRight.y = 50;
+                                    posImgRedRight.x = 1600;
+                                    posImgRedRight.y = 50;
+
+
+                                    break;
+                                }
+                                case 6:
+                                {
+                                    int pos = rand() % dec;
+                                    randomDir[j] = deck[pos];
+                                    deck.erase(deck.begin() + pos);
+                                    randomDir[j] = Directories[rand() % 6];
+                                    blueRight_card = LoadTexture(randomDir[j].c_str());
+                                    blueRight_card.width = 70;
+                                    blueRight_card.height = 90;
+                                    movingBoxBlueRight.x = 1600;
+                                    movingBoxBlueRight.y = 200;
+                                    posImgBlueRight.x = 1600;
+                                    posImgBlueRight.y = 200;
+                                    break;
+                                }
+                                case 7:
+                                {
+                                    int pos = rand() % dec;
+                                    randomDir[j] = deck[pos];
+                                    deck.erase(deck.begin() + pos);
+                                    randomDir[j] = Directories[rand() % 6];
+                                    yellowRight_card = LoadTexture(randomDir[j].c_str());
+                                    yellowRight_card.width = 70;
+                                    yellowRight_card.height = 90;
+                                    movingBoxYellowRight.x = 1600;
+                                    movingBoxYellowRight.y = 350;
+                                    posImgYellowRight.x = 1600;
+                                    posImgYellowRight.y = 350;
+                                    break;
+                                }
+                                case 8:
+                                {
+                                    int pos = rand() % dec;
+                                    randomDir[j] = deck[pos];
+                                    deck.erase(deck.begin() + pos);
+                                    randomDir[j] = Directories[rand() % 6];
+                                    FRight_card = LoadTexture(randomDir[j].c_str());
+                                    FRight_card.width = 70;
+                                    FRight_card.height = 90;
+                                    movingBoxFRight.x = 1600;
+                                    movingBoxFRight.y = 500;
+                                    posImgFRight.x = 1600;
+                                    posImgFRight.y = 500;
+                                    break;
+                                }
+                                case 9:
+                                {
+                                    int pos = rand() % dec;
+                                    randomDir[j] = deck[pos];
+                                    deck.erase(deck.begin() + pos);
+                                    randomDir[j] = Directories[rand() % 6];
+                                    FiveRight_card = LoadTexture(randomDir[j].c_str());
+                                    FiveRight_card.width = 70;
+                                    FiveRight_card.height = 90;
+                                    movingBoxFiveRight.x = 1600;
+                                    movingBoxFiveRight.y = 650;
+                                    posImgFiveRight.x = 1600;
+                                    posImgFiveRight.y = 650;
+                                    break;
+                                }
                                 }
 
                             }
-                            
+
 
                         }
                         if (temp == 0 && important)
@@ -3077,10 +3015,9 @@ int main(void)
                             rightHidden[cForRightHidden] = LoadTexture(deck[rand() % dec].c_str());
                             rightHiddenRec[cForRightHidden].x = tempPos.x;
                             rightHiddenRec[cForRightHidden].y = tempPos.y;
-                            cout << endl << tempPos.x << "          " << tempPos.y;
-                            
+
                             cForRightHidden++;
-                            
+
                         }
                     }
                     else {
@@ -3092,84 +3029,84 @@ int main(void)
                                 temp = 1;
                                 switch (j)
                                 {
-                                    case 0:
-                                    {
-                                        int pos = rand() % dec;
-                                        randomDir[j] = deck[pos];
-                                        deck.erase(deck.begin() + pos);
-                                        randomDir[j] = Directories[rand() % 6];
-                                        red_card = LoadTexture(randomDir[j].c_str());
-                                        red_card.width = 70;
-                                        red_card.height = 90;
-                                        movingBoxRed.x = 10;
-                                        movingBoxRed.y = 50;
-                                        posImgRed.x = 10;
-                                        posImgRed.y = 50;
-                                        break;
-                                    }
-                                    case 1:
-                                    {
-                                        int pos = rand() % dec;
-                                        randomDir[j] = deck[pos];
-                                        deck.erase(deck.begin() + pos);
-                                        randomDir[j] = Directories[rand() % 6];
-                                        blue_card = LoadTexture(randomDir[j].c_str());
-                                        blue_card.width = 70;
-                                        blue_card.height = 90;
-                                        movingBoxBlue.x = 10;
-                                        movingBoxBlue.y = 200;
-                                        posImgBlue.x = 10;
-                                        posImgBlue.y = 200;
-                                        break;
-                                    }
-                                    case 2:
-                                    {
-                                        int pos = rand() % dec;
-                                        randomDir[j] = deck[pos];
-                                        deck.erase(deck.begin() + pos);
-                                        randomDir[j] = Directories[rand() % 6];
-                                        yellow_card = LoadTexture(randomDir[j].c_str());
-                                        yellow_card.width = 70;
-                                        yellow_card.height = 90;
-                                        movingBoxYellow.x = 10;
-                                        movingBoxYellow.y = 350;
-                                        posImgYellow.x = 10;
-                                        posImgYellow.y = 350;
-                                        break;
-                                    }
-                                    case 3:
-                                    {
-                                        int pos = rand() % dec;
-                                        randomDir[j] = deck[pos];
-                                        deck.erase(deck.begin() + pos);
-                                        randomDir[j] = Directories[rand() % 6];
-                                        F_card = LoadTexture(randomDir[j].c_str());
-                                        F_card.width = 70;
-                                        F_card.height = 90;
-                                        movingBoxF.x = 10;
-                                        movingBoxF.y = 500;
-                                        posImgF.x = 10;
-                                        posImgF.y = 500;
-                                        break;
-                                    }
-                                    case 4:
-                                    {
-                                        int pos = rand() % dec;
-                                        randomDir[j] = deck[pos];
-                                        deck.erase(deck.begin() + pos);
-                                        randomDir[j] = Directories[rand() % 6];
-                                        Five_card = LoadTexture(randomDir[j].c_str());
-                                        Five_card.width = 70;
-                                        Five_card.height = 90;
-                                        movingBoxFive.x = 10;
-                                        movingBoxFive.y = 650;
-                                        posImgFive.x = 10;
-                                        posImgFive.y = 650;
-                                        break;
-                                    }
-                                    
+                                case 0:
+                                {
+                                    int pos = rand() % dec;
+                                    randomDir[j] = deck[pos];
+                                    deck.erase(deck.begin() + pos);
+                                    randomDir[j] = Directories[rand() % 6];
+                                    red_card = LoadTexture(randomDir[j].c_str());
+                                    red_card.width = 70;
+                                    red_card.height = 90;
+                                    movingBoxRed.x = 10;
+                                    movingBoxRed.y = 50;
+                                    posImgRed.x = 10;
+                                    posImgRed.y = 50;
+                                    break;
                                 }
-                            
+                                case 1:
+                                {
+                                    int pos = rand() % dec;
+                                    randomDir[j] = deck[pos];
+                                    deck.erase(deck.begin() + pos);
+                                    randomDir[j] = Directories[rand() % 6];
+                                    blue_card = LoadTexture(randomDir[j].c_str());
+                                    blue_card.width = 70;
+                                    blue_card.height = 90;
+                                    movingBoxBlue.x = 10;
+                                    movingBoxBlue.y = 200;
+                                    posImgBlue.x = 10;
+                                    posImgBlue.y = 200;
+                                    break;
+                                }
+                                case 2:
+                                {
+                                    int pos = rand() % dec;
+                                    randomDir[j] = deck[pos];
+                                    deck.erase(deck.begin() + pos);
+                                    randomDir[j] = Directories[rand() % 6];
+                                    yellow_card = LoadTexture(randomDir[j].c_str());
+                                    yellow_card.width = 70;
+                                    yellow_card.height = 90;
+                                    movingBoxYellow.x = 10;
+                                    movingBoxYellow.y = 350;
+                                    posImgYellow.x = 10;
+                                    posImgYellow.y = 350;
+                                    break;
+                                }
+                                case 3:
+                                {
+                                    int pos = rand() % dec;
+                                    randomDir[j] = deck[pos];
+                                    deck.erase(deck.begin() + pos);
+                                    randomDir[j] = Directories[rand() % 6];
+                                    F_card = LoadTexture(randomDir[j].c_str());
+                                    F_card.width = 70;
+                                    F_card.height = 90;
+                                    movingBoxF.x = 10;
+                                    movingBoxF.y = 500;
+                                    posImgF.x = 10;
+                                    posImgF.y = 500;
+                                    break;
+                                }
+                                case 4:
+                                {
+                                    int pos = rand() % dec;
+                                    randomDir[j] = deck[pos];
+                                    deck.erase(deck.begin() + pos);
+                                    randomDir[j] = Directories[rand() % 6];
+                                    Five_card = LoadTexture(randomDir[j].c_str());
+                                    Five_card.width = 70;
+                                    Five_card.height = 90;
+                                    movingBoxFive.x = 10;
+                                    movingBoxFive.y = 650;
+                                    posImgFive.x = 10;
+                                    posImgFive.y = 650;
+                                    break;
+                                }
+
+                                }
+
                             }
 
                         }
@@ -3318,7 +3255,6 @@ int main(void)
                     DrawText("Player 2", 1535, 15, 30, BLACK);
                 }
             }
-            // globalcout = 0;
             if (one)
             {
                 changePlayer(playerLeftColor, playerRightColor);
@@ -3719,7 +3655,7 @@ int main(void)
                     }
                 }
 
-                
+
 
                 if (checkfirstcollisionBlue == 0 && checkfirstcollisionRed == 0 && checkfirstcollisionYellow == 0 && checkfirstcollisionF == 0 && checkfirstcollisionBlueRight == 0 && checkfirstcollisionRedRight == 0 && checkfirstcollisionYellowRight == 0 && checkfirstcollisionFRight == 0 && checkfirstcollisionFiveRight == 0 && checkfirstcollisionFive == 0)
                 {
@@ -3839,7 +3775,6 @@ int main(void)
                     DrawText("Player 2", 1535, 15, 30, BLACK);
                 }
             }
-            //globalcout = 0;
             if (two)
             {
 
@@ -4255,7 +4190,7 @@ int main(void)
                     }
                 }
 
-                
+
 
                 if (checkfirstcollisionBlue == 0 && checkfirstcollisionRed == 0 && checkfirstcollisionYellow == 0 && checkfirstcollisionF == 0 && checkfirstcollisionBlueRight == 0 && checkfirstcollisionRedRight == 0 && checkfirstcollisionYellowRight == 0 && checkfirstcollisionFRight == 0 && checkfirstcollisionFiveRight == 0 && checkfirstcollisionFive == 0)
                 {
@@ -4540,9 +4475,8 @@ int main(void)
 
 
 
-                            //right
-
-                            if ((CheckCollisionRecs(arrToCheckOperation[j], movingBoxRedRight) && arrToCheckOperation[j].width == movingBoxRedRight.width))
+                            //Check if the card is on the bin and throw it out
+                            if ((CheckCollisionRecs(arrToCheckOperation[j], movingBoxRedRight) && arrToCheckOperation[j].width == movingBoxRedRight.width)) 
                             {
                                 movingBoxRedRight.x = 1900;
                                 movingBoxRedRight.y = 1900;
@@ -4918,7 +4852,7 @@ int main(void)
                 {
                     if (i == 1)
                     {
-                        DrawText("Player 1", 350, 915, 
+                        DrawText("Player 1", 350, 915,
                             30, BLACK);
                         DrawText("Player 2", 350, 15, 30, BLACK);
                     }
@@ -4948,17 +4882,11 @@ int main(void)
             for (int i = 0; i < 2; i++)
             {
                 arr3[i].x = 806 + i * 140;
-                arr3[i].y = 600;
+                arr3[i].y = 420;
                 arr3[i].width = 38;
                 arr3[i].height = 38;
             }
-            for (int i = 0; i < 2; i++)
-            {
-                arr4[i].x = 806 + i * 140;
-                arr4[i].y = 785;
-                arr4[i].width = 38;
-                arr4[i].height = 38;
-            }
+
 
             //225, 420, 90, 105 
             DrawRectangleRec(hide, LIGHTGRAY);
@@ -5040,24 +4968,8 @@ int main(void)
             {
                 itss = 0;
             }
-            if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointRec(mousePoint, arr4[0]))
-            {
 
-                iks = 1;
-            }
-            else
-            {
-                iks = 0;
-            }
-            if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointRec(mousePoint, arr4[1]))
-            {
 
-                ikss = 1;
-            }
-            else
-            {
-                ikss = 0;
-            }
             //draw fps
             if (ifs)
             {
@@ -5082,74 +4994,34 @@ int main(void)
             //show fps
             if (its)
             {
-                check_marker3 = { 806.5, 600.5 };
+                check_marker3 = { 806.5, 420.5 };
                 XFPS = 10, YFPS = 10;
             }
             if (itss)
             {
-                check_marker3 = { 946, 600.5 };
+                check_marker3 = { 946, 420.5 };
                 XFPS = -100, YFPS = -100;
             }
 
-            if (its)
-            {
-                check_marker4 = { 806.5, 600.5 };
-                //music
-            }
-            if (itss)
-            {
-                check_marker4 = { 946, 600.5 };
-                //music
-            }
 
-            DrawText("Choose your mode:", 675, 320, 50, BLACK);
-            DrawText("Normal", 722.5, 380, 20, BLACK);
-            DrawText("Old", 840.5, 380, 20, BLACK);
-            DrawText("Modern", 920, 380, 20, BLACK);
-            DrawText("Colorblind", 1009, 380, 20, BLACK);
-
-            DrawRectangle((int)BaseCards.x + 506.5, (int)BaseCards.y - 5, (int)BaseCards.width - 41, (int)BaseCards.height - 56, BLACK);
-            DrawRectangle((int)BaseCards.x + 606.5, (int)BaseCards.y - 5, (int)BaseCards.width - 41, (int)BaseCards.height - 56, BLACK);
-            DrawRectangle((int)BaseCards.x + 706.5, (int)BaseCards.y - 5, (int)BaseCards.width - 41, (int)BaseCards.height - 56, BLACK);
-            DrawRectangle((int)BaseCards.x + 806.5, (int)BaseCards.y - 5, (int)BaseCards.width - 41, (int)BaseCards.height - 56, BLACK);
-            for (int i = 0; i < 4; i++)
-            {
-                DrawRectangleRec(arr2[i], DARKGRAY);
-                if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointRec(mousePoint, arr2[i]))
-                {
-                    //needs to be added color mode changer and texture
-                }
-            }
 
             DrawFPS(XFPS, YFPS);
-            DrawText("Show FPS:", 775, 500, 50, BLACK);
+            DrawText("Show FPS:", 775, 320, 50, BLACK);
 
-            DrawText("YES", 805, 560.5, 20, BLACK);
-            DrawText("NO", 950, 560.5, 20, BLACK);
+            DrawText("YES", 805, 380.5, 20, BLACK);
+            DrawText("NO", 950, 380.5, 20, BLACK);
 
-            DrawRectangle((int)BaseCards.x + 575, (int)BaseCards.y + 175, (int)BaseCards.width - 41, (int)BaseCards.height - 56, BLACK);
-            DrawRectangle((int)BaseCards.x + 715, (int)BaseCards.y + 175, (int)BaseCards.width - 41, (int)BaseCards.height - 56, BLACK);
+            DrawRectangle((int)BaseCards.x + 575, (int)BaseCards.y - 5, (int)BaseCards.width - 41, (int)BaseCards.height - 56, BLACK);
+            DrawRectangle((int)BaseCards.x + 715, (int)BaseCards.y - 5, (int)BaseCards.width - 41, (int)BaseCards.height - 56, BLACK);
             for (int i = 0; i < 2; i++)
             {
                 DrawRectangleRec(arr3[i], DARKGRAY);
 
             }
 
-            DrawText("Music:", 825, 675, 50, BLACK);
 
-            DrawText("ON", 815, 750.5, 20, BLACK);
-            DrawText("OFF", 947.5, 750.5, 20, BLACK);
-
-            DrawRectangle((int)BaseCards.x + 575, (int)BaseCards.y + 360, (int)BaseCards.width - 41, (int)BaseCards.height - 56, BLACK);
-            DrawRectangle((int)BaseCards.x + 715, (int)BaseCards.y + 360, (int)BaseCards.width - 41, (int)BaseCards.height - 56, BLACK);
-            for (int i = 0; i < 2; i++)
-            {
-                DrawRectangleRec(arr4[i], DARKGRAY);
-
-            }
-            DrawTexture(check_mark, check_marker3.x, check_marker3.y, DARKGRAY);
             DrawTexture(check_mark, check_marker.x, check_marker.y, DARKGRAY);
-            DrawTexture(check_mark, check_marker4.x, check_marker4.y, DARKGRAY);
+            DrawTexture(check_mark, check_marker3.x, check_marker3.y, DARKGRAY);
         }
         else if (menuThree)
         {
@@ -5209,5 +5081,9 @@ int main(void)
     CloseWindow();
 
 
-    return 0;
+    return ;
+}
+int main()
+{
+    startGame();
 }
