@@ -1,5 +1,5 @@
 <p align = "center">
- <img src = "logo_banner.jpg" alt = "logo">
+ <img src = "Vis!00/images/logo_banner.jpg" alt = "logo">
 
   </p>
   <p align = "center">
