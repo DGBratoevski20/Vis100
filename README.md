@@ -32,12 +32,15 @@
   <h1>🚀Used technologies</h1>
   <p align="left"> 
 	<a> <img src="https://img.icons8.com/ios-filled/50/4a90e2/c-plus-plus-logo.png"/> </a> 
-  <a><img src="https://www.simpleimageresizer.com/_uploads/photos/3fd1c014/Raylib_logo_48x48.png" </a>
-  <a> <img src="https://img.icons8.com/fluency/48/000000/visual-studio.png"/> </a>
-  <a> <img src="https://img.icons8.com/color/48/000000/microsoft-teams.png"/> </a>
-  <a> <img src="https://img.icons8.com/color/48/000000/microsoft-word-2019--v2.png"/>  </a>
-  <a> <img src="https://img.icons8.com/color/48/000000/microsoft-powerpoint-2019--v1.png"/>  </a>
-  <a> <img src="https://img.icons8.com/color/48/000000/adobe-photoshop--v1.png"/>  </a>
+	<a><img src="https://www.simpleimageresizer.com/_uploads/photos/3fd1c014/Raylib_logo_48x48.png" </a>
+	<a><img src="https://img.icons8.com/color/48/000000/css3.png"/> </a>
+	<a><img src="https://img.icons8.com/color/48/000000/html-5--v1.png"/></a>
+	<a> <img src="https://img.icons8.com/fluency/48/000000/visual-studio.png"/> </a>
+	<a> <img src="https://img.icons8.com/color/48/000000/microsoft-teams.png"/> </a>
+	<a> <img src="https://img.icons8.com/color/48/000000/microsoft-word-2019--v2.png"/>  </a>
+	<a> <img src="https://img.icons8.com/color/48/000000/microsoft-powerpoint-2019--v1.png"/>  </a>
+	<a> <img src="https://img.icons8.com/color/48/000000/microsoft-excel-2019--v1.png"></a>
+	<a> <img src="https://img.icons8.com/color/48/000000/adobe-photoshop--v1.png"/>  </a>
 
   </p>
 	
