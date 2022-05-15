@@ -3089,8 +3089,16 @@ int main(void)
                 DrawTexture(bin, 400, 900, GRAY);
                 DrawTexture(deck_texture, 1300, 40, GRAY);
 
-
-
+                for (int i = 0; i < 2; i++)
+                {
+                    if (i == 1)
+                    {
+                        DrawText("Player 1", 350, 915, 50, BLACK);
+                        DrawText("Player 2", 350, 15, 50, BLACK);
+                    }
+                    DrawText("Player 1", 50, 15, 50, BLACK);
+                    DrawText("Player 2", 1535, 15, 50, BLACK);
+                }
             }
             // globalcout = 0;
             if (one)
@@ -3602,6 +3610,16 @@ int main(void)
                 DrawRectangleRec(RectDeck, GRAY);
                 DrawTexture(bin, 400, 900, GRAY);
                 DrawTexture(deck_texture, 1300, 40, GRAY);
+                for (int i = 0; i < 2; i++)
+                {
+                    if (i == 1)
+                    {
+                        DrawText("Player 1", 350, 915, 50, BLACK);
+                        DrawText("Player 2", 350, 15, 50, BLACK);
+                    }
+                    DrawText("Player 1", 50, 15, 50, BLACK);
+                    DrawText("Player 2", 1535, 15, 50, BLACK);
+                }
             }
             //globalcout = 0;
             if (two)
@@ -4127,7 +4145,16 @@ int main(void)
                 DrawRectangleRec(RectDeck, GRAY);
                 DrawTexture(bin, 400, 900, GRAY);
                 DrawTexture(deck_texture, 1300, 40, GRAY);
-
+                for (int i = 0; i < 2; i++)
+                {
+                    if (i == 1)
+                    {
+                        DrawText("Player 1", 350, 915, 50, BLACK);
+                        DrawText("Player 2", 350, 15, 50, BLACK);
+                    }
+                    DrawText("Player 1", 50, 15, 50, BLACK);
+                    DrawText("Player 2", 1535, 15, 50, BLACK);
+                }
 
             }
             else if (three)
@@ -4669,8 +4696,16 @@ int main(void)
                 DrawRectangleRec(RectDeck, GRAY);
                 DrawTexture(bin, 400, 900, GRAY);
                 DrawTexture(deck_texture, 1300, 40, GRAY);
-
-
+                for (int i = 0; i < 2; i++)
+                {
+                    if (i == 1)
+                    {
+                        DrawText("Player 1", 350, 915, 50, BLACK);
+                        DrawText("Player 2", 350, 15, 50, BLACK);
+                    }
+                    DrawText("Player 1", 50, 15, 50, BLACK);
+                    DrawText("Player 2", 1535, 15, 50, BLACK);
+                }
             }
         }
         else if (menuTwo)
