@@ -1,4 +1,4 @@
-#include "Main.h"
+ï»¿#include "Main.h"
 
 //checks if trash bin is clicked
 bool binCheck = 1;
@@ -2133,7 +2133,7 @@ void startGame()
 {
     const int screenWidth = 1800;
     const int screenHeight = 1000;
-    bool important = 0;
+
     bool checker = 1;
     bool checker2 = 1;
     vector<bool> filledDown;
@@ -2183,25 +2183,8 @@ void startGame()
     FRight_card.width = 70, FRight_card.height = 90;
     FiveRight_card.width = 70, FiveRight_card.height = 90;
 
-    vector<Texture2D> leftHidden(48);
-    vector<Texture2D> rightHidden(48);
-    vector<Rectangle> rightHiddenRec(48);
-    vector<Rectangle> leftHiddenRec(48);
-    int cForLeftHidden = 0;
-    int cForRightHidden = 0;
-    Vector2 tempPos;
-    for (int i = 0; i < rightHiddenRec.size(); i++)
-    {
-        rightHiddenRec[i] = { 1900, 100 };
 
-    }
-    for (int i = 0; i < leftHiddenRec.size(); i++)
-    {
-        leftHiddenRec[i] = { 1900, 100 };
 
-    }
-
-    Rectangle choices[2];
     Rectangle colorsRecs[4];
     for (int i = 0; i < sizeof(colorsRecs) / sizeof(colorsRecs[0]); i++)
     {
@@ -2225,42 +2208,31 @@ void startGame()
     {
         if (i > -1 && i < 8)
         {
-            deck[i] = "../images/x1.png";
+            deck[i] = "../image/x1.png";
         }
         if (i > 7 && i < 16)
         {
-            deck[i] = "../images/x0.png";
+            deck[i] = "../image/x0.png";
         }
         if (i > 15 && i < 24)
         {
-            deck[i] = "../images/or1.png";
+            deck[i] = "../image/or1.png";
         }
         if (i > 23 && i < 32)
         {
-            deck[i] = "../images/or0.png";
+            deck[i] = "../image/or0.png";
         }
         if (i > 31 && i < 40)
         {
-            deck[i] = "../images/and0.png";
+            deck[i] = "../image/and0.png";
         }
         if (i > 39 && i < 48)
         {
-            deck[i] = "../images/and1.png";
-        }
-    }
-    for (int i = 0; i < 10; i++)
-    {
-        for (int j = 0; j < deck.size(); j++)
-        {
-            if (randomDir[i] == deck[j])
-            {
-                deck.erase(deck.begin() + j);
-
-            }
+            deck[i] = "../image/and1.png";
         }
     }
     Vector2 check_marker = { 837.5, 260 };
-    Vector2 check_marker3 = { 946, 420.5 };
+    Vector2 check_marker3 = { 946, 600.5 };
     Vector2 check_marker2 = { -946, -600.5 };
     Vector2 check_marker4 = { 946, 785 };
 
@@ -2293,11 +2265,11 @@ void startGame()
 
     Rectangle BaseCards = { 225, 420, 90, 105 };
     Vector2 mousePoint;
-    Vector2 posImgRed = { 55,50 };
-    Vector2 posImgBlue = { 55,200 };
-    Vector2 posImgYellow = { 55,350 };
-    Vector2 posImgF = { 55,500 };
-    Vector2 posImgFive = { 55,650 };
+    Vector2 posImgRed = { 10,50 };
+    Vector2 posImgBlue = { 10,200 };
+    Vector2 posImgYellow = { 10,350 };
+    Vector2 posImgF = { 10,500 };
+    Vector2 posImgFive = { 10,650 };
 
 
     Vector2 posImgRedRight = { 1600,50 };
@@ -2569,6 +2541,7 @@ void startGame()
             {
                 //BINCHO
 
+
                 checker2 = 0;
                 DrawRectangleRec(hide, LIGHTGRAY);
 
@@ -2647,135 +2620,6 @@ void startGame()
                     DrawText(to_string(!ftAr[2]).c_str(), 1084.5, 480, 50, BLACK);
                 }
                 //check if filled
-
-                if (ColorToInt(playerLeftColor) == -926365441)
-                {
-                    int counterForFourCards = 0;
-                    for (int i = 0; i < rightHidden.size(); i++)
-                    {
-                        if (rightHiddenRec[i].x == 1600 && (rightHiddenRec[i].y == 50 || rightHiddenRec[i].y == 200 || rightHiddenRec[i].y == 350 || rightHiddenRec[i].y == 500 || rightHiddenRec[i].y == 650))
-                        {
-                            counterForFourCards++;
-                            break;
-                        }
-                    }
-
-                    if (movingBoxRedRight.x == 1600 && movingBoxRedRight.y == 50)
-                    {
-                        counterForFourCards++;
-
-                    }
-                    else
-                    {
-                        tempPos = { 1600, 50 };
-                    }
-                    if (movingBoxBlueRight.x == 1600 && movingBoxBlueRight.y == 200)
-                    {
-                        counterForFourCards++;
-
-                    }
-                    else
-                    {
-                        tempPos = { 1600, 200 };
-                    }
-                    if (movingBoxYellowRight.x == 1600 && movingBoxYellowRight.y == 350)
-                    {
-                        counterForFourCards++;
-
-                    }
-                    else
-                    {
-                        tempPos = { 1600, 350 };
-
-                    }
-                    if (movingBoxFRight.x == 1600 && movingBoxFRight.y == 500)
-                    {
-                        counterForFourCards++;
-
-                    }
-                    else
-                    {
-                        tempPos = { 1600, 500 };
-                    }
-                    if (movingBoxFiveRight.x == 1600 && movingBoxFiveRight.y == 650)
-                    {
-                        counterForFourCards++;
-                    }
-                    else
-                    {
-                        tempPos = { 1600, 650 };
-
-                    }
-                    if (counterForFourCards < 5)
-                    {
-                        checkForPlayerTurn = { 1,1,1,1,0,0,0,0 };
-                        important = 1;
-                    }
-                    else {
-                        important = 0;
-                    }
-                }
-                else {
-                    int counterForFourCards = 0;
-                    for (int i = 0; i < leftHidden.size(); i++)
-                    {
-                        if (leftHiddenRec[i].x == 10 && (leftHiddenRec[i].y == 50 || leftHiddenRec[i].y == 200 || leftHiddenRec[i].y == 350 || leftHiddenRec[i].y == 500 || leftHiddenRec[i].y == 650))
-                        {
-                            counterForFourCards++;
-                            break;
-                        }
-                    }
-                    if (movingBoxRed.x == 10 && movingBoxRed.y == 50)
-                    {
-                        counterForFourCards++;
-                    }
-                    else {
-                        tempPos = { 55, 50 };
-
-                    }
-                    if (movingBoxBlue.x == 10 && movingBoxBlue.y == 200)
-                    {
-                        counterForFourCards++;
-                    }
-                    else
-                    {
-                        tempPos = { 55, 200 };
-
-                    }
-                    if (movingBoxYellow.x == 10 && movingBoxYellow.y == 350)
-                    {
-                        counterForFourCards++;
-
-                    }
-                    else {
-                        tempPos = { 55, 350 };
-                    }
-                    if (movingBoxF.x == 10 && movingBoxF.y == 500)
-                    {
-                        counterForFourCards++;
-
-                    }
-                    else {
-                        tempPos = { 55, 50 };
-                    }
-                    if (movingBoxFive.x == 10 && movingBoxFive.y == 650)
-                    {
-                        counterForFourCards++;
-
-                    }
-                    else {
-                        tempPos = { 50, 650 };
-                    }
-                    if (counterForFourCards < 5)
-                    {
-                        checkForPlayerTurn = { 0,0,0,0,1,1,1,1 };
-                        important = 1;
-                    }
-                    else {
-                        important = 0;
-                    }
-
-                }
 
 
                 Filled(BasePyramidDown, BasePyramidUp, movingBoxRed, movingBoxBlue, movingBoxYellow, movingBoxF, movingBoxRedRight, movingBoxBlueRight, movingBoxYellowRight, movingBoxFRight, movingBoxFive, movingBoxFiveRight, filledDown, filledUp, arrToCheckOperation, checkDir, randomDir, checkDirTwo);
@@ -2887,43 +2731,36 @@ void startGame()
                         {
                             if (i > -1 && i < 8)
                             {
-                                deck[i] = "../images/x1.png";
+                                deck[i] = "../image/x1.png";
                             }
                             if (i > 7 && i < 16)
                             {
-                                deck[i] = "../images/x0.png";
+                                deck[i] = "../image/x0.png";
                             }
                             if (i > 15 && i < 24)
                             {
-                                deck[i] = "../images/or1.png";
+                                deck[i] = "../image/or1.png";
                             }
                             if (i > 23 && i < 32)
                             {
-                                deck[i] = "../images/or0.png";
+                                deck[i] = "../image/or0.png";
                             }
                             if (i > 31 && i < 40)
                             {
-                                deck[i] = "../images/and0.png";
+                                deck[i] = "../image/and0.png";
                             }
                             if (i > 39 && i < 48)
                             {
-                                deck[i] = "../images/and1.png";
+                                deck[i] = "../image/and1.png";
                             }
                         }
                     }
                     if (ColorToInt(playerLeftColor) == -926365441)
                     {
-
-
-
-                        bool temp = 0;
-
-
                         for (int j = 0; j < 10; j++)
                         {
                             if (arrToCheckOperation[j].x == 1900)
                             {
-                                temp = 1;
                                 switch (j)
                                 {
 
@@ -3008,25 +2845,13 @@ void startGame()
 
                             }
 
-
-                        }
-                        if (temp == 0 && important)
-                        {
-                            rightHidden[cForRightHidden] = LoadTexture(deck[rand() % dec].c_str());
-                            rightHiddenRec[cForRightHidden].x = tempPos.x;
-                            rightHiddenRec[cForRightHidden].y = tempPos.y;
-
-                            cForRightHidden++;
-
                         }
                     }
                     else {
-                        bool temp = 0;
                         for (int j = 0; j < 10; j++)
                         {
                             if (arrToCheckOperation[j].x == -100)
                             {
-                                temp = 1;
                                 switch (j)
                                 {
                                 case 0:
@@ -3110,15 +2935,6 @@ void startGame()
                             }
 
                         }
-                        if (temp == 0 && important)
-                        {
-                            leftHidden[cForLeftHidden] = LoadTexture(deck[rand() % dec].c_str());
-                            leftHiddenRec[cForLeftHidden].x = tempPos.x;
-                            leftHiddenRec[cForLeftHidden].y = tempPos.y;
-                            //DrawTextureV(leftHidden[cForLeftHidden], leftHiddenRec[cForLeftHidden], WHITE);
-                            cForLeftHidden++;
-
-                        }
                     }
                 }
 
@@ -3127,25 +2943,25 @@ void startGame()
 
                 if (checkfirstcollisionBlue == 0 && checkfirstcollisionRed == 0 && checkfirstcollisionYellow == 0 && checkfirstcollisionF == 0 && checkfirstcollisionBlueRight == 0 && checkfirstcollisionRedRight == 0 && checkfirstcollisionYellowRight == 0 && checkfirstcollisionFRight == 0 && checkfirstcollisionFiveRight == 0 && checkfirstcollisionFive == 0)
                 {
-                    DropDown(movingBoxRed, mousePoint, posImgRed, red_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionRed, 55, 50, filledDown, filledUp, checkForPlayerTurn[0], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr, leftHiddenRec, rightHiddenRec, leftHidden, rightHidden);
-                    DropDown(movingBoxYellow, mousePoint, posImgYellow, yellow_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionYellow, 55, 350, filledDown, filledUp, checkForPlayerTurn[1], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr, leftHiddenRec, rightHiddenRec, leftHidden, rightHidden);
-                    DropDown(movingBoxBlue, mousePoint, posImgBlue, blue_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionBlue, 55, 200, filledDown, filledUp, checkForPlayerTurn[2], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr, leftHiddenRec, rightHiddenRec, leftHidden, rightHidden);
-                    DropDown(movingBoxF, mousePoint, posImgF, F_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionF, 55, 500, filledDown, filledUp, checkForPlayerTurn[3], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr, leftHiddenRec, rightHiddenRec, leftHidden, rightHidden);
-                    DropDown(movingBoxFive, mousePoint, posImgFive, Five_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionFive, 50, 650, filledDown, filledUp, checkForPlayerTurn[3], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr, leftHiddenRec, rightHiddenRec, leftHidden, rightHidden);
+                    DropDown(movingBoxRed, mousePoint, posImgRed, red_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionRed, 10, 50, filledDown, filledUp, checkForPlayerTurn[0], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr);
+                    DropDown(movingBoxYellow, mousePoint, posImgYellow, yellow_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionYellow, 10, 350, filledDown, filledUp, checkForPlayerTurn[1], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr);
+                    DropDown(movingBoxBlue, mousePoint, posImgBlue, blue_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionBlue, 10, 200, filledDown, filledUp, checkForPlayerTurn[2], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr);
+                    DropDown(movingBoxF, mousePoint, posImgF, F_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionF, 10, 500, filledDown, filledUp, checkForPlayerTurn[3], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr);
+                    DropDown(movingBoxFive, mousePoint, posImgFive, Five_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionFive, 10, 650, filledDown, filledUp, checkForPlayerTurn[3], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr);
 
 
 
-                    DropDown(movingBoxRedRight, mousePoint, posImgRedRight, redRight_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionRedRight, 1600, 50, filledDown, filledUp, checkForPlayerTurn[4], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr, leftHiddenRec, rightHiddenRec, leftHidden, rightHidden);
-                    DropDown(movingBoxYellowRight, mousePoint, posImgYellowRight, yellowRight_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionYellowRight, 1600, 350, filledDown, filledUp, checkForPlayerTurn[5], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr, leftHiddenRec, rightHiddenRec, leftHidden, rightHidden);
-                    DropDown(movingBoxBlueRight, mousePoint, posImgBlueRight, blueRight_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionBlueRight, 1600, 200, filledDown, filledUp, checkForPlayerTurn[6], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr, leftHiddenRec, rightHiddenRec, leftHidden, rightHidden);
-                    DropDown(movingBoxFRight, mousePoint, posImgFRight, FRight_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionFRight, 1600, 500, filledDown, filledUp, checkForPlayerTurn[7], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr, leftHiddenRec, rightHiddenRec, leftHidden, rightHidden);
-                    DropDown(movingBoxFiveRight, mousePoint, posImgFiveRight, FiveRight_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionFiveRight, 1600, 650, filledDown, filledUp, checkForPlayerTurn[7], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr, leftHiddenRec, rightHiddenRec, leftHidden, rightHidden);
+                    DropDown(movingBoxRedRight, mousePoint, posImgRedRight, redRight_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionRedRight, 1600, 50, filledDown, filledUp, checkForPlayerTurn[4], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr);
+                    DropDown(movingBoxYellowRight, mousePoint, posImgYellowRight, yellowRight_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionYellowRight, 1600, 350, filledDown, filledUp, checkForPlayerTurn[5], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr);
+                    DropDown(movingBoxBlueRight, mousePoint, posImgBlueRight, blueRight_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionBlueRight, 1600, 200, filledDown, filledUp, checkForPlayerTurn[6], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr);
+                    DropDown(movingBoxFRight, mousePoint, posImgFRight, FRight_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionFRight, 1600, 500, filledDown, filledUp, checkForPlayerTurn[7], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr);
+                    DropDown(movingBoxFiveRight, mousePoint, posImgFiveRight, FiveRight_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionFiveRight, 1600, 650, filledDown, filledUp, checkForPlayerTurn[7], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr);
 
 
                 }
                 if (checkfirstcollisionBlue == 0 && checkfirstcollisionRed && checkfirstcollisionYellow == 0 && checkfirstcollisionF == 0 && checkfirstcollisionBlueRight == 0 && checkfirstcollisionRedRight == 0 && checkfirstcollisionYellowRight == 0 && checkfirstcollisionFRight == 0 && checkfirstcollisionFiveRight == 0 && checkfirstcollisionFive == 0)
                 {
-                    DropDown(movingBoxRed, mousePoint, posImgRed, red_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionRed, 55, 50, filledDown, filledUp, checkForPlayerTurn[0], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr, leftHiddenRec, rightHiddenRec, leftHidden, rightHidden);
+                    DropDown(movingBoxRed, mousePoint, posImgRed, red_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionRed, 10, 50, filledDown, filledUp, checkForPlayerTurn[0], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr);
 
 
 
@@ -3154,13 +2970,13 @@ void startGame()
                 {
 
 
-                    DropDown(movingBoxYellow, mousePoint, posImgYellow, yellow_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionYellow, 55, 350, filledDown, filledUp, checkForPlayerTurn[1], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr, leftHiddenRec, rightHiddenRec, leftHidden, rightHidden);
+                    DropDown(movingBoxYellow, mousePoint, posImgYellow, yellow_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionYellow, 10, 350, filledDown, filledUp, checkForPlayerTurn[1], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr);
 
                 }
                 else if (checkfirstcollisionBlue && checkfirstcollisionRed == 0 && checkfirstcollisionYellow == 0 && checkfirstcollisionF == 0 && checkfirstcollisionBlueRight == 0 && checkfirstcollisionRedRight == 0 && checkfirstcollisionYellowRight == 0 && checkfirstcollisionFRight == 0 && checkfirstcollisionFiveRight == 0 && checkfirstcollisionFive == 0)
                 {
 
-                    DropDown(movingBoxBlue, mousePoint, posImgBlue, blue_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionBlue, 55, 200, filledDown, filledUp, checkForPlayerTurn[2], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr, leftHiddenRec, rightHiddenRec, leftHidden, rightHidden);
+                    DropDown(movingBoxBlue, mousePoint, posImgBlue, blue_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionBlue, 10, 200, filledDown, filledUp, checkForPlayerTurn[2], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr);
 
 
                 }
@@ -3168,35 +2984,35 @@ void startGame()
                 else if (checkfirstcollisionBlue == 0 && checkfirstcollisionRed == 0 && checkfirstcollisionYellow == 0 && checkfirstcollisionF == 0 && checkfirstcollisionBlueRight && checkfirstcollisionRedRight == 0 && checkfirstcollisionYellowRight == 0 && checkfirstcollisionFRight == 0 && checkfirstcollisionFiveRight == 0 && checkfirstcollisionFive == 0)
                 {
 
-                    DropDown(movingBoxBlueRight, mousePoint, posImgBlueRight, blueRight_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionBlueRight, 1600, 200, filledDown, filledUp, checkForPlayerTurn[4], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr, leftHiddenRec, rightHiddenRec, leftHidden, rightHidden);
+                    DropDown(movingBoxBlueRight, mousePoint, posImgBlueRight, blueRight_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionBlueRight, 1600, 200, filledDown, filledUp, checkForPlayerTurn[4], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr);
 
 
                 }
                 else if (checkfirstcollisionBlue == 0 && checkfirstcollisionRed == 0 && checkfirstcollisionYellow == 0 && checkfirstcollisionF == 0 && checkfirstcollisionBlueRight == 0 && checkfirstcollisionRedRight == 0 && checkfirstcollisionYellowRight && checkfirstcollisionFRight == 0 && checkfirstcollisionFiveRight == 0 && checkfirstcollisionFive == 0)
                 {
 
-                    DropDown(movingBoxYellowRight, mousePoint, posImgYellowRight, yellowRight_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionYellowRight, 1600, 350, filledDown, filledUp, checkForPlayerTurn[5], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr, leftHiddenRec, rightHiddenRec, leftHidden, rightHidden);
+                    DropDown(movingBoxYellowRight, mousePoint, posImgYellowRight, yellowRight_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionYellowRight, 1600, 350, filledDown, filledUp, checkForPlayerTurn[5], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr);
 
 
                 }
                 else if (checkfirstcollisionBlue == 0 && checkfirstcollisionRed == 0 && checkfirstcollisionYellow == 0 && checkfirstcollisionF == 0 && checkfirstcollisionBlueRight == 0 && checkfirstcollisionRedRight && checkfirstcollisionYellowRight == 0 && checkfirstcollisionFRight == 0 && checkfirstcollisionFiveRight == 0 && checkfirstcollisionFive == 0)
                 {
 
-                    DropDown(movingBoxRedRight, mousePoint, posImgRedRight, redRight_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionRedRight, 1600, 50, filledDown, filledUp, checkForPlayerTurn[6], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr, leftHiddenRec, rightHiddenRec, leftHidden, rightHidden);
+                    DropDown(movingBoxRedRight, mousePoint, posImgRedRight, redRight_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionRedRight, 1600, 50, filledDown, filledUp, checkForPlayerTurn[6], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr);
 
 
                 }
                 else if (checkfirstcollisionBlue == 0 && checkfirstcollisionRed == 0 && checkfirstcollisionYellow == 0 && checkfirstcollisionF && checkfirstcollisionBlueRight == 0 && checkfirstcollisionRedRight == 0 && checkfirstcollisionYellowRight == 0 && checkfirstcollisionFRight == 0 && checkfirstcollisionFiveRight == 0 && checkfirstcollisionFive == 0)
                 {
 
-                    DropDown(movingBoxF, mousePoint, posImgF, F_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionF, 55, 500, filledDown, filledUp, checkForPlayerTurn[3], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr, leftHiddenRec, rightHiddenRec, leftHidden, rightHidden);
+                    DropDown(movingBoxF, mousePoint, posImgF, F_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionF, 10, 500, filledDown, filledUp, checkForPlayerTurn[3], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr);
 
 
                 }
                 else if (checkfirstcollisionBlue == 0 && checkfirstcollisionRed == 0 && checkfirstcollisionYellow == 0 && checkfirstcollisionF == 0 && checkfirstcollisionBlueRight == 0 && checkfirstcollisionRedRight == 0 && checkfirstcollisionYellowRight == 0 && checkfirstcollisionFRight && checkfirstcollisionFiveRight == 0 && checkfirstcollisionFive == 0)
                 {
 
-                    DropDown(movingBoxFRight, mousePoint, posImgFRight, FRight_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionFRight, 1600, 500, filledDown, filledUp, checkForPlayerTurn[7], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr, leftHiddenRec, rightHiddenRec, leftHidden, rightHidden);
+                    DropDown(movingBoxFRight, mousePoint, posImgFRight, FRight_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionFRight, 1600, 500, filledDown, filledUp, checkForPlayerTurn[7], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr);
 
 
                 }
@@ -3204,14 +3020,14 @@ void startGame()
                 else if (checkfirstcollisionBlue == 0 && checkfirstcollisionRed == 0 && checkfirstcollisionYellow == 0 && checkfirstcollisionF == 0 && checkfirstcollisionBlueRight == 0 && checkfirstcollisionRedRight == 0 && checkfirstcollisionYellowRight == 0 && checkfirstcollisionFRight == 0 && checkfirstcollisionFiveRight == 0 && checkfirstcollisionFive)
                 {
 
-                    DropDown(movingBoxFive, mousePoint, posImgFive, Five_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionFive, 50, 650, filledDown, filledUp, checkForPlayerTurn[3], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr, leftHiddenRec, rightHiddenRec, leftHidden, rightHidden);
+                    DropDown(movingBoxFive, mousePoint, posImgFive, Five_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionFive, 10, 650, filledDown, filledUp, checkForPlayerTurn[3], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr);
 
 
                 }
                 else if (checkfirstcollisionBlue == 0 && checkfirstcollisionRed == 0 && checkfirstcollisionYellow == 0 && checkfirstcollisionF == 0 && checkfirstcollisionBlueRight == 0 && checkfirstcollisionRedRight == 0 && checkfirstcollisionYellowRight == 0 && checkfirstcollisionFRight == 0 && checkfirstcollisionFiveRight && checkfirstcollisionFive == 0)
                 {
 
-                    DropDown(movingBoxFiveRight, mousePoint, posImgFiveRight, FiveRight_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionFiveRight, 1600, 650, filledDown, filledUp, checkForPlayerTurn[7], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr, leftHiddenRec, rightHiddenRec, leftHidden, rightHidden);
+                    DropDown(movingBoxFiveRight, mousePoint, posImgFiveRight, FiveRight_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionFiveRight, 1600, 650, filledDown, filledUp, checkForPlayerTurn[7], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr);
 
 
                 }
@@ -3227,17 +3043,6 @@ void startGame()
                 DrawTexture(FRight_card, posImgFRight.x, posImgFRight.y, WHITE);
                 DrawTexture(FiveRight_card, posImgFiveRight.x, posImgFiveRight.y, WHITE);
 
-                for (int i = 0; i < rightHidden.size(); i++)
-                {
-                    rightHidden[i].width = 70, rightHidden[i].height = 90;
-                    DrawTexture(rightHidden[i], rightHiddenRec[i].x, rightHiddenRec[i].y, WHITE);
-                }
-                for (int i = 0; i < leftHidden.size(); i++)
-                {
-                    leftHidden[i].width = 70, leftHidden[i].height = 90;
-                    DrawTexture(leftHidden[i], leftHiddenRec[i].x, leftHiddenRec[i].y, WHITE);
-                }
-
                 //bin and deck
                 DrawRectangleRec(RectBin, GRAY);
                 DrawRectangleRec(RectDeck, GRAY);
@@ -3248,13 +3053,14 @@ void startGame()
                 {
                     if (i == 1)
                     {
-                        DrawText("Player 1", 350, 915, 30, BLACK);
-                        DrawText("Player 2", 350, 15, 30, BLACK);
+                        DrawText("Player 1", 350, 915, 50, BLACK);
+                        DrawText("Player 2", 350, 15, 50, BLACK);
                     }
-                    DrawText("Player 1", 50, 15, 30, BLACK);
-                    DrawText("Player 2", 1535, 15, 30, BLACK);
+                    DrawText("Player 1", 50, 15, 50, BLACK);
+                    DrawText("Player 2", 1535, 15, 50, BLACK);
                 }
             }
+            // globalcout = 0;
             if (one)
             {
                 changePlayer(playerLeftColor, playerRightColor);
@@ -3659,25 +3465,25 @@ void startGame()
 
                 if (checkfirstcollisionBlue == 0 && checkfirstcollisionRed == 0 && checkfirstcollisionYellow == 0 && checkfirstcollisionF == 0 && checkfirstcollisionBlueRight == 0 && checkfirstcollisionRedRight == 0 && checkfirstcollisionYellowRight == 0 && checkfirstcollisionFRight == 0 && checkfirstcollisionFiveRight == 0 && checkfirstcollisionFive == 0)
                 {
-                    DropDown(movingBoxRed, mousePoint, posImgRed, red_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionRed, 55, 50, filledDown, filledUp, checkForPlayerTurn[0], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr, leftHiddenRec, rightHiddenRec, leftHidden, rightHidden);
-                    DropDown(movingBoxYellow, mousePoint, posImgYellow, yellow_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionYellow, 55, 350, filledDown, filledUp, checkForPlayerTurn[1], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr, leftHiddenRec, rightHiddenRec, leftHidden, rightHidden);
-                    DropDown(movingBoxBlue, mousePoint, posImgBlue, blue_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionBlue, 55, 200, filledDown, filledUp, checkForPlayerTurn[2], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr, leftHiddenRec, rightHiddenRec, leftHidden, rightHidden);
-                    DropDown(movingBoxF, mousePoint, posImgF, F_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionF, 55, 500, filledDown, filledUp, checkForPlayerTurn[3], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr, leftHiddenRec, rightHiddenRec, leftHidden, rightHidden);
-                    DropDown(movingBoxFive, mousePoint, posImgFive, Five_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionFive, 50, 650, filledDown, filledUp, checkForPlayerTurn[3], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr, leftHiddenRec, rightHiddenRec, leftHidden, rightHidden);
+                    DropDown(movingBoxRed, mousePoint, posImgRed, red_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionRed, 10, 50, filledDown, filledUp, checkForPlayerTurn[0], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr);
+                    DropDown(movingBoxYellow, mousePoint, posImgYellow, yellow_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionYellow, 10, 350, filledDown, filledUp, checkForPlayerTurn[1], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr);
+                    DropDown(movingBoxBlue, mousePoint, posImgBlue, blue_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionBlue, 10, 200, filledDown, filledUp, checkForPlayerTurn[2], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr);
+                    DropDown(movingBoxF, mousePoint, posImgF, F_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionF, 10, 500, filledDown, filledUp, checkForPlayerTurn[3], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr);
+                    DropDown(movingBoxFive, mousePoint, posImgFive, Five_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionFive, 10, 650, filledDown, filledUp, checkForPlayerTurn[3], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr);
 
 
 
-                    DropDown(movingBoxRedRight, mousePoint, posImgRedRight, redRight_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionRedRight, 1600, 50, filledDown, filledUp, checkForPlayerTurn[4], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr, leftHiddenRec, rightHiddenRec, leftHidden, rightHidden);
-                    DropDown(movingBoxYellowRight, mousePoint, posImgYellowRight, yellowRight_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionYellowRight, 1600, 350, filledDown, filledUp, checkForPlayerTurn[5], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr, leftHiddenRec, rightHiddenRec, leftHidden, rightHidden);
-                    DropDown(movingBoxBlueRight, mousePoint, posImgBlueRight, blueRight_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionBlueRight, 1600, 200, filledDown, filledUp, checkForPlayerTurn[6], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr, leftHiddenRec, rightHiddenRec, leftHidden, rightHidden);
-                    DropDown(movingBoxFRight, mousePoint, posImgFRight, FRight_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionFRight, 1600, 500, filledDown, filledUp, checkForPlayerTurn[7], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr, leftHiddenRec, rightHiddenRec, leftHidden, rightHidden);
-                    DropDown(movingBoxFiveRight, mousePoint, posImgFiveRight, FiveRight_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionFiveRight, 1600, 650, filledDown, filledUp, checkForPlayerTurn[7], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr, leftHiddenRec, rightHiddenRec, leftHidden, rightHidden);
+                    DropDown(movingBoxRedRight, mousePoint, posImgRedRight, redRight_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionRedRight, 1600, 50, filledDown, filledUp, checkForPlayerTurn[4], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr);
+                    DropDown(movingBoxYellowRight, mousePoint, posImgYellowRight, yellowRight_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionYellowRight, 1600, 350, filledDown, filledUp, checkForPlayerTurn[5], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr);
+                    DropDown(movingBoxBlueRight, mousePoint, posImgBlueRight, blueRight_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionBlueRight, 1600, 200, filledDown, filledUp, checkForPlayerTurn[6], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr);
+                    DropDown(movingBoxFRight, mousePoint, posImgFRight, FRight_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionFRight, 1600, 500, filledDown, filledUp, checkForPlayerTurn[7], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr);
+                    DropDown(movingBoxFiveRight, mousePoint, posImgFiveRight, FiveRight_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionFiveRight, 1600, 650, filledDown, filledUp, checkForPlayerTurn[7], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr);
 
 
                 }
                 if (checkfirstcollisionBlue == 0 && checkfirstcollisionRed && checkfirstcollisionYellow == 0 && checkfirstcollisionF == 0 && checkfirstcollisionBlueRight == 0 && checkfirstcollisionRedRight == 0 && checkfirstcollisionYellowRight == 0 && checkfirstcollisionFRight == 0 && checkfirstcollisionFiveRight == 0 && checkfirstcollisionFive == 0)
                 {
-                    DropDown(movingBoxRed, mousePoint, posImgRed, red_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionRed, 55, 50, filledDown, filledUp, checkForPlayerTurn[0], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr, leftHiddenRec, rightHiddenRec, leftHidden, rightHidden);
+                    DropDown(movingBoxRed, mousePoint, posImgRed, red_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionRed, 10, 50, filledDown, filledUp, checkForPlayerTurn[0], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr);
 
 
 
@@ -3686,13 +3492,13 @@ void startGame()
                 {
 
 
-                    DropDown(movingBoxYellow, mousePoint, posImgYellow, yellow_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionYellow, 55, 350, filledDown, filledUp, checkForPlayerTurn[1], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr, leftHiddenRec, rightHiddenRec, leftHidden, rightHidden);
+                    DropDown(movingBoxYellow, mousePoint, posImgYellow, yellow_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionYellow, 10, 350, filledDown, filledUp, checkForPlayerTurn[1], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr);
 
                 }
                 else if (checkfirstcollisionBlue && checkfirstcollisionRed == 0 && checkfirstcollisionYellow == 0 && checkfirstcollisionF == 0 && checkfirstcollisionBlueRight == 0 && checkfirstcollisionRedRight == 0 && checkfirstcollisionYellowRight == 0 && checkfirstcollisionFRight == 0 && checkfirstcollisionFiveRight == 0 && checkfirstcollisionFive == 0)
                 {
 
-                    DropDown(movingBoxBlue, mousePoint, posImgBlue, blue_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionBlue, 55, 200, filledDown, filledUp, checkForPlayerTurn[2], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr, leftHiddenRec, rightHiddenRec, leftHidden, rightHidden);
+                    DropDown(movingBoxBlue, mousePoint, posImgBlue, blue_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionBlue, 10, 200, filledDown, filledUp, checkForPlayerTurn[2], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr);
 
 
                 }
@@ -3700,35 +3506,35 @@ void startGame()
                 else if (checkfirstcollisionBlue == 0 && checkfirstcollisionRed == 0 && checkfirstcollisionYellow == 0 && checkfirstcollisionF == 0 && checkfirstcollisionBlueRight && checkfirstcollisionRedRight == 0 && checkfirstcollisionYellowRight == 0 && checkfirstcollisionFRight == 0 && checkfirstcollisionFiveRight == 0 && checkfirstcollisionFive == 0)
                 {
 
-                    DropDown(movingBoxBlueRight, mousePoint, posImgBlueRight, blueRight_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionBlueRight, 1600, 200, filledDown, filledUp, checkForPlayerTurn[4], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr, leftHiddenRec, rightHiddenRec, leftHidden, rightHidden);
+                    DropDown(movingBoxBlueRight, mousePoint, posImgBlueRight, blueRight_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionBlueRight, 1600, 200, filledDown, filledUp, checkForPlayerTurn[4], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr);
 
 
                 }
                 else if (checkfirstcollisionBlue == 0 && checkfirstcollisionRed == 0 && checkfirstcollisionYellow == 0 && checkfirstcollisionF == 0 && checkfirstcollisionBlueRight == 0 && checkfirstcollisionRedRight == 0 && checkfirstcollisionYellowRight && checkfirstcollisionFRight == 0 && checkfirstcollisionFiveRight == 0 && checkfirstcollisionFive == 0)
                 {
 
-                    DropDown(movingBoxYellowRight, mousePoint, posImgYellowRight, yellowRight_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionYellowRight, 1600, 350, filledDown, filledUp, checkForPlayerTurn[5], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr, leftHiddenRec, rightHiddenRec, leftHidden, rightHidden);
+                    DropDown(movingBoxYellowRight, mousePoint, posImgYellowRight, yellowRight_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionYellowRight, 1600, 350, filledDown, filledUp, checkForPlayerTurn[5], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr);
 
 
                 }
                 else if (checkfirstcollisionBlue == 0 && checkfirstcollisionRed == 0 && checkfirstcollisionYellow == 0 && checkfirstcollisionF == 0 && checkfirstcollisionBlueRight == 0 && checkfirstcollisionRedRight && checkfirstcollisionYellowRight == 0 && checkfirstcollisionFRight == 0 && checkfirstcollisionFiveRight == 0 && checkfirstcollisionFive == 0)
                 {
 
-                    DropDown(movingBoxRedRight, mousePoint, posImgRedRight, redRight_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionRedRight, 1600, 50, filledDown, filledUp, checkForPlayerTurn[6], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr, leftHiddenRec, rightHiddenRec, leftHidden, rightHidden);
+                    DropDown(movingBoxRedRight, mousePoint, posImgRedRight, redRight_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionRedRight, 1600, 50, filledDown, filledUp, checkForPlayerTurn[6], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr);
 
 
                 }
                 else if (checkfirstcollisionBlue == 0 && checkfirstcollisionRed == 0 && checkfirstcollisionYellow == 0 && checkfirstcollisionF && checkfirstcollisionBlueRight == 0 && checkfirstcollisionRedRight == 0 && checkfirstcollisionYellowRight == 0 && checkfirstcollisionFRight == 0 && checkfirstcollisionFiveRight == 0 && checkfirstcollisionFive == 0)
                 {
 
-                    DropDown(movingBoxF, mousePoint, posImgF, F_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionF, 55, 500, filledDown, filledUp, checkForPlayerTurn[3], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr, leftHiddenRec, rightHiddenRec, leftHidden, rightHidden);
+                    DropDown(movingBoxF, mousePoint, posImgF, F_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionF, 10, 500, filledDown, filledUp, checkForPlayerTurn[3], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr);
 
 
                 }
                 else if (checkfirstcollisionBlue == 0 && checkfirstcollisionRed == 0 && checkfirstcollisionYellow == 0 && checkfirstcollisionF == 0 && checkfirstcollisionBlueRight == 0 && checkfirstcollisionRedRight == 0 && checkfirstcollisionYellowRight == 0 && checkfirstcollisionFRight && checkfirstcollisionFiveRight == 0 && checkfirstcollisionFive == 0)
                 {
 
-                    DropDown(movingBoxFRight, mousePoint, posImgFRight, FRight_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionFRight, 1600, 500, filledDown, filledUp, checkForPlayerTurn[7], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr, leftHiddenRec, rightHiddenRec, leftHidden, rightHidden);
+                    DropDown(movingBoxFRight, mousePoint, posImgFRight, FRight_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionFRight, 1600, 500, filledDown, filledUp, checkForPlayerTurn[7], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr);
 
 
                 }
@@ -3736,14 +3542,14 @@ void startGame()
                 else if (checkfirstcollisionBlue == 0 && checkfirstcollisionRed == 0 && checkfirstcollisionYellow == 0 && checkfirstcollisionF == 0 && checkfirstcollisionBlueRight == 0 && checkfirstcollisionRedRight == 0 && checkfirstcollisionYellowRight == 0 && checkfirstcollisionFRight == 0 && checkfirstcollisionFiveRight == 0 && checkfirstcollisionFive)
                 {
 
-                    DropDown(movingBoxFive, mousePoint, posImgFive, Five_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionFive, 50, 650, filledDown, filledUp, checkForPlayerTurn[3], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr, leftHiddenRec, rightHiddenRec, leftHidden, rightHidden);
+                    DropDown(movingBoxFive, mousePoint, posImgFive, Five_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionFive, 10, 650, filledDown, filledUp, checkForPlayerTurn[3], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr);
 
 
                 }
                 else if (checkfirstcollisionBlue == 0 && checkfirstcollisionRed == 0 && checkfirstcollisionYellow == 0 && checkfirstcollisionF == 0 && checkfirstcollisionBlueRight == 0 && checkfirstcollisionRedRight == 0 && checkfirstcollisionYellowRight == 0 && checkfirstcollisionFRight == 0 && checkfirstcollisionFiveRight && checkfirstcollisionFive == 0)
                 {
 
-                    DropDown(movingBoxFiveRight, mousePoint, posImgFiveRight, FiveRight_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionFiveRight, 1600, 650, filledDown, filledUp, checkForPlayerTurn[7], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr, leftHiddenRec, rightHiddenRec, leftHidden, rightHidden);
+                    DropDown(movingBoxFiveRight, mousePoint, posImgFiveRight, FiveRight_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionFiveRight, 1600, 650, filledDown, filledUp, checkForPlayerTurn[7], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr);
 
 
                 }
@@ -3768,13 +3574,14 @@ void startGame()
                 {
                     if (i == 1)
                     {
-                        DrawText("Player 1", 350, 915, 30, BLACK);
-                        DrawText("Player 2", 350, 15, 30, BLACK);
+                        DrawText("Player 1", 350, 915, 50, BLACK);
+                        DrawText("Player 2", 350, 15, 50, BLACK);
                     }
-                    DrawText("Player 1", 50, 15, 30, BLACK);
-                    DrawText("Player 2", 1535, 15, 30, BLACK);
+                    DrawText("Player 1", 50, 15, 50, BLACK);
+                    DrawText("Player 2", 1535, 15, 50, BLACK);
                 }
             }
+            //globalcout = 0;
             if (two)
             {
 
@@ -4194,25 +4001,25 @@ void startGame()
 
                 if (checkfirstcollisionBlue == 0 && checkfirstcollisionRed == 0 && checkfirstcollisionYellow == 0 && checkfirstcollisionF == 0 && checkfirstcollisionBlueRight == 0 && checkfirstcollisionRedRight == 0 && checkfirstcollisionYellowRight == 0 && checkfirstcollisionFRight == 0 && checkfirstcollisionFiveRight == 0 && checkfirstcollisionFive == 0)
                 {
-                    DropDown(movingBoxRed, mousePoint, posImgRed, red_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionRed, 55, 50, filledDown, filledUp, checkForPlayerTurn[0], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr, leftHiddenRec, rightHiddenRec, leftHidden, rightHidden);
-                    DropDown(movingBoxYellow, mousePoint, posImgYellow, yellow_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionYellow, 55, 350, filledDown, filledUp, checkForPlayerTurn[1], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr, leftHiddenRec, rightHiddenRec, leftHidden, rightHidden);
-                    DropDown(movingBoxBlue, mousePoint, posImgBlue, blue_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionBlue, 55, 200, filledDown, filledUp, checkForPlayerTurn[2], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr, leftHiddenRec, rightHiddenRec, leftHidden, rightHidden);
-                    DropDown(movingBoxF, mousePoint, posImgF, F_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionF, 55, 500, filledDown, filledUp, checkForPlayerTurn[3], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr, leftHiddenRec, rightHiddenRec, leftHidden, rightHidden);
-                    DropDown(movingBoxFive, mousePoint, posImgFive, Five_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionFive, 50, 650, filledDown, filledUp, checkForPlayerTurn[3], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr, leftHiddenRec, rightHiddenRec, leftHidden, rightHidden);
+                    DropDown(movingBoxRed, mousePoint, posImgRed, red_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionRed, 10, 50, filledDown, filledUp, checkForPlayerTurn[0], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr);
+                    DropDown(movingBoxYellow, mousePoint, posImgYellow, yellow_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionYellow, 10, 350, filledDown, filledUp, checkForPlayerTurn[1], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr);
+                    DropDown(movingBoxBlue, mousePoint, posImgBlue, blue_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionBlue, 10, 200, filledDown, filledUp, checkForPlayerTurn[2], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr);
+                    DropDown(movingBoxF, mousePoint, posImgF, F_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionF, 10, 500, filledDown, filledUp, checkForPlayerTurn[3], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr);
+                    DropDown(movingBoxFive, mousePoint, posImgFive, Five_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionFive, 10, 650, filledDown, filledUp, checkForPlayerTurn[3], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr);
 
 
 
-                    DropDown(movingBoxRedRight, mousePoint, posImgRedRight, redRight_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionRedRight, 1600, 50, filledDown, filledUp, checkForPlayerTurn[4], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr, leftHiddenRec, rightHiddenRec, leftHidden, rightHidden);
-                    DropDown(movingBoxYellowRight, mousePoint, posImgYellowRight, yellowRight_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionYellowRight, 1600, 350, filledDown, filledUp, checkForPlayerTurn[5], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr, leftHiddenRec, rightHiddenRec, leftHidden, rightHidden);
-                    DropDown(movingBoxBlueRight, mousePoint, posImgBlueRight, blueRight_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionBlueRight, 1600, 200, filledDown, filledUp, checkForPlayerTurn[6], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr, leftHiddenRec, rightHiddenRec, leftHidden, rightHidden);
-                    DropDown(movingBoxFRight, mousePoint, posImgFRight, FRight_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionFRight, 1600, 500, filledDown, filledUp, checkForPlayerTurn[7], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr, leftHiddenRec, rightHiddenRec, leftHidden, rightHidden);
-                    DropDown(movingBoxFiveRight, mousePoint, posImgFiveRight, FiveRight_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionFiveRight, 1600, 650, filledDown, filledUp, checkForPlayerTurn[7], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr, leftHiddenRec, rightHiddenRec, leftHidden, rightHidden);
+                    DropDown(movingBoxRedRight, mousePoint, posImgRedRight, redRight_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionRedRight, 1600, 50, filledDown, filledUp, checkForPlayerTurn[4], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr);
+                    DropDown(movingBoxYellowRight, mousePoint, posImgYellowRight, yellowRight_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionYellowRight, 1600, 350, filledDown, filledUp, checkForPlayerTurn[5], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr);
+                    DropDown(movingBoxBlueRight, mousePoint, posImgBlueRight, blueRight_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionBlueRight, 1600, 200, filledDown, filledUp, checkForPlayerTurn[6], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr);
+                    DropDown(movingBoxFRight, mousePoint, posImgFRight, FRight_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionFRight, 1600, 500, filledDown, filledUp, checkForPlayerTurn[7], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr);
+                    DropDown(movingBoxFiveRight, mousePoint, posImgFiveRight, FiveRight_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionFiveRight, 1600, 650, filledDown, filledUp, checkForPlayerTurn[7], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr);
 
 
                 }
                 if (checkfirstcollisionBlue == 0 && checkfirstcollisionRed && checkfirstcollisionYellow == 0 && checkfirstcollisionF == 0 && checkfirstcollisionBlueRight == 0 && checkfirstcollisionRedRight == 0 && checkfirstcollisionYellowRight == 0 && checkfirstcollisionFRight == 0 && checkfirstcollisionFiveRight == 0 && checkfirstcollisionFive == 0)
                 {
-                    DropDown(movingBoxRed, mousePoint, posImgRed, red_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionRed, 55, 50, filledDown, filledUp, checkForPlayerTurn[0], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr, leftHiddenRec, rightHiddenRec, leftHidden, rightHidden);
+                    DropDown(movingBoxRed, mousePoint, posImgRed, red_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionRed, 10, 50, filledDown, filledUp, checkForPlayerTurn[0], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr);
 
 
 
@@ -4221,13 +4028,13 @@ void startGame()
                 {
 
 
-                    DropDown(movingBoxYellow, mousePoint, posImgYellow, yellow_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionYellow, 55, 350, filledDown, filledUp, checkForPlayerTurn[1], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr, leftHiddenRec, rightHiddenRec, leftHidden, rightHidden);
+                    DropDown(movingBoxYellow, mousePoint, posImgYellow, yellow_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionYellow, 10, 350, filledDown, filledUp, checkForPlayerTurn[1], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr);
 
                 }
                 else if (checkfirstcollisionBlue && checkfirstcollisionRed == 0 && checkfirstcollisionYellow == 0 && checkfirstcollisionF == 0 && checkfirstcollisionBlueRight == 0 && checkfirstcollisionRedRight == 0 && checkfirstcollisionYellowRight == 0 && checkfirstcollisionFRight == 0 && checkfirstcollisionFiveRight == 0 && checkfirstcollisionFive == 0)
                 {
 
-                    DropDown(movingBoxBlue, mousePoint, posImgBlue, blue_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionBlue, 55, 200, filledDown, filledUp, checkForPlayerTurn[2], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr, leftHiddenRec, rightHiddenRec, leftHidden, rightHidden);
+                    DropDown(movingBoxBlue, mousePoint, posImgBlue, blue_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionBlue, 10, 200, filledDown, filledUp, checkForPlayerTurn[2], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr);
 
 
                 }
@@ -4235,35 +4042,35 @@ void startGame()
                 else if (checkfirstcollisionBlue == 0 && checkfirstcollisionRed == 0 && checkfirstcollisionYellow == 0 && checkfirstcollisionF == 0 && checkfirstcollisionBlueRight && checkfirstcollisionRedRight == 0 && checkfirstcollisionYellowRight == 0 && checkfirstcollisionFRight == 0 && checkfirstcollisionFiveRight == 0 && checkfirstcollisionFive == 0)
                 {
 
-                    DropDown(movingBoxBlueRight, mousePoint, posImgBlueRight, blueRight_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionBlueRight, 1600, 200, filledDown, filledUp, checkForPlayerTurn[4], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr, leftHiddenRec, rightHiddenRec, leftHidden, rightHidden);
+                    DropDown(movingBoxBlueRight, mousePoint, posImgBlueRight, blueRight_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionBlueRight, 1600, 200, filledDown, filledUp, checkForPlayerTurn[4], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr);
 
 
                 }
                 else if (checkfirstcollisionBlue == 0 && checkfirstcollisionRed == 0 && checkfirstcollisionYellow == 0 && checkfirstcollisionF == 0 && checkfirstcollisionBlueRight == 0 && checkfirstcollisionRedRight == 0 && checkfirstcollisionYellowRight && checkfirstcollisionFRight == 0 && checkfirstcollisionFiveRight == 0 && checkfirstcollisionFive == 0)
                 {
 
-                    DropDown(movingBoxYellowRight, mousePoint, posImgYellowRight, yellowRight_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionYellowRight, 1600, 350, filledDown, filledUp, checkForPlayerTurn[5], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr, leftHiddenRec, rightHiddenRec, leftHidden, rightHidden);
+                    DropDown(movingBoxYellowRight, mousePoint, posImgYellowRight, yellowRight_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionYellowRight, 1600, 350, filledDown, filledUp, checkForPlayerTurn[5], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr);
 
 
                 }
                 else if (checkfirstcollisionBlue == 0 && checkfirstcollisionRed == 0 && checkfirstcollisionYellow == 0 && checkfirstcollisionF == 0 && checkfirstcollisionBlueRight == 0 && checkfirstcollisionRedRight && checkfirstcollisionYellowRight == 0 && checkfirstcollisionFRight == 0 && checkfirstcollisionFiveRight == 0 && checkfirstcollisionFive == 0)
                 {
 
-                    DropDown(movingBoxRedRight, mousePoint, posImgRedRight, redRight_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionRedRight, 1600, 50, filledDown, filledUp, checkForPlayerTurn[6], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr, leftHiddenRec, rightHiddenRec, leftHidden, rightHidden);
+                    DropDown(movingBoxRedRight, mousePoint, posImgRedRight, redRight_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionRedRight, 1600, 50, filledDown, filledUp, checkForPlayerTurn[6], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr);
 
 
                 }
                 else if (checkfirstcollisionBlue == 0 && checkfirstcollisionRed == 0 && checkfirstcollisionYellow == 0 && checkfirstcollisionF && checkfirstcollisionBlueRight == 0 && checkfirstcollisionRedRight == 0 && checkfirstcollisionYellowRight == 0 && checkfirstcollisionFRight == 0 && checkfirstcollisionFiveRight == 0 && checkfirstcollisionFive == 0)
                 {
 
-                    DropDown(movingBoxF, mousePoint, posImgF, F_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionF, 55, 500, filledDown, filledUp, checkForPlayerTurn[3], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr, leftHiddenRec, rightHiddenRec, leftHidden, rightHidden);
+                    DropDown(movingBoxF, mousePoint, posImgF, F_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionF, 10, 500, filledDown, filledUp, checkForPlayerTurn[3], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr);
 
 
                 }
                 else if (checkfirstcollisionBlue == 0 && checkfirstcollisionRed == 0 && checkfirstcollisionYellow == 0 && checkfirstcollisionF == 0 && checkfirstcollisionBlueRight == 0 && checkfirstcollisionRedRight == 0 && checkfirstcollisionYellowRight == 0 && checkfirstcollisionFRight && checkfirstcollisionFiveRight == 0 && checkfirstcollisionFive == 0)
                 {
 
-                    DropDown(movingBoxFRight, mousePoint, posImgFRight, FRight_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionFRight, 1600, 500, filledDown, filledUp, checkForPlayerTurn[7], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr, leftHiddenRec, rightHiddenRec, leftHidden, rightHidden);
+                    DropDown(movingBoxFRight, mousePoint, posImgFRight, FRight_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionFRight, 1600, 500, filledDown, filledUp, checkForPlayerTurn[7], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr);
 
 
                 }
@@ -4271,14 +4078,14 @@ void startGame()
                 else if (checkfirstcollisionBlue == 0 && checkfirstcollisionRed == 0 && checkfirstcollisionYellow == 0 && checkfirstcollisionF == 0 && checkfirstcollisionBlueRight == 0 && checkfirstcollisionRedRight == 0 && checkfirstcollisionYellowRight == 0 && checkfirstcollisionFRight == 0 && checkfirstcollisionFiveRight == 0 && checkfirstcollisionFive)
                 {
 
-                    DropDown(movingBoxFive, mousePoint, posImgFive, Five_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionFive, 50, 650, filledDown, filledUp, checkForPlayerTurn[3], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr, leftHiddenRec, rightHiddenRec, leftHidden, rightHidden);
+                    DropDown(movingBoxFive, mousePoint, posImgFive, Five_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionFive, 10, 650, filledDown, filledUp, checkForPlayerTurn[3], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr);
 
 
                 }
                 else if (checkfirstcollisionBlue == 0 && checkfirstcollisionRed == 0 && checkfirstcollisionYellow == 0 && checkfirstcollisionF == 0 && checkfirstcollisionBlueRight == 0 && checkfirstcollisionRedRight == 0 && checkfirstcollisionYellowRight == 0 && checkfirstcollisionFRight == 0 && checkfirstcollisionFiveRight && checkfirstcollisionFive == 0)
                 {
 
-                    DropDown(movingBoxFiveRight, mousePoint, posImgFiveRight, FiveRight_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionFiveRight, 1600, 650, filledDown, filledUp, checkForPlayerTurn[7], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr, leftHiddenRec, rightHiddenRec, leftHidden, rightHidden);
+                    DropDown(movingBoxFiveRight, mousePoint, posImgFiveRight, FiveRight_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionFiveRight, 1600, 650, filledDown, filledUp, checkForPlayerTurn[7], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr);
 
 
                 }
@@ -4302,11 +4109,11 @@ void startGame()
                 {
                     if (i == 1)
                     {
-                        DrawText("Player 1", 350, 915, 30, BLACK);
-                        DrawText("Player 2", 350, 15, 30, BLACK);
+                        DrawText("Player 1", 350, 915, 50, BLACK);
+                        DrawText("Player 2", 350, 15, 50, BLACK);
                     }
-                    DrawText("Player 1", 50, 15, 30, BLACK);
-                    DrawText("Player 2", 1535, 15, 30, BLACK);
+                    DrawText("Player 1", 50, 15, 50, BLACK);
+                    DrawText("Player 2", 1535, 15, 50, BLACK);
                 }
 
             }
@@ -4475,8 +4282,9 @@ void startGame()
 
 
 
-                            //Check if the card is on the bin and throw it out
-                            if ((CheckCollisionRecs(arrToCheckOperation[j], movingBoxRedRight) && arrToCheckOperation[j].width == movingBoxRedRight.width)) 
+                            //right
+
+                            if ((CheckCollisionRecs(arrToCheckOperation[j], movingBoxRedRight) && arrToCheckOperation[j].width == movingBoxRedRight.width))
                             {
                                 movingBoxRedRight.x = 1900;
                                 movingBoxRedRight.y = 1900;
@@ -4743,25 +4551,25 @@ void startGame()
 
                 if (checkfirstcollisionBlue == 0 && checkfirstcollisionRed == 0 && checkfirstcollisionYellow == 0 && checkfirstcollisionF == 0 && checkfirstcollisionBlueRight == 0 && checkfirstcollisionRedRight == 0 && checkfirstcollisionYellowRight == 0 && checkfirstcollisionFRight == 0 && checkfirstcollisionFiveRight == 0 && checkfirstcollisionFive == 0)
                 {
-                    DropDown(movingBoxRed, mousePoint, posImgRed, red_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionRed, 55, 50, filledDown, filledUp, checkForPlayerTurn[0], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr, leftHiddenRec, rightHiddenRec, leftHidden, rightHidden);
-                    DropDown(movingBoxYellow, mousePoint, posImgYellow, yellow_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionYellow, 55, 350, filledDown, filledUp, checkForPlayerTurn[1], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr, leftHiddenRec, rightHiddenRec, leftHidden, rightHidden);
-                    DropDown(movingBoxBlue, mousePoint, posImgBlue, blue_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionBlue, 55, 200, filledDown, filledUp, checkForPlayerTurn[2], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr, leftHiddenRec, rightHiddenRec, leftHidden, rightHidden);
-                    DropDown(movingBoxF, mousePoint, posImgF, F_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionF, 55, 500, filledDown, filledUp, checkForPlayerTurn[3], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr, leftHiddenRec, rightHiddenRec, leftHidden, rightHidden);
-                    DropDown(movingBoxFive, mousePoint, posImgFive, Five_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionFive, 50, 650, filledDown, filledUp, checkForPlayerTurn[3], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr, leftHiddenRec, rightHiddenRec, leftHidden, rightHidden);
+                    DropDown(movingBoxRed, mousePoint, posImgRed, red_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionRed, 10, 50, filledDown, filledUp, checkForPlayerTurn[0], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr);
+                    DropDown(movingBoxYellow, mousePoint, posImgYellow, yellow_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionYellow, 10, 350, filledDown, filledUp, checkForPlayerTurn[1], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr);
+                    DropDown(movingBoxBlue, mousePoint, posImgBlue, blue_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionBlue, 10, 200, filledDown, filledUp, checkForPlayerTurn[2], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr);
+                    DropDown(movingBoxF, mousePoint, posImgF, F_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionF, 10, 500, filledDown, filledUp, checkForPlayerTurn[3], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr);
+                    DropDown(movingBoxFive, mousePoint, posImgFive, Five_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionFive, 10, 650, filledDown, filledUp, checkForPlayerTurn[3], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr);
 
 
 
-                    DropDown(movingBoxRedRight, mousePoint, posImgRedRight, redRight_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionRedRight, 1600, 50, filledDown, filledUp, checkForPlayerTurn[4], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr, leftHiddenRec, rightHiddenRec, leftHidden, rightHidden);
-                    DropDown(movingBoxYellowRight, mousePoint, posImgYellowRight, yellowRight_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionYellowRight, 1600, 350, filledDown, filledUp, checkForPlayerTurn[5], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr, leftHiddenRec, rightHiddenRec, leftHidden, rightHidden);
-                    DropDown(movingBoxBlueRight, mousePoint, posImgBlueRight, blueRight_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionBlueRight, 1600, 200, filledDown, filledUp, checkForPlayerTurn[6], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr, leftHiddenRec, rightHiddenRec, leftHidden, rightHidden);
-                    DropDown(movingBoxFRight, mousePoint, posImgFRight, FRight_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionFRight, 1600, 500, filledDown, filledUp, checkForPlayerTurn[7], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr, leftHiddenRec, rightHiddenRec, leftHidden, rightHidden);
-                    DropDown(movingBoxFiveRight, mousePoint, posImgFiveRight, FiveRight_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionFiveRight, 1600, 650, filledDown, filledUp, checkForPlayerTurn[7], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr, leftHiddenRec, rightHiddenRec, leftHidden, rightHidden);
+                    DropDown(movingBoxRedRight, mousePoint, posImgRedRight, redRight_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionRedRight, 1600, 50, filledDown, filledUp, checkForPlayerTurn[4], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr);
+                    DropDown(movingBoxYellowRight, mousePoint, posImgYellowRight, yellowRight_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionYellowRight, 1600, 350, filledDown, filledUp, checkForPlayerTurn[5], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr);
+                    DropDown(movingBoxBlueRight, mousePoint, posImgBlueRight, blueRight_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionBlueRight, 1600, 200, filledDown, filledUp, checkForPlayerTurn[6], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr);
+                    DropDown(movingBoxFRight, mousePoint, posImgFRight, FRight_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionFRight, 1600, 500, filledDown, filledUp, checkForPlayerTurn[7], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr);
+                    DropDown(movingBoxFiveRight, mousePoint, posImgFiveRight, FiveRight_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionFiveRight, 1600, 650, filledDown, filledUp, checkForPlayerTurn[7], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr);
 
 
                 }
                 if (checkfirstcollisionBlue == 0 && checkfirstcollisionRed && checkfirstcollisionYellow == 0 && checkfirstcollisionF == 0 && checkfirstcollisionBlueRight == 0 && checkfirstcollisionRedRight == 0 && checkfirstcollisionYellowRight == 0 && checkfirstcollisionFRight == 0 && checkfirstcollisionFiveRight == 0 && checkfirstcollisionFive == 0)
                 {
-                    DropDown(movingBoxRed, mousePoint, posImgRed, red_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionRed, 55, 50, filledDown, filledUp, checkForPlayerTurn[0], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr, leftHiddenRec, rightHiddenRec, leftHidden, rightHidden);
+                    DropDown(movingBoxRed, mousePoint, posImgRed, red_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionRed, 10, 50, filledDown, filledUp, checkForPlayerTurn[0], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr);
 
 
 
@@ -4770,13 +4578,13 @@ void startGame()
                 {
 
 
-                    DropDown(movingBoxYellow, mousePoint, posImgYellow, yellow_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionYellow, 55, 350, filledDown, filledUp, checkForPlayerTurn[1], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr, leftHiddenRec, rightHiddenRec, leftHidden, rightHidden);
+                    DropDown(movingBoxYellow, mousePoint, posImgYellow, yellow_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionYellow, 10, 350, filledDown, filledUp, checkForPlayerTurn[1], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr);
 
                 }
                 else if (checkfirstcollisionBlue && checkfirstcollisionRed == 0 && checkfirstcollisionYellow == 0 && checkfirstcollisionF == 0 && checkfirstcollisionBlueRight == 0 && checkfirstcollisionRedRight == 0 && checkfirstcollisionYellowRight == 0 && checkfirstcollisionFRight == 0 && checkfirstcollisionFiveRight == 0 && checkfirstcollisionFive == 0)
                 {
 
-                    DropDown(movingBoxBlue, mousePoint, posImgBlue, blue_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionBlue, 55, 200, filledDown, filledUp, checkForPlayerTurn[2], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr, leftHiddenRec, rightHiddenRec, leftHidden, rightHidden);
+                    DropDown(movingBoxBlue, mousePoint, posImgBlue, blue_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionBlue, 10, 200, filledDown, filledUp, checkForPlayerTurn[2], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr);
 
 
                 }
@@ -4784,35 +4592,35 @@ void startGame()
                 else if (checkfirstcollisionBlue == 0 && checkfirstcollisionRed == 0 && checkfirstcollisionYellow == 0 && checkfirstcollisionF == 0 && checkfirstcollisionBlueRight && checkfirstcollisionRedRight == 0 && checkfirstcollisionYellowRight == 0 && checkfirstcollisionFRight == 0 && checkfirstcollisionFiveRight == 0 && checkfirstcollisionFive == 0)
                 {
 
-                    DropDown(movingBoxBlueRight, mousePoint, posImgBlueRight, blueRight_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionBlueRight, 1600, 200, filledDown, filledUp, checkForPlayerTurn[4], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr, leftHiddenRec, rightHiddenRec, leftHidden, rightHidden);
+                    DropDown(movingBoxBlueRight, mousePoint, posImgBlueRight, blueRight_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionBlueRight, 1600, 200, filledDown, filledUp, checkForPlayerTurn[4], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr);
 
 
                 }
                 else if (checkfirstcollisionBlue == 0 && checkfirstcollisionRed == 0 && checkfirstcollisionYellow == 0 && checkfirstcollisionF == 0 && checkfirstcollisionBlueRight == 0 && checkfirstcollisionRedRight == 0 && checkfirstcollisionYellowRight && checkfirstcollisionFRight == 0 && checkfirstcollisionFiveRight == 0 && checkfirstcollisionFive == 0)
                 {
 
-                    DropDown(movingBoxYellowRight, mousePoint, posImgYellowRight, yellowRight_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionYellowRight, 1600, 350, filledDown, filledUp, checkForPlayerTurn[5], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr, leftHiddenRec, rightHiddenRec, leftHidden, rightHidden);
+                    DropDown(movingBoxYellowRight, mousePoint, posImgYellowRight, yellowRight_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionYellowRight, 1600, 350, filledDown, filledUp, checkForPlayerTurn[5], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr);
 
 
                 }
                 else if (checkfirstcollisionBlue == 0 && checkfirstcollisionRed == 0 && checkfirstcollisionYellow == 0 && checkfirstcollisionF == 0 && checkfirstcollisionBlueRight == 0 && checkfirstcollisionRedRight && checkfirstcollisionYellowRight == 0 && checkfirstcollisionFRight == 0 && checkfirstcollisionFiveRight == 0 && checkfirstcollisionFive == 0)
                 {
 
-                    DropDown(movingBoxRedRight, mousePoint, posImgRedRight, redRight_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionRedRight, 1600, 50, filledDown, filledUp, checkForPlayerTurn[6], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr, leftHiddenRec, rightHiddenRec, leftHidden, rightHidden);
+                    DropDown(movingBoxRedRight, mousePoint, posImgRedRight, redRight_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionRedRight, 1600, 50, filledDown, filledUp, checkForPlayerTurn[6], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr);
 
 
                 }
                 else if (checkfirstcollisionBlue == 0 && checkfirstcollisionRed == 0 && checkfirstcollisionYellow == 0 && checkfirstcollisionF && checkfirstcollisionBlueRight == 0 && checkfirstcollisionRedRight == 0 && checkfirstcollisionYellowRight == 0 && checkfirstcollisionFRight == 0 && checkfirstcollisionFiveRight == 0 && checkfirstcollisionFive == 0)
                 {
 
-                    DropDown(movingBoxF, mousePoint, posImgF, F_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionF, 55, 500, filledDown, filledUp, checkForPlayerTurn[3], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr, leftHiddenRec, rightHiddenRec, leftHidden, rightHidden);
+                    DropDown(movingBoxF, mousePoint, posImgF, F_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionF, 10, 500, filledDown, filledUp, checkForPlayerTurn[3], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr);
 
 
                 }
                 else if (checkfirstcollisionBlue == 0 && checkfirstcollisionRed == 0 && checkfirstcollisionYellow == 0 && checkfirstcollisionF == 0 && checkfirstcollisionBlueRight == 0 && checkfirstcollisionRedRight == 0 && checkfirstcollisionYellowRight == 0 && checkfirstcollisionFRight && checkfirstcollisionFiveRight == 0 && checkfirstcollisionFive == 0)
                 {
 
-                    DropDown(movingBoxFRight, mousePoint, posImgFRight, FRight_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionFRight, 1600, 500, filledDown, filledUp, checkForPlayerTurn[7], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr, leftHiddenRec, rightHiddenRec, leftHidden, rightHidden);
+                    DropDown(movingBoxFRight, mousePoint, posImgFRight, FRight_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionFRight, 1600, 500, filledDown, filledUp, checkForPlayerTurn[7], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr);
 
 
                 }
@@ -4820,14 +4628,14 @@ void startGame()
                 else if (checkfirstcollisionBlue == 0 && checkfirstcollisionRed == 0 && checkfirstcollisionYellow == 0 && checkfirstcollisionF == 0 && checkfirstcollisionBlueRight == 0 && checkfirstcollisionRedRight == 0 && checkfirstcollisionYellowRight == 0 && checkfirstcollisionFRight == 0 && checkfirstcollisionFiveRight == 0 && checkfirstcollisionFive)
                 {
 
-                    DropDown(movingBoxFive, mousePoint, posImgFive, Five_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionFive, 50, 650, filledDown, filledUp, checkForPlayerTurn[3], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr, leftHiddenRec, rightHiddenRec, leftHidden, rightHidden);
+                    DropDown(movingBoxFive, mousePoint, posImgFive, Five_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionFive, 10, 650, filledDown, filledUp, checkForPlayerTurn[3], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr);
 
 
                 }
                 else if (checkfirstcollisionBlue == 0 && checkfirstcollisionRed == 0 && checkfirstcollisionYellow == 0 && checkfirstcollisionF == 0 && checkfirstcollisionBlueRight == 0 && checkfirstcollisionRedRight == 0 && checkfirstcollisionYellowRight == 0 && checkfirstcollisionFRight == 0 && checkfirstcollisionFiveRight && checkfirstcollisionFive == 0)
                 {
 
-                    DropDown(movingBoxFiveRight, mousePoint, posImgFiveRight, FiveRight_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionFiveRight, 1600, 650, filledDown, filledUp, checkForPlayerTurn[7], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr, leftHiddenRec, rightHiddenRec, leftHidden, rightHidden);
+                    DropDown(movingBoxFiveRight, mousePoint, posImgFiveRight, FiveRight_card, BasePyramidDown, BasePyramidUp, checkfirstcollisionFiveRight, 1600, 650, filledDown, filledUp, checkForPlayerTurn[7], arrToCheckOperation, randomDir, checkDir, checkDirTwo, ftAr);
 
 
                 }
@@ -4852,12 +4660,11 @@ void startGame()
                 {
                     if (i == 1)
                     {
-                        DrawText("Player 1", 350, 915,
-                            30, BLACK);
-                        DrawText("Player 2", 350, 15, 30, BLACK);
+                        DrawText("Player 1", 350, 915, 50, BLACK);
+                        DrawText("Player 2", 350, 15, 50, BLACK);
                     }
-                    DrawText("Player 1", 50, 15, 30, BLACK);
-                    DrawText("Player 2", 1535, 15, 30, BLACK);
+                    DrawText("Player 1", 50, 15, 50, BLACK);
+                    DrawText("Player 2", 1535, 15, 50, BLACK);
                 }
             }
         }
@@ -4882,11 +4689,17 @@ void startGame()
             for (int i = 0; i < 2; i++)
             {
                 arr3[i].x = 806 + i * 140;
-                arr3[i].y = 420;
+                arr3[i].y = 600;
                 arr3[i].width = 38;
                 arr3[i].height = 38;
             }
-
+            for (int i = 0; i < 2; i++)
+            {
+                arr4[i].x = 806 + i * 140;
+                arr4[i].y = 785;
+                arr4[i].width = 38;
+                arr4[i].height = 38;
+            }
 
             //225, 420, 90, 105 
             DrawRectangleRec(hide, LIGHTGRAY);
@@ -4968,8 +4781,24 @@ void startGame()
             {
                 itss = 0;
             }
+            if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointRec(mousePoint, arr4[0]))
+            {
 
+                iks = 1;
+            }
+            else
+            {
+                iks = 0;
+            }
+            if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointRec(mousePoint, arr4[1]))
+            {
 
+                ikss = 1;
+            }
+            else
+            {
+                ikss = 0;
+            }
             //draw fps
             if (ifs)
             {
@@ -4994,34 +4823,74 @@ void startGame()
             //show fps
             if (its)
             {
-                check_marker3 = { 806.5, 420.5 };
+                check_marker3 = { 806.5, 600.5 };
                 XFPS = 10, YFPS = 10;
             }
             if (itss)
             {
-                check_marker3 = { 946, 420.5 };
+                check_marker3 = { 946, 600.5 };
                 XFPS = -100, YFPS = -100;
             }
 
+            if (its)
+            {
+                check_marker4 = { 806.5, 600.5 };
+                //music
+            }
+            if (itss)
+            {
+                check_marker4 = { 946, 600.5 };
+                //music
+            }
 
+            DrawText("Choose your mode:", 675, 320, 50, BLACK);
+            DrawText("Normal", 722.5, 380, 20, BLACK);
+            DrawText("Old", 840.5, 380, 20, BLACK);
+            DrawText("Modern", 920, 380, 20, BLACK);
+            DrawText("Colorblind", 1009, 380, 20, BLACK);
+
+            DrawRectangle((int)BaseCards.x + 506.5, (int)BaseCards.y - 5, (int)BaseCards.width - 41, (int)BaseCards.height - 56, BLACK);
+            DrawRectangle((int)BaseCards.x + 606.5, (int)BaseCards.y - 5, (int)BaseCards.width - 41, (int)BaseCards.height - 56, BLACK);
+            DrawRectangle((int)BaseCards.x + 706.5, (int)BaseCards.y - 5, (int)BaseCards.width - 41, (int)BaseCards.height - 56, BLACK);
+            DrawRectangle((int)BaseCards.x + 806.5, (int)BaseCards.y - 5, (int)BaseCards.width - 41, (int)BaseCards.height - 56, BLACK);
+            for (int i = 0; i < 4; i++)
+            {
+                DrawRectangleRec(arr2[i], DARKGRAY);
+                if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointRec(mousePoint, arr2[i]))
+                {
+                    //needs to be added color mode changer and texture
+                }
+            }
 
             DrawFPS(XFPS, YFPS);
-            DrawText("Show FPS:", 775, 320, 50, BLACK);
+            DrawText("Show FPS:", 775, 500, 50, BLACK);
 
-            DrawText("YES", 805, 380.5, 20, BLACK);
-            DrawText("NO", 950, 380.5, 20, BLACK);
+            DrawText("YES", 805, 560.5, 20, BLACK);
+            DrawText("NO", 950, 560.5, 20, BLACK);
 
-            DrawRectangle((int)BaseCards.x + 575, (int)BaseCards.y - 5, (int)BaseCards.width - 41, (int)BaseCards.height - 56, BLACK);
-            DrawRectangle((int)BaseCards.x + 715, (int)BaseCards.y - 5, (int)BaseCards.width - 41, (int)BaseCards.height - 56, BLACK);
+            DrawRectangle((int)BaseCards.x + 575, (int)BaseCards.y + 175, (int)BaseCards.width - 41, (int)BaseCards.height - 56, BLACK);
+            DrawRectangle((int)BaseCards.x + 715, (int)BaseCards.y + 175, (int)BaseCards.width - 41, (int)BaseCards.height - 56, BLACK);
             for (int i = 0; i < 2; i++)
             {
                 DrawRectangleRec(arr3[i], DARKGRAY);
 
             }
 
+            DrawText("Music:", 825, 675, 50, BLACK);
 
-            DrawTexture(check_mark, check_marker.x, check_marker.y, DARKGRAY);
+            DrawText("ON", 815, 750.5, 20, BLACK);
+            DrawText("OFF", 947.5, 750.5, 20, BLACK);
+
+            DrawRectangle((int)BaseCards.x + 575, (int)BaseCards.y + 360, (int)BaseCards.width - 41, (int)BaseCards.height - 56, BLACK);
+            DrawRectangle((int)BaseCards.x + 715, (int)BaseCards.y + 360, (int)BaseCards.width - 41, (int)BaseCards.height - 56, BLACK);
+            for (int i = 0; i < 2; i++)
+            {
+                DrawRectangleRec(arr4[i], DARKGRAY);
+
+            }
             DrawTexture(check_mark, check_marker3.x, check_marker3.y, DARKGRAY);
+            DrawTexture(check_mark, check_marker.x, check_marker.y, DARKGRAY);
+            DrawTexture(check_mark, check_marker4.x, check_marker4.y, DARKGRAY);
         }
         else if (menuThree)
         {
@@ -5030,16 +4899,16 @@ void startGame()
             DrawText("What is b00le0?", 400, 25, 125, VIOLET);
             DrawText("b00leo is a card game which combins strategy card play with the concept of Boolean logic.  Players race to resolve an", 50, 160, 25, BLACK);
             DrawText("intial binary number to a single specific bit by creating a logic pyramid. This is accomplished through the use of logical gates.", 50, 210, 25, BLACK);
-            DrawText("Cards:", 50, 255, 50, BLACK);
+            DrawText("Cards:", 50, 250, 50, BLACK);
             DrawText("A b00leo deck contains a total of 64 cards: ", 50, 310, 25, BLACK);
-            DrawText("2-Truth Table Cards – demonstrate the outputs of each different gates given all possible input combinations ", 50, 360, 25, BLACK);
+            DrawText("2-Truth Table Cards Â– demonstrate the outputs of each different gates given all possible input combinations ", 50, 360, 25, BLACK);
             DrawText("6-Initial Binaries- cards that are used to determine the binary numbers that form the starting point which players will build their logic", 50, 395, 25, BLACK);
             DrawText("gate pyramids", 50, 415, 25, BLACK);
-            DrawText("8 – Not Cards-can be used to change the state of a bit in the initial binary.", 50, 460, 25, BLACK);
-            DrawText("48 – Logical Gate Cards-cards that represent the operations allowed in the field of Boolean algebra.", 50, 510, 25, BLACK);
-            DrawText("How do you win the game? ", 50, 555, 50, BLACK);
+            DrawText("8 Â– Not Cards-can be used to change the state of a bit in the initial binary.", 50, 460, 25, BLACK);
+            DrawText("48 Â– Logical Gate Cards-cards that represent the operations allowed in the field of Boolean algebra.", 50, 510, 25, BLACK);
+            DrawText("How do you win the game? ", 50, 550, 50, BLACK);
             DrawText("The goal of the game is to build a pyramid of logic gates starting from a base initial binary number.", 50, 610, 25, BLACK);
-            DrawText("Game Play: ", 50, 655, 50, BLACK);
+            DrawText("Game Play: ", 50, 650, 50, BLACK);
             DrawText("During each turn the player first draws the top card from the deck and then either plays a card or discards a card.", 50, 710, 25, BLACK);
             DrawText("Only one card may be played (or discarded) each turn.", 50, 735, 25, BLACK);
             DrawText("How to use not cards: ", 50, 770, 50, BLACK);
@@ -5072,16 +4941,10 @@ void startGame()
     UnloadTexture(FRight_card);
     UnloadTexture(FiveRight_card);
     UnloadTexture(Five_card);
-    for (int i = 0; i < rightHidden.size(); i++)
-    {
-        UnloadTexture(leftHidden[i]);
-        UnloadTexture(rightHidden[i]);
-    }
+
 
     CloseWindow();
-
-
-    return ;
+    
 }
 int main()
 {
